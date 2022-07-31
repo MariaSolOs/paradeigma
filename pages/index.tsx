@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import TitleBanner from 'components/title-banner';
+import Layout from 'components/Layout';
 
 const HomePage: NextPage = () => {
     return (
         <>
-            <TitleBanner />
+            <Layout />
         </>
     );
 }
