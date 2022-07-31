@@ -11,6 +11,14 @@ const theme = createTheme({
             main: '#1C2541',
             dark: '#0B132B'
         }
+    },
+    typography: {
+        bungee: {
+            fontFamily: 'Bungee Shade, cursive'
+        },
+        mono: {
+            fontFamily: 'PT Mono, monospace'
+        }
     }
 });
 
