@@ -36,7 +36,17 @@ export default class CustomDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    {/* TODO: Add PWA stuff */}
+                <meta charSet="utf-8" />
+                    <meta name="author" content="Maria Solano" />
+
+                    {/* PWA stuff */}
+                    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+                    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+                    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#1C2541" />
+                    <meta name="msapplication-TileColor" content="#FFFFFF" />
+                    <meta name="theme-color" content="#FFFFFF" />
+                    <link rel="manifest" href="/manifest.json" />
 
                     {/* Google fonts */}
                     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet" />
