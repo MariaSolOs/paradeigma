@@ -3,6 +3,7 @@ import routes from 'routes';
 import Link from 'next/link';
 import * as S from './Layout.styled';
 
+// TODO: Add Head component
 const Layout: React.FCC = (props) => (
     <>
         <S.Title>Paradigm</S.Title>
