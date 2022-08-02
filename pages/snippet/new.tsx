@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
-import FormContainer from 'components/new-snippet/FormContainer';
-import CodeEditor from 'components/new-snippet/CodeEditor';
+import FormContainer from 'components/FormContainer';
+import CodeEditor from 'components/CodeEditor';
 
 const NewSnippetPage: NextPage = () => {
     return (

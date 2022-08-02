@@ -36,6 +36,9 @@ const CodeEditor: FC<CodeEditorProps> = (props) => (
         theme="github"
         width="100%"
         fontSize="14px"
+        minLines={5}
+        maxLines={50}
+        showPrintMargin={false}
         setOptions={{
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true

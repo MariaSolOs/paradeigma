@@ -1,21 +1,8 @@
 import { styled } from '@mui/material/styles';
-import theme from 'styles/theme';
 
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 
-export const Title = styled('h1')({
-    fontFamily: theme.typography.bungee.fontFamily,
-    fontSize: '5.7rem',
-    color: theme.palette.secondary.main,
-    margin: '0 auto',
-    textAlign: 'center',
-
-    [theme.breakpoints.down('md')]: { fontSize: '4.5rem' },
-
-    [theme.breakpoints.down('sm')]: { fontSize: '3rem' }
-});
-
-export const Breadcrumbs = styled(MuiBreadcrumbs)({
+export const Breadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
     margin: '30px auto',
     width: 'fit-content',
 
@@ -33,9 +20,9 @@ export const Breadcrumbs = styled(MuiBreadcrumbs)({
 
         '& li.MuiBreadcrumbs-separator': { fontSize: '1rem' }
     }
-});
+}));
 
-export const NavigationLink = styled('a')({
+export const NavigationLink = styled('a')(({ theme }) => ({
     fontFamily: theme.typography.mono.fontFamily,
     fontSize: '1.3rem',
     color: theme.palette.primary.main,
@@ -43,4 +30,4 @@ export const NavigationLink = styled('a')({
     [theme.breakpoints.down('md')]: { fontSize: '1rem' },
     
     [theme.breakpoints.down('sm')]: { fontSize: '0.8rem' }
-});
+}));

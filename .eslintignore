@@ -1,1 +1,2 @@
-/public
+# CDN files for the code editor
+/public/code-editor/*.js

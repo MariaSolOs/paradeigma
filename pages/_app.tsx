@@ -1,21 +1,25 @@
 import createEmotionCache from 'styles/emotion-cache';
 import theme from 'styles/theme';
-import type { AppProps as NextAppProps } from 'next/app';
-import type { EmotionCache } from '@emotion/react';
+import routes from 'routes';
+import type { AppEmotionProps } from 'next/app';
+import type { BreadcrumbsProps } from 'components/Breadcrumbs';
 
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
-import Layout from 'components/Layout';
+import Breadcrumbs from 'components/Breadcrumbs';
+import ParadigmTitle from 'components/ParadigmTitle';
 
 const clientCache = createEmotionCache();
 
-type AppProps = NextAppProps & {
-    emotionCache?: EmotionCache;
-}
+const navigationLinks: BreadcrumbsProps['links'] = [
+    { ...routes.home, title: 'Home' },
+    { ...routes.newSnippet, title: 'New snippet' }
+];
 
-const App = (props: AppProps) => {
+// TODO: Add Head component
+const App = (props: AppEmotionProps) => {
     const { Component, emotionCache = clientCache, pageProps } = props;
 
     return (
@@ -26,9 +30,9 @@ const App = (props: AppProps) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Layout>
-                    <Component { ...pageProps } />
-                </Layout>
+                <ParadigmTitle>Paradigm</ParadigmTitle>
+                <Breadcrumbs links={navigationLinks} />
+                <Component { ...pageProps } />
             </ThemeProvider>
         </CacheProvider>
     );
