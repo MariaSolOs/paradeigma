@@ -3,7 +3,7 @@ import { Modes } from 'models/code-editor';
 import type { FC } from 'react';
 import type { CodeEditorProps } from './index';
 
-import * as S from './CodeEditor.styled';
+import Paper from '@mui/material/Paper';
 
 // Dynamically load the code editor because it relies on the "window" browser API.
 const AceEditor = dynamic(async () => {
@@ -29,7 +29,7 @@ const AceEditor = dynamic(async () => {
 
 // TODO: Add placeholders for each mode
 const CodeEditor: FC<CodeEditorProps> = (props) => (
-    <S.Container>
+    <Paper elevation={2} sx={{ borderRadius: 2, overflow: 'hidden' }}>
         <AceEditor 
         name="PARADIGM_TEXT_EDITOR"
         mode={props.mode}
@@ -43,7 +43,7 @@ const CodeEditor: FC<CodeEditorProps> = (props) => (
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true
         }} />
-    </S.Container>
+    </Paper>
 );
 
 export default CodeEditor;

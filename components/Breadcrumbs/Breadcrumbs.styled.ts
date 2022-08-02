@@ -25,7 +25,7 @@ export const Breadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
 export const NavigationLink = styled('a')(({ theme }) => ({
     fontFamily: theme.typography.mono.fontFamily,
     fontSize: '1.3rem',
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.light,
 
     [theme.breakpoints.down('md')]: { fontSize: '1rem' },
     

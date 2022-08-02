@@ -22,6 +22,16 @@ const theme = createTheme({
         mono: {
             fontFamily: 'PT Mono, monospace'
         }
+    },
+
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: `
+                body {
+                    font-family: PT Mono, monospace;
+                }
+            `
+        }
     }
 });
 
