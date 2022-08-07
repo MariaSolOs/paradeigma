@@ -7,7 +7,12 @@
         ],
         // Indent with 4 spaces, except when listing attributes in JSX
         "indent": [
-            "warn", 4, { "ignoredNodes": [ "JSXOpeningElement > JSXAttribute" ] }
+            "warn", 
+            4, 
+            { 
+                "ignoredNodes": [ "JSXOpeningElement > JSXAttribute" ],
+                "SwitchCase": 1
+            }
         ]
     }
 }

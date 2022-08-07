@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { Modes } from 'models/code-editor';
+import { Languages } from 'models/snippet';
 import type { FC } from 'react';
 import type { CodeEditorProps } from './index';
 
@@ -16,7 +16,7 @@ const AceEditor = dynamic(async () => {
     await import('ace-builds/src-noconflict/theme-github');
 
     // Import the supported modes.
-    for (const mode of Modes) {
+    for (const mode of Languages) {
         await import(`ace-builds/src-noconflict/mode-${mode}`);
     }
 
@@ -27,17 +27,26 @@ const AceEditor = dynamic(async () => {
     return reactAce;
 }, { ssr: false });
 
+// Snippets should be short.
+const NUM_LINES = 20;
+
 // TODO: Add placeholders for each mode
 const CodeEditor: FC<CodeEditorProps> = (props) => (
-    <Paper elevation={2} sx={{ borderRadius: 2, overflow: 'hidden' }}>
+    <Paper 
+    elevation={2} 
+    sx={{
+        borderRadius: 2, 
+        overflow: 'hidden', 
+        width: { xs: '100%', md: '45%' }
+    }}>
         <AceEditor 
         name="PARADIGM_TEXT_EDITOR"
         mode={props.mode}
         theme="github"
-        width="100%"
         fontSize="14px"
-        minLines={5}
-        maxLines={50}
+        width="100%"
+        minLines={NUM_LINES}
+        maxLines={NUM_LINES}
         showPrintMargin={false}
         setOptions={{
             enableBasicAutocompletion: true,

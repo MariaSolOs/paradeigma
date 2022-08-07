@@ -7,5 +7,13 @@ export const InputField = styled(InputBase)(({ theme }) => ({
     borderRadius: +theme.shape.borderRadius * 2,
     padding: '4px 8px',
     fontFamily: theme.typography.mono.fontFamily,
-    color: theme.palette.primary.dark
+    color: theme.palette.primary.dark,
+
+    '& ::placeholder': { fontSize: '0.9rem' },
+
+    [theme.breakpoints.down('sm')]: { 
+        fontSize: '0.8rem',
+
+        '& ::placeholder': { fontSize: '0.8rem' }
+    }
 }));

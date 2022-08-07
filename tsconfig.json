@@ -1,27 +1,5 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "baseUrl": ".",
-        "noUnusedParameters": true,
-        "noUnusedLocals": true
-    },
+    // Root fields (project setup)
     "include": [
         "next-env.d.ts",
         "**/*.ts",
@@ -29,5 +7,59 @@
     ],
     "exclude": [
         "node_modules"
-    ]
+    ],
+
+    "compilerOptions": {
+        // Type checking
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+
+        // Modules
+        "baseUrl": ".",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+
+        // Emit
+        "importHelpers": true,
+        "importsNotUsedAsValues": "error",
+        "removeComments": true,
+        "sourceMap": true,
+        "noEmit": true,
+
+        // JS support
+        "allowJs": true,
+        "checkJs": true,
+
+        // Interop constraints
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "forceConsistentCasingInFileNames": true,
+
+        // Language and environment
+        "target": "es5",
+        "jsx": "preserve",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+
+        // Projects
+        "incremental": true,
+
+        // Completeness
+        "skipLibCheck": true
+    },
 }

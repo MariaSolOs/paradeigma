@@ -12,6 +12,7 @@
         "@emotion/react": "^11.9.3",
         "@emotion/server": "^11.4.0",
         "@emotion/styled": "^11.9.3",
+        "@mui/base": "^5.0.0-alpha.92",
         "@mui/icons-material": "^5.8.4",
         "@mui/material": "^5.9.1",
         "ace-builds": "^1.8.1",
@@ -19,7 +20,9 @@
         "next-typed-routes": "^1.0.2",
         "react": "18.2.0",
         "react-ace": "^10.1.0",
+        "react-code-blocks": "^0.0.9-0",
         "react-dom": "18.2.0",
+        "tslib": "^2.4.0",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
