@@ -25,8 +25,7 @@ export const Listbox = styled('ul')(({ theme }) => ({
     backgroundColor: '#FFF'
 }));
 
-// TODO: Use a better type here
-export const Popper = styled(PopperUnstyled)<any>({ zIndex: 1 });
+export const Popper = styled(PopperUnstyled)({ zIndex: 1 });
 
 export const Option = styled(OptionUnstyled)(({ theme }) => ({
     fontSize: '0.75rem',

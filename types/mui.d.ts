@@ -1,4 +1,4 @@
-import mui from '@mui/material/styles';
+import '@mui/material/styles';
 import type { TypographyStyleOptions } from '@mui/material/styles/createTypography';
 
 declare module '@mui/material/styles' {

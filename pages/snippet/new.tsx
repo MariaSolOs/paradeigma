@@ -2,80 +2,112 @@ import { v4 as uuid } from 'uuid';
 import { Languages } from 'models/snippet';
 import useNewSnippetReducer from 'hooks/useNewSnippetReducer';
 import { getLanguageIcon } from 'lib/snippet';
+import type { FormEvent } from 'react';
 import type { NextPage } from 'next';
 
 import Box from '@mui/material/Box';
+import Dialog from '@mui/material/Dialog';
 import FormControl from '@mui/material/FormControl';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
-import PopperUnstyled from '@mui/base/PopperUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
-import InputField from 'components/InputField';
+import Input from 'components/Input';
 import FormLabel from 'components/new-snippet/FormLabel';
+import Button from 'components/Button';
 import CodeEditor from 'components/new-snippet/CodeEditor';
-import { EditorSlideContainer } from 'components/new-snippet/Layout';
+import CodeSnippet from 'components/CodeSnippet/CodeSnippet';
+import { 
+    FormContainer,
+    SnippetDialogPaper
+} from 'components/new-snippet/Layout';
 import { 
     Root as SelectRoot,
     Listbox as SelectListbox,
     Popper as SelectPopper,
     Option as SelectOption
-} from 'components/SelectComponents';
+} from 'components/Select';
 
 const NewSnippetPage: NextPage = () => {
     const [state, dispatch] = useNewSnippetReducer();
 
+    const handleSubmit = (event: FormEvent) => {
+        event.preventDefault();
+    }
+
     return (
-        <EditorSlideContainer>
-            <Box sx={{ width: { xs: '100%', md: '50%' } }}>
-                <FormControl fullWidth margin="normal">
-                    <InputField
-                    value={state.name}
-                    onChange={(event) => dispatch({ type: 'SET_NAME', name: event.target.value })}
-                    placeholder="Baptize your snippet."
-                    required />
-                    <FormLabel sx={{ textIndent: '0.5rem' }}>
-                        <TungstenOutlinedIcon />{' '}
-                        Name it like a variable: Keep it short, but self-explanatory.
-                    </FormLabel>
-                </FormControl>
-                <FormControl fullWidth margin="normal">
-                    <InputField
-                    value={state.description}
-                    onChange={event => dispatch({ type: 'SET_DESCRIPTION', description: event.target.value })}
-                    placeholder="What is the snippet about?"
-                    multiline
-                    rows={3} />
-                    <FormLabel sx={{ textIndent: '0.5rem' }}>
-                        <TungstenOutlinedIcon />{' '}
-                        As with good docs, a complete description is always appreciated.
-                    </FormLabel>
-                </FormControl>
-                <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
-                    <FormLabel>
-                        Which programming language are you using?
-                    </FormLabel>
-                    <SelectUnstyled
-                    components={{ 
-                        Root: SelectRoot, 
-                        Listbox: SelectListbox, 
-                        Popper: SelectPopper
-                        // Popper: props => <SelectPopper { ...props } /> 
-                    }}
-                    value={state.language}
-                    onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}>
-                        {Languages.map(language =>
-                            <SelectOption key={uuid()} value={language}>
-                                {language}
-                                <Box 
-                                component="i" 
-                                className={getLanguageIcon(language)}
-                                sx={{ fontSize: '0.85rem', marginLeft: '0.5rem' }} />
-                            </SelectOption>
-                        )}
-                    </SelectUnstyled>
-                </FormControl>
-            </Box>
-            <CodeEditor mode={state.language} />
-        </EditorSlideContainer>
+        <form onSubmit={handleSubmit}>
+            <FormContainer>
+                <Box sx={{ width: { xs: '100%', md: '50%' } }}>
+                    <FormControl fullWidth margin="normal">
+                        <Input
+                        value={state.name}
+                        onChange={(event) => dispatch({ type: 'SET_NAME', name: event.target.value })}
+                        placeholder="Baptize your snippet."
+                        required />
+                        <FormLabel sx={{ textIndent: '0.5rem' }}>
+                            <TungstenOutlinedIcon />{' '}
+                            Name it like a variable: Keep it short, but self-explanatory.
+                        </FormLabel>
+                    </FormControl>
+                    <FormControl fullWidth margin="normal">
+                        <Input
+                        value={state.description}
+                        onChange={event => dispatch({ type: 'SET_DESCRIPTION', description: event.target.value })}
+                        placeholder="What is the snippet about?"
+                        multiline
+                        rows={3} />
+                        <FormLabel sx={{ textIndent: '0.5rem' }}>
+                            <TungstenOutlinedIcon />{' '}
+                            As with good docs, a complete description is always appreciated.
+                        </FormLabel>
+                    </FormControl>
+                    <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
+                        <FormLabel>
+                            Which programming language are you using?
+                        </FormLabel>
+                        <SelectUnstyled
+                        components={{ 
+                            Root: SelectRoot, 
+                            Listbox: SelectListbox, 
+                            // @ts-ignore: Ignore the error about exact optional properties
+                            Popper: SelectPopper
+                        }}
+                        value={state.language}
+                        onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}>
+                            {Languages.map(language =>
+                                <SelectOption key={uuid()} value={language}>
+                                    {language}
+                                    <Box 
+                                    component="i" 
+                                    className={getLanguageIcon(language)}
+                                    sx={{ fontSize: '0.85rem', marginLeft: '0.5rem' }} />
+                                </SelectOption>
+                            )}
+                        </SelectUnstyled>
+                    </FormControl>
+                </Box>
+                <CodeEditor 
+                mode={state.language} 
+                content={state.content}
+                onContentChange={content => dispatch({ type: 'SET_CONTENT', content })} />
+            </FormContainer>
+            <Button 
+            onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })} 
+            sx={{ display: 'block', margin: '0 auto 30px' }}>
+                Save changes
+            </Button>
+            <Dialog 
+            open 
+            onClose={() => dispatch({ type: 'TOGGLE_SLIDE' })}
+            PaperComponent={SnippetDialogPaper}>
+                <CodeSnippet content={`function HelloWorld() {
+        console.log('Hello world!');
+    }`} language={state.language} />
+                {/* <CodeSnippet content={state.content} language={state.language} /> */}
+                <Button type="submit" sx={{ width: 60, margin: 'auto' }}>
+                    Done
+                </Button>
+            </Dialog>
+        </form>
     );
 }
 

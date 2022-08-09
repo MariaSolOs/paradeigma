@@ -48,7 +48,7 @@
         "forceConsistentCasingInFileNames": true,
 
         // Language and environment
-        "target": "es5",
+        "target": "ESNext",
         "jsx": "preserve",
         "lib": [
             "dom",

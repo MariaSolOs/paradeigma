@@ -5,6 +5,7 @@ type SnippetState = {
     name: string;
     description: string;
     language: Language;
+    content: string;
     isInEditorSlide: boolean;
 }
 
@@ -12,13 +13,16 @@ const initialState: SnippetState = {
     name: '',
     description: '',
     language: 'javascript',
+    content: '',
     isInEditorSlide: true
 } as const;
 
 type Action = 
 | { type: 'SET_NAME'; name: string; }
 | { type: 'SET_DESCRIPTION'; description: string; }
-| { type: 'SET_LANGUAGE'; language: Language | null; };
+| { type: 'SET_LANGUAGE'; language: Language | null; }
+| { type: 'SET_CONTENT'; content: string; }
+| { type: 'TOGGLE_SLIDE'; };
 
 // TODO: Check if the max lengths are appropriate
 const NAME_MAX_LENGTH = 30;
@@ -50,8 +54,22 @@ export default function useNewSnippetReducer() {
                     ...state,
                     isInEditorSlide: true,
                     ...action.language !== null && {
-                        language: action.language
+                        language: action.language,
+                        content: ''
                     }
+                }
+            }
+            case 'SET_CONTENT': {
+                return {
+                    ...state,
+                    isInEditorSlide: true,
+                    content: action.content
+                }
+            }
+            case 'TOGGLE_SLIDE': {
+                return {
+                    ...state,
+                    isInEditorSlide: !state.isInEditorSlide
                 }
             }
             default: return state;

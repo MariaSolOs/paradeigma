@@ -15,9 +15,9 @@ const AceEditor = dynamic(async () => {
     // Import the theme.
     await import('ace-builds/src-noconflict/theme-github');
 
-    // Import the supported modes.
-    for (const mode of Languages) {
-        await import(`ace-builds/src-noconflict/mode-${mode}`);
+    // Import the supported languages.
+    for (const language of Languages) {
+        await import(`ace-builds/src-noconflict/mode-${language}`);
     }
 
     const ace = require('ace-builds/src-min-noconflict/ace');
@@ -35,7 +35,7 @@ const CodeEditor: FC<CodeEditorProps> = (props) => (
     <Paper 
     elevation={2} 
     sx={{
-        borderRadius: 2, 
+        borderRadius: 3, 
         overflow: 'hidden', 
         width: { xs: '100%', md: '45%' }
     }}>
@@ -48,6 +48,8 @@ const CodeEditor: FC<CodeEditorProps> = (props) => (
         minLines={NUM_LINES}
         maxLines={NUM_LINES}
         showPrintMargin={false}
+        value={props.content}
+        onChange={(value, _) => props.onContentChange(value)}
         setOptions={{
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true

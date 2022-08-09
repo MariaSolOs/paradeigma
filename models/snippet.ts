@@ -4,7 +4,6 @@
 export const Languages = [
     'csharp',
     'css',
-    'html',
     'java',
     'javascript',
     'markdown',
