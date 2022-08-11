@@ -69,7 +69,7 @@ const NewSnippetPage: NextPage = () => {
                         components={{ 
                             Root: SelectRoot, 
                             Listbox: SelectListbox, 
-                            // @ts-ignore: Ignore the error about exact optional properties
+                            // @ts-expect-error: MUI error about exact optional properties
                             Popper: SelectPopper
                         }}
                         value={state.language}
