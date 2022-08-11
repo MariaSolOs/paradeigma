@@ -69,7 +69,6 @@ const NewSnippetPage: NextPage = () => {
                         components={{ 
                             Root: SelectRoot, 
                             Listbox: SelectListbox, 
-                            // @ts-expect-error: MUI error about exact optional properties
                             Popper: SelectPopper
                         }}
                         value={state.language}
@@ -108,7 +107,6 @@ const NewSnippetPage: NextPage = () => {
     console.log('Hello world!');
 }`} language={state.language} />
                 {/* <CodeSnippet content={state.content} language={state.language} /> */}
-                
                 <Button type="submit" sx={{ width: 60, margin: 'auto' }}>
                     Done
                 </Button>

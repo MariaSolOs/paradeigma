@@ -13,7 +13,6 @@
         // Type checking
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
-        "exactOptionalPropertyTypes": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
         "noImplicitOverride": true,

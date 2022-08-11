@@ -5,5 +5,5 @@ import { ProgrammingLanguage } from 'graphql-server/sdk';
  */
 export const Languages = Object.values(ProgrammingLanguage).filter(lang => 
     isNaN(+lang)
-) as string[];
+) as Language[];
 export type Language = `${ProgrammingLanguage}`;
