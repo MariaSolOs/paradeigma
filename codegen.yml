@@ -1,0 +1,17 @@
+# TODO: Enable yaml extension and use the schema when they fix type error
+
+schema: './graphql-server/schema.ts'
+# documents: [ './graphql-server/**/*.graphql' ]
+generates:
+  ./graphql-server/introspection.json:
+    plugins:
+      - introspection
+    config:
+      minify: true
+  ./graphql-server/sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      skipTypename: true

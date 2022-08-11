@@ -1,6 +1,25 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
+    type Query {
+        """
+        Snippets filtered by the given parameters.
+        """
+        snippets(name: String, language: ProgrammingLanguage): [Snippet!]!
+    }
+
+    """
+    Supported programming languages for a snippet.
+    """
+    enum ProgrammingLanguage {
+        csharp
+        css
+        java
+        javascript
+        markdown
+        python
+    }
+
     """
     Supported styles to use in a snippet code block.
     """
@@ -33,5 +52,17 @@ export const typeDefs = gql`
         synthwave84
         tomorrow
         zTouch
+    }
+
+    """
+    A code snippet.
+    """
+    type Snippet {
+        id: ID!
+        style: SnippetStyle!
+        name: String!
+        description: String!
+        content: String!
+        language: ProgrammingLanguage!
     }
 `;
