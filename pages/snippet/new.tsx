@@ -10,15 +10,16 @@ import Dialog from '@mui/material/Dialog';
 import FormControl from '@mui/material/FormControl';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Input from 'components/Input';
-import FormLabel from 'components/new-snippet/FormLabel';
 import Button from 'components/Button';
 import CodeEditor from 'components/new-snippet/CodeEditor';
 import CodeSnippet from 'components/CodeSnippet/CodeSnippet';
+import { FormContainer, FormLabel } from 'components/new-snippet/EditorForm';
 import { 
-    FormContainer,
-    SnippetDialogPaper
-} from 'components/new-snippet/Layout';
+    DialogPaper as SnippetDialogPaper,
+    CloseText
+} from 'components/new-snippet/SnippetDialog';
 import { 
     Root as SelectRoot,
     Listbox as SelectListbox,
@@ -99,10 +100,15 @@ const NewSnippetPage: NextPage = () => {
             open 
             onClose={() => dispatch({ type: 'TOGGLE_SLIDE' })}
             PaperComponent={SnippetDialogPaper}>
+                <CloseText onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}>
+                    <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
+                    Not ready yet
+                </CloseText>
                 <CodeSnippet content={`function HelloWorld() {
-        console.log('Hello world!');
-    }`} language={state.language} />
+    console.log('Hello world!');
+}`} language={state.language} />
                 {/* <CodeSnippet content={state.content} language={state.language} /> */}
+                
                 <Button type="submit" sx={{ width: 60, margin: 'auto' }}>
                     Done
                 </Button>
