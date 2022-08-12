@@ -1,9 +1,9 @@
-import type { Language } from 'models/snippet';
+import type { ProgrammingLanguage } from 'graphql-server/sdk';
 
 import CodeEditor from './CodeEditor';
 
 export type CodeEditorProps = {
-    mode: Language;
+    mode: ProgrammingLanguage;
     content: string;
     onContentChange: (content: string) => void;
 }

@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { Languages } from 'models/snippet';
+import { ProgrammingLanguage } from 'graphql-server/sdk';
 import useNewSnippetReducer from 'hooks/useNewSnippetReducer';
 import { getLanguageIcon } from 'lib/snippet';
 import type { FormEvent } from 'react';
@@ -73,7 +73,7 @@ const NewSnippetPage: NextPage = () => {
                         }}
                         value={state.language}
                         onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}>
-                            {Languages.map(language =>
+                            {Object.values(ProgrammingLanguage).map(language =>
                                 <SelectOption key={uuid()} value={language}>
                                     {language}
                                     <Box 
@@ -96,7 +96,7 @@ const NewSnippetPage: NextPage = () => {
                 Save changes
             </Button>
             <Dialog 
-            open 
+            open={false}
             onClose={() => dispatch({ type: 'TOGGLE_SLIDE' })}
             PaperComponent={SnippetDialogPaper}>
                 <CloseText onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}>

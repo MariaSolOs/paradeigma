@@ -1,10 +1,10 @@
 import { useReducer, useCallback } from 'react';
-import type { Language } from 'models/snippet';
+import { ProgrammingLanguage } from 'graphql-server/sdk';
 
 type SnippetState = {
     name: string;
     description: string;
-    language: Language;
+    language: ProgrammingLanguage;
     content: string;
     isInEditorSlide: boolean;
 }
@@ -12,7 +12,7 @@ type SnippetState = {
 const initialState: SnippetState = {
     name: '',
     description: '',
-    language: 'javascript',
+    language: ProgrammingLanguage.Javascript,
     content: '',
     isInEditorSlide: true
 } as const;
@@ -20,7 +20,7 @@ const initialState: SnippetState = {
 type Action = 
 | { type: 'SET_NAME'; name: string; }
 | { type: 'SET_DESCRIPTION'; description: string; }
-| { type: 'SET_LANGUAGE'; language: Language | null; }
+| { type: 'SET_LANGUAGE'; language: ProgrammingLanguage | null; }
 | { type: 'SET_CONTENT'; content: string; }
 | { type: 'TOGGLE_SLIDE'; };
 

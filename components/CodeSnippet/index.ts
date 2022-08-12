@@ -1,9 +1,9 @@
 import CodeSnippet from './CodeSnippet';
-import type { Language } from 'models/snippet';
+import type { ProgrammingLanguage } from 'graphql-server/sdk';
 
 export type CodeSnippetProps = {
     content: string;
-    language: Language;
+    language: ProgrammingLanguage;
 }
 
 export default CodeSnippet;

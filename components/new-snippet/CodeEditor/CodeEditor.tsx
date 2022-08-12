@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { Languages } from 'models/snippet';
+import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
 import type { CodeEditorProps } from './index';
 
@@ -16,7 +16,7 @@ const AceEditor = dynamic(async () => {
     await import('ace-builds/src-noconflict/theme-github');
 
     // Import the supported languages.
-    for (const language of Languages) {
+    for (const language of Object.values(ProgrammingLanguage)) {
         await import(`ace-builds/src-noconflict/mode-${language}`);
     }
 
