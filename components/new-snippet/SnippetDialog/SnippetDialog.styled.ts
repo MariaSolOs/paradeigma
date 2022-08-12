@@ -18,3 +18,11 @@ export const CloseText = styled('span')(({ theme }) => ({
     alignItems: 'end',
     textIndent: '0.5rem'
 }));
+
+export const SnippetTitle = styled('h4')(({ theme }) => ({
+    fontFamily: theme.typography.bungee.fontFamily,
+    fontSize: '2rem',
+    color: theme.palette.secondary.main,
+    margin: '10px 0 0',
+    textAlign: 'center'
+}));

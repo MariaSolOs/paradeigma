@@ -18,7 +18,8 @@ import CodeSnippet from 'components/CodeSnippet/CodeSnippet';
 import { FormContainer, FormLabel } from 'components/new-snippet/EditorForm';
 import { 
     DialogPaper as SnippetDialogPaper,
-    CloseText
+    CloseText,
+    SnippetTitle
 } from 'components/new-snippet/SnippetDialog';
 import { 
     Root as SelectRoot,
@@ -96,13 +97,14 @@ const NewSnippetPage: NextPage = () => {
                 Save changes
             </Button>
             <Dialog 
-            open={false}
+            open
             onClose={() => dispatch({ type: 'TOGGLE_SLIDE' })}
             PaperComponent={SnippetDialogPaper}>
                 <CloseText onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}>
                     <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
                     Not ready yet
                 </CloseText>
+                <SnippetTitle>My snippet</SnippetTitle>
                 <CodeSnippet content={`function HelloWorld() {
     console.log('Hello world!');
 }`} language={state.language} />
