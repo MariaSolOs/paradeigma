@@ -1,14 +1,36 @@
-import { styled } from '@mui/material/styles';
+import { styled, keyframes } from '@mui/material/styles';
 
-export const FormContainer = styled('div')(({ theme }) => ({
+const slide1Animation = keyframes`
+    from {
+        transform: translateX(-100vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+`;
+
+const slide2Animation = keyframes`
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+`;
+
+const Slide = styled('div')(({ theme }) => ({
     width: '95vw',
-    maxWidth: '1200px',
-    margin: '0 auto 30px',
+    margin: '0 2.5vw 30px',
     display: 'flex',
-    justifyContent: 'space-between',
 
     [theme.breakpoints.down('md')]: { flexDirection: 'column' }
 }));
+
+export const Slide1 = styled(Slide)({ animation: `${slide1Animation} 1s ease-in-out` });
+
+export const Slide2 = styled(Slide)({ animation: `${slide2Animation} 1s ease-in-out` });
 
 export const FormLabel = styled('label')(({ theme }) => ({
     fontFamily: 'inherit',
