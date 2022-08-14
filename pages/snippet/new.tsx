@@ -55,7 +55,7 @@ const NewSnippetPage: NextPage = () => {
                             <Input
                             value={state.description}
                             onChange={event => dispatch({ type: 'SET_DESCRIPTION', description: event.target.value })}
-                            placeholder="What is the snippet about?"
+                            placeholder="What is your snippet about?"
                             multiline
                             rows={3} />
                             <FormLabel sx={{ textIndent: '0.5rem' }}>
@@ -107,7 +107,7 @@ const NewSnippetPage: NextPage = () => {
         }`} language={state.language} />
                         <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
                             <FormLabel>
-                                Which snippet style would you like to use?
+                                Which style would you like your snippet to have?
                             </FormLabel>
                             <SelectUnstyled
                             components={{ 
