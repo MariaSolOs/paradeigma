@@ -3,9 +3,22 @@ import { gql } from 'apollo-server-micro';
 export const typeDefs = gql`
     type Query {
         """
-        Snippets filtered by the given parameters.
+        Get snippets filtered by the given parameters.
         """
         snippets(name: String, language: ProgrammingLanguage): [Snippet!]!
+    }
+
+    type Mutation {
+        """
+        Create a new code snippet.
+        """
+        createSnippet(
+            name: String!,
+            description: String!
+            content: String!,
+            language: ProgrammingLanguage!,
+            style: SnippetStyle!
+        ): Snippet!
     }
 
     """
@@ -52,10 +65,10 @@ export const typeDefs = gql`
     """
     type Snippet {
         id: ID!
-        style: SnippetStyle!
         name: String!
         description: String!
         content: String!
         language: ProgrammingLanguage!
+        style: SnippetStyle!
     }
 `;

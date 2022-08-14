@@ -1,3 +1,4 @@
 {
-    "schema": "./graphql-server/introspection.json"
+    "schema": "./graphql-server/introspection.json",
+    "documents": "./graphql-server/**/*.graphql"
 }

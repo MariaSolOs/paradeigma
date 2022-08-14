@@ -1,0 +1,17 @@
+mutation createSnippet(
+    $name: String!, 
+    $description: String!, 
+    $content: String!, 
+    $language: ProgrammingLanguage!,
+    $style: SnippetStyle!
+) {
+    createSnippet(
+        name: $name, 
+        description: $description,
+        content: $content,
+        language: $language,
+        style: $style
+    ) {
+        id
+    }
+}

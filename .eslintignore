@@ -1,2 +1,5 @@
 # CDN files for the code editor
 /public/code-editor/*.js
+
+# Codegen output files
+/graphql-server/sdk.ts

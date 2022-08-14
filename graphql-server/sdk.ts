@@ -15,6 +15,20 @@ export type Scalars = {
   Float: number;
 };
 
+export type Mutation = {
+  /** Create a new code snippet. */
+  createSnippet: Snippet;
+};
+
+
+export type MutationCreateSnippetArgs = {
+  content: Scalars['String'];
+  description: Scalars['String'];
+  language: ProgrammingLanguage;
+  name: Scalars['String'];
+  style: SnippetStyle;
+};
+
 /** Supported programming languages for a snippet. */
 export enum ProgrammingLanguage {
   Csharp = 'csharp',
@@ -26,7 +40,7 @@ export enum ProgrammingLanguage {
 }
 
 export type Query = {
-  /** Snippets filtered by the given parameters. */
+  /** Get snippets filtered by the given parameters. */
   snippets: Array<Snippet>;
 };
 
@@ -71,7 +85,31 @@ export enum SnippetStyle {
   Tomorrow = 'tomorrow'
 }
 
+export type CreateSnippetMutationVariables = Exact<{
+  name: Scalars['String'];
+  description: Scalars['String'];
+  content: Scalars['String'];
+  language: ProgrammingLanguage;
+  style: SnippetStyle;
+}>;
 
+
+export type CreateSnippetMutation = { createSnippet: { id: string } };
+
+
+export const CreateSnippetDocument = gql`
+    mutation createSnippet($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: SnippetStyle!) {
+  createSnippet(
+    name: $name
+    description: $description
+    content: $content
+    language: $language
+    style: $style
+  ) {
+    id
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -80,7 +118,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-
+    createSnippet(variables: CreateSnippetMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateSnippetMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateSnippetMutation>(CreateSnippetDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createSnippet', 'mutation');
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;

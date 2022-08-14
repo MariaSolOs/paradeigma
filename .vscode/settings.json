@@ -6,5 +6,7 @@
             ],
             "url": "https://www.graphql-code-generator.com/config.schema.json"
         }
-    ]
+    ],
+    
+    "vscode-graphql.showExecCodelens": false
 }
