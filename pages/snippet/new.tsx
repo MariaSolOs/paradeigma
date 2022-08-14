@@ -19,7 +19,7 @@ import {
     Slide2, 
     FormLabel,
     CloseText, 
-    SnippetTitle
+    SnippetName
 } from 'components/new-snippet/FormSlides';
 import { 
     Root as SelectRoot,
@@ -34,107 +34,117 @@ const NewSnippetPage: NextPage = () => {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
     }
+
+    const slide1 = (
+        <Slide1>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row' } }}>
+                <Box width={{ xs: '100%', md: '50%' }}>
+                    <FormControl fullWidth margin="normal">
+                        <Input
+                        value={state.name}
+                        onChange={(event) => dispatch({ type: 'SET_NAME', name: event.target.value })}
+                        placeholder="Baptize your snippet."
+                        required />
+                        <FormLabel sx={{ textIndent: '0.5rem' }}>
+                            <TungstenOutlinedIcon />{' '}
+                            Name it like a variable: Keep it short, but self-explanatory.
+                        </FormLabel>
+                    </FormControl>
+                    <FormControl fullWidth margin="normal">
+                        <Input
+                        value={state.description}
+                        onChange={event => dispatch({ type: 'SET_DESCRIPTION', description: event.target.value })}
+                        placeholder="What is your snippet about?"
+                        multiline
+                        rows={3} />
+                        <FormLabel sx={{ textIndent: '0.5rem' }}>
+                            <TungstenOutlinedIcon />{' '}
+                            As with good docs, a complete description is always appreciated.
+                        </FormLabel>
+                    </FormControl>
+                    <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
+                        <FormLabel>
+                            Which programming language are you using?
+                        </FormLabel>
+                        <SelectUnstyled
+                        components={{ 
+                            Root: SelectRoot, 
+                            Listbox: SelectListbox, 
+                            Popper: SelectPopper
+                        }}
+                        value={state.language}
+                        onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}>
+                            {Object.values(ProgrammingLanguage).map(language =>
+                                <SelectOption key={uuid()} value={language}>
+                                    {language}
+                                    <Box 
+                                    component="i" 
+                                    className={getLanguageIcon(language)}
+                                    sx={{ fontSize: '0.85rem', marginLeft: '0.5rem' }} />
+                                </SelectOption>
+                            )}
+                        </SelectUnstyled>
+                    </FormControl>
+                </Box>
+                <CodeEditor 
+                mode={state.language} 
+                content={state.content}
+                onContentChange={content => dispatch({ type: 'SET_CONTENT', content })} />
+            </Box>
+        </Slide1>
+    );
     
+    const slide2 = (
+        <Slide2>
+            <Box width="100%">
+                <CloseText onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}>
+                    <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
+                    Not ready yet
+                </CloseText>
+                <Box sx={{ width: { xs: '100%', md: '80%' }, margin: '0 auto' }}>
+                    <SnippetName>{state.name}</SnippetName>
+                    <CodeSnippet 
+                    content={state.content} 
+                    language={state.language} 
+                    style={state.style} />
+                    <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
+                        <FormLabel>
+                            Which style would you like your snippet to have?
+                        </FormLabel>
+                        <SelectUnstyled
+                        components={{ 
+                            Root: SelectRoot, 
+                            Listbox: SelectListbox, 
+                            Popper: SelectPopper
+                        }}
+                        value={state.style}
+                        onChange={style => dispatch({ type: 'SET_STYLE', style })}>
+                            {Object.values(SnippetStyle).map(style =>
+                                <SelectOption key={uuid()} value={style}>
+                                    {style}
+                                </SelectOption>
+                            )}
+                        </SelectUnstyled>
+                    </FormControl>
+                </Box>
+            </Box>
+        </Slide2>
+    );
+
     return (
         <form onSubmit={handleSubmit}>
-            {state.isInEditorSlide && 
-            <Slide1>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Box sx={{ width: { xs: '100%', md: '50%' } }}>
-                        <FormControl fullWidth margin="normal">
-                            <Input
-                            value={state.name}
-                            onChange={(event) => dispatch({ type: 'SET_NAME', name: event.target.value })}
-                            placeholder="Baptize your snippet."
-                            // required
-                                />
-                            <FormLabel sx={{ textIndent: '0.5rem' }}>
-                                <TungstenOutlinedIcon />{' '}
-                                Name it like a variable: Keep it short, but self-explanatory.
-                            </FormLabel>
-                        </FormControl>
-                        <FormControl fullWidth margin="normal">
-                            <Input
-                            value={state.description}
-                            onChange={event => dispatch({ type: 'SET_DESCRIPTION', description: event.target.value })}
-                            placeholder="What is your snippet about?"
-                            multiline
-                            rows={3} />
-                            <FormLabel sx={{ textIndent: '0.5rem' }}>
-                                <TungstenOutlinedIcon />{' '}
-                                As with good docs, a complete description is always appreciated.
-                            </FormLabel>
-                        </FormControl>
-                        <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
-                            <FormLabel>
-                                Which programming language are you using?
-                            </FormLabel>
-                            <SelectUnstyled
-                            components={{ 
-                                Root: SelectRoot, 
-                                Listbox: SelectListbox, 
-                                Popper: SelectPopper
-                            }}
-                            value={state.language}
-                            onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}>
-                                {Object.values(ProgrammingLanguage).map(language =>
-                                    <SelectOption key={uuid()} value={language}>
-                                        {language}
-                                        <Box 
-                                        component="i" 
-                                        className={getLanguageIcon(language)}
-                                        sx={{ fontSize: '0.85rem', marginLeft: '0.5rem' }} />
-                                    </SelectOption>
-                                )}
-                            </SelectUnstyled>
-                        </FormControl>
-                    </Box>
-                    <CodeEditor 
-                    mode={state.language} 
-                    content={state.content}
-                    onContentChange={content => dispatch({ type: 'SET_CONTENT', content })} />
-                </Box>
-            </Slide1>}
-            {!state.isInEditorSlide &&
-            <Slide2>
-                <Box width="100%">
-                    <CloseText onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}>
-                        <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
-                        Not ready yet
-                    </CloseText>
-                    <Box sx={{ width: '80%', margin: '0 auto' }}>
-                        <SnippetTitle>My snippet</SnippetTitle>
-                        <CodeSnippet content={`function HelloWorld() {
-            console.log('Hello world!');
-        }`} language={state.language} style={state.style} />
-                        <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
-                            <FormLabel>
-                                Which style would you like your snippet to have?
-                            </FormLabel>
-                            <SelectUnstyled
-                            components={{ 
-                                Root: SelectRoot, 
-                                Listbox: SelectListbox, 
-                                Popper: SelectPopper
-                            }}
-                            value={state.style}
-                            onChange={style => dispatch({ type: 'SET_STYLE', style })}>
-                                {Object.values(SnippetStyle).map(style =>
-                                    <SelectOption key={uuid()} value={style}>
-                                        {style}
-                                    </SelectOption>
-                                )}
-                            </SelectUnstyled>
-                        </FormControl>
-                        {/* <CodeSnippet content={state.content} language={state.language} /> */}
-                    </Box>
-                </Box>
-            </Slide2>}
-            <Button 
-            onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })} 
-            sx={{ display: 'block', margin: '0 auto 30px' }}>
-                Continue
-            </Button>
+            {state.isInFirstSlide && slide1}
+            {!state.isInFirstSlide && slide2}
+            {state.isInFirstSlide ? 
+                <Button 
+                disabled={state.name.length === 0 || state.description.length === 0 || state.content.length === 0}
+                onClick={() => dispatch({ type: 'TOGGLE_SLIDE' })}
+                sx={{ display: 'block', margin: '0 auto 30px' }}>
+                    Continue
+                </Button> :
+                <Button type="submit" sx={{ display: 'block', margin: '0 auto 30px' }}>
+                    Done
+                </Button>}
         </form>
     );
 }

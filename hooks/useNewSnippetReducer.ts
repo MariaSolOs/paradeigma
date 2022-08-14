@@ -7,7 +7,7 @@ type SnippetState = {
     language: ProgrammingLanguage;
     content: string;
     style: SnippetStyle;
-    isInEditorSlide: boolean;
+    isInFirstSlide: boolean;
 }
 
 const initialState: SnippetState = {
@@ -16,7 +16,7 @@ const initialState: SnippetState = {
     language: ProgrammingLanguage.Javascript,
     content: '',
     style: SnippetStyle.AtomDark,
-    isInEditorSlide: true
+    isInFirstSlide: true
 } as const;
 
 type Action = 
@@ -37,7 +37,7 @@ export default function useNewSnippetReducer() {
             case 'SET_NAME': {
                 return {
                     ...state,
-                    isInEditorSlide: true,
+                    isInFirstSlide: true,
                     ...action.name.length <= NAME_MAX_LENGTH && {
                         name: action.name
                     }
@@ -46,7 +46,7 @@ export default function useNewSnippetReducer() {
             case 'SET_DESCRIPTION': {
                 return {
                     ...state,
-                    isInEditorSlide: true,
+                    isInFirstSlide: true,
                     ...action.description.length <= DESCRIPTION_MAX_LENGTH && {
                         description: action.description
                     }
@@ -55,7 +55,7 @@ export default function useNewSnippetReducer() {
             case 'SET_LANGUAGE': {
                 return {
                     ...state,
-                    isInEditorSlide: true,
+                    isInFirstSlide: true,
                     ...action.language !== null && {
                         language: action.language,
                         content: ''
@@ -65,14 +65,14 @@ export default function useNewSnippetReducer() {
             case 'SET_CONTENT': {
                 return {
                     ...state,
-                    isInEditorSlide: true,
+                    isInFirstSlide: true,
                     content: action.content
                 }
             }
             case 'SET_STYLE': {
                 return {
                     ...state,
-                    isInEditorSlide: false,
+                    isInFirstSlide: false,
                     ...action.style !== null && {
                         style: action.style
                     }
@@ -81,7 +81,7 @@ export default function useNewSnippetReducer() {
             case 'TOGGLE_SLIDE': {
                 return {
                     ...state,
-                    isInEditorSlide: !state.isInEditorSlide
+                    isInFirstSlide: !state.isInFirstSlide
                 }
             }
             default: return state;

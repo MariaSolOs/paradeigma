@@ -12,10 +12,17 @@ export const Button = styled('button')(({ theme }) => ({
     padding: '4px 1rem',
     minWidth: 80,
     cursor: 'pointer',
-    transition: 'all 200ms ease-in-out',
+    transition: 'all 300ms ease-in-out',
 
-    '&:hover': {
+    '&:hover:not(:disabled)': {
         backgroundColor: theme.palette.secondary.main,
         color: '#FFF'
-    }
+    },
+
+    '&:disabled': {
+        filter: 'brightness(70%)',
+        cursor: 'not-allowed'
+    },
+
+    [theme.breakpoints.down('sm')]: { fontSize: '0.8rem' }
 }));

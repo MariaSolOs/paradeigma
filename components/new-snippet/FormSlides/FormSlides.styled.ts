@@ -20,18 +20,15 @@ const slide2Animation = keyframes`
     }
 `;
 
-const Slide = styled('div')(({ theme }) => ({
+const Slide = styled('div')({
     width: '95vw',
-    height: 380,
-    margin: '0 2.5vw 30px',
-    display: 'flex',
+    minHeight: 380,
+    margin: '0 2.5vw 30px'
+});
 
-    [theme.breakpoints.down('md')]: { flexDirection: 'column' }
-}));
+export const Slide1 = styled(Slide)({ animation: `${slide1Animation} 900ms ease-in-out` });
 
-export const Slide1 = styled(Slide)({ animation: `${slide1Animation} 1s ease-in-out` });
-
-export const Slide2 = styled(Slide)({ animation: `${slide2Animation} 1s ease-in-out` });
+export const Slide2 = styled(Slide)({ animation: `${slide2Animation} 900ms ease-in-out` });
 
 export const FormLabel = styled('label')(({ theme }) => ({
     fontFamily: 'inherit',
@@ -56,10 +53,12 @@ export const CloseText = styled('span')(({ theme }) => ({
     textIndent: '0.5rem'
 }));
 
-export const SnippetTitle = styled('h4')(({ theme }) => ({
+export const SnippetName = styled('h4')(({ theme }) => ({
     fontFamily: theme.typography.bungee.fontFamily,
     fontSize: '2rem',
     color: theme.palette.secondary.main,
     margin: '10px 0 0',
-    textAlign: 'center'
+    textAlign: 'center',
+
+    [theme.breakpoints.down('sm')]: { fontSize: '1.5rem' }
 }));
