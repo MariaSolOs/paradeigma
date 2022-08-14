@@ -13,6 +13,13 @@
                 "ignoredNodes": [ "JSXOpeningElement > JSXAttribute" ],
                 "SwitchCase": 1
             }
+        ],
+        "keyword-spacing": [
+            "warn",
+            {
+                "before": true,
+                "after": true
+            }
         ]
     }
 }

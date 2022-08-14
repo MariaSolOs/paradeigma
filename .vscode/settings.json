@@ -8,5 +8,5 @@
         }
     ],
     
-    "vscode-graphql.showExecCodelens": false
+    "eslint.lintTask.enable": true
 }

@@ -7,7 +7,7 @@ import type { Style } from 'models/snippet';
 that language.
  */
 export const getLanguageIcon = (language: ProgrammingLanguage): string => {
-    switch(language) {
+    switch (language) {
         case ProgrammingLanguage.Csharp: return 'devicon-csharp-plain';
         case ProgrammingLanguage.Css: return 'devicon-css3-plain-wordmark';
         case ProgrammingLanguage.Java: return 'devicon-java-plain';
@@ -23,7 +23,7 @@ export const getLanguageIcon = (language: ProgrammingLanguage): string => {
  * implementation.
  */
 export const getStylePackage = async (style: SnippetStyle): Promise<Style> => {
-    switch(style) {
+    switch (style) {
         case SnippetStyle.A11yDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).a11yDark;
         case SnippetStyle.AtomDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).atomDark;
         case SnippetStyle.Base16AteliersulphurpoolLight: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).base16AteliersulphurpoolLight;
