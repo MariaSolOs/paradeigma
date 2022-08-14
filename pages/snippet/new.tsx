@@ -100,26 +100,33 @@ const NewSnippetPage: NextPage = () => {
                         <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
                         Not ready yet
                     </CloseText>
-                    <SnippetTitle>My snippet</SnippetTitle>
-                    <CodeSnippet content={`function HelloWorld() {
-        console.log('Hello world!');
-    }`} language={state.language} />
-                    <SelectUnstyled
-                    components={{ 
-                        Root: SelectRoot, 
-                        Listbox: SelectListbox, 
-                        Popper: SelectPopper
-                    }}
-                    // value={state.language}
-                    // onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}
-                    >
-                        {Object.values(SnippetStyle).map(style =>
-                            <SelectOption key={uuid()} value={style}>
-                                {style}
-                            </SelectOption>
-                        )}
-                    </SelectUnstyled>
-                    {/* <CodeSnippet content={state.content} language={state.language} /> */}
+                    <Box sx={{ width: '80%', margin: '0 auto' }}>
+                        <SnippetTitle>My snippet</SnippetTitle>
+                        <CodeSnippet content={`function HelloWorld() {
+            console.log('Hello world!');
+        }`} language={state.language} />
+                        <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
+                            <FormLabel>
+                                Which snippet style would you like to use?
+                            </FormLabel>
+                            <SelectUnstyled
+                            components={{ 
+                                Root: SelectRoot, 
+                                Listbox: SelectListbox, 
+                                Popper: SelectPopper
+                            }}
+                            // value={state.language}
+                            // onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}
+                            >
+                                {Object.values(SnippetStyle).map(style =>
+                                    <SelectOption key={uuid()} value={style}>
+                                        {style}
+                                    </SelectOption>
+                                )}
+                            </SelectUnstyled>
+                        </FormControl>
+                        {/* <CodeSnippet content={state.content} language={state.language} /> */}
+                    </Box>
                 </Box>
             </Slide2>}
             <Button 

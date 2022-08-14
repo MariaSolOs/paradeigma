@@ -11,7 +11,7 @@ export const Root = styled('button')(({ theme }) => ({
     fontFamily: theme.typography.mono.fontFamily,
     color: theme.palette.primary.dark,
     backgroundColor: 'transparent',
-    width: 150,
+    minWidth: 150,
     marginLeft: 'auto'
 }));
 
@@ -21,8 +21,10 @@ export const Listbox = styled('ul')(({ theme }) => ({
     listStyle: 'none',
     padding: '0.3rem 0.5rem',
     margin: '0.5rem 0',
-    width: 150,
-    backgroundColor: '#FFF'
+    minWidth: 150,
+    backgroundColor: '#FFF',
+    maxHeight: 23 * 5, // Show at most 5 items
+    overflowY: 'scroll'
 }));
 
 export const Popper = styled(PopperUnstyled)({ zIndex: 1 });

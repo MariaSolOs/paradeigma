@@ -22,6 +22,7 @@ const slide2Animation = keyframes`
 
 const Slide = styled('div')(({ theme }) => ({
     width: '95vw',
+    height: 380,
     margin: '0 2.5vw 30px',
     display: 'flex',
 
