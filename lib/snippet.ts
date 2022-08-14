@@ -22,7 +22,7 @@ export const getLanguageIcon = (language: ProgrammingLanguage): string => {
  * @returns The react-syntax-highlighter module containing the style's 
  * implementation.
  */
-export const getStylePackege = async (style: SnippetStyle): Promise<Style> => {
+export const getStylePackage = async (style: SnippetStyle): Promise<Style> => {
     switch(style) {
         case SnippetStyle.A11yDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).a11yDark;
         case SnippetStyle.AtomDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).atomDark;
