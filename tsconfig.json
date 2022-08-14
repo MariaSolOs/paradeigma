@@ -6,8 +6,7 @@
         "**/*.tsx"
     ],
     "exclude": [
-        "node_modules",
-        "graphql-server/sdk.ts"
+        "node_modules"
     ],
 
     "compilerOptions": {

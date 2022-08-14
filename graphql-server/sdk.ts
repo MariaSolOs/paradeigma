@@ -1,3 +1,4 @@
+// @ts-nocheck Ignore this file, it is just codegen output
 import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';

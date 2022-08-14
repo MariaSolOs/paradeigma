@@ -10,6 +10,8 @@ generates:
       minify: true
   ./graphql-server/sdk.ts:
     plugins:
+      - add:
+          content: '// @ts-nocheck Ignore this file, it is just codegen output'
       - typescript
       - typescript-operations
       - typescript-graphql-request
