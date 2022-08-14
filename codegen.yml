@@ -1,8 +1,10 @@
-# TODO: Enable yaml extension and use the schema when they fix type error
+# TODO: Enable yaml extension and use the schema when they fix type error.
 
 schema: './graphql-server/schema.ts'
 documents: './graphql-server/**/*.graphql'
 generates:
+  # We use this introspection file for the VS Code GraphQL extension to
+  # get the schema's types.
   ./graphql-server/introspection.json:
     plugins:
       - introspection
@@ -10,6 +12,7 @@ generates:
       minify: true
   ./graphql-server/sdk.ts:
     plugins:
+      # Ignore tsconfig rules for this generated file.
       - add:
           content: '// @ts-nocheck Ignore this file, it is just codegen output'
       - typescript
@@ -17,3 +20,10 @@ generates:
       - typescript-graphql-request
     config:
       skipTypename: true
+  ./graphql-server/resolvers-types.ts:
+    plugins:
+      # Ignore tsconfig rules for this generated file.
+      - add:
+          content: '// @ts-nocheck Ignore this file, it is just codegen output'
+      - typescript
+      - typescript-resolvers

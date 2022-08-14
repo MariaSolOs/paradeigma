@@ -28,6 +28,7 @@ import {
     Option as SelectOption
 } from 'components/Select';
 
+// TODO: Add markdown support for the description
 const NewSnippetPage: NextPage = () => {
     const [state, dispatch] = useNewSnippetReducer();
 
