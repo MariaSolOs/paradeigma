@@ -106,7 +106,7 @@ const NewSnippetPage: NextPage = () => {
                         <SnippetTitle>My snippet</SnippetTitle>
                         <CodeSnippet content={`function HelloWorld() {
             console.log('Hello world!');
-        }`} language={state.language} />
+        }`} language={state.language} style={state.style} />
                         <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
                             <FormLabel>
                                 Which style would you like your snippet to have?
@@ -117,9 +117,8 @@ const NewSnippetPage: NextPage = () => {
                                 Listbox: SelectListbox, 
                                 Popper: SelectPopper
                             }}
-                            // value={state.language}
-                            // onChange={language => dispatch({ type: 'SET_LANGUAGE', language })}
-                            >
+                            value={state.style}
+                            onChange={style => dispatch({ type: 'SET_STYLE', style })}>
                                 {Object.values(SnippetStyle).map(style =>
                                     <SelectOption key={uuid()} value={style}>
                                         {style}
