@@ -1,5 +1,5 @@
 import { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
-import type { SyntaxHighlighterProps } from 'react-syntax-highlighter';
+import type { Style } from 'models/snippet';
 
 /**
  * @param language - The programming language
@@ -22,7 +22,7 @@ export const getLanguageIcon = (language: ProgrammingLanguage): string => {
  * @returns The react-syntax-highlighter module containing the style's 
  * implementation.
  */
-export const getStylePackege = async (style: SnippetStyle): Promise<SyntaxHighlighterProps['style']> => {
+export const getStylePackege = async (style: SnippetStyle): Promise<Style> => {
     switch(style) {
         case SnippetStyle.A11yDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).a11yDark;
         case SnippetStyle.AtomDark: return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).atomDark;
