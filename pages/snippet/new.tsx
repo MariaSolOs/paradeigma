@@ -14,11 +14,13 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 import CodeEditor from 'components/new-snippet/CodeEditor';
 import CodeSnippet from 'components/CodeSnippet/CodeSnippet';
-import { Slide1, Slide2, FormLabel } from 'components/new-snippet/EditorForm';
 import { 
-    CloseText,
+    Slide1, 
+    Slide2, 
+    FormLabel,
+    CloseText, 
     SnippetTitle
-} from 'components/new-snippet/SnippetDialog';
+} from 'components/new-snippet/FormSlides';
 import { 
     Root as SelectRoot,
     Listbox as SelectListbox,
