@@ -15,7 +15,7 @@ const initialState: SnippetState = {
     description: '',
     language: ProgrammingLanguage.Javascript,
     content: '',
-    style: SnippetStyle.NightOwl,
+    style: SnippetStyle.AtomDark,
     isInEditorSlide: true
 } as const;
 

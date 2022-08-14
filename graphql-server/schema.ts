@@ -30,28 +30,21 @@ export const typeDefs = gql`
         coldarkCold
         coldarkDark
         coy
-        coyWithoutShadows
         dracula
         duotoneDark
         duotoneSea
         funky
         ghcolors
-        holiTheme
-        lucario
         materialDark
         materialLight
         materialOceanic
-        nightOwl
         nord
         okaidia
-        oneDark
-        oneLight
         prism
         shadesOfPurple
         solarizedlight
         synthwave84
         tomorrow
-        zTouch
     }
 
     """

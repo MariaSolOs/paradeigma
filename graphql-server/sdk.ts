@@ -54,28 +54,21 @@ export enum SnippetStyle {
   ColdarkCold = 'coldarkCold',
   ColdarkDark = 'coldarkDark',
   Coy = 'coy',
-  CoyWithoutShadows = 'coyWithoutShadows',
   Dracula = 'dracula',
   DuotoneDark = 'duotoneDark',
   DuotoneSea = 'duotoneSea',
   Funky = 'funky',
   Ghcolors = 'ghcolors',
-  HoliTheme = 'holiTheme',
-  Lucario = 'lucario',
   MaterialDark = 'materialDark',
   MaterialLight = 'materialLight',
   MaterialOceanic = 'materialOceanic',
-  NightOwl = 'nightOwl',
   Nord = 'nord',
   Okaidia = 'okaidia',
-  OneDark = 'oneDark',
-  OneLight = 'oneLight',
   Prism = 'prism',
   ShadesOfPurple = 'shadesOfPurple',
   Solarizedlight = 'solarizedlight',
   Synthwave84 = 'synthwave84',
-  Tomorrow = 'tomorrow',
-  ZTouch = 'zTouch'
+  Tomorrow = 'tomorrow'
 }
 
 
