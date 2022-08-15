@@ -1,5 +1,6 @@
 import { useReducer, useCallback } from 'react';
 import { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
+import { NAME_MAX_LENGTH, DESCRIPTION_MAX_LENGTH } from 'models/snippet';
 
 type SnippetState = {
     name: string;
@@ -26,10 +27,6 @@ type Action =
 | { type: 'SET_CONTENT'; content: string; }
 | { type: 'SET_STYLE'; style: SnippetStyle | null; }
 | { type: 'TOGGLE_SLIDE'; };
-
-// TODO: Check if the max lengths are appropriate
-const NAME_MAX_LENGTH = 30;
-const DESCRIPTION_MAX_LENGTH = 100;
 
 export default function useNewSnippetReducer() {
     const reducer = useCallback((state: SnippetState, action: Action): SnippetState => {

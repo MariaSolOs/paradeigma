@@ -3,3 +3,4 @@
 
 # Codegen output files
 /graphql-server/sdk.ts
+/graphql-server/resolvers-types.ts

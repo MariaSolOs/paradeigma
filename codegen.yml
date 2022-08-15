@@ -18,6 +18,7 @@ generates:
       - typescript
       - typescript-operations
       - typescript-graphql-request
+      - plugin-typescript-swr
     config:
       skipTypename: true
   ./graphql-server/resolvers-types.ts:
