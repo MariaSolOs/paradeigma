@@ -3,8 +3,6 @@ import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
 import type { CodeEditorProps } from './index';
 
-import Paper from '@mui/material/Paper';
-
 // Dynamically load the code editor because it relies on the "window" browser API.
 const AceEditor = dynamic(async () => {
     const reactAce = await import('react-ace');
@@ -32,29 +30,21 @@ const NUM_LINES = 20;
 
 // TODO: Add placeholders for each mode
 const CodeEditor: FC<CodeEditorProps> = (props) => (
-    <Paper 
-    elevation={2} 
-    sx={{
-        borderRadius: 3, 
-        overflow: 'hidden', 
-        width: { xs: '100%', md: '45%' }
-    }}>
-        <AceEditor 
-        name="PARADIGM_TEXT_EDITOR"
-        mode={props.mode}
-        theme="github"
-        fontSize="14px"
-        width="100%"
-        minLines={NUM_LINES}
-        maxLines={NUM_LINES}
-        showPrintMargin={false}
-        value={props.content}
-        onChange={(value, _) => props.onContentChange(value)}
-        setOptions={{
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true
-        }} />
-    </Paper>
+    <AceEditor 
+    name="PARADIGM_TEXT_EDITOR"
+    mode={props.mode}
+    theme="github"
+    fontSize="14px"
+    width="100%"
+    minLines={NUM_LINES}
+    maxLines={NUM_LINES}
+    showPrintMargin={false}
+    value={props.content}
+    onChange={(value, _) => props.onContentChange(value)}
+    setOptions={{
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true
+    }} />
 );
 
 export default CodeEditor;

@@ -17,6 +17,13 @@ export const Slide = styled(BaseSlide)({
     width: '100%'
 });
 
+export const SnippetContainer = styled('div')(({ theme }) => ({
+    margin: '0 auto',
+    width: '80%',
+
+    [theme.breakpoints.down('md')]: { width: '100%' }
+}));
+
 export const CloseText = styled('span')(({ theme }) => ({
     fontSize: '0.75rem',
     fontStyle: 'italic',
@@ -38,4 +45,4 @@ export const SnippetName = styled('h4')(({ theme }) => ({
     [theme.breakpoints.down('sm')]: { fontSize: '1.5rem' }
 }));
 
-export { FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';
+export { FormControl, FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';

@@ -4,8 +4,6 @@ import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
 import type { EditorSlideProps } from './index';
 
-import Box from '@mui/material/Box';
-import FormControl from '@mui/material/FormControl';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
 import Input from 'components/Input';
@@ -21,8 +19,8 @@ import * as S from './EditorSlide.styled';
 const EditorSlide: FC<EditorSlideProps> = (props) => (
     <>
         <S.Slide>
-            <Box width={{ xs: '100%', md: '50%' }}>
-                <FormControl fullWidth margin="normal">
+            <S.FieldsContainer>
+                <S.FormControl>
                     <Input
                     value={props.name}
                     onChange={(event) => props.onNameChange(event.target.value)}
@@ -32,8 +30,8 @@ const EditorSlide: FC<EditorSlideProps> = (props) => (
                         <TungstenOutlinedIcon />{' '}
                         Name it like a variable: Keep it short, but self-explanatory.
                     </S.FormLabel>
-                </FormControl>
-                <FormControl fullWidth margin="normal">
+                </S.FormControl>
+                <S.FormControl>
                     <Input
                     value={props.description}
                     onChange={event => props.onDescriptionChange(event.target.value)}
@@ -44,8 +42,8 @@ const EditorSlide: FC<EditorSlideProps> = (props) => (
                         <TungstenOutlinedIcon />{' '}
                         As with good docs, a complete description is always appreciated.
                     </S.FormLabel>
-                </FormControl>
-                <FormControl fullWidth margin="normal" sx={{ flexDirection: 'row' }}>
+                </S.FormControl>
+                <S.FormControl sx={{ flexDirection: 'row' }}>
                     <S.FormLabel>
                         Which programming language are you using?
                     </S.FormLabel>
@@ -60,19 +58,18 @@ const EditorSlide: FC<EditorSlideProps> = (props) => (
                         {Object.values(ProgrammingLanguage).map(language =>
                             <SelectOption key={uuid()} value={language}>
                                 {language}
-                                <Box 
-                                component="i" 
-                                className={getLanguageIcon(language)}
-                                sx={{ fontSize: '0.85rem', marginLeft: '0.5rem' }} />
+                                <S.LanguageIcon className={getLanguageIcon(language)} />
                             </SelectOption>
                         )}
                     </SelectUnstyled>
-                </FormControl>
-            </Box>
-            <CodeEditor 
-            mode={props.language} 
-            content={props.content}
-            onContentChange={props.onContentChange} />
+                </S.FormControl>
+            </S.FieldsContainer>
+            <S.EditorContainer elevation={2}>
+                <CodeEditor 
+                mode={props.language} 
+                content={props.content}
+                onContentChange={props.onContentChange} />
+            </S.EditorContainer>
         </S.Slide>
         <S.Button 
         disabled={props.name.length === 0 || props.description.length === 0 || props.content.length === 0} 

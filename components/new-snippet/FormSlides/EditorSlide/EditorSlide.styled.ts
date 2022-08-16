@@ -1,5 +1,6 @@
 import { styled, keyframes } from '@mui/material/styles';
 
+import Paper from '@mui/material/Paper';
 import { Slide as BaseSlide } from 'components/new-snippet/FormSlides/Shared.styled';
 
 const slideAnimation = keyframes`
@@ -21,4 +22,23 @@ export const Slide = styled(BaseSlide)(({ theme }) => ({
     [theme.breakpoints.down('md')]: { flexDirection: 'column' }
 }));
 
-export { FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';
+export const FieldsContainer = styled('div')(({ theme }) => ({
+    width: '50%',
+
+    [theme.breakpoints.down('md')]: { width: '100%' }
+}));
+
+export const EditorContainer = styled(Paper)(({ theme }) => ({
+    borderRadius: 3, 
+    overflow: 'hidden', 
+    width: '45%',
+
+    [theme.breakpoints.down('md')]: { width: '100%' }
+}));
+
+export const LanguageIcon = styled('i')({
+    fontSize: '0.85rem', 
+    marginLeft: '0.5rem'
+});
+
+export { FormControl, FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';
