@@ -1,8 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import useNewSnippetReducer from 'hooks/useNewSnippetReducer';
 import { getLanguageIcon } from 'lib/snippet';
-import { getGraphQLClient } from 'lib/graphql';
-import { getSdkWithHooks } from 'graphql-server/sdk';
+import { getHookedSdk } from 'lib/graphql';
 import { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
 import type { FormEvent } from 'react';
 import type { NextPage } from 'next';
@@ -30,8 +29,7 @@ import {
     Option as SelectOption
 } from 'components/Select';
 
-const graphQLClient = getGraphQLClient();
-const sdk = getSdkWithHooks(graphQLClient);
+const sdk = getHookedSdk();
 
 // TODO: Add markdown support for the description
 const NewSnippetPage: NextPage = () => {

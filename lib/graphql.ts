@@ -1,6 +1,10 @@
 import { GraphQLClient } from 'graphql-request';
+import { getSdkWithHooks } from 'graphql-server/sdk';
 
 /**
- * @returns A client to query the GraphQL endpoint.
+ * @returns The SDK wrapping the GraphQL client for typed operations.
  */
-export const getGraphQLClient = () => new GraphQLClient(`${process.env['VERCEL_URL']}/api/graphql`);
+export const getHookedSdk = () => {
+    const graphQLClient = new GraphQLClient(`${process.env['VERCEL_URL']}/api/graphql`);
+    return getSdkWithHooks(graphQLClient);
+}
