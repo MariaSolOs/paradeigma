@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { v4 as uuid } from 'uuid';
 import { getLanguageIcon } from 'lib/snippet';
 import { ProgrammingLanguage } from 'graphql-server/sdk';
@@ -7,7 +8,6 @@ import type { EditorSlideProps } from './index';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
 import Input from 'components/Input';
-import CodeEditor from 'components/new-snippet/CodeEditor';
 import { 
     Root as SelectRoot,
     Listbox as SelectListbox,
@@ -15,6 +15,31 @@ import {
     Option as SelectOption
 } from 'components/Select';
 import * as S from './EditorSlide.styled';
+
+// Dynamically load the code editor because it relies on the "window" browser API.
+const AceEditor = dynamic(async () => {
+    const reactAce = await import('react-ace');
+
+    // Prevent the console warning about misspelled prop names.
+    await import('ace-builds/src-noconflict/ext-language_tools');
+
+    // Import the theme.
+    await import('ace-builds/src-noconflict/theme-github');
+
+    // Import the supported languages.
+    for (const language of Object.values(ProgrammingLanguage)) {
+        await import(`ace-builds/src-noconflict/mode-${language}`);
+    }
+
+    const ace = require('ace-builds/src-min-noconflict/ace');
+    ace.config.set('basePath', '/code-editor/ace.min.js');
+    ace.config.setModuleUrl('ace/mode/javascript_worker', '/code-editor/worker-javascript.js');
+
+    return reactAce;
+}, { ssr: false });
+
+// Snippets should be short.
+const EDITOR_NUM_LINES = 20;
 
 const EditorSlide: FC<EditorSlideProps> = (props) => (
     <>
@@ -65,10 +90,21 @@ const EditorSlide: FC<EditorSlideProps> = (props) => (
                 </S.FormControl>
             </S.FieldsContainer>
             <S.EditorContainer elevation={2}>
-                <CodeEditor 
-                mode={props.language} 
-                content={props.content}
-                onContentChange={props.onContentChange} />
+                <AceEditor 
+                name="PARADIGM_TEXT_EDITOR"
+                mode={props.language}
+                theme="github"
+                fontSize="14px"
+                width="100%"
+                minLines={EDITOR_NUM_LINES}
+                maxLines={EDITOR_NUM_LINES}
+                showPrintMargin={false}
+                value={props.content}
+                onChange={(value, _) => props.onContentChange(value)}
+                setOptions={{
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true
+                }} />
             </S.EditorContainer>
         </S.Slide>
         <S.Button 

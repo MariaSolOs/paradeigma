@@ -1,6 +1,6 @@
 import { styled, keyframes } from '@mui/material/styles';
 
-import { Slide as BaseSlide } from 'components/new-snippet/FormSlides/Shared.styled';
+import { Slide as BaseSlide } from 'components/new-snippet/Shared.styled';
 
 const slideAnimation = keyframes`
     from {
@@ -45,4 +45,4 @@ export const SnippetName = styled('h4')(({ theme }) => ({
     [theme.breakpoints.down('sm')]: { fontSize: '1.5rem' }
 }));
 
-export { FormControl, FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';
+export { FormControl, FormLabel, Button } from 'components/new-snippet/Shared.styled';

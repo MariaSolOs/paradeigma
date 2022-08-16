@@ -1,7 +1,7 @@
 import { styled, keyframes } from '@mui/material/styles';
 
 import Paper from '@mui/material/Paper';
-import { Slide as BaseSlide } from 'components/new-snippet/FormSlides/Shared.styled';
+import { Slide as BaseSlide } from 'components/new-snippet/Shared.styled';
 
 const slideAnimation = keyframes`
     from {
@@ -41,4 +41,4 @@ export const LanguageIcon = styled('i')({
     marginLeft: '0.5rem'
 });
 
-export { FormControl, FormLabel, Button } from 'components/new-snippet/FormSlides/Shared.styled';
+export { FormControl, FormLabel, Button } from 'components/new-snippet/Shared.styled';

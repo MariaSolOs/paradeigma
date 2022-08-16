@@ -3,8 +3,8 @@ import { getHookedSdk } from 'lib/graphql';
 import type { FormEvent } from 'react';
 import type { NextPage } from 'next';
 
-import EditorSlide from 'components/new-snippet/FormSlides/EditorSlide';
-import PreviewSlide from 'components/new-snippet/FormSlides/PreviewSlide';
+import EditorSlide from 'components/new-snippet/EditorSlide';
+import PreviewSlide from 'components/new-snippet/PreviewSlide';
 
 const sdk = getHookedSdk();
 
