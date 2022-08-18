@@ -12,8 +12,16 @@ const sdk = getHookedSdk();
 const NewSnippetPage: NextPage = () => {
     const [state, dispatch] = useNewSnippetReducer();
 
-    const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
+
+        await sdk.createSnippet({
+            name: state.name,
+            description: state.description,
+            content: state.content,
+            language: state.language,
+            style: state.style
+        });
     }
 
     return (
