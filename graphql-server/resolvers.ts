@@ -12,7 +12,6 @@ export const resolvers: Resolvers = {
                 style
             });
 
-            console.log('CREATE SNIPPET' + snippet);
             return snippet;
         }
     }

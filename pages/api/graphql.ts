@@ -2,7 +2,7 @@ import { ApolloServer } from 'apollo-server-micro';
 import mongooseConnection from 'lib/mongoose-connection';
 import { typeDefs } from 'graphql-server/schema';
 import { resolvers } from 'graphql-server/resolvers';
-import type { NextApiHandler } from 'next';
+import type { NextApiHandler, PageConfig } from 'next';
 
 let cachedHandler: NextApiHandler | undefined = undefined;
  
@@ -21,6 +21,12 @@ const handler: NextApiHandler = async (req, res) => {
     }
 
     return cachedHandler!(req, res);
+}
+
+export const config: PageConfig = {
+    api: {
+        bodyParser: false
+    }
 }
 
 export default handler;
