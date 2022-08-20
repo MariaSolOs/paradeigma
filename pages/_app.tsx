@@ -30,7 +30,7 @@ const App = (props: AppEmotionProps) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <ParadigmTitle>Paradigm</ParadigmTitle>
+                <ParadigmTitle />
                 <Breadcrumbs links={navigationLinks} />
                 <Component { ...pageProps } />
             </ThemeProvider>

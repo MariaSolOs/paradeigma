@@ -1,3 +1,3 @@
-import { ParadigmTitle } from './ParadigmTitle.styled';
+import ParadigmTitle from './ParadigmTitle';
 
 export default ParadigmTitle;
