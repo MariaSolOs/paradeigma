@@ -5,6 +5,7 @@ import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
 import type { EditorSlideProps } from './index';
 
+import Skeleton from '@mui/material/Skeleton';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
 import Input from 'components/Input';
@@ -36,7 +37,10 @@ const AceEditor = dynamic(async () => {
     ace.config.setModuleUrl('ace/mode/javascript_worker', '/code-editor/worker-javascript.js');
 
     return reactAce;
-}, { ssr: false });
+}, { 
+    ssr: false, 
+    loading: () => <Skeleton variant="rectangular" width="100%" height="100%" />
+});
 
 // Snippets should be short.
 const EDITOR_NUM_LINES = 20;
