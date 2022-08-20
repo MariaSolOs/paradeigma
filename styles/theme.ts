@@ -31,6 +31,13 @@ const theme = createTheme({
                     font-family: PT Mono, monospace;
                 }
             `
+        },
+        MuiSkeleton: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    background: `${theme.palette.primary.main}20` // Use a 20% opacity
+                })
+            }
         }
     }
 });
