@@ -17,7 +17,7 @@ export const Slide = styled(BaseSlide)({
     width: '100%'
 });
 
-export const SnippetContainer = styled('div')(({ theme }) => ({
+export const Content = styled('div')(({ theme }) => ({
     margin: '0 auto',
     width: '80%',
 

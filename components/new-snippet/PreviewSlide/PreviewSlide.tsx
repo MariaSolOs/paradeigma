@@ -21,7 +21,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                 <ArrowBackIcon sx={{ fontSize: '1.2rem' }} />
                 Not ready yet
             </S.CloseText>
-            <S.SnippetContainer>
+            <S.Content>
                 <S.SnippetName>{props.name}</S.SnippetName>
                 <CodeSnippet 
                 content={props.content} 
@@ -46,7 +46,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                         )}
                     </SelectUnstyled>
                 </S.FormControl>
-            </S.SnippetContainer>
+            </S.Content>
         </S.Slide>
         <S.Button type="submit">Done</S.Button>
     </>
