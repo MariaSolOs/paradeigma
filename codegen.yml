@@ -22,6 +22,9 @@ generates:
     config:
       skipTypename: true
   ./graphql-server/resolvers-types.ts:
+    config:
+      mappers:
+        Snippet: models/mongodb/snippet#SnippetDocument
     plugins:
       # Ignore tsconfig rules for this generated file.
       - add:

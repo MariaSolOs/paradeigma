@@ -1,6 +1,5 @@
 query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
     snippets(query: $query, languages: $languages) {
-        id
         name
         description
         content

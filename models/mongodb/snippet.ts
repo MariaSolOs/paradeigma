@@ -3,8 +3,8 @@ import { NAME_MAX_LENGTH, DESCRIPTION_MAX_LENGTH } from 'models/snippet';
 import { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
 import type { Types, Model, ImpartialSchemaDefinition} from 'mongoose';
 
-interface Snippet {
-    id: Types.ObjectId;
+export interface SnippetDocument {
+    _id: Types.ObjectId;
     name: string;
     description: string;
     content: string;
@@ -12,7 +12,7 @@ interface Snippet {
     style: SnippetStyle;
 }
 
-const snippetSchemaFields: Omit<ImpartialSchemaDefinition<Snippet>, 'id'> = {
+const snippetSchemaFields: Omit<ImpartialSchemaDefinition<SnippetDocument>, '_id'> = {
     name: {
         type: String,
         required: true,
@@ -39,6 +39,6 @@ const snippetSchemaFields: Omit<ImpartialSchemaDefinition<Snippet>, 'id'> = {
     }
 }   
 
-const snippetSchema = new Schema<Snippet>(snippetSchemaFields);
+const snippetSchema = new Schema<SnippetDocument>(snippetSchemaFields);
 
-export default (models['Snippet'] as Model<Snippet, {}, {}>) || model<Snippet>('Snippet', snippetSchema);
+export default (models['Snippet'] as Model<SnippetDocument, {}, {}>) || model<SnippetDocument>('Snippet', snippetSchema);

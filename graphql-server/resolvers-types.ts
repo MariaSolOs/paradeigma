@@ -1,5 +1,6 @@
 // @ts-nocheck Ignore this file, it is just codegen output
 import { GraphQLResolveInfo } from 'graphql';
+import { SnippetDocument } from 'models/mongodb/snippet';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -165,7 +166,7 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>;
   ProgrammingLanguage: ProgrammingLanguage;
   Query: ResolverTypeWrapper<{}>;
-  Snippet: ResolverTypeWrapper<Snippet>;
+  Snippet: ResolverTypeWrapper<SnippetDocument>;
   SnippetStyle: SnippetStyle;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -176,7 +177,7 @@ export type ResolversParentTypes = {
   ID: Scalars['ID'];
   Mutation: {};
   Query: {};
-  Snippet: Snippet;
+  Snippet: SnippetDocument;
   String: Scalars['String'];
 };
 
