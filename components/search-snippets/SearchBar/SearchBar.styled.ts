@@ -29,7 +29,7 @@ export const SelectRoot = styled(SelectRootBase, {
     width: '60%',
     minWidth: 350,
     height: 'auto',
-    minHeight: 42,
+    minHeight: 44.59,
     
     [theme.breakpoints.down('sm')]: { 
         width: '100%',
