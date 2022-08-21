@@ -45,7 +45,11 @@ export const SelectListbox = styled(SelectListboxBase)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: { minWidth: 150 }
 }));
 
-export const SelectOption = styled(SelectOptionBase)({ fontSize: '0.8rem' });
+export const SelectOption = styled(SelectOptionBase)(({ disabled }) => ({ 
+    fontSize: '0.8rem',
+
+    ...disabled && { opacity: 0.4 }
+}));
 
 export const ChipsContainer = styled('div')({
     display: 'flex', 

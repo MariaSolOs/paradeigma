@@ -29,11 +29,13 @@ export const Listbox = styled('ul')(({ theme }) => ({
 
 export const Popper = styled(PopperUnstyled)({ zIndex: 1 });
 
-export const Option = styled(OptionUnstyled)(({ theme }) => ({
+export const Option = styled(OptionUnstyled)(({ theme, disabled }) => ({
     fontSize: '0.75rem',
-    cursor: 'pointer',
+    cursor: disabled ? 'default' : 'pointer',
     textAlign: 'center',
     paddingBottom: 5,
 
-    ':hover': { fontWeight: theme.typography.fontWeightBold }
+    ...!disabled && {
+        ':hover': { fontWeight: theme.typography.fontWeightBold }
+    }
 }));

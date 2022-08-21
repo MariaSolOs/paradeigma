@@ -46,12 +46,14 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                         )}
                     </S.ChipsContainer>
                 }>
-                    {Object.values(ProgrammingLanguage).map(language =>
-                        <S.SelectOption key={uuid()} value={language}>
+                    {Object.values(ProgrammingLanguage).map(language => 
+                        <S.SelectOption 
+                        key={uuid()} 
+                        value={language}
+                        disabled={props.languageFilter.includes(language)}>
                             {language}
                             <S.LanguageIcon className={getLanguageIcon(language)} />
-                        </S.SelectOption>
-                    )}
+                        </S.SelectOption>)}
                 </MultiSelectUnstyled>
             </S.SelectContainer>
         </S.Container>
