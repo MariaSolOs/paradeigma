@@ -1,0 +1,10 @@
+query getSnippets($query: String, $language: ProgrammingLanguage) {
+    snippets(query: $query, language: $language) {
+        id
+        name
+        description
+        content
+        language
+        style
+    }
+}

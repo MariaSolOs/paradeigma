@@ -42,14 +42,17 @@ export enum ProgrammingLanguage {
 
 export type Query = {
   __typename?: 'Query';
-  /** Get snippets filtered by the given parameters. */
+  /**
+   * Get snippets filtered by language and with a title or description
+   * matching the given query.
+   */
   snippets: Array<Snippet>;
 };
 
 
 export type QuerySnippetsArgs = {
   language?: InputMaybe<ProgrammingLanguage>;
-  name?: InputMaybe<Scalars['String']>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 /** A code snippet. */

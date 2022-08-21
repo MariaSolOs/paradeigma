@@ -3,9 +3,10 @@ import { gql } from 'apollo-server-micro';
 export const typeDefs = gql`
     type Query {
         """
-        Get snippets filtered by the given parameters.
+        Get snippets filtered by language and with a title or description
+        matching the given query.
         """
-        snippets(name: String, language: ProgrammingLanguage): [Snippet!]!
+        snippets(query: String, language: ProgrammingLanguage): [Snippet!]!
     }
 
     type Mutation {
