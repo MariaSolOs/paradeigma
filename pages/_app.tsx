@@ -15,6 +15,7 @@ const clientCache = createEmotionCache();
 
 const navigationLinks: BreadcrumbsProps['links'] = [
     { ...routes.home, title: 'Home' },
+    { ...routes.searchSnippets, title: 'Search' },
     { ...routes.newSnippet, title: 'New snippet' }
 ];
 
