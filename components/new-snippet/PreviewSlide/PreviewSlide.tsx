@@ -6,6 +6,7 @@ import type { PreviewSlideProps } from './index';
 import SelectUnstyled from '@mui/base/SelectUnstyled';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CodeSnippet from 'components/CodeSnippet/CodeSnippet';
+import InputLabel from 'components/InputLabel';
 import { 
     Root as SelectRoot,
     Listbox as SelectListbox,
@@ -28,9 +29,9 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                 language={props.language} 
                 style={props.style} />
                 <S.FormControl sx={{ flexDirection: 'row' }}>
-                    <S.FormLabel>
+                    <InputLabel>
                         Which style would you like your snippet to have?
-                    </S.FormLabel>
+                    </InputLabel>
                     <SelectUnstyled
                     components={{ 
                         Root: SelectRoot, 

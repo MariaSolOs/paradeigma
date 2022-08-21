@@ -14,18 +14,6 @@ export const FormControl = styled(MuiFormControl)({
     margin: '1rem 0 0.5rem'
 });
 
-export const FormLabel = styled('label')(({ theme }) => ({
-    fontFamily: 'inherit',
-    fontSize: '0.8rem',
-    fontStyle: 'italic',
-    color: theme.palette.primary.main,
-    margin: '4px 0 0 0',
-    display: 'inline-flex',
-    alignItems: 'center',
-
-    [theme.breakpoints.down('sm')]: { fontSize: '0.75rem' }
-}));
-
 export const Button = styled(BaseButton)({ 
     display: 'block', 
     margin: '0 auto 30px' 

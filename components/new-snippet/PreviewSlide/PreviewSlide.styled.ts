@@ -45,4 +45,4 @@ export const SnippetName = styled('h4')(({ theme }) => ({
     [theme.breakpoints.down('sm')]: { fontSize: '1.5rem' }
 }));
 
-export { FormControl, FormLabel, Button } from 'components/new-snippet/Shared.styled';
+export { FormControl, Button } from 'components/new-snippet/Shared.styled';

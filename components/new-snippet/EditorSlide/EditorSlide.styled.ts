@@ -41,4 +41,4 @@ export const LanguageIcon = styled('i')({
     marginLeft: '0.5rem'
 });
 
-export { FormControl, FormLabel, Button } from 'components/new-snippet/Shared.styled';
+export { FormControl, Button } from 'components/new-snippet/Shared.styled';
