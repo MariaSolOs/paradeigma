@@ -6,7 +6,7 @@ export const typeDefs = gql`
         Get snippets filtered by language and with a title or description
         matching the given query.
         """
-        snippets(query: String, language: ProgrammingLanguage): [Snippet!]!
+        snippets(query: String, languages: [ProgrammingLanguage!]): [Snippet!]!
     }
 
     type Mutation {

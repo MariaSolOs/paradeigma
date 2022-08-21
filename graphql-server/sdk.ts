@@ -52,7 +52,7 @@ export type Query = {
 
 
 export type QuerySnippetsArgs = {
-  language?: InputMaybe<ProgrammingLanguage>;
+  languages?: InputMaybe<Array<ProgrammingLanguage>>;
   query?: InputMaybe<Scalars['String']>;
 };
 
@@ -104,7 +104,7 @@ export type CreateSnippetMutation = { createSnippet: { id: string } };
 
 export type GetSnippetsQueryVariables = Exact<{
   query?: InputMaybe<Scalars['String']>;
-  language?: InputMaybe<ProgrammingLanguage>;
+  languages?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
 }>;
 
 
@@ -125,8 +125,8 @@ export const CreateSnippetDocument = gql`
 }
     `;
 export const GetSnippetsDocument = gql`
-    query getSnippets($query: String, $language: ProgrammingLanguage) {
-  snippets(query: $query, language: $language) {
+    query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
+  snippets(query: $query, languages: $languages) {
     id
     name
     description

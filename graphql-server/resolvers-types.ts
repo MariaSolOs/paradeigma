@@ -51,7 +51,7 @@ export type Query = {
 
 
 export type QuerySnippetsArgs = {
-  language?: InputMaybe<ProgrammingLanguage>;
+  languages?: InputMaybe<Array<ProgrammingLanguage>>;
   query?: InputMaybe<Scalars['String']>;
 };
 
