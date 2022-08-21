@@ -35,8 +35,21 @@ const theme = createTheme({
         MuiSkeleton: {
             styleOverrides: {
                 root: ({ theme }) => ({
-                    background: `${theme.palette.primary.main}20` // Use a 20% opacity
+                    backgroundColor: `${theme.palette.primary.main}20`
                 })
+            }
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    fontFamily: 'inherit',
+                    height: '1.6rem',
+                    backgroundColor: `${theme.palette.secondary.light}30`,
+                    color: theme.palette.secondary.main,
+                }),
+                deleteIcon: {
+                    transition: 'color 300ms ease-in-out'
+                }
             }
         }
     }
