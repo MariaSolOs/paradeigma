@@ -1,4 +1,5 @@
 import Snippet from 'models/mongodb/snippet';
+import { getFuse, addToFuseCollection } from 'lib/fuse';
 import type { Resolvers } from './resolvers-types';
 
 export const resolvers: Resolvers = {
@@ -7,13 +8,13 @@ export const resolvers: Resolvers = {
     },
 
     Query: {
-        // snippets: async (_, { query, languages }) => {
-        //     const snippetsWithLanguages = await Snippet.find({
-        //         language: { $in: languages }
-        //     }).lean();
+        snippets: async (_, { query, languages }) => {
+            const snippetsWithLanguages = await Snippet.find({
+                language: { $in: languages }
+            }).lean();
 
-        //     return snippetsWithLanguages;
-        // }
+            return snippetsWithLanguages;
+        }
     },
 
     Mutation: {
@@ -25,7 +26,9 @@ export const resolvers: Resolvers = {
                 language,
                 style
             });
-
+            
+            await addToFuseCollection(snippet);
+            
             return snippet;
         }
     }
