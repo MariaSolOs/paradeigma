@@ -1,5 +1,6 @@
 import Snippet from 'models/mongodb/snippet';
 import { getFuse, addToFuseCollection } from 'lib/fuse';
+import type Fuse from 'fuse.js';
 import type { Resolvers } from './resolvers-types';
 
 export const resolvers: Resolvers = {
@@ -9,11 +10,30 @@ export const resolvers: Resolvers = {
 
     Query: {
         snippets: async (_, { query, languages }) => {
-            const snippetsWithLanguages = await Snippet.find({
-                language: { $in: languages }
-            }).lean();
+            const fuse = await getFuse();
 
-            return snippetsWithLanguages;
+            const filters: Fuse.Expression[] = [];
+
+            if (query) {
+                filters.push({
+                    $or: [
+                        { name: query },
+                        { description: query }
+                    ]
+                });
+            }
+
+            if (languages) {
+                filters.push({
+                    language: languages.map(lang => `=${lang}`).join(' | ')
+                });
+            }
+
+            const snippets = fuse.search({ $and: filters });
+            console.log(snippets);
+
+            // return snippets;
+            return [];
         }
     },
 

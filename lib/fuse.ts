@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js';
 import Snippet from 'models/mongodb/snippet';
-import type { SnippetDocument } from 'models/mongodb/snippet';
 import type { LeanDocument, Types } from 'mongoose';
+import type { SnippetDocument } from 'models/mongodb/snippet';
 
 type SnippetFuse = Fuse<LeanDocument<SnippetDocument & { _id: Types.ObjectId }>>;
 
@@ -14,12 +14,8 @@ export const getFuse = async (): Promise<SnippetFuse> => {
     if (fuse === undefined) {
         const allSnippets = await Snippet.find({}).lean();
         fuse = new Fuse(allSnippets, {
-            keys: [ // TODO: Make sure these weights make sense
-                { name: 'name', weight: 0.6 },
-                { name: 'description', weight: 0.4 },
-                { name: 'language', weight: 1 }
-            ],
-            findAllMatches: true // TODO: Check if this is needed
+            keys: [ 'name', 'description', 'language' ],
+            useExtendedSearch: true
         });
     }
 
