@@ -31,8 +31,7 @@
         "react-ace": "^10.1.0",
         "react-dom": "18.2.0",
         "react-syntax-highlighter": "^15.5.0",
-        "tslib": "^2.4.0",
-        "uuid": "^8.3.2"
+        "tslib": "^2.4.0"
     },
     "devDependencies": {
         "@graphql-codegen/add": "^3.2.1",
@@ -47,7 +46,6 @@
         "@types/react": "18.0.15",
         "@types/react-dom": "18.0.6",
         "@types/react-syntax-highlighter": "^15.5.4",
-        "@types/uuid": "^8.3.4",
         "eslint": "8.20.0",
         "eslint-config-next": "12.2.2",
         "file-loader": "^6.2.0",

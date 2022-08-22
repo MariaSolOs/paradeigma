@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import { SnippetStyle } from 'graphql-server/sdk';
 import type { FC } from 'react';
 import type { PreviewSlideProps } from './index';
@@ -41,7 +40,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                     value={props.style}
                     onChange={props.onStyleChange}>
                         {Object.values(SnippetStyle).map(style =>
-                            <SelectOption key={uuid()} value={style}>
+                            <SelectOption key={style} value={style}>
                                 {style}
                             </SelectOption>
                         )}

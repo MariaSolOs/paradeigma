@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { v4 as uuid } from 'uuid';
 import { getLanguageIcon } from 'lib/snippet';
 import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
@@ -42,13 +41,13 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                 renderValue={options => 
                     <S.ChipsContainer>
                         {options.map(({ label, value }) => 
-                            <Chip key={uuid()} label={label} onDelete={() => handleChipDeletion(value)} />
+                            <Chip key={value} label={label} onDelete={() => handleChipDeletion(value)} />
                         )}
                     </S.ChipsContainer>
                 }>
                     {Object.values(ProgrammingLanguage).map(language => 
                         <S.SelectOption 
-                        key={uuid()} 
+                        key={language} 
                         value={language}
                         disabled={props.languageFilter.includes(language)}>
                             {language}

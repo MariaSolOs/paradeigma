@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { v4 as uuid } from 'uuid';
 import { getLanguageIcon } from 'lib/snippet';
 import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { FC } from 'react';
@@ -91,7 +90,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                         value={props.language}
                         onChange={props.onLanguageChange}>
                             {Object.values(ProgrammingLanguage).map(language =>
-                                <SelectOption key={uuid()} value={language}>
+                                <SelectOption key={language} value={language}>
                                     {language}
                                     <S.LanguageIcon className={getLanguageIcon(language)} />
                                 </SelectOption>
