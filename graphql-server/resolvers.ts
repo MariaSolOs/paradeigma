@@ -2,6 +2,7 @@ import Snippet from 'models/mongodb/snippet';
 import { getFuse, addToFuseCollection } from 'lib/fuse';
 import type Fuse from 'fuse.js';
 import type { Resolvers } from './resolvers-types';
+import { ProgrammingLanguage } from './sdk';
 
 export const resolvers: Resolvers = {
     Snippet: {
@@ -14,6 +15,8 @@ export const resolvers: Resolvers = {
 
             const filters: Fuse.Expression[] = [];
 
+            // If we have a query string, use it to search a snippet with a matching
+            // name or description.
             if (query) {
                 filters.push({
                     $or: [
@@ -23,17 +26,14 @@ export const resolvers: Resolvers = {
                 });
             }
 
-            if (languages) {
-                filters.push({
-                    language: languages.map(lang => `=${lang}`).join(' | ')
-                });
-            }
+            // By default use all programming languages.
+            filters.push({
+                language: (languages ?? Object.values(ProgrammingLanguage)).map(lang => `=${lang}`).join(' | ')
+            });
 
-            const snippets = fuse.search({ $and: filters });
-            console.log(snippets);
+            const searchResults = fuse.search({ $and: filters });
 
-            // return snippets;
-            return [];
+            return searchResults.map(result => result.item);
         }
     },
 
