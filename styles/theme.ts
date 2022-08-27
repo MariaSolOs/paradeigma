@@ -1,3 +1,4 @@
+import type {} from '@mui/lab/themeAugmentation'; // Module augmentation for the lab components
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
