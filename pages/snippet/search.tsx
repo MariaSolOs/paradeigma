@@ -5,6 +5,7 @@ import { ProgrammingLanguage } from 'graphql-server/sdk';
 import type { NextPage } from 'next';
 
 import SearchBar from 'components/search-snippets/SearchBar';
+import SnippetsMasonry from 'components/search-snippets/SnippetsMasonry';
 
 const sdk = getHookedSdk();
 
@@ -14,18 +15,19 @@ const SearchSnippetsPage: NextPage = () => {
     const debouncedQuery = useDebounce(query, 3 * 1000);
 
     const { data } = sdk.useGetSnippets(['getSnippets', debouncedQuery, languageFilter], {
-        query: debouncedQuery,
-        languages: languageFilter.length > 0 ? languageFilter : undefined
+        query: debouncedQuery
+        // languages: languageFilter.length > 0 ? languageFilter : undefined
     });
 
-    console.log(data);
-
     return (
-        <SearchBar
-        query={query}
-        onQueryChange={query => setQuery(query)}
-        languageFilter={languageFilter}
-        onLanguageFilterChange={filter => setLanguageFilter(filter)} />
+        <>
+            <SearchBar
+            query={query}
+            onQueryChange={query => setQuery(query)}
+            languageFilter={languageFilter}
+            onLanguageFilterChange={filter => setLanguageFilter(filter)} />
+            {data && <SnippetsMasonry snippets={data.snippets} />}
+        </>
     );
 }
 

@@ -32,7 +32,11 @@ const CodeSnippet: FC<CodeSnippetProps> = (props) => {
     }, [props.style]);
 
     return (
-        <SyntaxHighlighter language={props.language} style={style}>
+        <SyntaxHighlighter 
+        wrapLongLines
+        style={style} 
+        language={props.language} 
+        customStyle={props.containerStyles}>
             {props.content}
         </SyntaxHighlighter>
     );
