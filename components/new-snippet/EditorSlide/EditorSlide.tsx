@@ -98,7 +98,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                         </SelectUnstyled>
                     </S.FormControl>
                 </S.FieldsContainer>
-                <S.EditorContainer elevation={2}>
+                <S.EditorContainer>
                     <AceEditor 
                     name="PARADIGM_TEXT_EDITOR"
                     mode={props.language}

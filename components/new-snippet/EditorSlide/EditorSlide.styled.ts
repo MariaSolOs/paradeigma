@@ -1,6 +1,5 @@
 import { styled, keyframes } from '@mui/material/styles';
 
-import Paper from '@mui/material/Paper';
 import { Slide as BaseSlide } from 'components/new-snippet/Shared.styled';
 
 const slideAnimation = keyframes`
@@ -28,10 +27,13 @@ export const FieldsContainer = styled('div')(({ theme }) => ({
     [theme.breakpoints.down('md')]: { width: '100%' }
 }));
 
-export const EditorContainer = styled(Paper)(({ theme }) => ({
-    borderRadius: 3, 
-    overflow: 'hidden', 
+export const EditorContainer = styled('div')(({ theme }) => ({
     width: '45%',
+    overflow: 'hidden', 
+    borderRadius: 3, 
+    borderStyle: 'solid',
+    borderColor: '#E8E8E8',
+    borderWidth: '1px 1px 1px 0',
 
     [theme.breakpoints.down('md')]: { width: '100%' }
 }));
