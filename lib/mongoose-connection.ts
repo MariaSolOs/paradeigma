@@ -1,18 +1,22 @@
 import mongoose from 'mongoose';
 
-const mongooseConnection = async () => {
-    try {
-        if (mongoose.connections[0]?.readyState) {
-            // Use current connection
-            return;
-        }
+// Global is used here to maintain a cached connection across hot reloads
+// in development. This prevents connections growing exponentially
+// during API Route usage.
+let cachedConnection = global.mongoose;
+let cachedPromise: Promise<typeof mongoose> | undefined = undefined;
 
-        await mongoose.connect(process.env['MONGODB_URI']!).then(() => {
+const mongooseConnection = async () => {
+    if (!cachedPromise) {
+        cachedPromise = mongoose.connect(process.env['MONGODB_URI']!).then(mongoose => {
             console.log('Mongoose connected.');
+            return mongoose;
         });
-    } catch (err) {
-        console.error(`MONGOOSE ERROR: ${err}`);
+
+        cachedConnection = await cachedPromise;
     }
+
+    return cachedConnection;
 }
 
 export default mongooseConnection;
