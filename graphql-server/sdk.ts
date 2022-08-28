@@ -108,7 +108,7 @@ export type GetSnippetsQueryVariables = Exact<{
 }>;
 
 
-export type GetSnippetsQuery = { snippets: Array<{ name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle }> };
+export type GetSnippetsQuery = { snippets: Array<{ id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle }> };
 
 
 export const CreateSnippetDocument = gql`
@@ -127,6 +127,7 @@ export const CreateSnippetDocument = gql`
 export const GetSnippetsDocument = gql`
     query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
   snippets(query: $query, languages: $languages) {
+    id
     name
     description
     content
