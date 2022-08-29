@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useDebounce from 'hooks/useDebounce';
 import { getHookedSdk } from 'lib/graphql';
 import type { ProgrammingLanguage } from 'graphql-server/sdk';
@@ -28,12 +28,29 @@ export const getStaticProps: GetStaticProps<SearchSnippetsPageProps> = async () 
 const SearchSnippetsPage: NextPage<SearchSnippetsPageProps> = (props) => {
     const [query, setQuery] = useState('');
     const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>([]);
+    const [snippets, setSnippets] = useState<GetSnippetsQuery['snippets']>([]);
+
+    // Debounce the input query by one second so that we don't overwhelm the 
+    // GraphQL server.
     const debouncedQuery = useDebounce(query, 1000);
 
     const { data } = sdk.useGetSnippets(['getSnippets', debouncedQuery, languageFilter], {
         query: debouncedQuery,
         languages: languageFilter.length > 0 ? languageFilter : undefined
     }, { fallbackData: props.initialSnippets });
+
+    // For a smooth effect, we first "reset" the masonry by clearing the existing snippets 
+    // and after a bit we populate (and hence re-trigger the animation) the list with 
+    // the new ones.
+    useEffect(() => {
+        setSnippets([]);
+
+        const timer = setTimeout(() => {
+            setSnippets(data?.snippets ?? []);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [data]); 
 
     return (
         <>
@@ -42,7 +59,7 @@ const SearchSnippetsPage: NextPage<SearchSnippetsPageProps> = (props) => {
             onQueryChange={query => setQuery(query)}
             languageFilter={languageFilter}
             onLanguageFilterChange={filter => setLanguageFilter(filter)} />
-            <SnippetsMasonry snippets={data!.snippets} />
+            <SnippetsMasonry snippets={snippets} />
         </>
     );
 }
