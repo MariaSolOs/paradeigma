@@ -91,6 +91,8 @@ export enum SnippetStyle {
   Tomorrow = 'tomorrow'
 }
 
+export type SnippetCardFragment = { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle };
+
 export type CreateSnippetMutationVariables = Exact<{
   name: Scalars['String'];
   description: Scalars['String'];
@@ -110,7 +112,16 @@ export type GetSnippetsQueryVariables = Exact<{
 
 export type GetSnippetsQuery = { snippets: Array<{ id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle }> };
 
-
+export const SnippetCardFragmentDoc = gql`
+    fragment SnippetCard on Snippet {
+  id
+  name
+  description
+  content
+  language
+  style
+}
+    `;
 export const CreateSnippetDocument = gql`
     mutation createSnippet($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: SnippetStyle!) {
   createSnippet(
@@ -127,15 +138,10 @@ export const CreateSnippetDocument = gql`
 export const GetSnippetsDocument = gql`
     query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
   snippets(query: $query, languages: $languages) {
-    id
-    name
-    description
-    content
-    language
-    style
+    ...SnippetCard
   }
 }
-    `;
+    ${SnippetCardFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
