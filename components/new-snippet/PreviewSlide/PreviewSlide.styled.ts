@@ -36,7 +36,7 @@ export const CloseText = styled('span')(({ theme }) => ({
 }));
 
 export const SnippetName = styled('h4')(({ theme }) => ({
-    fontFamily: theme.typography.bungee.fontFamily,
+    fontFamily: theme.typography.bungeeShade.fontFamily,
     fontSize: '2rem',
     color: theme.palette.secondary.main,
     margin: '10px 0 0',

@@ -33,3 +33,14 @@ export const Transition = styled(CSSTransition)(({ theme }) => ({
     [theme.breakpoints.down('lg')]: { fontSize: '0.8rem' },
     [theme.breakpoints.down('md')]: { fontSize: '0.75rem' }
 }));
+
+export const SnippetContainer = styled('div')(({ theme }) => ({
+    borderRadius: +theme.shape.borderRadius * 2,
+    border: `${theme.palette.secondary.light} solid 1px`
+}));
+
+export const SnippetTitle = styled('h4')(({ theme }) => ({
+    margin: '0.5rem 0',
+    textAlign: 'center',
+    fontFamily: theme.typography.bungee.fontFamily
+}));

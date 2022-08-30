@@ -5,7 +5,6 @@ import type { FC } from 'react';
 import type { MasonryProps } from '@mui/lab/Masonry';
 import type { SnippetsMasonryProps } from './index';
 
-import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
 import CodeSnippet from 'components/CodeSnippet';
 import * as S from './SnippetsMasonry.styled';
@@ -42,15 +41,8 @@ const SnippetsMasonry: FC<SnippetsMasonryProps> = (props) => {
                         exit: S.FADE_IN_ANIMATION,
                         exitActive: S.FADE_OUT_ANIMATION
                     }}>
-                        <Box ref={ref} sx={{ 
-                            transitionDelay: `${randomDelay}ms`,
-                            borderRadius: 2,
-                            border: `${theme.palette.secondary.light} solid 1px`
-                        }}>
-                            <Box component="h4" sx={{
-                                margin: '0.5rem 0',
-                                textAlign: 'center'
-                            }}>{snippet.name}</Box>
+                        <S.SnippetContainer ref={ref} sx={{ transitionDelay: `${randomDelay}ms`}}>
+                            <S.SnippetTitle>{snippet.name}</S.SnippetTitle>
                             <CodeSnippet
                             content={snippet.content} 
                             language={snippet.language} 
@@ -59,7 +51,7 @@ const SnippetsMasonry: FC<SnippetsMasonryProps> = (props) => {
                                 borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${+theme.shape.borderRadius * 2}px`,
                                 margin: 0
                             }} />
-                        </Box>
+                        </S.SnippetContainer>
                     </S.Transition>
                 );
             })}
