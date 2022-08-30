@@ -18,7 +18,7 @@ export const TransitionMasonry = styled(TransitionGroup)(({ theme }) => ({
 
 export const Transition = styled(CSSTransition)(({ theme }) => ({
     fontSize: '0.9rem',
-    transition: 'all 500ms ease-in-out',
+    transition: 'all 300ms ease-in-out',
     
     [`&.${FADE_IN_ANIMATION}`]: { 
         transform: 'scale(1)',
