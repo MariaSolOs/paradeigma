@@ -49,7 +49,7 @@ export default class CustomDocument extends Document {
                     <link rel="manifest" href="/manifest.json" />
 
                     {/* Google fonts */}
-                    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet" />
 
                     {/* Programming language icons */}
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />

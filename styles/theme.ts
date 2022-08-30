@@ -17,6 +17,10 @@ const theme = createTheme({
     
     typography: {
         bungee: {
+            fontFamily: 'Bungee, cursive'
+        },
+
+        bungeeShade: {
             fontFamily: 'Bungee Shade, cursive'
         },
 
@@ -27,9 +31,9 @@ const theme = createTheme({
 
     components: {
         MuiCssBaseline: {
-            styleOverrides: `
+            styleOverrides: theme => `
                 body {
-                    font-family: PT Mono, monospace;
+                    font-family: ${theme.typography.mono.fontFamily};
                 }
             `
         },
