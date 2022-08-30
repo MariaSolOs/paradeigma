@@ -11,6 +11,7 @@ export const getHookedSdk = () => {
     const protocolPrefix = env === 'development' ? 'http://' : 'https://';
     const vercelUrl = (process.env['VERCEL_URL'] || process.env['NEXT_PUBLIC_VERCEL_URL'])!;
 
+    console.log('GRAPHQL CLIENT URL', `${protocolPrefix}${vercelUrl}/api/graphql`)
     const graphQLClient = new GraphQLClient(`${protocolPrefix}${vercelUrl}/api/graphql`);
     return getSdkWithHooks(graphQLClient);
 }
