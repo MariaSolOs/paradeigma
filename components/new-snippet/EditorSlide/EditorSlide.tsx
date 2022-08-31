@@ -100,7 +100,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                 </S.FieldsContainer>
                 <S.EditorContainer>
                     <AceEditor 
-                    name="PARADIGM_TEXT_EDITOR"
+                    name="PARADEIGMA_TEXT_EDITOR"
                     mode={props.language}
                     theme="github"
                     fontSize="14px"

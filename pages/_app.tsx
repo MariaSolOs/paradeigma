@@ -7,7 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
-import ParadigmTitle from 'components/ParadigmTitle';
+import ParadeigmaTitle from 'components/ParadeigmaTitle';
 
 const clientCache = createEmotionCache();
 
@@ -23,7 +23,7 @@ const App = (props: AppEmotionProps) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <ParadigmTitle />
+                <ParadeigmaTitle />
                 <NavigationBreadcrumbs />
                 <Component { ...pageProps } />
             </ThemeProvider>
