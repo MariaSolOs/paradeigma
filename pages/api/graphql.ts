@@ -10,7 +10,7 @@ const cors = microCors();
 let cachedHandler: NextApiHandler | undefined = undefined;
  
 const handler: NextApiHandler = async (req, res) => {
-    await mongooseConnection();
+    await mongooseConnection;
 
     if (!cachedHandler) {
         const apolloServer = new ApolloServer({

@@ -1,22 +1,28 @@
 import mongoose from 'mongoose';
+import type { Mongoose } from 'mongoose';
 
-// Global is used here to maintain a cached connection across hot reloads
-// in development. This prevents connections growing exponentially
-// during API Route usage.
-let cachedConnection = global.mongoose;
-let cachedPromise: Promise<typeof mongoose> | undefined = undefined;
+/**
+ * Module-scoped mongoose connection promise, so that we can share it
+ * across different functions.
+ */
+let mongooseConnection: Promise<Mongoose>;
 
-const mongooseConnection = async () => {
-    if (!cachedPromise) {
-        cachedPromise = mongoose.connect(process.env['MONGODB_URI']!).then(mongoose => {
-            console.log('Mongoose connected.');
-            return mongoose;
-        });
+const getMongoosePromise = () => mongoose.connect(process.env['MONGODB_URI']!).then(mongoose => {
+    console.log('Mongoose connected.');
+    return mongoose;
+});
 
-        cachedConnection = await cachedPromise;
+if (process.env['VERCEL_ENV']! === 'development') {
+    // In development, use a global variable so that the value is preserved 
+    // across module reloads caused by HMR (Hot Module Replacement).
+    if (!global.mongoosePromise) {
+        global.mongoosePromise = getMongoosePromise();
     }
 
-    return cachedConnection;
+    mongooseConnection = global.mongoosePromise;
+} else {
+    // In production mode, it's best to not use a global variable.
+    mongooseConnection = getMongoosePromise();
 }
 
 export default mongooseConnection;

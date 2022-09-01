@@ -1,5 +1,5 @@
 import type { Mongoose } from 'mongoose';
 
 declare global {
-    var mongoose: Mongoose | undefined;
+    var mongoosePromise: Promise<Mongoose>;
 }
