@@ -1,5 +1,6 @@
 {
     "name": "paradeigma",
+    "license": "MIT",
     "private": "true",
     "workspaces": [ "packages/*" ],
     "devDependencies": {
