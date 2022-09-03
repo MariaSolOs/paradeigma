@@ -15,7 +15,6 @@
         "strict": true,
 
         // Modules
-        "baseUrl": ".",
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
