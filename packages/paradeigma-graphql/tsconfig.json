@@ -6,8 +6,5 @@
     "exclude": [
         "node_modules"
     ],
-    "extends": "../../tsconfig.base.json",
-    "compilerOptions": {
-        "baseUrl": "."
-    }
+    "extends": "../../tsconfig.base.json"
 }

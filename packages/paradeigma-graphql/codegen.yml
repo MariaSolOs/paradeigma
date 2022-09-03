@@ -1,0 +1,31 @@
+schema: './schema/schema.ts'
+# documents: './graphql-server/**/*.graphql'
+generates:
+  # We use this introspection file for the VS Code GraphQL extension to
+  # get the schema's types.
+  ./schema/introspection.json:
+    plugins:
+      - introspection
+    config:
+      minify: true
+  ./sdk.ts:
+    plugins:
+      # Ignore tsconfig rules for this generated file.
+      - add:
+          content: '// @ts-nocheck Ignore this file, it is just codegen output'
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+      - plugin-typescript-swr
+    config:
+      skipTypename: true
+  ./resolvers/resolvers-types.ts:
+#     config:
+#       mappers:
+#         Snippet: models/mongodb/snippet#SnippetDocument
+    plugins:
+      # Ignore tsconfig rules for this generated file.
+      - add:
+          content: '// @ts-nocheck Ignore this file, it is just codegen output'
+      - typescript
+      - typescript-resolvers

@@ -1,0 +1,3 @@
+# Codegen output files
+/packages/paradeigma-graphql/resolvers/resolvers-types.ts
+/packages/paradeigma-graphql/sdk.ts
