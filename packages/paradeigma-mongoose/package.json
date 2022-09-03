@@ -1,0 +1,9 @@
+{
+    "name": "@paradeigma/mongoose",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "mongoose": "^6.5.4",
+        "@paradeigma/graphql": "*"
+    }
+}

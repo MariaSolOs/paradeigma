@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        // Allow comments in JSON
+        "*.json": "jsonc"
+    },
+
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "graphql.config.json"
+            ],
+            "url": "https://www.graphql-code-generator.com/config.schema.json"
+        }
+    ]
+}
