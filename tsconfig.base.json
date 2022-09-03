@@ -24,7 +24,6 @@
         "importsNotUsedAsValues": "error",
         "removeComments": true,
         "sourceMap": true,
-        "noEmit": true,
 
         // JS support
         "allowJs": true,
