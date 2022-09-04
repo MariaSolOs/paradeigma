@@ -16,12 +16,12 @@ export interface SnippetDocument {
 /**
  * Maximum length for the name field.
  */
- export const NAME_MAX_LENGTH = 30;
+export const NAME_MAX_LENGTH = 30;
 
- /**
-  * Maximum length for the description field.
-  */
- export const DESCRIPTION_MAX_LENGTH = 100;
+/**
+ * Maximum length for the description field.
+ */
+export const DESCRIPTION_MAX_LENGTH = 100;
 
 const snippetSchemaFields: Omit<ImpartialSchemaDefinition<SnippetDocument>, '_id'> = {
     name: {

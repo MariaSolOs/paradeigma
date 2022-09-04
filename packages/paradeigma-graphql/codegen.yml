@@ -11,18 +11,19 @@ generates:
   ./sdk.ts:
     plugins:
       # Ignore tsconfig rules for this generated file.
-      - add:
-          content: '// @ts-nocheck Ignore this file, it is just codegen output'
+      # - add:
+      #     content: '// @ts-nocheck Ignore this file, it is just codegen output'
       - typescript
       - typescript-operations
-      - typescript-graphql-request
+      - typescript-graphql-request:
+          useTypeImports: true
       - plugin-typescript-swr
     config:
       skipTypename: true
   ./resolvers/resolvers-types.ts:
-#     config:
-#       mappers:
-#         Snippet: models/mongodb/snippet#SnippetDocument
+    config:
+      mappers:
+        Snippet: 'models/snippet#SnippetDocument'
     plugins:
       # Ignore tsconfig rules for this generated file.
       - add:

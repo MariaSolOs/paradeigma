@@ -8,6 +8,7 @@
     ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "noEmit": true
+        "noEmit": true,
+        "baseUrl": "."
     }
 }

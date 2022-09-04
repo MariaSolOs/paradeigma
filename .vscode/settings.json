@@ -1,9 +1,8 @@
 {
     "files.associations": {
-        // Allow comments in JSON
-        "*.json": "jsonc"
+        "*.json": "jsonc", // Allow comments in JSON
+        "*.env.local": "env"
     },
-
     "json.schemas": [
         {
             "fileMatch": [
@@ -11,5 +10,12 @@
             ],
             "url": "https://www.graphql-code-generator.com/config.schema.json"
         }
-    ]
+    ],
+    "search.exclude": {
+        "**/.yarn": true,
+        "**/.pnp.*": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true
 }

@@ -1374,6 +1374,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-typed-document-node/core@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@graphql-typed-document-node/core@npm:3.1.1"
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 87ff4cee308f1075f4472b80f9f9409667979940f8f701e87f0aa35ce5cf104d94b41258ea8192d05a0893475cd0f086a3929a07663b4fe8d0e805a277f07ed5
+  languageName: node
+  linkType: hard
+
 "@hapi/accept@npm:^5.0.2":
   version: 5.0.2
   resolution: "@hapi/accept@npm:5.0.2"
@@ -1671,7 +1680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paradeigma/graphql@workspace:*, @paradeigma/graphql@workspace:packages/paradeigma-graphql":
+"@paradeigma/graphql@workspace:packages/paradeigma-graphql":
   version: 0.0.0-use.local
   resolution: "@paradeigma/graphql@workspace:packages/paradeigma-graphql"
   dependencies:
@@ -1682,27 +1691,26 @@ __metadata:
     "@graphql-codegen/typescript-graphql-request": ^4.5.4
     "@graphql-codegen/typescript-operations": ^2.5.3
     "@graphql-codegen/typescript-resolvers": ^2.7.3
+    "@types/micro-cors": ^0.1.2
     "@types/node": 18.7.14
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
     apollo-server-micro: ^3.10.2
+    eslint: ^8.23.0
     eslint-config-next: 12.2.5
+    fuse.js: ^6.6.2
     graphql: ^16.6.0
     graphql-codegen-plugin-typescript-swr: ^0.8.1
+    graphql-request: ^5.0.0
+    graphql-tag: ^2.12.6
     micro: ^9.4.1
     micro-cors: ^0.1.1
+    mongoose: ^6.5.4
     next: 12.2.5
     react: 18.2.0
     react-dom: 18.2.0
-  languageName: unknown
-  linkType: soft
-
-"@paradeigma/mongoose@workspace:packages/paradeigma-mongoose":
-  version: 0.0.0-use.local
-  resolution: "@paradeigma/mongoose@workspace:packages/paradeigma-mongoose"
-  dependencies:
-    "@paradeigma/graphql": "workspace:*"
-    mongoose: ^6.5.4
+    swr: ^1.3.0
+    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
@@ -1713,6 +1721,7 @@ __metadata:
     "@types/node": 18.7.14
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
+    eslint: ^8.23.0
     eslint-config-next: 12.2.5
     next: 12.2.5
     react: 18.2.0
@@ -1918,6 +1927,24 @@ __metadata:
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
   checksum: d16cde7240d834cf44ba1eaec49e78ae3180e724cd667052b194a372f350d024cba8dd3f37b0864931683dab09ca935d52f0c4c1687178af5ada9fc85b0635f4
+  languageName: node
+  linkType: hard
+
+"@types/micro-cors@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@types/micro-cors@npm:0.1.2"
+  dependencies:
+    "@types/micro": "*"
+  checksum: c6afa8fcd30880413d344dcf4bbb5da8b5ac7cbcabe92597d31f9f9c14f0985b1c19a807785f727ad91cd8da36620bddbb8237f3d69de2d10c67537aea66a84e
+  languageName: node
+  linkType: hard
+
+"@types/micro@npm:*":
+  version: 7.3.7
+  resolution: "@types/micro@npm:7.3.7"
+  dependencies:
+    "@types/node": "*"
+  checksum: 37766f7637d4499362932499d72dda499b6afcdc2a1e2864fd7e65de4591767ef318a48b32626b472a1c16249d8666697816ae309ebd07a097d981bb8ee9502f
   languageName: node
   linkType: hard
 
@@ -3955,6 +3982,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuse.js@npm:^6.6.2":
+  version: 6.6.2
+  resolution: "fuse.js@npm:6.6.2"
+  checksum: 17ae758ce205276ebd88bd9c9f088a100be0b4896abac9f6b09847151269d1690f41d7f98ff5813d4a58973162dbd99d0072ce807020fee6f9de60170f6b08eb
+  languageName: node
+  linkType: hard
+
 "gauge@npm:^4.0.3":
   version: 4.0.4
   resolution: "gauge@npm:4.0.4"
@@ -4176,7 +4210,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.11.0":
+"graphql-request@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "graphql-request@npm:5.0.0"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    cross-fetch: ^3.1.5
+    extract-files: ^9.0.0
+    form-data: ^3.0.0
+  peerDependencies:
+    graphql: 14 - 16
+  checksum: 2e8900d10cded401b253a05650719321123e3b0ad5bc57523288892e0226dccf43668ec937753420084f649fb4e3f998f2547c884b746a3e91fa0a43f93e62d4
+  languageName: node
+  linkType: hard
+
+"graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.6":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6"
   dependencies:
@@ -5806,9 +5854,6 @@ __metadata:
 "paradeigma@workspace:.":
   version: 0.0.0-use.local
   resolution: "paradeigma@workspace:."
-  dependencies:
-    eslint: 8.23.0
-    typescript: 4.8.2
   languageName: unknown
   linkType: soft
 
@@ -6713,7 +6758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^1.0.0":
+"swr@npm:^1.0.0, swr@npm:^1.3.0":
   version: 1.3.0
   resolution: "swr@npm:1.3.0"
   peerDependencies:
@@ -6814,7 +6859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.8.1":
+"ts-node@npm:>=10, ts-node@npm:^10.8.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
@@ -6864,17 +6909,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:*, tslib@npm:^2.0.0, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.4.0, tslib@npm:~2.4.0":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.8.1":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.0, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.4.0, tslib@npm:~2.4.0":
-  version: 2.4.0
-  resolution: "tslib@npm:2.4.0"
-  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
   languageName: node
   linkType: hard
 
@@ -6932,7 +6977,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.8.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>":
   version: 4.8.2
   resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"
   bin:
