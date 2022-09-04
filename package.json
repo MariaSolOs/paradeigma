@@ -3,7 +3,7 @@
     "license": "MIT",
     "packageManager": "yarn@3.2.3",
     "workspaces": [
-        "packages/*"
+        "apps/*"
     ],
     "resolutions": {
         "eslint": "8.23.0",

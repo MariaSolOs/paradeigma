@@ -11,14 +11,14 @@
 node_modules
 
 # testing
-packages/**/coverage
+apps/**/coverage
 
 # next.js
-packages/**/.next/
-packages/**/out/
+apps/**/.next/
+apps/**/out/
 
 # production
-packages/**/build
+apps/**/build
 
 # misc
 .DS_Store
@@ -38,4 +38,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-packages/**/next-env.d.ts
+apps/**/next-env.d.ts
