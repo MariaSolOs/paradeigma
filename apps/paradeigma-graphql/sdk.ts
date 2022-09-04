@@ -90,7 +90,57 @@ export enum SnippetStyle {
   Tomorrow = 'tomorrow'
 }
 
+export type SnippetCardFragment = { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle };
 
+export type CreateSnippetMutationVariables = Exact<{
+  name: Scalars['String'];
+  description: Scalars['String'];
+  content: Scalars['String'];
+  language: ProgrammingLanguage;
+  style: SnippetStyle;
+}>;
+
+
+export type CreateSnippetMutation = { createSnippet: { id: string } };
+
+export type GetSnippetsQueryVariables = Exact<{
+  query?: InputMaybe<Scalars['String']>;
+  languages?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
+}>;
+
+
+export type GetSnippetsQuery = { snippets: Array<{ id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle }> };
+
+export const SnippetCardFragmentDoc = gql`
+    fragment SnippetCard on Snippet {
+  id
+  name
+  description
+  content
+  language
+  style
+}
+    `;
+export const CreateSnippetDocument = gql`
+    mutation createSnippet($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: SnippetStyle!) {
+  createSnippet(
+    name: $name
+    description: $description
+    content: $content
+    language: $language
+    style: $style
+  ) {
+    id
+  }
+}
+    `;
+export const GetSnippetsDocument = gql`
+    query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
+  snippets(query: $query, languages: $languages) {
+    ...SnippetCard
+  }
+}
+    ${SnippetCardFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -99,7 +149,12 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-
+    createSnippet(variables: CreateSnippetMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateSnippetMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateSnippetMutation>(CreateSnippetDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createSnippet', 'mutation');
+    },
+    getSnippets(variables?: GetSnippetsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetSnippetsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetSnippetsQuery>(GetSnippetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getSnippets', 'query');
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
@@ -107,7 +162,9 @@ export function getSdkWithHooks(client: GraphQLClient, withWrapper: SdkFunctionW
   const sdk = getSdk(client, withWrapper);
   return {
     ...sdk,
-
+    useGetSnippets(key: SWRKeyInterface, variables?: GetSnippetsQueryVariables, config?: SWRConfigInterface<GetSnippetsQuery, ClientError>) {
+      return useSWR<GetSnippetsQuery, ClientError>(key, () => sdk.getSnippets(variables), config);
+    }
   };
 }
 export type SdkWithHooks = ReturnType<typeof getSdkWithHooks>;

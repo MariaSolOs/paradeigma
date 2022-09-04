@@ -1,4 +1,3 @@
-// @ts-nocheck Ignore this file, it is just codegen output
 import { GraphQLResolveInfo } from 'graphql';
 import { SnippetDocument } from 'models/snippet';
 export type Maybe<T> = T | null;
