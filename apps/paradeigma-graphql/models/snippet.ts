@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 import { ProgrammingLanguage, SnippetStyle } from 'sdk';
-import type { Types, Model, ImpartialSchemaDefinition} from 'mongoose';
+import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
 
 export interface SnippetDocument {
     _id: Types.ObjectId;

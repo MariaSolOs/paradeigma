@@ -1,8 +1,9 @@
 import type { GraphQLClient } from 'graphql-request';
 import type * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
-import { ClientError } from 'graphql-request/dist/types';
-import useSWR, { SWRConfiguration as SWRConfigInterface, Key as SWRKeyInterface } from 'swr';
+import type { ClientError } from 'graphql-request/dist/types';
+import type { SWRConfiguration as SWRConfigInterface, Key as SWRKeyInterface } from 'swr';
+import useSWR from 'swr';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
