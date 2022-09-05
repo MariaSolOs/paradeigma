@@ -7,6 +7,14 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "noEmit": true
-    }
+        "noEmit": true,
+        "paths": {
+            "@paradeigma/paradeigma-graphql/*": [
+                "../paradeigma-graphql/*"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
