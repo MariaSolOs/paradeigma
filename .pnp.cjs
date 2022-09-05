@@ -3292,7 +3292,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-request", "virtual:957ff85378bd7ba6ec49ff13340eeeceec771cb3a2952eb71e9d43f5f966d0ca41051a01dcc184b662de33f3a0d26656ab5b9d03639d52323af02639dadd857d#npm:5.0.0"],\
             ["next", "virtual:957ff85378bd7ba6ec49ff13340eeeceec771cb3a2952eb71e9d43f5f966d0ca41051a01dcc184b662de33f3a0d26656ab5b9d03639d52323af02639dadd857d#npm:12.2.5"],\
-            ["next-transpile-modules", "npm:9.0.0"],\
             ["next-typed-routes", "npm:1.0.2"],\
             ["react", "npm:18.2.0"],\
             ["react-ace", "virtual:640975eecf535c6ebfc4d192a75a271afaae725e9bc78ed1ec173286fff96e7985bbc24e0ff4ca5f7a8b6622f48028252ab0dd9d0d2e568aa17b4c30a25c8bf9#npm:10.1.0"],\
@@ -5490,17 +5489,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["encoding", "npm:0.1.13"],\
             ["iconv-lite", "npm:0.6.3"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["enhanced-resolve", [\
-        ["npm:5.10.0", {\
-          "packageLocation": "./.yarn/cache/enhanced-resolve-npm-5.10.0-7941304306-0bb9830704.zip/node_modules/enhanced-resolve/",\
-          "packageDependencies": [\
-            ["enhanced-resolve", "npm:5.10.0"],\
-            ["graceful-fs", "npm:4.2.10"],\
-            ["tapable", "npm:2.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8360,17 +8348,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["next-transpile-modules", [\
-        ["npm:9.0.0", {\
-          "packageLocation": "./.yarn/cache/next-transpile-modules-npm-9.0.0-f224c724ec-9a5d86d80c.zip/node_modules/next-transpile-modules/",\
-          "packageDependencies": [\
-            ["next-transpile-modules", "npm:9.0.0"],\
-            ["enhanced-resolve", "npm:5.10.0"],\
-            ["escalade", "npm:3.1.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["next-typed-routes", [\
         ["npm:1.0.2", {\
           "packageLocation": "./.yarn/cache/next-typed-routes-npm-1.0.2-1cc0e588d2-7a51ec8207.zip/node_modules/next-typed-routes/",\
@@ -10039,15 +10016,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/react",\
             "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["tapable", [\
-        ["npm:2.2.1", {\
-          "packageLocation": "./.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/",\
-          "packageDependencies": [\
-            ["tapable", "npm:2.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\

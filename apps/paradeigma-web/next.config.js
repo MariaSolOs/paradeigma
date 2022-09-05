@@ -1,11 +1,12 @@
-const withTM = require('next-transpile-modules')([ '@paradeigma/paradeigma-graphql' ]);
-
 /** 
  * @type {import('next').NextConfig} 
  */
-const nextConfig = withTM({
+const nextConfig = {
     reactStrictMode: true,
-    swcMinify: true
-});
+    swcMinify: true,
+    experimental: {
+        externalDir: true
+    }
+}
 
 module.exports = nextConfig
