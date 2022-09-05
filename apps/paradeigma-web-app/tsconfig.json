@@ -12,9 +12,7 @@
         "baseUrl": ".",
         "noEmit": true,
         "paths": {
-            "@paradeigma/paradeigma-graphql": [
-                "../../packages/paradeigma-graphql/index"
-            ],
+            "*": [ "*", "../../packages/paradeigma-graphql/*" ],
             "@paradeigma/paradeigma-graphql/*": [
                 "../../packages/paradeigma-graphql/*"
             ]
