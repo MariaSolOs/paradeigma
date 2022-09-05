@@ -1,8 +1,8 @@
 import microCors from 'micro-cors';
 import { send } from 'micro';
 import { ApolloServer } from 'apollo-server-micro';
-import typeDefs from 'schema';
-import resolvers from 'resolvers';
+import typeDefs from '@paradeigma/paradeigma-graphql/schema';
+import resolvers from '@paradeigma/paradeigma-graphql/resolvers';
 import mongooseConnection from 'lib/mongoose-connection';
 import type { NextApiHandler, PageConfig } from 'next';
 

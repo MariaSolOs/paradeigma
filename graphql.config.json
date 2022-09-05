@@ -1,8 +1,8 @@
 {
-    "schema": "./apps/paradeigma-graphql/schema/introspection.json",
+    "schema": "./packages/paradeigma-graphql/schema/introspection.json",
     "documents": [
-        "./apps/paradeigma-graphql/fragments/*.graphql",
-        "./apps/paradeigma-graphql/queries/*.graphql",
-        "./apps/paradeigma-graphql/mutations/*.graphql"
+        "./packages/paradeigma-graphql/fragments/*.graphql",
+        "./packages/paradeigma-graphql/queries/*.graphql",
+        "./packages/paradeigma-graphql/mutations/*.graphql"
     ]
 }

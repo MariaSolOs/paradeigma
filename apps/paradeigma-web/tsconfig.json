@@ -4,17 +4,17 @@
         "**/*.ts",
         "**/*.tsx"
     ],
+    "exclude": [
+        "node_modules"
+    ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "noEmit": true,
         "paths": {
             "@paradeigma/paradeigma-graphql/*": [
-                "../paradeigma-graphql/*"
+                "../../packages/paradeigma-graphql/*"
             ]
         }
-    },
-    "exclude": [
-        "node_modules"
-    ]
+    }
 }

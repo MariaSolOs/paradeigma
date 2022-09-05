@@ -1,4 +1,3 @@
-import 'mongoose';
 import type { SchemaDefinitionProperty } from 'mongoose';
 
 declare module 'mongoose' {
