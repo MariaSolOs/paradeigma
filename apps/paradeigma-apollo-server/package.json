@@ -1,5 +1,5 @@
 {
-    "name": "@paradeigma/paradeigma-graphql",
+    "name": "@paradeigma/paradeigma-apollo-server",
     "version": "0.1.0",
     "private": true,
     "license": "MIT",
