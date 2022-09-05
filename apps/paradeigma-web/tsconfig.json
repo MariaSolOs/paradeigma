@@ -4,9 +4,6 @@
         "**/*.ts",
         "**/*.tsx"
     ],
-    "exclude": [
-        "node_modules"
-    ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
