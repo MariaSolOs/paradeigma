@@ -2041,29 +2041,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paradeigma/paradeigma-apollo-server@workspace:apps/paradeigma-apollo-server":
-  version: 0.0.0-use.local
-  resolution: "@paradeigma/paradeigma-apollo-server@workspace:apps/paradeigma-apollo-server"
-  dependencies:
-    "@paradeigma/paradeigma-graphql": "workspace:*"
-    "@types/micro-cors": ^0.1.2
-    "@types/node": ^18.7.15
-    "@types/react": 18.0.18
-    "@types/react-dom": 18.0.6
-    apollo-server-micro: ^3.10.2
-    eslint: ^8.23.0
-    eslint-config-next: 12.2.5
-    graphql: ^16.6.0
-    micro: ^9.4.1
-    micro-cors: ^0.1.1
-    mongoose: ^6.5.4
-    next: 12.2.5
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: ^4.8.2
-  languageName: unknown
-  linkType: soft
-
 "@paradeigma/paradeigma-graphql@workspace:*, @paradeigma/paradeigma-graphql@workspace:packages/paradeigma-graphql":
   version: 0.0.0-use.local
   resolution: "@paradeigma/paradeigma-graphql@workspace:packages/paradeigma-graphql"
@@ -2086,39 +2063,6 @@ __metadata:
     typescript: ^4.8.2
   peerDependencies:
     react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@paradeigma/paradeigma-web@workspace:apps/paradeigma-web":
-  version: 0.0.0-use.local
-  resolution: "@paradeigma/paradeigma-web@workspace:apps/paradeigma-web"
-  dependencies:
-    "@emotion/cache": ^11.10.3
-    "@emotion/react": ^11.10.4
-    "@emotion/server": ^11.10.0
-    "@emotion/styled": ^11.10.4
-    "@mui/base": ^5.0.0-alpha.95
-    "@mui/icons-material": ^5.10.3
-    "@mui/lab": ^5.0.0-alpha.97
-    "@mui/material": ^5.10.3
-    "@paradeigma/paradeigma-graphql": "workspace:*"
-    "@types/node": 18.7.14
-    "@types/react": 18.0.18
-    "@types/react-dom": 18.0.6
-    "@types/react-syntax-highlighter": ^15.5.5
-    ace-builds: ^1.10.0
-    eslint: ^8.23.0
-    eslint-config-next: 12.2.5
-    graphql: ^16.6.0
-    graphql-request: ^5.0.0
-    next: 12.2.5
-    next-typed-routes: ^1.0.2
-    react: 18.2.0
-    react-ace: ^10.1.0
-    react-dom: 18.2.0
-    react-syntax-highlighter: ^15.5.0
-    react-transition-group: ^4.4.5
-    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
@@ -6578,6 +6522,62 @@ __metadata:
   checksum: f8a8e9a7693659383f06aec604ad5ead237c7a261c18048a6e1b5b85a5f8a067e469aa24f5bc009b991ea3b058a87f5065ef4176793a200d4917349881216cae
   languageName: node
   linkType: hard
+
+"paradeigma-apollo-app@workspace:apps/paradeigma-apollo-app":
+  version: 0.0.0-use.local
+  resolution: "paradeigma-apollo-app@workspace:apps/paradeigma-apollo-app"
+  dependencies:
+    "@paradeigma/paradeigma-graphql": "workspace:*"
+    "@types/micro-cors": ^0.1.2
+    "@types/node": ^18.7.15
+    "@types/react": 18.0.18
+    "@types/react-dom": 18.0.6
+    apollo-server-micro: ^3.10.2
+    eslint: ^8.23.0
+    eslint-config-next: 12.2.5
+    graphql: ^16.6.0
+    micro: ^9.4.1
+    micro-cors: ^0.1.1
+    mongoose: ^6.5.4
+    next: 12.2.5
+    react: 18.2.0
+    react-dom: 18.2.0
+    typescript: ^4.8.2
+  languageName: unknown
+  linkType: soft
+
+"paradeigma-web-app@workspace:apps/paradeigma-web-app":
+  version: 0.0.0-use.local
+  resolution: "paradeigma-web-app@workspace:apps/paradeigma-web-app"
+  dependencies:
+    "@emotion/cache": ^11.10.3
+    "@emotion/react": ^11.10.4
+    "@emotion/server": ^11.10.0
+    "@emotion/styled": ^11.10.4
+    "@mui/base": ^5.0.0-alpha.95
+    "@mui/icons-material": ^5.10.3
+    "@mui/lab": ^5.0.0-alpha.97
+    "@mui/material": ^5.10.3
+    "@paradeigma/paradeigma-graphql": "workspace:*"
+    "@types/node": 18.7.14
+    "@types/react": 18.0.18
+    "@types/react-dom": 18.0.6
+    "@types/react-syntax-highlighter": ^15.5.5
+    ace-builds: ^1.10.0
+    eslint: ^8.23.0
+    eslint-config-next: 12.2.5
+    graphql: ^16.6.0
+    graphql-request: ^5.0.0
+    next: 12.2.5
+    next-typed-routes: ^1.0.2
+    react: 18.2.0
+    react-ace: ^10.1.0
+    react-dom: 18.2.0
+    react-syntax-highlighter: ^15.5.0
+    react-transition-group: ^4.4.5
+    typescript: ^4.8.2
+  languageName: unknown
+  linkType: soft
 
 "paradeigma@workspace:.":
   version: 0.0.0-use.local

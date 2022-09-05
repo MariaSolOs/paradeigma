@@ -2,7 +2,7 @@ import Snippet from 'models/snippet';
 import { getFuse, addToFuseCollection } from 'lib/fuse';
 import { ProgrammingLanguage } from 'sdk';
 import type Fuse from 'fuse.js';
-import type { Resolvers } from 'resolvers/resolvers-types';
+import type { Resolvers } from './resolvers-types';
 
 export const resolvers: Resolvers = {
     Snippet: {

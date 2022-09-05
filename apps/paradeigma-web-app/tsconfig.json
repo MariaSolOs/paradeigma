@@ -1,16 +1,20 @@
 {
     "include": [
         "next-env.d.ts",
-        "**/*.ts"
+        "**/*.ts",
+        "**/*.tsx"
     ],
     "exclude": [
         "node_modules"
     ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "noEmit": true,
         "baseUrl": ".",
+        "noEmit": true,
         "paths": {
+            "@paradeigma/paradeigma-graphql": [
+                "../../packages/paradeigma-graphql/index"
+            ],
             "@paradeigma/paradeigma-graphql/*": [
                 "../../packages/paradeigma-graphql/*"
             ]
