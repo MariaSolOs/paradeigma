@@ -1,0 +1,19 @@
+{
+    "name": "Paradeigma",
+    "short_name": "Paradeigma",
+    "icons": [
+        {
+            "src": "icons/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icons/android-chrome-256x256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        }
+    ],
+    "theme_color": "#1C2541",
+    "background_color": "#FFFFFF",
+    "display": "standalone"
+}

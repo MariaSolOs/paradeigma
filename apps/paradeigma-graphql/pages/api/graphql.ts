@@ -29,9 +29,9 @@ const handler: NextApiHandler = async (req, res) => {
                 }
             });
         });
-
-        return cachedHandler!(req, res);
     }
+
+    return cachedHandler!(req, res);
 }
 
 export const config: PageConfig = {

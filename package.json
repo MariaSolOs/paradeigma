@@ -5,6 +5,9 @@
     "workspaces": [
         "apps/*"
     ],
+    "scripts": {
+        "dev:apps": "yarn workspaces foreach -pi --include \"@paradeigma/paradeigma-graphql\" --include \"@paradeigma/paradeigma-web\" run dev"
+    },
     "devDependencies": {
         "eslint": "8.23.0",
         "typescript": "4.8.2"

@@ -1,5 +1,8 @@
 {
-    // It seems like the VS Code extension only works properly
-    // if this file is at the root.
-    "schema": "./packages/paradeigma-graphql/schema/introspection.json"
+    "schema": "./apps/paradeigma-graphql/schema/introspection.json",
+    "documents": [
+        "./apps/paradeigma-graphql/fragments/*.graphql",
+        "./apps/paradeigma-graphql/queries/*.graphql",
+        "./apps/paradeigma-graphql/mutations/*.graphql"
+    ]
 }
