@@ -1,4 +1,4 @@
-import type { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
+import type { ProgrammingLanguage, SnippetStyle } from '@paradeigma/paradeigma-graphql/sdk';
 
 import PreviewSlide from './PreviewSlide';
 

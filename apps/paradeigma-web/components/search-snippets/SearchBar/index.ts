@@ -1,4 +1,4 @@
-import type { ProgrammingLanguage } from 'graphql-server/sdk';
+import type { ProgrammingLanguage } from '@paradeigma/paradeigma-graphql/sdk';
 
 import SearchBar from './SearchBar';
 

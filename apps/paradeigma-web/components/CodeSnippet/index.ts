@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { ProgrammingLanguage, SnippetStyle } from 'graphql-server/sdk';
+import type { ProgrammingLanguage, SnippetStyle } from '@paradeigma/paradeigma-graphql/sdk';
 
 import CodeSnippet from './CodeSnippet';
 
