@@ -1,6 +1,6 @@
 import { useReducer, useCallback } from 'react';
 import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/paradeigma-graphql/sdk';
-import { NAME_MAX_LENGTH, DESCRIPTION_MAX_LENGTH } from '@paradeigma/paradeigma-graphql/models/snippet';
+import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from '@paradeigma/paradeigma-graphql/models/constants';
 
 type SnippetState = {
     name: string;
@@ -35,7 +35,7 @@ export default function useNewSnippetReducer() {
                 return {
                     ...state,
                     isInFirstSlide: true,
-                    ...action.name.length <= NAME_MAX_LENGTH && {
+                    ...action.name.length <= SNIPPET_NAME_MAX_LENGTH && {
                         name: action.name
                     }
                 }
@@ -44,7 +44,7 @@ export default function useNewSnippetReducer() {
                 return {
                     ...state,
                     isInFirstSlide: true,
-                    ...action.description.length <= DESCRIPTION_MAX_LENGTH && {
+                    ...action.description.length <= SNIPPET_DESCRIPTION_MAX_LENGTH && {
                         description: action.description
                     }
                 }
