@@ -1,4 +1,4 @@
-import { SnippetStyle } from '@paradeigma/paradeigma-graphql/sdk';
+import { SnippetStyle } from '@paradeigma-graphql/sdk';
 import type { FC } from 'react';
 import type { PreviewSlideProps } from './index';
 

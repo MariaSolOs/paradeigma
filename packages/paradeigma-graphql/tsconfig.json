@@ -4,6 +4,6 @@
     ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": "."
+        "sourceRoot": "./src"
     }
 }

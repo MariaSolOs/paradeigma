@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useDebounce from 'hooks/useDebounce';
 import { getHookedSdk } from 'lib/graphql';
-import type { ProgrammingLanguage, GetSnippetsQuery } from '@paradeigma/paradeigma-graphql/sdk';
+import type { ProgrammingLanguage, GetSnippetsQuery } from '@paradeigma-graphql/sdk';
 import type { NextPage, GetStaticProps } from 'next';
 
 import SearchBar from 'components/search-snippets/SearchBar';

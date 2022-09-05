@@ -6563,6 +6563,7 @@ __metadata:
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
     "@types/react-syntax-highlighter": ^15.5.5
+    "@types/react-transition-group": ^4.4.5
     ace-builds: ^1.10.0
     eslint: ^8.23.0
     eslint-config-next: 12.2.5

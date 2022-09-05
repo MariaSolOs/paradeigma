@@ -1,5 +1,5 @@
 {
-    "schema": "./packages/paradeigma-graphql/schema/introspection.json",
+    "schema": "./packages/paradeigma-graphql/introspection.json",
     "documents": [
         "./packages/paradeigma-graphql/fragments/*.graphql",
         "./packages/paradeigma-graphql/queries/*.graphql",

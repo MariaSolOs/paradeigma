@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { getLanguageIcon } from 'lib/snippet';
-import { ProgrammingLanguage } from '@paradeigma/paradeigma-graphql/sdk';
+import { ProgrammingLanguage } from '@paradeigma-graphql/sdk';
 import type { FC } from 'react';
 import type { SearchBarProps } from './index';
 

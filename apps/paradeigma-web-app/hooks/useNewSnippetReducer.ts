@@ -1,6 +1,6 @@
 import { useReducer, useCallback } from 'react';
-import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/paradeigma-graphql/sdk';
-import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from '@paradeigma/paradeigma-graphql/models/constants';
+import { ProgrammingLanguage, SnippetStyle } from '@paradeigma-graphql/sdk';
+import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from '@paradeigma-graphql/models/constants';
 
 type SnippetState = {
     name: string;

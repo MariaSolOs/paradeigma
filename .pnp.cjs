@@ -8773,6 +8773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.18"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
+            ["@types/react-transition-group", "npm:4.4.5"],\
             ["ace-builds", "npm:1.10.0"],\
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-next", "virtual:5224896fc2bd90c0c57ebf1d0050aabe1e4a1344063c25b6edcb31bd13581d5768b4a4c06ee7691a9ec714b7272caae0d8ef469eb05f8726306ed5451751a67e#npm:12.2.5"],\

@@ -12,9 +12,8 @@
         "baseUrl": ".",
         "noEmit": true,
         "paths": {
-            "*": [ "*", "../../packages/paradeigma-graphql/*" ],
-            "@paradeigma/paradeigma-graphql/*": [
-                "../../packages/paradeigma-graphql/*"
+            "@paradeigma-graphql/*": [
+                "../../packages/paradeigma-graphql/src/*"
             ]
         }
     }

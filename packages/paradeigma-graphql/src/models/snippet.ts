@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguage, SnippetStyle } from 'sdk';
-import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from 'models/constants';
+import { ProgrammingLanguage, SnippetStyle } from '../sdk';
+import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from './constants';
 import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
 
 export interface SnippetDocument {
