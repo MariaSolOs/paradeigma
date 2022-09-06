@@ -8815,7 +8815,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/lab", "virtual:d907e53a2ff7c0791ec79e0eb2857ee637cbacaa2767643766d1b36c95a0118c466dafb049eb7c066072f5e87063411abc2ca8100670e678281b29e62cde1ff7#npm:5.0.0-alpha.97"],\
             ["@mui/material", "virtual:d907e53a2ff7c0791ec79e0eb2857ee637cbacaa2767643766d1b36c95a0118c466dafb049eb7c066072f5e87063411abc2ca8100670e678281b29e62cde1ff7#npm:5.10.3"],\
             ["@paradeigma/paradeigma-graphql", "virtual:5224896fc2bd90c0c57ebf1d0050aabe1e4a1344063c25b6edcb31bd13581d5768b4a4c06ee7691a9ec714b7272caae0d8ef469eb05f8726306ed5451751a67e#workspace:packages/paradeigma-graphql"],\
-            ["@types/node", "npm:18.7.14"],\
+            ["@types/node", "npm:18.7.15"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
