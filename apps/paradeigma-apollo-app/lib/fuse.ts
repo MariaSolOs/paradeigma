@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js';
-import { Snippet } from '@paradeigma-mongoose';
+import { Snippet } from '@paradeigma/mongoose';
 import type { LeanDocument, Types } from 'mongoose';
-import type { SnippetDocument } from '@paradeigma-mongoose';
+import type { SnippetDocument } from '@paradeigma/mongoose';
 
 type SnippetFuse = Fuse<LeanDocument<SnippetDocument & { _id: Types.ObjectId }>>;
 

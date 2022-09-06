@@ -1,4 +1,4 @@
-import type { GetSnippetsQuery } from '@paradeigma-graphql';
+import type { GetSnippetsQuery } from '@paradeigma/graphql';
 
 import SnippetsMasonry from './SnippetsMasonry';
 

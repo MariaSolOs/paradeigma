@@ -1,13 +1,14 @@
 {
-    "name": "@paradeigma/paradeigma-graphql",
+    "name": "@paradeigma/graphql",
     "version": "0.1.0",
     "private": true,
     "license": "MIT",
+    "exports": "./index.ts",
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml"
     },
     "dependencies": {
-        "@paradeigma/paradeigma-mongoose": "workspace:*",
+        "@paradeigma/mongoose": "workspace:*",
         "graphql": "^16.6.0",
         "graphql-request": "^5.0.0",
         "graphql-tag": "^2.12.6",

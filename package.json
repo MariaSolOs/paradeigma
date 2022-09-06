@@ -7,7 +7,7 @@
         "apps/*"
     ],
     "scripts": {
-        "apps:dev": "yarn workspaces foreach -ptvi --include '*-app' run dev"
+        "apps:dev": "yarn workspaces foreach -ptvi --include '@paradeigma/*-app' run dev"
     },
     "devDependencies": {
         "eslint": "8.23.0",

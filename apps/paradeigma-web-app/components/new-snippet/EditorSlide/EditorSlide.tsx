@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { getLanguageIcon } from 'lib/snippet';
-import { ProgrammingLanguage } from '@paradeigma-graphql';
+import { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { EditorSlideProps } from './index';
 

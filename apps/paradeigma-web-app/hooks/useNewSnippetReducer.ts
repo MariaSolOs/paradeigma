@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import { ProgrammingLanguage, SnippetStyle } from '@paradeigma-graphql';
+import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/graphql';
 
 const NAME_MAX_LENGTH = 30;
 const DESCRIPTION_MAX_LENGTH = 100;

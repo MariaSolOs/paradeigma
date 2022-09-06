@@ -2,13 +2,5 @@
     "include": [
         "**/*.ts"
     ],
-    "extends": "../../tsconfig.base.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@paradeigma-mongoose": [
-                "../paradeigma-mongoose/index"
-            ]
-        }
-    }
+    "extends": "../../tsconfig.base.json"
 }

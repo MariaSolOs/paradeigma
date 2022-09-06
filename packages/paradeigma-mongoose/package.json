@@ -1,13 +1,14 @@
 {
-    "name": "@paradeigma/paradeigma-mongoose",
+    "name": "@paradeigma/mongoose",
     "version": "0.1.0",
     "private": true,
     "license": "MIT",
+    "exports": "./index.ts",
     "dependencies": {
         "mongoose": "^6.5.4"
     },
     "devDependencies": {
-        "@paradeigma/paradeigma-graphql": "workspace:*",
+        "@paradeigma/graphql": "workspace:*",
         "eslint": "^8.23.0",
         "typescript": "^4.8.2"
     }

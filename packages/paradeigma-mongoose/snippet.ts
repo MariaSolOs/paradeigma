@@ -1,5 +1,5 @@
 import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguage, SnippetStyle } from '@paradeigma-graphql';
+import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/graphql';
 import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
 
 const NAME_MAX_LENGTH = 30;

@@ -1,5 +1,5 @@
 {
-    "name": "paradeigma-web-app",
+    "name": "@paradeigma/web-app",
     "version": "0.1.0",
     "private": true,
     "license": "MIT",
@@ -18,7 +18,7 @@
         "@mui/icons-material": "^5.10.3",
         "@mui/lab": "^5.0.0-alpha.97",
         "@mui/material": "^5.10.3",
-        "@paradeigma/paradeigma-graphql": "workspace:*",
+        "@paradeigma/graphql": "workspace:*",
         "ace-builds": "^1.10.0",
         "graphql": "^16.6.0",
         "graphql-request": "^5.0.0",

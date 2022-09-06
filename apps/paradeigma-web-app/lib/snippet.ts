@@ -1,4 +1,4 @@
-import { ProgrammingLanguage, SnippetStyle } from '@paradeigma-graphql';
+import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/graphql';
 import type { HighlighterStyle } from 'react-syntax-highlighter';
 
 /**

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { getStylePackage } from 'lib/snippet';
-import { ProgrammingLanguage } from '@paradeigma-graphql';
+import { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { HighlighterStyle } from 'react-syntax-highlighter';
 import type { CodeSnippetProps } from './index';

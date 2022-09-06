@@ -9,14 +9,6 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "noEmit": true,
-        "baseUrl": ".",
-        "paths": {
-            "@paradeigma-graphql": [
-                "../../packages/paradeigma-graphql/index"
-            ],
-            "@paradeigma-mongoose": [
-                "../../packages/paradeigma-mongoose/index"
-            ]
-        }
+        "baseUrl": "."
     }
 }

@@ -24,4 +24,4 @@ generates:
     config:
       useTypeImports: true
       mappers:
-        Snippet: '@paradeigma-mongoose#SnippetDocument'
+        Snippet: '@paradeigma/mongoose#SnippetDocument'

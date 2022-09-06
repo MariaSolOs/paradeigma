@@ -1,8 +1,8 @@
-import { Snippet } from '@paradeigma-mongoose';
+import { Snippet } from '@paradeigma/mongoose';
 import { getFuse, addToFuseCollection } from 'lib/fuse';
-import { ProgrammingLanguage } from '@paradeigma-graphql';
+import { ProgrammingLanguage } from '@paradeigma/graphql';
 import type Fuse from 'fuse.js';
-import type { Resolvers } from '@paradeigma-graphql';
+import type { Resolvers } from '@paradeigma/graphql';
 
 const resolvers: Resolvers = {
     Snippet: {
