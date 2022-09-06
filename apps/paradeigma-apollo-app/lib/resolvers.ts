@@ -1,10 +1,10 @@
-import Snippet from './models/snippet';
-import { getFuse, addToFuseCollection } from './fuse';
-import { ProgrammingLanguage } from './sdk';
+import { Snippet } from '@paradeigma-mongoose';
+import { getFuse, addToFuseCollection } from 'lib/fuse';
+import { ProgrammingLanguage } from '@paradeigma-graphql';
 import type Fuse from 'fuse.js';
-import type { Resolvers } from './resolvers-types';
+import type { Resolvers } from '@paradeigma-graphql';
 
-export const resolvers: Resolvers = {
+const resolvers: Resolvers = {
     Snippet: {
         id: snippet => snippet._id.toString()
     },
@@ -53,3 +53,5 @@ export const resolvers: Resolvers = {
         }
     }
 }
+
+export default resolvers;

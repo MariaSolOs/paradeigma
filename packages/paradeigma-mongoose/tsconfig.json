@@ -6,8 +6,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@paradeigma-mongoose": [
-                "../paradeigma-mongoose/index"
+            "@paradeigma-graphql": [
+                "../paradeigma-graphql/index"
             ]
         }
     }

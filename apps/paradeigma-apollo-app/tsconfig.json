@@ -11,8 +11,11 @@
         "noEmit": true,
         "baseUrl": ".",
         "paths": {
-            "@paradeigma-graphql/*": [
-                "../../packages/paradeigma-graphql/src/*"
+            "@paradeigma-graphql": [
+                "../../packages/paradeigma-graphql/index"
+            ],
+            "@paradeigma-mongoose": [
+                "../../packages/paradeigma-mongoose/index"
             ]
         }
     }

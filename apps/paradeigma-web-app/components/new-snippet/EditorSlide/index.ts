@@ -1,4 +1,4 @@
-import type { ProgrammingLanguage } from '@paradeigma/paradeigma-graphql/sdk';
+import type { ProgrammingLanguage } from '@paradeigma/paradeigma-graphql';
 
 import EditorSlide from './EditorSlide';
 

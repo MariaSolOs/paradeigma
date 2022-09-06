@@ -1,4 +1,4 @@
-schema: './src/schema.ts'
+schema: './schema.ts'
 documents: [ './fragments/*.graphql', './queries/*.graphql', './mutations/*.graphql' ]
 generates:
   # We use this introspection file for the VS Code GraphQL extension to
@@ -8,7 +8,7 @@ generates:
       - introspection
     config:
       minify: true
-  ./src/sdk.ts:
+  ./sdk.ts:
     plugins:
       - typescript
       - typescript-operations
@@ -17,11 +17,11 @@ generates:
     config:
       skipTypename: true
       useTypeImports: true
-  ./src/resolvers-types.ts:
+  ./resolvers-types.ts:
     plugins:
       - typescript
       - typescript-resolvers
     config:
       useTypeImports: true
       mappers:
-        Snippet: './models/snippet#SnippetDocument'
+        Snippet: '@paradeigma-mongoose#SnippetDocument'

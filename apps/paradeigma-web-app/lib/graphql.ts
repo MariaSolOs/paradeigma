@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { getSdkWithHooks } from '@paradeigma-graphql/sdk';
+import { getSdkWithHooks } from '@paradeigma-graphql';
 
 /**
  * @returns The SDK wrapping the GraphQL client for typed operations.

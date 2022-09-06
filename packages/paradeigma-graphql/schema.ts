@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const typeDefs = gql`
+const typeDefs = gql`
     type Query {
         """
         Get snippets filtered by language and with a title or description
@@ -73,3 +73,5 @@ export const typeDefs = gql`
         style: SnippetStyle!
     }
 `;
+
+export default typeDefs;

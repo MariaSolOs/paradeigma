@@ -1,7 +1,9 @@
 import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguage, SnippetStyle } from '../sdk';
-import { SNIPPET_NAME_MAX_LENGTH, SNIPPET_DESCRIPTION_MAX_LENGTH } from './constants';
+import { ProgrammingLanguage, SnippetStyle } from '@paradeigma-graphql';
 import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
+
+const NAME_MAX_LENGTH = 30;
+const DESCRIPTION_MAX_LENGTH = 100;
 
 export interface SnippetDocument {
     _id: Types.ObjectId;
@@ -16,12 +18,12 @@ const snippetSchemaFields: Omit<ImpartialSchemaDefinition<SnippetDocument>, '_id
     name: {
         type: String,
         required: true,
-        maxlength: SNIPPET_NAME_MAX_LENGTH
+        maxlength: NAME_MAX_LENGTH
     },
     description: {
         type: String,
         required: true,
-        maxlength: SNIPPET_DESCRIPTION_MAX_LENGTH
+        maxlength: DESCRIPTION_MAX_LENGTH
     },
     content: {
         type: String,
