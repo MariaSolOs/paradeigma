@@ -5,7 +5,8 @@
     "license": "MIT",
     "exports": "./index.ts",
     "scripts": {
-        "codegen": "graphql-codegen --config codegen.yml"
+        "codegen": "graphql-codegen --config codegen.yml",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@paradeigma/mongoose": "workspace:*",

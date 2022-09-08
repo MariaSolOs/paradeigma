@@ -4,6 +4,9 @@
     "private": true,
     "license": "MIT",
     "exports": "./index.ts",
+    "scripts": {
+        "typecheck": "tsc --noEmit"
+    },
     "dependencies": {
         "mongoose": "^6.5.4"
     },
