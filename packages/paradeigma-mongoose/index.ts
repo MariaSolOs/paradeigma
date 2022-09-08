@@ -1,4 +1,4 @@
-import Snippet, { SnippetDocument } from './snippet';
+import Snippet, { SnippetDocument } from './models/snippet';
 
 export { Snippet };
 export type { SnippetDocument };
