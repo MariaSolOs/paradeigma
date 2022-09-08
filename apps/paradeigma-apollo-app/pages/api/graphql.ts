@@ -11,7 +11,7 @@ let cachedHandler: NextApiHandler | undefined = undefined;
 
 const handler: NextApiHandler = async (req, res) => {
     await mongooseConnection;
-
+    
     if (!cachedHandler) {
         const apolloServer = new ApolloServer({
             typeDefs,
