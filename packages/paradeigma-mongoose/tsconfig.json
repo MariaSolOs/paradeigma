@@ -1,6 +1,7 @@
 {
     "include": [
-        "**/*.ts"
+        "types",
+        "models"
     ],
     "extends": "../../tsconfig.base.json"
 }
