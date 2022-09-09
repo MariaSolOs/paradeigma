@@ -4,6 +4,7 @@
     "private": true,
     "license": "MIT",
     "exports": "./index.ts",
+    "types": "./index.d.ts",
     "scripts": {
         "typecheck": "tsc --noEmit"
     },

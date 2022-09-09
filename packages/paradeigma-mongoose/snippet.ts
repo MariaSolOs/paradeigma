@@ -1,6 +1,3 @@
-// Ensure that we pick up the module augmentation
-/// <reference path="types/mongoose.d.ts" />
-
 import { Schema, model, models } from 'mongoose';
 import { ProgrammingLanguage, SnippetStyle } from '@paradeigma/graphql';
 import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
