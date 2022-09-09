@@ -1,10 +1,13 @@
 import microCors from 'micro-cors';
 import { send } from 'micro';
+import { print } from 'graphql';
+import { ApolloServerPluginLandingPageLocalDefault, ApolloServerPluginLandingPageProductionDefault } from 'apollo-server-core';
 import { ApolloServer } from 'apollo-server-micro';
 import { typeDefs } from '@paradeigma/graphql';
 import resolvers from 'lib/resolvers';
 import mongooseConnection from 'lib/mongoose-connection';
 import type { NextApiHandler, PageConfig } from 'next';
+import { GetSnippetsDocument } from '@paradeigma/graphql';
 
 const cors = microCors();
 let cachedHandler: NextApiHandler | undefined = undefined;
@@ -13,9 +16,20 @@ const handler: NextApiHandler = async (req, res) => {
     await mongooseConnection;
     
     if (!cachedHandler) {
+        const landingPage = process.env['VERCEL_ENV']! === 'development' ? 
+            ApolloServerPluginLandingPageLocalDefault({
+                footer: false,
+                document: print(GetSnippetsDocument),
+                embed: true
+            }) : 
+            ApolloServerPluginLandingPageProductionDefault({
+                footer: false
+            });
+
         const apolloServer = new ApolloServer({
             typeDefs,
-            resolvers
+            resolvers,
+            plugins: [ landingPage ]
         });
 
         cachedHandler = await apolloServer.start().then(() => {

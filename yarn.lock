@@ -2051,6 +2051,7 @@ __metadata:
     "@types/node": ^18.7.15
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
+    apollo-server-core: ^3.10.2
     apollo-server-micro: ^3.10.2
     eslint: ^8.23.0
     eslint-config-next: 12.2.5
