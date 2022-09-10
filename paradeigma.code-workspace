@@ -1,0 +1,71 @@
+{
+    "folders": [
+        {
+            "name": "paradeigma",
+            "path": "."
+        },
+        {
+            "name": "@paradeigma/apollo-app",
+            "path": "apps/paradeigma-apollo-app"
+        },
+        {
+            "name": "@paradeigma/web-app",
+            "path": "apps/paradeigma-web-app"
+        },
+        {
+            "name": "@paradeigma/graphql",
+            "path": "packages/paradeigma-graphql"
+        },
+        {
+            "name": "@paradeigma/mongoose",
+            "path": "packages/paradeigma-mongoose"
+        },
+    ],
+    "settings": {
+        "files.associations": {
+            "*.json": "jsonc", // Allow comments in JSON
+            "*.env.local": "env"
+        },
+        "json.schemas": [
+            {
+                "fileMatch": [
+                    "graphql.config.json"
+                ],
+                "url": "https://www.graphql-code-generator.com/config.schema.json"
+            }
+        ],
+        "search.exclude": {
+            "**/.yarn": true,
+            "**/.pnp.*": true
+        },
+        "eslint.nodePath": "../../.yarn/sdks", // Relative to each workspace
+        "eslint.packageManager": "yarn",
+        "eslint.workingDirectories": [
+            "./apps/paradeigma-apollo-app",
+            "./apps/paradeigma-web-app",
+            "./packages/paradeigma-graphql",
+            "./packages/paradeigma-mongoose"
+        ],
+        "npm.packageManager": "yarn",
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true
+    },
+    "extensions": {
+        "recommendations": [
+            "dbaeumer.vscode-eslint",
+            "arcanis.vscode-zipfs" // Needed for "Go to definition" inside node_modules to work 
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Debug Apollo App",
+                "type": "node-terminal",
+                "request": "launch",
+                "cwd": "${workspaceFolder}/apps/paradeigma-apollo-app",
+                "command": "yarn dev"
+            }
+        ]
+    }
+}
