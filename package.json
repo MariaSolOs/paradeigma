@@ -8,7 +8,7 @@
     ],
     "scripts": {
         "apps:dev": "yarn workspaces foreach -ptvi --include '@paradeigma/*-app' run dev",
-        "g:typecheck": "yarn workspaces foreach -ptv run typecheck"
+        "g:typecheck": "yarn workspaces foreach -tv run typecheck"
     },
     "devDependencies": {
         "eslint": "8.23.0",

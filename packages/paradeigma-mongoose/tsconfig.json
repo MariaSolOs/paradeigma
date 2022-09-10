@@ -1,6 +1,8 @@
 {
     "include": [
-        "**/*.ts"
+        "src",
+        "types",
+        "index.d.ts"
     ],
     "extends": "../../tsconfig.base.json"
 }
