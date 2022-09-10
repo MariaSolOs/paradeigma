@@ -23,12 +23,12 @@
         "@graphql-codegen/typescript-operations": "^2.5.3",
         "@graphql-codegen/typescript-resolvers": "^2.7.3",
         "@types/node": "^18.7.15",
-        "eslint": "^8.23.0",
-        "graphql-codegen-plugin-typescript-swr": "^0.8.1",
-        "typescript": "^4.8.2"
+        "graphql-codegen-plugin-typescript-swr": "^0.8.1"
     },
     "peerDependencies": {
-        "react": "*"
+        "eslint": "^8.23.0",
+        "react": "*",
+        "typescript": "^4.8.2"
     },
     "peerDependenciesMeta": {
         "react": {

@@ -2053,7 +2053,6 @@ __metadata:
     "@types/react-dom": 18.0.6
     apollo-server-core: ^3.10.2
     apollo-server-micro: ^3.10.2
-    eslint: ^8.23.0
     eslint-config-next: 12.2.5
     fuse.js: ^6.6.2
     graphql: ^16.6.0
@@ -2063,6 +2062,8 @@ __metadata:
     next: 12.2.5
     react: 18.2.0
     react-dom: 18.2.0
+  peerDependencies:
+    eslint: ^8.23.0
     typescript: ^4.8.2
   languageName: unknown
   linkType: soft
@@ -2079,15 +2080,15 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": ^2.7.3
     "@paradeigma/mongoose": "workspace:*"
     "@types/node": ^18.7.15
-    eslint: ^8.23.0
     graphql: ^16.6.0
     graphql-codegen-plugin-typescript-swr: ^0.8.1
     graphql-request: ^5.0.0
     graphql-tag: ^2.12.6
     swr: ^1.3.0
-    typescript: ^4.8.2
   peerDependencies:
+    eslint: ^8.23.0
     react: "*"
+    typescript: ^4.8.2
   peerDependenciesMeta:
     react:
       optional: true
@@ -2099,8 +2100,9 @@ __metadata:
   resolution: "@paradeigma/mongoose@workspace:packages/paradeigma-mongoose"
   dependencies:
     "@paradeigma/graphql": "workspace:*"
-    eslint: ^8.23.0
     mongoose: ^6.5.4
+  peerDependencies:
+    eslint: ^8.23.0
     typescript: ^4.8.2
   languageName: unknown
   linkType: soft
@@ -2124,7 +2126,6 @@ __metadata:
     "@types/react-syntax-highlighter": ^15.5.5
     "@types/react-transition-group": ^4.4.5
     ace-builds: ^1.10.0
-    eslint: ^8.23.0
     eslint-config-next: 12.2.5
     graphql: ^16.6.0
     graphql-request: ^5.0.0
@@ -2135,6 +2136,8 @@ __metadata:
     react-dom: 18.2.0
     react-syntax-highlighter: ^15.5.0
     react-transition-group: ^4.4.5
+  peerDependencies:
+    eslint: ^8.23.0
     typescript: ^4.8.2
   languageName: unknown
   linkType: soft

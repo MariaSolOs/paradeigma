@@ -12,7 +12,9 @@
         "mongoose": "^6.5.4"
     },
     "devDependencies": {
-        "@paradeigma/graphql": "workspace:*",
+        "@paradeigma/graphql": "workspace:*"
+    },
+    "peerDependencies": {
         "eslint": "^8.23.0",
         "typescript": "^4.8.2"
     }
