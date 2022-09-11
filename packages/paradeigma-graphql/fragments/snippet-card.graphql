@@ -1,8 +1,0 @@
-fragment SnippetCard on Snippet {
-    id
-    name
-    description
-    content
-    language
-    style
-}

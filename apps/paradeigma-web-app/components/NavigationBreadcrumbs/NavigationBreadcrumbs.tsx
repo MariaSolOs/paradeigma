@@ -6,8 +6,8 @@ import * as S from './NavigationBreadcrumbs.styled';
 
 const navigationLinks: NavigationLink[] = [
     { ...routes.home, title: 'Home' },
-    { ...routes.searchSnippets, title: 'Search' },
-    { ...routes.newSnippet, title: 'New snippet' }
+    { ...routes.searchMikros, title: 'Search' },
+    { ...routes.newMikro, title: 'New mikro' }
 ];
 
 const NavigationBreadcrumbs = () => (

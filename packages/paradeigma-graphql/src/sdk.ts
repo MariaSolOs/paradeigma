@@ -18,56 +18,18 @@ export type Scalars = {
   Float: number;
 };
 
-export type Mutation = {
-  /** Create a new code snippet. */
-  createSnippet: Snippet;
-};
-
-
-export type MutationCreateSnippetArgs = {
-  content: Scalars['String'];
-  description: Scalars['String'];
-  language: ProgrammingLanguage;
-  name: Scalars['String'];
-  style: SnippetStyle;
-};
-
-/** Supported programming languages for a snippet. */
-export enum ProgrammingLanguage {
-  Csharp = 'csharp',
-  Css = 'css',
-  Java = 'java',
-  Javascript = 'javascript',
-  Markdown = 'markdown',
-  Python = 'python'
-}
-
-export type Query = {
-  /**
-   * Get snippets filtered by language and with a title or description
-   * matching the given query.
-   */
-  snippets: Array<Snippet>;
-};
-
-
-export type QuerySnippetsArgs = {
-  languages?: InputMaybe<Array<ProgrammingLanguage>>;
-  query?: InputMaybe<Scalars['String']>;
-};
-
-/** A code snippet. */
-export type Snippet = {
+/** A mikro. */
+export type Mikro = {
   content: Scalars['String'];
   description: Scalars['String'];
   id: Scalars['ID'];
   language: ProgrammingLanguage;
   name: Scalars['String'];
-  style: SnippetStyle;
+  style: MikroStyle;
 };
 
-/** Supported styles to use in a snippet code block. */
-export enum SnippetStyle {
+/** Supported styles to use in a mikro code block. */
+export enum MikroStyle {
   A11yDark = 'a11yDark',
   AtomDark = 'atomDark',
   Base16AteliersulphurpoolLight = 'base16AteliersulphurpoolLight',
@@ -91,29 +53,67 @@ export enum SnippetStyle {
   Tomorrow = 'tomorrow'
 }
 
-export type SnippetCardFragment = { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle };
+export type Mutation = {
+  /** Create a new mikro. */
+  createMikro: Mikro;
+};
 
-export type CreateSnippetMutationVariables = Exact<{
+
+export type MutationCreateMikroArgs = {
+  content: Scalars['String'];
+  description: Scalars['String'];
+  language: ProgrammingLanguage;
+  name: Scalars['String'];
+  style: MikroStyle;
+};
+
+/** Supported programming languages for a mikro. */
+export enum ProgrammingLanguage {
+  Csharp = 'csharp',
+  Css = 'css',
+  Java = 'java',
+  Javascript = 'javascript',
+  Markdown = 'markdown',
+  Python = 'python'
+}
+
+export type Query = {
+  /**
+   * Get mikros filtered by language and with a title or description
+   * matching the given query.
+   */
+  mikros: Array<Mikro>;
+};
+
+
+export type QueryMikrosArgs = {
+  languages?: InputMaybe<Array<ProgrammingLanguage>>;
+  query?: InputMaybe<Scalars['String']>;
+};
+
+export type MikroCardFragment = { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: MikroStyle };
+
+export type CreateMikroMutationVariables = Exact<{
   name: Scalars['String'];
   description: Scalars['String'];
   content: Scalars['String'];
   language: ProgrammingLanguage;
-  style: SnippetStyle;
+  style: MikroStyle;
 }>;
 
 
-export type CreateSnippetMutation = { createSnippet: { id: string } };
+export type CreateMikroMutation = { createMikro: { id: string } };
 
-export type GetSnippetsQueryVariables = Exact<{
+export type GetMikrosQueryVariables = Exact<{
   query?: InputMaybe<Scalars['String']>;
   languages?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
 }>;
 
 
-export type GetSnippetsQuery = { snippets: Array<{ id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: SnippetStyle }> };
+export type GetMikrosQuery = { mikros: Array<{ id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: MikroStyle }> };
 
-export const SnippetCardFragmentDoc = gql`
-    fragment SnippetCard on Snippet {
+export const MikroCardFragmentDoc = gql`
+    fragment MikroCard on Mikro {
   id
   name
   description
@@ -122,9 +122,9 @@ export const SnippetCardFragmentDoc = gql`
   style
 }
     `;
-export const CreateSnippetDocument = gql`
-    mutation createSnippet($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: SnippetStyle!) {
-  createSnippet(
+export const CreateMikroDocument = gql`
+    mutation createMikro($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: MikroStyle!) {
+  createMikro(
     name: $name
     description: $description
     content: $content
@@ -135,13 +135,13 @@ export const CreateSnippetDocument = gql`
   }
 }
     `;
-export const GetSnippetsDocument = gql`
-    query getSnippets($query: String, $languages: [ProgrammingLanguage!]) {
-  snippets(query: $query, languages: $languages) {
-    ...SnippetCard
+export const GetMikrosDocument = gql`
+    query getMikros($query: String, $languages: [ProgrammingLanguage!]) {
+  mikros(query: $query, languages: $languages) {
+    ...MikroCard
   }
 }
-    ${SnippetCardFragmentDoc}`;
+    ${MikroCardFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -150,11 +150,11 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    createSnippet(variables: CreateSnippetMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateSnippetMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<CreateSnippetMutation>(CreateSnippetDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createSnippet', 'mutation');
+    createMikro(variables: CreateMikroMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateMikroMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreateMikroMutation>(CreateMikroDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createMikro', 'mutation');
     },
-    getSnippets(variables?: GetSnippetsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetSnippetsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetSnippetsQuery>(GetSnippetsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getSnippets', 'query');
+    getMikros(variables?: GetMikrosQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMikrosQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetMikrosQuery>(GetMikrosDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getMikros', 'query');
     }
   };
 }
@@ -163,8 +163,8 @@ export function getSdkWithHooks(client: GraphQLClient, withWrapper: SdkFunctionW
   const sdk = getSdk(client, withWrapper);
   return {
     ...sdk,
-    useGetSnippets(key: SWRKeyInterface, variables?: GetSnippetsQueryVariables, config?: SWRConfigInterface<GetSnippetsQuery, ClientError>) {
-      return useSWR<GetSnippetsQuery, ClientError>(key, () => sdk.getSnippets(variables), config);
+    useGetMikros(key: SWRKeyInterface, variables?: GetMikrosQueryVariables, config?: SWRConfigInterface<GetMikrosQuery, ClientError>) {
+      return useSWR<GetMikrosQuery, ClientError>(key, () => sdk.getMikros(variables), config);
     }
   };
 }

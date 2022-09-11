@@ -1,0 +1,17 @@
+mutation createMikro(
+    $name: String!, 
+    $description: String!, 
+    $content: String!, 
+    $language: ProgrammingLanguage!,
+    $style: MikroStyle!
+) {
+    createMikro(
+        name: $name, 
+        description: $description,
+        content: $content,
+        language: $language,
+        style: $style
+    ) {
+        id
+    }
+}

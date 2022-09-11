@@ -7,7 +7,8 @@
     "types": "./src/index.ts",
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml",
-        "typecheck": "tsc --noEmit"
+        "lint": "yarn g:lint",
+        "typecheck": "yarn g:typecheck"
     },
     "dependencies": {
         "@paradeigma/mongoose": "workspace:*",
@@ -23,11 +24,10 @@
         "@graphql-codegen/typescript-graphql-request": "^4.5.4",
         "@graphql-codegen/typescript-operations": "^2.5.3",
         "@graphql-codegen/typescript-resolvers": "^2.7.3",
-        "@types/node": "^18.7.15",
+        "@types/node": "^18.7.16",
         "graphql-codegen-plugin-typescript-swr": "^0.8.1"
     },
     "peerDependencies": {
-        "eslint": "^8.23.0",
         "react": "*",
         "typescript": "^4.8.2"
     },

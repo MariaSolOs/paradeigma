@@ -1,4 +1,2 @@
-import Snippet, { SnippetDocument } from './snippet';
-
-export { Snippet };
-export type { SnippetDocument };
+export { default as Mikro } from './mikro';
+export type { MikroDocument } from './mikro';

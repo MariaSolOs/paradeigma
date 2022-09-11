@@ -1,21 +1,31 @@
-import { Snippet } from '@paradeigma/mongoose';
-import { getFuse, addToFuseCollection } from 'lib/fuse';
+import { Mikro } from '@paradeigma/mongoose';
 import { ProgrammingLanguage } from '@paradeigma/graphql';
+import { LazyFuse } from 'lib/fuse';
 import type Fuse from 'fuse.js';
+import type { LeanDocument, Types } from 'mongoose';
+import type { MikroDocument } from '@paradeigma/mongoose';
 import type { Resolvers } from '@paradeigma/graphql';
 
+const mikroFuse = new LazyFuse<LeanDocument<MikroDocument & { _id: Types.ObjectId }>>({
+    listProvider: async () => Mikro.find({}).lean(),
+    fuseOptions: {
+        keys: [ 'name', 'description', 'language' ],
+        useExtendedSearch: true
+    }
+});
+
 const resolvers: Resolvers = {
-    Snippet: {
-        id: snippet => snippet._id.toString()
+    Mikro: {
+        id: mikro => mikro._id.toString()
     },
 
     Query: {
-        snippets: async (_, { query, languages }) => {
-            const fuse = await getFuse();
+        mikros: async (_, { query, languages }) => {
+            const fuse = await mikroFuse.getFuse();
 
             const filters: Fuse.Expression[] = [];
 
-            // If we have a query string, use it to search a snippet with a matching
+            // If we have a query string, use it to search a mikro with a matching
             // name or description.
             if (query) {
                 filters.push({
@@ -38,8 +48,8 @@ const resolvers: Resolvers = {
     },
 
     Mutation: {
-        createSnippet: async (_, { name, description, content, language, style }) => {
-            const snippet = await Snippet.create({
+        createMikro: async (_, { name, description, content, language, style }) => {
+            const mikro = await Mikro.create({
                 name,
                 description,
                 content,
@@ -47,9 +57,10 @@ const resolvers: Resolvers = {
                 style
             });
             
-            await addToFuseCollection(snippet);
+            // Add the mikro to the Fuse collection.
+            (await mikroFuse.getFuse()).add(mikro);
             
-            return snippet;
+            return mikro;
         }
     }
 }

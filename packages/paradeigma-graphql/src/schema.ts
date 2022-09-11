@@ -3,27 +3,27 @@ import gql from 'graphql-tag';
 const typeDefs = gql`
     type Query {
         """
-        Get snippets filtered by language and with a title or description
+        Get mikros filtered by language and with a title or description
         matching the given query.
         """
-        snippets(query: String, languages: [ProgrammingLanguage!]): [Snippet!]!
+        mikros(query: String, languages: [ProgrammingLanguage!]): [Mikro!]!
     }
 
     type Mutation {
         """
-        Create a new code snippet.
+        Create a new mikro.
         """
-        createSnippet(
+        createMikro(
             name: String!,
             description: String!
             content: String!,
             language: ProgrammingLanguage!,
-            style: SnippetStyle!
-        ): Snippet!
+            style: MikroStyle!
+        ): Mikro!
     }
 
     """
-    Supported programming languages for a snippet.
+    Supported programming languages for a mikro.
     """
     enum ProgrammingLanguage {
         csharp
@@ -35,9 +35,9 @@ const typeDefs = gql`
     }
 
     """
-    Supported styles to use in a snippet code block.
+    Supported styles to use in a mikro code block.
     """
-    enum SnippetStyle {
+    enum MikroStyle {
         a11yDark
         atomDark
         base16AteliersulphurpoolLight
@@ -62,15 +62,15 @@ const typeDefs = gql`
     }
 
     """
-    A code snippet.
+    A mikro.
     """
-    type Snippet {
+    type Mikro {
         id: ID!
         name: String!
         description: String!
         content: String!
         language: ProgrammingLanguage!
-        style: SnippetStyle!
+        style: MikroStyle!
     }
 `;
 

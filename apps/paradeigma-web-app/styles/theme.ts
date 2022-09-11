@@ -33,7 +33,7 @@ const theme = createTheme({
         MuiCssBaseline: {
             styleOverrides: theme => `
                 body {
-                    font-family: ${theme.typography.mono.fontFamily};
+                    font-family: ${theme.typography.mono.fontFamily ?? 'monospace'};
                 }
             `
         },

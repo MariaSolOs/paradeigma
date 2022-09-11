@@ -6,8 +6,8 @@ import { ApolloServer } from 'apollo-server-micro';
 import { typeDefs } from '@paradeigma/graphql';
 import resolvers from 'lib/resolvers';
 import mongooseConnection from 'lib/mongoose-connection';
+import { GetMikrosDocument } from '@paradeigma/graphql';
 import type { NextApiHandler, PageConfig } from 'next';
-import { GetSnippetsDocument } from '@paradeigma/graphql';
 
 const cors = microCors();
 let cachedHandler: NextApiHandler | undefined = undefined;
@@ -16,10 +16,10 @@ const handler: NextApiHandler = async (req, res) => {
     await mongooseConnection;
     
     if (!cachedHandler) {
-        const landingPage = process.env['VERCEL_ENV']! === 'development' ? 
+        const landingPage = process.env['VERCEL_ENV'] === 'development' ? 
             ApolloServerPluginLandingPageLocalDefault({
                 footer: false,
-                document: print(GetSnippetsDocument),
+                document: print(GetMikrosDocument),
                 embed: true
             }) : 
             ApolloServerPluginLandingPageProductionDefault({
@@ -45,7 +45,7 @@ const handler: NextApiHandler = async (req, res) => {
         });
     }
 
-    return cachedHandler!(req, res);
+    return (cachedHandler as NextApiHandler)(req, res);
 }
 
 export const config: PageConfig = {

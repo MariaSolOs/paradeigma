@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo } from 'graphql';
-import type { SnippetDocument } from '@paradeigma/mongoose';
+import type { MikroDocument } from '@paradeigma/mongoose';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -15,59 +15,19 @@ export type Scalars = {
   Float: number;
 };
 
-export type Mutation = {
-  __typename?: 'Mutation';
-  /** Create a new code snippet. */
-  createSnippet: Snippet;
-};
-
-
-export type MutationCreateSnippetArgs = {
-  content: Scalars['String'];
-  description: Scalars['String'];
-  language: ProgrammingLanguage;
-  name: Scalars['String'];
-  style: SnippetStyle;
-};
-
-/** Supported programming languages for a snippet. */
-export enum ProgrammingLanguage {
-  Csharp = 'csharp',
-  Css = 'css',
-  Java = 'java',
-  Javascript = 'javascript',
-  Markdown = 'markdown',
-  Python = 'python'
-}
-
-export type Query = {
-  __typename?: 'Query';
-  /**
-   * Get snippets filtered by language and with a title or description
-   * matching the given query.
-   */
-  snippets: Array<Snippet>;
-};
-
-
-export type QuerySnippetsArgs = {
-  languages?: InputMaybe<Array<ProgrammingLanguage>>;
-  query?: InputMaybe<Scalars['String']>;
-};
-
-/** A code snippet. */
-export type Snippet = {
-  __typename?: 'Snippet';
+/** A mikro. */
+export type Mikro = {
+  __typename?: 'Mikro';
   content: Scalars['String'];
   description: Scalars['String'];
   id: Scalars['ID'];
   language: ProgrammingLanguage;
   name: Scalars['String'];
-  style: SnippetStyle;
+  style: MikroStyle;
 };
 
-/** Supported styles to use in a snippet code block. */
-export enum SnippetStyle {
+/** Supported styles to use in a mikro code block. */
+export enum MikroStyle {
   A11yDark = 'a11yDark',
   AtomDark = 'atomDark',
   Base16AteliersulphurpoolLight = 'base16AteliersulphurpoolLight',
@@ -90,6 +50,46 @@ export enum SnippetStyle {
   Synthwave84 = 'synthwave84',
   Tomorrow = 'tomorrow'
 }
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  /** Create a new mikro. */
+  createMikro: Mikro;
+};
+
+
+export type MutationCreateMikroArgs = {
+  content: Scalars['String'];
+  description: Scalars['String'];
+  language: ProgrammingLanguage;
+  name: Scalars['String'];
+  style: MikroStyle;
+};
+
+/** Supported programming languages for a mikro. */
+export enum ProgrammingLanguage {
+  Csharp = 'csharp',
+  Css = 'css',
+  Java = 'java',
+  Javascript = 'javascript',
+  Markdown = 'markdown',
+  Python = 'python'
+}
+
+export type Query = {
+  __typename?: 'Query';
+  /**
+   * Get mikros filtered by language and with a title or description
+   * matching the given query.
+   */
+  mikros: Array<Mikro>;
+};
+
+
+export type QueryMikrosArgs = {
+  languages?: InputMaybe<Array<ProgrammingLanguage>>;
+  query?: InputMaybe<Scalars['String']>;
+};
 
 
 
@@ -162,11 +162,11 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
+  Mikro: ResolverTypeWrapper<MikroDocument>;
+  MikroStyle: MikroStyle;
   Mutation: ResolverTypeWrapper<{}>;
   ProgrammingLanguage: ProgrammingLanguage;
   Query: ResolverTypeWrapper<{}>;
-  Snippet: ResolverTypeWrapper<SnippetDocument>;
-  SnippetStyle: SnippetStyle;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
 
@@ -174,33 +174,33 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   ID: Scalars['ID'];
+  Mikro: MikroDocument;
   Mutation: {};
   Query: {};
-  Snippet: SnippetDocument;
   String: Scalars['String'];
 };
 
-export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  createSnippet?: Resolver<ResolversTypes['Snippet'], ParentType, ContextType, RequireFields<MutationCreateSnippetArgs, 'content' | 'description' | 'language' | 'name' | 'style'>>;
-};
-
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  snippets?: Resolver<Array<ResolversTypes['Snippet']>, ParentType, ContextType, Partial<QuerySnippetsArgs>>;
-};
-
-export type SnippetResolvers<ContextType = any, ParentType extends ResolversParentTypes['Snippet'] = ResolversParentTypes['Snippet']> = {
+export type MikroResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mikro'] = ResolversParentTypes['Mikro']> = {
   content?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   language?: Resolver<ResolversTypes['ProgrammingLanguage'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  style?: Resolver<ResolversTypes['SnippetStyle'], ParentType, ContextType>;
+  style?: Resolver<ResolversTypes['MikroStyle'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createMikro?: Resolver<ResolversTypes['Mikro'], ParentType, ContextType, RequireFields<MutationCreateMikroArgs, 'content' | 'description' | 'language' | 'name' | 'style'>>;
+};
+
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  mikros?: Resolver<Array<ResolversTypes['Mikro']>, ParentType, ContextType, Partial<QueryMikrosArgs>>;
+};
+
 export type Resolvers<ContextType = any> = {
+  Mikro?: MikroResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  Snippet?: SnippetResolvers<ContextType>;
 };
 

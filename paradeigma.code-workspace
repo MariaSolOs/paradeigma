@@ -47,7 +47,7 @@
             "./packages/paradeigma-mongoose"
         ],
         "npm.packageManager": "yarn",
-        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.tsdk": "paradeigma/.yarn/sdks/typescript/lib",
         "typescript.enablePromptUseWorkspaceTsdk": true
     },
     "extensions": {

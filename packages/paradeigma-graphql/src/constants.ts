@@ -2,11 +2,11 @@
 // TODO: Add a maximum length for content?
 
 /**
- * Maximum length for a snippet's name field.
+ * Maximum length for a mikro's name field.
  */
-export const SNIPPET_NAME_MAX_LENGTH = 30;
+export const MIKRO_NAME_MAX_LENGTH = 30;
 
 /**
- * Maximum length for a snippet's description field.
+ * Maximum length for a mikro's description field.
  */
-export const SNIPPET_DESCRIPTION_MAX_LENGTH = 100;
+export const MIKRO_DESCRIPTION_MAX_LENGTH = 100;

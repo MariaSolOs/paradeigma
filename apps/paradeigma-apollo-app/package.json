@@ -7,8 +7,8 @@
         "dev": "next dev -p 4000",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "typecheck": "tsc --noEmit"
+        "lint": "yarn g:lint",
+        "typecheck": "yarn g:typecheck"
     },
     "dependencies": {
         "@paradeigma/graphql": "workspace:*",
@@ -19,20 +19,16 @@
         "graphql": "^16.6.0",
         "micro": "^9.4.1",
         "micro-cors": "^0.1.1",
-        "mongoose": "^6.5.4",
-        "next": "12.2.5",
+        "mongoose": "^6.6.0",
+        "next": "12.3.0",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
     "devDependencies": {
         "@types/micro-cors": "^0.1.2",
-        "@types/node": "^18.7.15",
-        "@types/react": "18.0.18",
+        "@types/node": "^18.7.16",
+        "@types/react": "18.0.19",
         "@types/react-dom": "18.0.6",
-        "eslint-config-next": "12.2.5"
-    },
-    "peerDependencies": {
-        "eslint": "^8.23.0",
-        "typescript": "^4.8.2"
+        "typescript": "^4.8.3"
     }
 }

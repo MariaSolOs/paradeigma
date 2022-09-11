@@ -1,33 +1,22 @@
 import Fuse from 'fuse.js';
-import { Snippet } from '@paradeigma/mongoose';
-import type { LeanDocument, Types } from 'mongoose';
-import type { SnippetDocument } from '@paradeigma/mongoose';
-
-type SnippetFuse = Fuse<LeanDocument<SnippetDocument & { _id: Types.ObjectId }>>;
-
-let fuse: SnippetFuse | undefined = undefined;
 
 /**
- * @returns The lazy initialized instance of Fuse for searching snippets.
+ * Lazy instances of {@link Fuse} objects.
  */
-export const getFuse = async (): Promise<SnippetFuse> => {
-    if (fuse === undefined) {
-        const allSnippets = await Snippet.find({}).lean();
-        fuse = new Fuse(allSnippets, {
-            keys: [ 'name', 'description', 'language' ],
-            useExtendedSearch: true
-        });
+export class LazyFuse<T> {
+    private _fuse: Fuse<T> | undefined = undefined;
+
+    constructor(private options: {
+        listProvider: () => Promise<T[]>;
+        fuseOptions?: Fuse.IFuseOptions<T>;
+    }) {}
+
+    async getFuse() {
+        if (this._fuse === undefined) {
+            const list = await this.options.listProvider();
+            this._fuse = new Fuse(list, this.options.fuseOptions);
+        }
+
+        return this._fuse;
     }
-
-    return fuse;
-}
-
-/**
- * Adds the given snippet to the Fuse collection.
- * 
- * @param snippet - The snippet to add
- */
-export const addToFuseCollection = async (snippet: SnippetDocument) => {
-    const fuse = await getFuse();
-    fuse.add(snippet);
 }

@@ -1,0 +1,8 @@
+fragment MikroCard on Mikro {
+    id
+    name
+    description
+    content
+    language
+    style
+}

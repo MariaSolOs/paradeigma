@@ -1,15 +1,18 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
-import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 import createEmotionServer from '@emotion/server/create-instance';
+import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
 export default class CustomDocument extends Document {
     static override async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> {
         const originalRenderPage = context.renderPage;
 
         const cache = createEmotionCache();
+        // TODO: Fix this
+        // eslint-disable-next-line @typescript-eslint/unbound-method, @typescript-eslint/no-unsafe-argument
         const { extractCriticalToChunks } = createEmotionServer(cache);
 
         context.renderPage = () => originalRenderPage({
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             enhanceApp: (App: any) => function EnhanceApp(props) {
                 return <App emotionCache={cache} { ...props } />;
             }
@@ -54,8 +57,8 @@ export default class CustomDocument extends Document {
                     {/* Programming language icons */}
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
                     
-                    <meta name={`"${INSERTION_POINT_NAME}"`} content="" />
-                    {(this.props as any).emotionStyleTags}
+                    <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
+                    {(this.props as unknown as { emotionStyleTags: JSX.Element; }).emotionStyleTags}
                 </Head>
                 <body>
                     <Main />

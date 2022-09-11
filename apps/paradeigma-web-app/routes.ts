@@ -2,8 +2,8 @@ import { createRoute } from 'next-typed-routes';
 
 const routes = {
     home: createRoute('/'),
-    searchSnippets: createRoute('/snippet/search'),
-    newSnippet: createRoute('/snippet/new')
-}
+    searchMikros: createRoute('/mikro/search'),
+    newMikro: createRoute('/mikro/new')
+} as const;
 
 export default routes;
