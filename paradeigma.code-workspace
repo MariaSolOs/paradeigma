@@ -41,10 +41,8 @@
         "eslint.nodePath": "../../.yarn/sdks", // Relative to each workspace
         "eslint.packageManager": "yarn",
         "eslint.workingDirectories": [
-            "./apps/paradeigma-apollo-app",
-            "./apps/paradeigma-web-app",
-            "./packages/paradeigma-graphql",
-            "./packages/paradeigma-mongoose"
+            "./apps/*",
+            "./packages/*"
         ],
         "npm.packageManager": "yarn",
         "typescript.tsdk": "paradeigma/.yarn/sdks/typescript/lib",

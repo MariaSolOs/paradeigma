@@ -41,14 +41,14 @@ export const SelectRoot = styled(SelectRootBase, {
 export const SelectListbox = styled(SelectListboxBase)(({ theme }) => ({
     width: '60%',
     minWidth: 350,
-    
+
     [theme.breakpoints.down('sm')]: { minWidth: 150 }
 }));
 
 export const SelectOption = styled(SelectOptionBase)(({ disabled }) => ({ 
     fontSize: '0.8rem',
 
-    ...disabled && { opacity: 0.4 }
+    ...(disabled === true) && { opacity: 0.4 }
 }));
 
 export const ChipsContainer = styled('div')({

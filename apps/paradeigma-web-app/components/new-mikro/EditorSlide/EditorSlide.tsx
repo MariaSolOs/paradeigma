@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { getLanguageIcon } from 'lib/mikro';
 import { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { FC } from 'react';
+import type { Ace } from 'ace-builds';
 import type { EditorSlideProps } from './index';
 
 import Skeleton from '@mui/material/Skeleton';
@@ -23,7 +24,7 @@ const AceEditor = dynamic(async () => {
 
     // Prevent the console warning about misspelled prop names.
     await import('ace-builds/src-noconflict/ext-language_tools');
-
+    
     // Import the theme.
     await import('ace-builds/src-noconflict/theme-github');
 
@@ -32,7 +33,7 @@ const AceEditor = dynamic(async () => {
         await import(`ace-builds/src-noconflict/mode-${language}`);
     }
 
-    const ace = await import('ace-builds/src-noconflict/ace');
+    const ace = await import('ace-builds/src-noconflict/ace') as { config: Ace.Config; };
     ace.config.set('basePath', '/code-editor/ace.min.js');
     ace.config.setModuleUrl('ace/mode/javascript_worker', '/code-editor/worker-javascript.js');
 
@@ -57,7 +58,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                     <S.FormControl>
                         <Input
                         value={props.name}
-                        onChange={(event) => props.onNameChange(event.target.value as string)}
+                        onChange={(event) => props.onNameChange(event.target.value)}
                         placeholder="Baptize your mikro."
                         required />
                         <InputLabel sx={{ textIndent: '0.5rem' }}>
@@ -68,7 +69,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                     <S.FormControl>
                         <Input
                         value={props.description}
-                        onChange={event => props.onDescriptionChange(event.target.value as string)}
+                        onChange={event => props.onDescriptionChange(event.target.value)}
                         placeholder="What is your mikro about?"
                         multiline
                         rows={3} />

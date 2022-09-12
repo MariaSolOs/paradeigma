@@ -7,8 +7,7 @@ export default class CustomDocument extends Document {
         const originalRenderPage = context.renderPage;
 
         const cache = createEmotionCache();
-        // TODO: Fix this
-        // eslint-disable-next-line @typescript-eslint/unbound-method, @typescript-eslint/no-unsafe-argument
+        // eslint-disable-next-line @typescript-eslint/unbound-method
         const { extractCriticalToChunks } = createEmotionServer(cache);
 
         context.renderPage = () => originalRenderPage({

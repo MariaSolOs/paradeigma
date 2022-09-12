@@ -1,12 +1,6 @@
 {
-    "extends": "./tsconfig.base.json",
+    "include": [".eslintrc.js"], // We need to include this file in at least one project
     "compilerOptions": {
         "noEmit": true
-    },
-    "include": [
-        ".eslintrc.js",
-        "apps/**/*.ts",
-        "apps/**/*.tsx",
-        "packages/**/*.ts"
-    ]
+    }
 }
