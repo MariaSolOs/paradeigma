@@ -40,4 +40,4 @@ const mikroSchemaFields: Omit<ImpartialSchemaDefinition<MikroDocument>, '_id'> =
 
 const mikroSchema = new Schema<MikroDocument>(mikroSchemaFields);
 
-export default (models['Mikro'] as Model<MikroDocument, unknown, unknown, unknown, unknown>) || model<MikroDocument>('Mikro', mikroSchema);
+export default (models['Mikro'] as Model<MikroDocument>) || model<MikroDocument>('Mikro', mikroSchema);
