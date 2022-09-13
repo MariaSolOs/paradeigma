@@ -21,7 +21,7 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
             defaultColumns: isBelowMedium ? 1 : 2,
             spacing: isBelowMedium ? 3 : 4,
             defaultSpacing: isBelowMedium ? 3 : 4
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Mui won't accept this props otherwise
         } as MasonryProps as any}>
             {props.mikros.map(mikro => {
                 // Hack to get rid of the findDOMNode warning with 

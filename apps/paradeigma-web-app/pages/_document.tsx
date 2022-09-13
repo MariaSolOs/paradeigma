@@ -11,7 +11,7 @@ export default class CustomDocument extends Document {
         const { extractCriticalToChunks } = createEmotionServer(cache);
 
         context.renderPage = () => originalRenderPage({
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Easily add the emotion cache
             enhanceApp: (App: any) => function EnhanceApp(props) {
                 return <App emotionCache={cache} { ...props } />;
             }
