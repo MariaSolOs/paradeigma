@@ -38,6 +38,7 @@
             "**/.yarn": true,
             "**/.pnp.*": true
         },
+        "terminal.integrated.cwd": "${workspaceFolder:paradeigma}", // Open terminals at the root
         "eslint.nodePath": "../../.yarn/sdks", // Relative to each workspace
         "eslint.packageManager": "yarn",
         "eslint.workingDirectories": [
