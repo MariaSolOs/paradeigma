@@ -1,5 +1,5 @@
 import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguage, MikroStyle, Constants } from '@paradeigma/graphql';
+import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
 import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
 
 export interface MikroDocument {
@@ -15,12 +15,12 @@ const mikroSchemaFields: Omit<ImpartialSchemaDefinition<MikroDocument>, '_id'> =
     name: {
         type: String,
         required: true,
-        maxlength: Constants.MIKRO_NAME_MAX_LENGTH
+        maxlength: MIKRO_NAME_MAX_LENGTH
     },
     description: {
         type: String,
         required: true,
-        maxlength: Constants.MIKRO_DESCRIPTION_MAX_LENGTH
+        maxlength: MIKRO_DESCRIPTION_MAX_LENGTH
     },
     content: {
         type: String,

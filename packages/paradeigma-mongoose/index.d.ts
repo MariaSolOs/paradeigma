@@ -5,5 +5,5 @@
 import type { MikroDocument } from './src/mikro';
 import type { Model } from 'mongoose';
 
-export type { MikroDocument };
 export const Mikro: Model<MikroDocument>;
+export type { MikroDocument };

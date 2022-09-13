@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import { ProgrammingLanguage, MikroStyle, Constants } from '@paradeigma/graphql';
+import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
 
 type MikroState = {
     name: string;
@@ -34,7 +34,7 @@ export default function useNewMikroReducer() {
                 return {
                     ...state,
                     isInFirstSlide: true,
-                    ...action.name.length <= Constants.MIKRO_NAME_MAX_LENGTH && {
+                    ...action.name.length <= MIKRO_NAME_MAX_LENGTH && {
                         name: action.name
                     }
                 }
@@ -43,7 +43,7 @@ export default function useNewMikroReducer() {
                 return {
                     ...state,
                     isInFirstSlide: true,
-                    ...action.description.length <= Constants.MIKRO_DESCRIPTION_MAX_LENGTH && {
+                    ...action.description.length <= MIKRO_DESCRIPTION_MAX_LENGTH && {
                         description: action.description
                     }
                 }
