@@ -44,7 +44,10 @@ const resolvers: Resolvers = {
 
             const searchResults = fuse.search({ $and: filters });
 
-            return searchResults.map(result => result.item);
+            return searchResults.map(result => result.item).sort((mikro1, mikro2) => 
+                // Mikros with higher ratings should come first.
+                mikro2.rating - mikro1.rating
+            );
         },
 
         mikro: async (_, { id }) => {
@@ -60,12 +63,17 @@ const resolvers: Resolvers = {
 
     Mutation: {
         createMikro: async (_, { name, description, content, language, style }) => {
+            // Initially all mikros have a perfect (5) rating.
+            const totalMikros = Math.min(await Mikro.estimatedDocumentCount(), 1);
+            const rating = 5 / totalMikros;
+
             const mikro = await Mikro.create({
                 name,
                 description,
                 content,
                 language,
-                style
+                style,
+                rating
             });
             
             // Add the mikro to the Fuse collection.

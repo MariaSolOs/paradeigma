@@ -23,6 +23,7 @@ export type Mikro = {
   id: Scalars['ID'];
   language: ProgrammingLanguage;
   name: Scalars['String'];
+  rating: Scalars['Float'];
   style: MikroStyle;
 };
 
@@ -168,6 +169,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Float: ResolverTypeWrapper<Scalars['Float']>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Mikro: ResolverTypeWrapper<MikroDocument>;
   MikroStyle: MikroStyle;
@@ -180,6 +182,7 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  Float: Scalars['Float'];
   ID: Scalars['ID'];
   Mikro: MikroDocument;
   Mutation: {};
@@ -193,6 +196,7 @@ export type MikroResolvers<ContextType = any, ParentType extends ResolversParent
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   language?: Resolver<ResolversTypes['ProgrammingLanguage'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  rating?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
   style?: Resolver<ResolversTypes['MikroStyle'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };

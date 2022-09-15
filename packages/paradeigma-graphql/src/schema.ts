@@ -5,6 +5,7 @@ const typeDefs = gql`
         """
         Get mikros filtered by language and with a title or description
         matching the given query.
+        The results are sorted by rating.
         """
         mikros(query: String, languages: [ProgrammingLanguage!]): [Mikro!]!
 
@@ -76,6 +77,7 @@ const typeDefs = gql`
         content: String!
         language: ProgrammingLanguage!
         style: MikroStyle!
+        rating: Float!
     }
 `;
 

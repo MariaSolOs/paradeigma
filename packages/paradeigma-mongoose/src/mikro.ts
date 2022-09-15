@@ -9,6 +9,7 @@ export interface MikroDocument {
     content: string;
     language: ProgrammingLanguage;
     style: MikroStyle;
+    rating: number;
 }
 
 const mikroSchemaFields: Omit<ImpartialSchemaDefinition<MikroDocument>, '_id'> = {
@@ -35,6 +36,11 @@ const mikroSchemaFields: Omit<ImpartialSchemaDefinition<MikroDocument>, '_id'> =
         type: String,
         required: true,
         enum: Object.values(MikroStyle)
+    },
+    rating: {
+        type: Number,
+        required: true,
+        min: 0
     }
 }   
 

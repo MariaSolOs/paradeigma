@@ -25,6 +25,7 @@ export type Mikro = {
   id: Scalars['ID'];
   language: ProgrammingLanguage;
   name: Scalars['String'];
+  rating: Scalars['Float'];
   style: MikroStyle;
 };
 
@@ -111,6 +112,13 @@ export type CreateMikroMutationVariables = Exact<{
 
 export type CreateMikroMutation = { createMikro: { id: string } };
 
+export type GetMikroQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetMikroQuery = { mikro: { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: MikroStyle } };
+
 export type GetMikrosQueryVariables = Exact<{
   query?: InputMaybe<Scalars['String']>;
   languages?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
@@ -142,6 +150,13 @@ export const CreateMikroDocument = gql`
   }
 }
     `;
+export const GetMikroDocument = gql`
+    query getMikro($id: ID!) {
+  mikro(id: $id) {
+    ...MikroCard
+  }
+}
+    ${MikroCardFragmentDoc}`;
 export const GetMikrosDocument = gql`
     query getMikros($query: String, $languages: [ProgrammingLanguage!]) {
   mikros(query: $query, languages: $languages) {
@@ -160,6 +175,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     createMikro(variables: CreateMikroMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateMikroMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateMikroMutation>(CreateMikroDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'createMikro', 'mutation');
     },
+    getMikro(variables: GetMikroQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMikroQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetMikroQuery>(GetMikroDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getMikro', 'query');
+    },
     getMikros(variables?: GetMikrosQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMikrosQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetMikrosQuery>(GetMikrosDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getMikros', 'query');
     }
@@ -170,6 +188,9 @@ export function getSdkWithHooks(client: GraphQLClient, withWrapper: SdkFunctionW
   const sdk = getSdk(client, withWrapper);
   return {
     ...sdk,
+    useGetMikro(key: SWRKeyInterface, variables: GetMikroQueryVariables, config?: SWRConfigInterface<GetMikroQuery, ClientError>) {
+      return useSWR<GetMikroQuery, ClientError>(key, () => sdk.getMikro(variables), config);
+    },
     useGetMikros(key: SWRKeyInterface, variables?: GetMikrosQueryVariables, config?: SWRConfigInterface<GetMikrosQuery, ClientError>) {
       return useSWR<GetMikrosQuery, ClientError>(key, () => sdk.getMikros(variables), config);
     }
