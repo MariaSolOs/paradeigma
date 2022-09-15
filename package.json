@@ -9,13 +9,15 @@
     "scripts": {
         "apps:dev": "yarn workspaces foreach -ptvi --include '@paradeigma/*-app' run dev",
         "g:lint": "cd $INIT_CWD && eslint .",
-        "g:typecheck": "cd $INIT_CWD && tsc --noEmit"
+        "g:typecheck": "cd $INIT_CWD && tsc --noEmit",
+        "g:clean": "cd $INIT_CWD && rimraf ./tsconfig.tsbuildinfo ./.next"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.36.2",
         "@typescript-eslint/parser": "^5.36.2",
         "eslint": "8.23.0",
         "eslint-config-next": "12.3.0",
+        "rimraf": "^3.0.2",
         "typescript": "4.8.3"
     },
     "resolutions": {

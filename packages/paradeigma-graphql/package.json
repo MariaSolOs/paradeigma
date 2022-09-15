@@ -8,7 +8,8 @@
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml",
         "lint": "yarn g:lint",
-        "typecheck": "yarn g:typecheck"
+        "typecheck": "yarn g:typecheck",
+        "clean": "yarn g:clean"
     },
     "dependencies": {
         "@paradeigma/mongoose": "workspace:*",

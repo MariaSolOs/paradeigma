@@ -7,7 +7,8 @@
     "types": "./index.d.ts",
     "scripts": {
         "lint": "yarn g:lint",
-        "typecheck": "yarn g:typecheck"
+        "typecheck": "yarn g:typecheck",
+        "clean": "yarn g:clean"
     },
     "dependencies": {
         "mongoose": "^6.6.0"

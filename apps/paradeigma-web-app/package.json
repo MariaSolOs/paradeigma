@@ -8,7 +8,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "yarn g:lint",
-        "typecheck": "yarn g:typecheck"
+        "typecheck": "yarn g:typecheck",
+        "clean": "yarn g:clean"
     },
     "dependencies": {
         "@emotion/cache": "^11.10.3",
