@@ -1,6 +1,7 @@
 import { Mikro } from '@paradeigma/mongoose';
 import { ProgrammingLanguage } from '@paradeigma/graphql';
 import { LazyFuse } from 'lib/fuse';
+import { ApolloError } from 'apollo-server-core';
 import type Fuse from 'fuse.js';
 import type { LeanDocument, Types } from 'mongoose';
 import type { MikroDocument } from '@paradeigma/mongoose';
@@ -44,6 +45,16 @@ const resolvers: Resolvers = {
             const searchResults = fuse.search({ $and: filters });
 
             return searchResults.map(result => result.item);
+        },
+
+        mikro: async (_, { id }) => {
+            const mikro = await Mikro.findById(id).lean();
+
+            if (mikro === null) {
+                throw new ApolloError(`Mikro with ID ${id} not found.`, '404');
+            }
+
+            return mikro;
         }
     },
 

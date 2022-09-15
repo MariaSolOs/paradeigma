@@ -78,11 +78,18 @@ export enum ProgrammingLanguage {
 }
 
 export type Query = {
+  /** Get a mikro by ID. */
+  mikro: Mikro;
   /**
    * Get mikros filtered by language and with a title or description
    * matching the given query.
    */
   mikros: Array<Mikro>;
+};
+
+
+export type QueryMikroArgs = {
+  id: Scalars['ID'];
 };
 
 

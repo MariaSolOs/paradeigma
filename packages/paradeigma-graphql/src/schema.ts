@@ -7,6 +7,11 @@ const typeDefs = gql`
         matching the given query.
         """
         mikros(query: String, languages: [ProgrammingLanguage!]): [Mikro!]!
+
+        """
+        Get a mikro by ID.
+        """
+        mikro(id: ID!): Mikro!
     }
 
     type Mutation {

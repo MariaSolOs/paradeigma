@@ -78,11 +78,18 @@ export enum ProgrammingLanguage {
 
 export type Query = {
   __typename?: 'Query';
+  /** Get a mikro by ID. */
+  mikro: Mikro;
   /**
    * Get mikros filtered by language and with a title or description
    * matching the given query.
    */
   mikros: Array<Mikro>;
+};
+
+
+export type QueryMikroArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -195,6 +202,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  mikro?: Resolver<ResolversTypes['Mikro'], ParentType, ContextType, RequireFields<QueryMikroArgs, 'id'>>;
   mikros?: Resolver<Array<ResolversTypes['Mikro']>, ParentType, ContextType, Partial<QueryMikrosArgs>>;
 };
 
