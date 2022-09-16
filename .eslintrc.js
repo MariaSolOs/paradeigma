@@ -1,7 +1,6 @@
-/**
- * @type {import('eslint').ESLint.ConfigData} 
- */
-module.exports = {
+// @ts-check
+
+module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
     root: true,
     extends: [
         'eslint:recommended',
@@ -67,10 +66,21 @@ module.exports = {
     },
     overrides: [
         {
-            files: [ './apps/**/*.ts', './apps/**/*.tsx' ],
+            files: [ 
+                './apps/paradeigma-apollo-app/**/*.ts', 
+                './apps/paradeigma-web-app/**/*.tsx' 
+            ],
             extends: [
                 'next/core-web-vitals'
-            ]
+            ],
+            settings: {
+                next: {
+                    rootDir: [
+                        './apps/paradeigma-apollo-app/',
+                        './apps/paradeigma-web-app/'
+                    ]
+                }
+            }
         }
     ]
 }
