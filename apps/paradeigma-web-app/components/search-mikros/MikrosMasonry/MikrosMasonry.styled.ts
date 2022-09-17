@@ -39,6 +39,11 @@ export const MikroContainer = styled('div')(({ theme }) => ({
     border: `${theme.palette.secondary.light} solid 1px`
 }));
 
+export const MikroLink = styled('a')({ 
+    textDecoration: 'none',
+    color: 'inherit'
+});
+
 export const MikroTitle = styled('h4')(({ theme }) => ({
     margin: '0.5rem 0',
     textAlign: 'center',
