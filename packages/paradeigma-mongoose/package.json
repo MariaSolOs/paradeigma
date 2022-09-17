@@ -11,7 +11,7 @@
         "clean": "yarn g:clean"
     },
     "dependencies": {
-        "mongoose": "^6.6.0"
+        "mongoose": "^6.6.1"
     },
     "devDependencies": {
         "@paradeigma/graphql": "workspace:*"

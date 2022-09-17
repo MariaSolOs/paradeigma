@@ -7,9 +7,7 @@ import type { NextPage, GetStaticProps } from 'next';
 import SearchBar from 'components/search-mikros/SearchBar';
 import MikrosMasonry from 'components/search-mikros/MikrosMasonry';
 
-type SearchMikrosPageProps = {
-    initialMikros: GetMikrosQuery;
-}
+type SearchMikrosPageProps = { initialMikros: GetMikrosQuery; }
 
 const sdk = getHookedSdk();
 
