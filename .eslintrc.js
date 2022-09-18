@@ -1,5 +1,3 @@
-// @ts-check
-
 module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
     root: true,
     extends: [
