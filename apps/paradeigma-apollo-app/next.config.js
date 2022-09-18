@@ -10,8 +10,9 @@ module.exports = {
     async redirects() {
         return [
             {
-                // Redirect all requests to /api/graphql
-                source: '/:path((?!api/graphql$).*)*',
+                // Redirect all requests to /api/graphql, except for the GraphQL 
+                // endpoint itself and the task API routes.
+                source: '/:path((?!api/graphql$|api/tasks/.*).*)',
                 destination: '/api/graphql',
                 permanent: true
             }
