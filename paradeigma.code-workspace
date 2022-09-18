@@ -47,7 +47,12 @@
         ],
         "npm.packageManager": "yarn",
         "typescript.tsdk": "paradeigma/.yarn/sdks/typescript/lib",
-        "typescript.enablePromptUseWorkspaceTsdk": true
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        // Colorize files with Mui styles
+        "colorize.include": [
+            "./apps/paradeigma-web-app/styles/theme.ts",
+            "**/*.styled.ts"
+        ]
     },
     "extensions": {
         "recommendations": [
