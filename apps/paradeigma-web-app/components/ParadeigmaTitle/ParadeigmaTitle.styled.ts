@@ -8,7 +8,7 @@ export const Title = styled('h1')(({ theme }) => ({
     textAlign: 'center',
     cursor: 'pointer',
 
-    [theme.breakpoints.down('md')]: { fontSize: '4.5rem' },
+    [theme.breakpoints.down('md')]: { fontSize: '4.3rem' },
 
-    [theme.breakpoints.down('sm')]: { fontSize: '3rem' }
+    [theme.breakpoints.down('sm')]: { fontSize: '2.5rem' }
 }));
