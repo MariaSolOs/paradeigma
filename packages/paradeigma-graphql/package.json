@@ -26,7 +26,8 @@
         "@graphql-codegen/typescript-operations": "^2.5.3",
         "@graphql-codegen/typescript-resolvers": "^2.7.3",
         "@types/node": "^18.7.18",
-        "graphql-codegen-plugin-typescript-swr": "^0.8.1"
+        "graphql-codegen-plugin-typescript-swr": "^0.8.1",
+        "tslib": "^2.4.0"
     },
     "peerDependencies": {
         "react": "*",

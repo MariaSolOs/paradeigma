@@ -20,7 +20,7 @@ import * as S from './EditorSlide.styled';
 
 // Dynamically load the code editor because it relies on the "window" browser API.
 const AceEditor = dynamic(async () => {
-    const reactAce = await import('react-ace');
+    const reactAce = (await import('react-ace')).default;
 
     // Prevent the console warning about misspelled prop names.
     await import('ace-builds/src-noconflict/ext-language_tools');

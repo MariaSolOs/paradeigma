@@ -3347,6 +3347,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["react", "npm:18.2.0"],\
             ["swr", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:1.3.0"],\
+            ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "packagePeers": [\
@@ -3377,6 +3378,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["react", null],\
             ["swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:1.3.0"],\
+            ["tslib", "npm:2.4.0"],\
             ["typescript", null]\
           ],\
           "packagePeers": [\
@@ -3407,6 +3409,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["react", null],\
             ["swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:1.3.0"],\
+            ["tslib", "npm:2.4.0"],\
             ["typescript", null]\
           ],\
           "packagePeers": [\
@@ -3437,6 +3440,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["react", null],\
             ["swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:1.3.0"],\
+            ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "packagePeers": [\
@@ -3463,7 +3467,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-codegen-plugin-typescript-swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:0.8.1"],\
             ["graphql-request", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:5.0.0"],\
             ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
-            ["swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:1.3.0"]\
+            ["swr", "virtual:af76e87750c79d8a31302c9003bd9e54aa5f72a1d3bc2bccdf3aa768d3e83dde8befeed5347ad2319e40fb01af069b0fc1c6a35c8c0c15cf0dacef852292974a#npm:1.3.0"],\
+            ["tslib", "npm:2.4.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3553,6 +3558,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
             ["react-syntax-highlighter", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:15.5.0"],\
             ["react-transition-group", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:4.4.5"],\
+            ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\

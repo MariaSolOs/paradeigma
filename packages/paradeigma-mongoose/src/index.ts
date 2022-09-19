@@ -1,2 +1,4 @@
-export { default as Mikro } from './mikro';
+import Mikro from './mikro';
+
+export { Mikro };
 export type { MikroDocument } from './mikro';
