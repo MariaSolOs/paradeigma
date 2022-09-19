@@ -16,7 +16,7 @@
 
         // Modules
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "nodenext",
         "resolveJsonModule": true,
 
         // Emit

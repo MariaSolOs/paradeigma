@@ -28,9 +28,7 @@ module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
         '/apps/paradeigma-web-app/public/code-editor',
         // Codegen output files
         '/packages/paradeigma-graphql/src/resolvers-types.ts',
-        '/packages/paradeigma-graphql/src/sdk.ts',
-        // Don't lint Next configuration files
-        '/apps/*/next.config.js'
+        '/packages/paradeigma-graphql/src/sdk.ts'
     ],
     reportUnusedDisableDirectives: true,
     rules: {
