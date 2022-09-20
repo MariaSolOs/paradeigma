@@ -4,7 +4,6 @@
     "private": true,
     "license": "MIT",
     "exports": "./src/index.ts",
-    "types": "./index.d.ts",
     "scripts": {
         "lint": "yarn g:lint",
         "typecheck": "yarn g:typecheck",

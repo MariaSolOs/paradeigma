@@ -4,7 +4,6 @@
     "private": true,
     "license": "MIT",
     "exports": "./src/index.ts",
-    "types": "./index.d.ts",
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml",
         "lint": "yarn g:lint",
@@ -31,7 +30,7 @@
     },
     "peerDependencies": {
         "react": "*",
-        "typescript": "^4.8.2"
+        "typescript": "*"
     },
     "peerDependenciesMeta": {
         "react": {
