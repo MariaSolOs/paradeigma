@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
     root: true,
     extends: [
@@ -76,6 +78,15 @@ module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
                         './apps/paradeigma-web-app/'
                     ]
                 }
+            },
+            rules: {
+                '@next/next/no-html-link-for-pages': [
+                    'error', 
+                    [
+                        path.join(__dirname, 'apps/paradeigma-apollo-app/pages/'), 
+                        path.join(__dirname, 'apps/paradeigma-web-app/pages/')
+                    ]
+                ]
             }
         }
     ]
