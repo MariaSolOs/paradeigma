@@ -1,6 +1,9 @@
 const path = require('path');
 
-module.exports /**@type {import('eslint').ESLint.ConfigData} */ = {
+/**
+ * @type {import('eslint').ESLint.ConfigData} 
+ */
+module.exports  = {
     root: true,
     extends: [
         'eslint:recommended',
