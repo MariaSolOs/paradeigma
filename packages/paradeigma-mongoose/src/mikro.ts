@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
-import type { Types, Model, ImpartialSchemaDefinition } from 'mongoose';
+import type { Types, Model, SchemaDefinition } from 'mongoose';
 
 export interface MikroDocument {
     _id: Types.ObjectId;
@@ -12,7 +12,7 @@ export interface MikroDocument {
     rating: number;
 }
 
-const mikroSchemaFields: Omit<ImpartialSchemaDefinition<MikroDocument>, '_id'> = {
+const mikroSchemaFields: SchemaDefinition<MikroDocument> = {
     name: {
         type: String,
         required: true,
