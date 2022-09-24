@@ -3,6 +3,8 @@ import { getHookedSdk } from 'lib/graphql';
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import type { GetMikroQuery } from '@paradeigma/graphql';
 
+import Box from '@mui/material/Box';
+import Button from 'components/Button';
 import Details from 'components/mikro-details/Details';
 
 type MikroDetailsUrlQuery = { id: string; }
@@ -43,7 +45,12 @@ const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
         return <h1>Loading...</h1>;
     }
 
-    return <Details mikro={props.mikro} />;
+    return (
+        <Box sx={{ width: { xs: '95vw', md: '85vw' }, margin: '0 auto' }}>
+            <Button onClick={router.back}>Go back</Button>
+            <Details mikro={props.mikro} />
+        </Box>
+    );
 }
 
 export default MikroDetailsPage;
