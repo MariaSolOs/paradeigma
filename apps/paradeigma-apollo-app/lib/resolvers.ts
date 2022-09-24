@@ -10,7 +10,7 @@ import type { Resolvers } from '@paradeigma/graphql';
 const mikroFuse = new LazyFuse<LeanDocument<MikroDocument & { _id: Types.ObjectId }>>({
     listProvider: async () => Mikro.find({}).lean(),
     fuseOptions: {
-        keys: [ 'name', 'description', 'language' ],
+        keys: [ 'name', 'content', 'language' ],
         useExtendedSearch: true
     }
 });
@@ -27,12 +27,12 @@ const resolvers: Resolvers = {
             const filters: Fuse.Expression[] = [];
 
             // If we have a query string, use it to search a mikro with a matching
-            // name or description.
+            // name or code content.
             if (query) {
                 filters.push({
                     $or: [
                         { name: query },
-                        { description: query }
+                        { content: query }
                     ]
                 });
             }
@@ -44,10 +44,7 @@ const resolvers: Resolvers = {
 
             const searchResults = fuse.search({ $and: filters });
 
-            return searchResults.map(result => result.item).sort((mikro1, mikro2) => 
-                // Mikros with higher ratings should come first.
-                mikro2.rating - mikro1.rating
-            );
+            return searchResults.map(result => result.item);
         },
 
         mikro: async (_, { id }) => {
