@@ -1,22 +1,24 @@
 import { useReducer, useCallback } from 'react';
 import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
 
-type MikroState = {
+type NewMikroFormState = {
     name: string;
     description: string;
     language: ProgrammingLanguage;
     content: string;
     style: MikroStyle;
     isInFirstSlide: boolean;
+    isSubmittingForm: boolean;
 }
 
-const initialState: MikroState = {
+const initialState: NewMikroFormState = {
     name: '',
     description: '',
     language: ProgrammingLanguage.Javascript,
     content: '',
     style: MikroStyle.AtomDark,
-    isInFirstSlide: true
+    isInFirstSlide: true,
+    isSubmittingForm: false
 } as const;
 
 type Action = 
@@ -25,10 +27,11 @@ type Action =
 | { type: 'SET_LANGUAGE'; language: ProgrammingLanguage | null; }
 | { type: 'SET_CONTENT'; content: string; }
 | { type: 'SET_STYLE'; style: MikroStyle | null; }
-| { type: 'TOGGLE_SLIDE'; };
+| { type: 'TOGGLE_SLIDE'; }
+| { type: 'START_SUBMISSION'; };
 
 export default function useNewMikroReducer() {
-    const reducer = useCallback((state: MikroState, action: Action): MikroState => {
+    const reducer = useCallback((state: NewMikroFormState, action: Action): NewMikroFormState => {
         switch (action.type) {
             case 'SET_NAME': {
                 return {
@@ -78,6 +81,13 @@ export default function useNewMikroReducer() {
                 return {
                     ...state,
                     isInFirstSlide: !state.isInFirstSlide
+                }
+            }
+            case 'START_SUBMISSION': {
+                return {
+                    ...state,
+                    isSubmittingForm: true,
+                    isInFirstSlide: false
                 }
             }
             default: return state;

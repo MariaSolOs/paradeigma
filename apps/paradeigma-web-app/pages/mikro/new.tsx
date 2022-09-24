@@ -5,6 +5,7 @@ import type { NextPage } from 'next';
 
 import EditorSlide from 'components/new-mikro/EditorSlide';
 import PreviewSlide from 'components/new-mikro/PreviewSlide';
+import Spinner from 'components/Spinner';
 
 const sdk = getHookedSdk();
 
@@ -12,10 +13,12 @@ const sdk = getHookedSdk();
 const NewMikroPage: NextPage = () => {
     const [state, dispatch] = useNewMikroReducer();
 
-    const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        void sdk.createMikro({
+        dispatch({ type: 'START_SUBMISSION' });
+
+        await sdk.createMikro({
             name: state.name,
             description: state.description,
             content: state.content,
@@ -25,7 +28,8 @@ const NewMikroPage: NextPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => void handleSubmit(event)}>
+            <Spinner open={state.isSubmittingForm} />
             {state.isInFirstSlide && 
                 <EditorSlide
                 name={state.name}
