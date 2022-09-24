@@ -3,7 +3,6 @@ import { getHookedSdk } from 'lib/graphql';
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import type { GetMikroQuery } from '@paradeigma/graphql';
 
-import MikroCode from 'components/MikroCode';
 import Details from 'components/mikro-details/Details';
 
 type MikroDetailsUrlQuery = { id: string; }
@@ -44,15 +43,7 @@ const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
         return <h1>Loading...</h1>;
     }
 
-    return (
-        <Details name={props.mikro.name} description={props.mikro.description}>
-            <MikroCode 
-            content={props.mikro.content}
-            language={props.mikro.language}
-            style={props.mikro.style}
-            containerStyles={{ width: '100%' }} />
-        </Details>
-    );
+    return <Details mikro={props.mikro} />;
 }
 
 export default MikroDetailsPage;
