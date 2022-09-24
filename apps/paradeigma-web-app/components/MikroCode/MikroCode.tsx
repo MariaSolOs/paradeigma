@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
+import { ProgrammingLanguages, MikroStyle } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { HighlighterStyle } from 'react-syntax-highlighter';
 import type { MikroCodeProps } from './index';
@@ -10,7 +10,7 @@ import Skeleton from '@mui/material/Skeleton';
 const SyntaxHighlighter = dynamic(async () => {
     const syntaxHighlighter = (await import('react-syntax-highlighter')).PrismAsyncLight;
     
-    for (const language of Object.values(ProgrammingLanguage)) {
+    for (const language of ProgrammingLanguages) {
         const languageSupport = (await import(`react-syntax-highlighter/dist/esm/languages/prism/${language}`) as { default: unknown; }).default;
         syntaxHighlighter.registerLanguage(language, languageSupport);
     }
@@ -61,6 +61,7 @@ const MikroCode: FC<MikroCodeProps> = (props) => {
         void setStylePackage();
     }, [props.style]);
 
+    // TODO: Limit the number of code lines in the card.
     return (
         <SyntaxHighlighter 
         wrapLongLines

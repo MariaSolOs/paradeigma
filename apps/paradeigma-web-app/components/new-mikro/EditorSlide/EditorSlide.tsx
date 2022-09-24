@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { getLanguageIcon } from 'lib/mikro';
-import { ProgrammingLanguage } from '@paradeigma/graphql';
+import { ProgrammingLanguages } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { Ace } from 'ace-builds';
 import type { EditorSlideProps } from './index';
@@ -29,7 +29,7 @@ const AceEditor = dynamic(async () => {
     await import('ace-builds/src-noconflict/theme-github');
 
     // Import the supported languages.
-    for (const language of Object.values(ProgrammingLanguage)) {
+    for (const language of ProgrammingLanguages) {
         await import(`ace-builds/src-noconflict/mode-${language}`);
     }
 
@@ -90,7 +90,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                         }}
                         value={props.language}
                         onChange={props.onLanguageChange}>
-                            {Object.values(ProgrammingLanguage).map(language =>
+                            {ProgrammingLanguages.map(language =>
                                 <SelectOption key={language} value={language}>
                                     {language}
                                     <S.LanguageIcon className={getLanguageIcon(language)} />

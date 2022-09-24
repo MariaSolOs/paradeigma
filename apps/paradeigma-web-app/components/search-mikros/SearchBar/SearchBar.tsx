@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import { getLanguageIcon } from 'lib/mikro';
-import { ProgrammingLanguage } from '@paradeigma/graphql';
+import { ProgrammingLanguages } from '@paradeigma/graphql';
 import type { FC } from 'react';
+import type { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { SearchBarProps } from './index';
 
 import Chip from '@mui/material/Chip';
@@ -45,7 +46,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                         )}
                     </S.ChipsContainer>
                 }>
-                    {Object.values(ProgrammingLanguage).map(language => 
+                    {ProgrammingLanguages.map(language => 
                         <S.SelectOption 
                         key={language} 
                         value={language}

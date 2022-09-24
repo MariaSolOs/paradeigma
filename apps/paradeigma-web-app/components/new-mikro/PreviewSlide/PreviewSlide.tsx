@@ -1,4 +1,4 @@
-import { MikroStyle } from '@paradeigma/graphql';
+import { MikroStyles } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { PreviewSlideProps } from './index';
 
@@ -39,7 +39,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                     }}
                     value={props.style}
                     onChange={props.onStyleChange}>
-                        {Object.values(MikroStyle).map(style =>
+                        {MikroStyles.map(style =>
                             <SelectOption key={style} value={style}>
                                 {style}
                             </SelectOption>

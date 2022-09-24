@@ -1,5 +1,6 @@
 import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
+import { ProgrammingLanguages, MikroStyles, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
+import type { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
 import type { Types, Model, SchemaDefinition } from 'mongoose';
 
 export interface MikroDocument {
@@ -30,12 +31,12 @@ const mikroSchemaFields: SchemaDefinition<MikroDocument> = {
     language: {
         type: String,
         required: true,
-        enum: Object.values(ProgrammingLanguage)
+        enum: ProgrammingLanguages
     },
     style: {
         type: String,
         required: true,
-        enum: Object.values(MikroStyle)
+        enum: MikroStyles
     },
     rating: {
         type: Number,

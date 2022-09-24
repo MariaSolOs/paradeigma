@@ -1,6 +1,3 @@
-// TODO: Check if the max lengths are appropriate
-// TODO: Add a maximum length for content?
-
 /**
  * Maximum length for a mikro's name field.
  */

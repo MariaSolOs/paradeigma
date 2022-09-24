@@ -1,5 +1,5 @@
-query getMikros($query: String, $languages: [ProgrammingLanguage!]) {
-    mikros(query: $query, languages: $languages) {
+query getMikros($textFilter: String, $languageFilter: [ProgrammingLanguage!]) {
+    mikros(textFilter: $textFilter, languageFilter: $languageFilter) {
         ...MikroCard
     }
 }

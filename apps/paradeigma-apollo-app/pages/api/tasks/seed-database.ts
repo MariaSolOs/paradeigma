@@ -2,8 +2,8 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { Mikro } from '@paradeigma/mongoose';
 import mongooseConnection from 'lib/mongoose-connection';
 import { 
-    ProgrammingLanguage, 
-    MikroStyle, 
+    ProgrammingLanguages, 
+    MikroStyles, 
     MIKRO_NAME_MAX_LENGTH, 
     MIKRO_DESCRIPTION_MAX_LENGTH 
 } from '@paradeigma/graphql';
@@ -66,10 +66,6 @@ string text = "The the quick brown fox jumps over the lazy dog dog.";
 MatchCollection matches = rx.Matches(text);`
 ];
 
-const mikroLanguages = Object.values(ProgrammingLanguage);
-
-const mikroStyles = Object.values(MikroStyle);
-
 /**
  * @param elements - Array with elements of type T.
  * @returns A random element from the input array.
@@ -103,8 +99,8 @@ const handler: NextApiHandler<SeedDatabaseResponse> = async (req, res) => {
                 name: lorem.generateSentences(1).slice(0, MIKRO_NAME_MAX_LENGTH),
                 description: lorem.generateSentences(3).slice(0, MIKRO_DESCRIPTION_MAX_LENGTH),
                 content: getRandomElement(mikroContents).trimStart(),
-                language: getRandomElement(mikroLanguages),
-                style: getRandomElement(mikroStyles),
+                language: getRandomElement(ProgrammingLanguages),
+                style: getRandomElement(MikroStyles),
                 rating: Math.random() * (MAX_MIKRO_RATING - MIN_MIKRO_RATING) + MIN_MIKRO_RATING
             });
         }

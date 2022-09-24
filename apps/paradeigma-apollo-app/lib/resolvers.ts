@@ -1,5 +1,5 @@
 import { Mikro } from '@paradeigma/mongoose';
-import { ProgrammingLanguage } from '@paradeigma/graphql';
+import { ProgrammingLanguages } from '@paradeigma/graphql';
 import { LazyFuse } from 'lib/fuse';
 import { ApolloError } from 'apollo-server-core';
 import type Fuse from 'fuse.js';
@@ -21,25 +21,25 @@ const resolvers: Resolvers = {
     },
 
     Query: {
-        mikros: async (_, { query, languages }) => {
+        mikros: async (_, { textFilter, languageFilter }) => {
             const fuse = await mikroFuse.getFuse();
 
             const filters: Fuse.Expression[] = [];
 
-            // If we have a query string, use it to search a mikro with a matching
+            // If we have a text filter, use it to search a mikro with a matching
             // name or code content.
-            if (query) {
+            if (textFilter) {
                 filters.push({
                     $or: [
-                        { name: query },
-                        { content: query }
+                        { name: textFilter },
+                        { content: textFilter }
                     ]
                 });
             }
 
             // By default use all programming languages.
             filters.push({
-                language: (languages ?? Object.values(ProgrammingLanguage)).map(lang => `=${lang}`).join(' | ')
+                language: (languageFilter ?? ProgrammingLanguages).map(lang => `=${lang}`).join(' | ')
             });
 
             const searchResults = fuse.search({ $and: filters });

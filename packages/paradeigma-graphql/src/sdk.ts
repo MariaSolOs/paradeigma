@@ -82,8 +82,8 @@ export type Query = {
   /** Get a mikro by ID. */
   mikro: Mikro;
   /**
-   * Get mikros filtered by language and with a title or description
-   * matching the given query.
+   * Get mikros filtered by language and with a title or code content
+   * matching the given text query.
    */
   mikros: Array<Mikro>;
 };
@@ -95,8 +95,8 @@ export type QueryMikroArgs = {
 
 
 export type QueryMikrosArgs = {
-  languages?: InputMaybe<Array<ProgrammingLanguage>>;
-  query?: InputMaybe<Scalars['String']>;
+  languageFilter?: InputMaybe<Array<ProgrammingLanguage>>;
+  textFilter?: InputMaybe<Scalars['String']>;
 };
 
 export type MikroCardFragment = { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: MikroStyle };
@@ -120,8 +120,8 @@ export type GetMikroQueryVariables = Exact<{
 export type GetMikroQuery = { mikro: { id: string, name: string, description: string, content: string, language: ProgrammingLanguage, style: MikroStyle } };
 
 export type GetMikrosQueryVariables = Exact<{
-  query?: InputMaybe<Scalars['String']>;
-  languages?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
+  textFilter?: InputMaybe<Scalars['String']>;
+  languageFilter?: InputMaybe<Array<ProgrammingLanguage> | ProgrammingLanguage>;
 }>;
 
 
@@ -158,8 +158,8 @@ export const GetMikroDocument = gql`
 }
     ${MikroCardFragmentDoc}`;
 export const GetMikrosDocument = gql`
-    query getMikros($query: String, $languages: [ProgrammingLanguage!]) {
-  mikros(query: $query, languages: $languages) {
+    query getMikros($textFilter: String, $languageFilter: [ProgrammingLanguage!]) {
+  mikros(textFilter: $textFilter, languageFilter: $languageFilter) {
     ...MikroCard
   }
 }
