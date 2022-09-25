@@ -1,12 +1,10 @@
 import { createRef } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import routes from 'routes';
 import type { FC } from 'react';
 import type { MasonryProps } from '@mui/lab/Masonry';
 import type { MikrosMasonryProps } from './index';
 
-import Link from 'next/link';
 import Masonry from '@mui/lab/Masonry';
 import MikroCode from 'components/MikroCode';
 import * as S from './MikrosMasonry.styled';
@@ -44,20 +42,19 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                         exit: S.FADE_IN_ANIMATION,
                         exitActive: S.FADE_OUT_ANIMATION
                     }}>
-                        <S.MikroContainer ref={ref} sx={{ transitionDelay: `${randomDelay}ms`}}>
-                            <Link { ...routes.mikro(mikro.id) } passHref>
-                                <S.MikroLink>
-                                    <S.MikroTitle>{mikro.name}</S.MikroTitle>
-                                    <MikroCode
-                                    content={mikro.content} 
-                                    language={mikro.language} 
-                                    style={mikro.style}
-                                    containerStyles={{ 
-                                        borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${+theme.shape.borderRadius * 2}px`,
-                                        margin: 0
-                                    }} />
-                                </S.MikroLink>
-                            </Link>
+                        <S.MikroContainer 
+                        ref={ref} 
+                        onClick={() => props.onMikroClick(mikro.id)}
+                        sx={{ transitionDelay: `${randomDelay}ms`}}>
+                            <S.MikroTitle>{mikro.name}</S.MikroTitle>
+                            <MikroCode
+                            content={mikro.content} 
+                            language={mikro.language} 
+                            style={mikro.style}
+                            containerStyles={{ 
+                                borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${+theme.shape.borderRadius * 2}px`,
+                                margin: 0
+                            }} />
                         </S.MikroContainer>
                     </S.Transition>
                 );
