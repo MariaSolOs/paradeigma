@@ -26,8 +26,8 @@ const SearchBar: FC<SearchBarProps> = (props) => {
             fullWidth
             placeholder="Find your paradeigmata." 
             endAdornment={<S.SearchIcon />}
-            value={props.query}
-            onChange={event => props.onQueryChange(event.target.value)} />
+            value={props.textFilter}
+            onChange={event => props.onTextFilterChange(event.target.value)} />
             <S.SelectContainer>
                 <InputLabel>Search for mikros written in: </InputLabel>
                 <MultiSelectUnstyled 

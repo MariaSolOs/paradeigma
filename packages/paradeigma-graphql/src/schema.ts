@@ -3,11 +3,10 @@ import gql from 'graphql-tag';
 const typeDefs = gql`
     type Query {
         """
-        Get mikros filtered by language and with a title or description
-        matching the given query.
-        The results are sorted by rating.
+        Get mikros filtered by language and with a title or code content
+        matching the given text query.
         """
-        mikros(query: String, languages: [ProgrammingLanguage!]): [Mikro!]!
+        mikros(textFilter: String, languageFilter: [ProgrammingLanguage!]): [Mikro!]!
 
         """
         Get a mikro by ID.

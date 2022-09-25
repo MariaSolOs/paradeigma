@@ -23,17 +23,17 @@ export const getStaticProps: GetStaticProps<SearchMikrosPageProps> = async () =>
 }
 
 const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
-    const [query, setQuery] = useState('');
+    const [textFilter, setTextFilter] = useState('');
     const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>([]);
     const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
-
+    
     // Debounce the input query by one second so that we don't overwhelm the 
     // GraphQL server.
-    const debouncedQuery = useDebounce(query, 1000);
+    const debouncedQuery = useDebounce(textFilter, 1000);
 
     const { data } = sdk.useGetMikros(['getMikros', debouncedQuery, languageFilter], {
-        query: debouncedQuery,
-        languages: languageFilter.length > 0 ? languageFilter : undefined
+        textFilter: debouncedQuery,
+        languageFilter: languageFilter.length > 0 ? languageFilter : undefined
     }, { fallbackData: props.initialMikros });
 
     // For a smooth effect, we first "reset" the masonry by clearing the existing mikros 
@@ -52,8 +52,8 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     return (
         <>
             <SearchBar
-            query={query}
-            onQueryChange={query => setQuery(query)}
+            textFilter={textFilter}
+            onTextFilterChange={filter => setTextFilter(filter)}
             languageFilter={languageFilter}
             onLanguageFilterChange={filter => setLanguageFilter(filter)} />
             <MikrosMasonry mikros={mikros} />
