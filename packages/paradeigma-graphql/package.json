@@ -4,6 +4,7 @@
     "private": true,
     "license": "MIT",
     "exports": "./src/index.ts",
+    "types": "./src/index.ts",
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml",
         "lint": "yarn g:lint",
