@@ -69,6 +69,7 @@ module.exports  = {
         {
             files: [ 
                 './apps/paradeigma-apollo-app/**/*.ts', 
+                './apps/paradeigma-web-app/**/*.ts', 
                 './apps/paradeigma-web-app/**/*.tsx' 
             ],
             extends: [
