@@ -3584,7 +3584,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
             ["react-syntax-highlighter", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:15.5.0"],\
             ["react-transition-group", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:4.4.5"],\
-            ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
