@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import useDebounce from 'hooks/useDebounce';
 import { getHookedSdk } from 'lib/graphql';
 import type { ProgrammingLanguage, GetMikrosQuery } from '@paradeigma/graphql';
@@ -23,6 +24,12 @@ export const getStaticProps: GetStaticProps<SearchMikrosPageProps> = async () =>
 }
 
 const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
+    const router = useRouter();
+    const textFilterQuery = router.query['text'];
+    const languageFilterQuery = router.query['languages'];
+    console.log(textFilterQuery)
+    console.log(languageFilterQuery)
+
     const [textFilter, setTextFilter] = useState('');
     const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>([]);
     const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
@@ -47,7 +54,12 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
         }, 500);
 
         return () => clearTimeout(timer);
-    }, [data]); 
+    }, [data]);
+
+    const handleMikroClick = (id: string) => {
+        // void router.replace(routes.searchMikros(textFilter, languageFilter).as, undefined, { shallow: true });
+        // void router.push(routes.mikro(id).as);
+    }
 
     return (
         <>
@@ -56,7 +68,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
             onTextFilterChange={filter => setTextFilter(filter)}
             languageFilter={languageFilter}
             onLanguageFilterChange={filter => setLanguageFilter(filter)} />
-            <MikrosMasonry mikros={mikros} />
+            <MikrosMasonry mikros={mikros} onMikroClick={handleMikroClick} />
         </>
     );
 }

@@ -25,7 +25,7 @@
         "graphql": "^16.6.0",
         "graphql-request": "^5.0.0",
         "next": "12.3.0",
-        "next-typed-routes": "^1.0.2",
+        "nextjs-routes": "^0.0.22",
         "react": "18.2.0",
         "react-ace": "^10.1.0",
         "react-dom": "18.2.0",

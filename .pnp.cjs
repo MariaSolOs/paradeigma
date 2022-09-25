@@ -3578,7 +3578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["graphql-request", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:5.0.0"],\
             ["next", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:12.3.0"],\
-            ["next-typed-routes", "npm:1.0.2"],\
+            ["nextjs-routes", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:0.0.22"],\
             ["react", "npm:18.2.0"],\
             ["react-ace", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:10.1.0"],\
             ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
@@ -5821,15 +5821,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["decode-uri-component", [\
-        ["npm:0.2.0", {\
-          "packageLocation": "./.yarn/cache/decode-uri-component-npm-0.2.0-5bcc0f3597-f3749344ab.zip/node_modules/decode-uri-component/",\
-          "packageDependencies": [\
-            ["decode-uri-component", "npm:0.2.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["deep-is", [\
         ["npm:0.1.4", {\
           "packageLocation": "./.yarn/cache/deep-is-npm-0.1.4-88938b5a67-edb65dd0d7.zip/node_modules/deep-is/",\
@@ -6742,15 +6733,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["fill-range", "npm:7.0.1"],\
             ["to-regex-range", "npm:5.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["filter-obj", [\
-        ["npm:1.1.0", {\
-          "packageLocation": "./.yarn/cache/filter-obj-npm-1.1.0-84128fc26d-cf2104a7c4.zip/node_modules/filter-obj/",\
-          "packageDependencies": [\
-            ["filter-obj", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8993,12 +8975,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["next-typed-routes", [\
-        ["npm:1.0.2", {\
-          "packageLocation": "./.yarn/cache/next-typed-routes-npm-1.0.2-1cc0e588d2-7a51ec8207.zip/node_modules/next-typed-routes/",\
+      ["nextjs-routes", [\
+        ["npm:0.0.22", {\
+          "packageLocation": "./.yarn/cache/nextjs-routes-npm-0.0.22-9f35984c13-9a065dea66.zip/node_modules/nextjs-routes/",\
           "packageDependencies": [\
-            ["next-typed-routes", "npm:1.0.2"],\
-            ["query-string", "npm:6.14.1"]\
+            ["nextjs-routes", "npm:0.0.22"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:0.0.22", {\
+          "packageLocation": "./.yarn/__virtual__/nextjs-routes-virtual-cb46925c59/0/cache/nextjs-routes-npm-0.0.22-9f35984c13-9a065dea66.zip/node_modules/nextjs-routes/",\
+          "packageDependencies": [\
+            ["nextjs-routes", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:0.0.22"],\
+            ["@types/next", null],\
+            ["chokidar", "npm:3.5.3"],\
+            ["next", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:12.3.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/next",\
+            "next"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9658,19 +9653,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/pvutils-npm-1.1.3-da8b07d6cf-2ee26a9e51.zip/node_modules/pvutils/",\
           "packageDependencies": [\
             ["pvutils", "npm:1.1.3"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["query-string", [\
-        ["npm:6.14.1", {\
-          "packageLocation": "./.yarn/cache/query-string-npm-6.14.1-dad16e37e6-f2c7347578.zip/node_modules/query-string/",\
-          "packageDependencies": [\
-            ["query-string", "npm:6.14.1"],\
-            ["decode-uri-component", "npm:0.2.0"],\
-            ["filter-obj", "npm:1.1.0"],\
-            ["split-on-first", "npm:1.1.0"],\
-            ["strict-uri-encode", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10400,15 +10382,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["split-on-first", [\
-        ["npm:1.1.0", {\
-          "packageLocation": "./.yarn/cache/split-on-first-npm-1.1.0-e2f3ab5e4e-16ff85b54d.zip/node_modules/split-on-first/",\
-          "packageDependencies": [\
-            ["split-on-first", "npm:1.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["sponge-case", [\
         ["npm:1.0.1", {\
           "packageLocation": "./.yarn/cache/sponge-case-npm-1.0.1-00016db384-64f53d930f.zip/node_modules/sponge-case/",\
@@ -10443,15 +10416,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/streamsearch-npm-1.1.0-fc3ad6536d-1cce16cea8.zip/node_modules/streamsearch/",\
           "packageDependencies": [\
             ["streamsearch", "npm:1.1.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["strict-uri-encode", [\
-        ["npm:2.0.0", {\
-          "packageLocation": "./.yarn/cache/strict-uri-encode-npm-2.0.0-1ec3189376-eaac4cf978.zip/node_modules/strict-uri-encode/",\
-          "packageDependencies": [\
-            ["strict-uri-encode", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
