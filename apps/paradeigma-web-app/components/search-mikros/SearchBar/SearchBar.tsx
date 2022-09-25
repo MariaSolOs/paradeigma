@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { getLanguageIcon } from 'lib/mikro';
 import { ProgrammingLanguages } from '@paradeigma/graphql';
 import type { FC } from 'react';
@@ -14,6 +14,7 @@ import * as S from './SearchBar.styled';
 
 const SearchBar: FC<SearchBarProps> = (props) => {
     const { onLanguageFilterChange } = props;
+    const [openLanguageSelect, setOpenLanguageSelect] = useState(false);
 
     const handleChipDeletion = useCallback((chipLanguage: ProgrammingLanguage) => {
         const filteredLanguages = props.languageFilter.filter(lang => lang !== chipLanguage);
@@ -31,8 +32,14 @@ const SearchBar: FC<SearchBarProps> = (props) => {
             <S.SelectContainer>
                 <InputLabel>Search for mikros written in: </InputLabel>
                 <MultiSelectUnstyled 
+                listboxOpen={openLanguageSelect}
+                onListboxOpenChange={() => setOpenLanguageSelect(true)}
                 value={props.languageFilter}
-                onChange={onLanguageFilterChange}
+                onChange={value => {
+                    onLanguageFilterChange(value);
+                    // Close the popper when selecting an option.
+                    setOpenLanguageSelect(false);
+                }}
                 components={{
                     Root: S.SelectRoot,
                     Listbox: S.SelectListbox,
