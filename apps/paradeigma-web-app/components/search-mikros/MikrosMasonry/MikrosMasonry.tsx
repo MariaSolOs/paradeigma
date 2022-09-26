@@ -1,11 +1,9 @@
-import { createRef } from 'react';
+import { createRef, type FC } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import type { FC } from 'react';
-import type { MasonryProps } from '@mui/lab/Masonry';
 import type { MikrosMasonryProps } from './index';
 
-import Masonry from '@mui/lab/Masonry';
+import Masonry, { type MasonryProps } from '@mui/lab/Masonry';
 import MikroCode from 'components/MikroCode';
 import * as S from './MikrosMasonry.styled';
 

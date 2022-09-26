@@ -1,7 +1,19 @@
-import { Schema, model, models } from 'mongoose';
-import { ProgrammingLanguages, MikroStyles, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
-import type { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
-import type { Types, Model, SchemaDefinition } from 'mongoose';
+import {
+    Schema,
+    model,
+    models,
+    type Types,
+    type Model,
+    type SchemaDefinition
+} from 'mongoose';
+import {
+    ProgrammingLanguages,
+    MikroStyles,
+    MIKRO_NAME_MAX_LENGTH,
+    MIKRO_DESCRIPTION_MAX_LENGTH,
+    type ProgrammingLanguage,
+    type MikroStyle
+} from '@paradeigma/graphql';
 
 export interface MikroDocument {
     _id: Types.ObjectId;
@@ -43,7 +55,7 @@ const mikroSchemaFields: SchemaDefinition<MikroDocument> = {
         required: true,
         min: 0
     }
-}   
+}
 
 const mikroSchema = new Schema<MikroDocument>(mikroSchemaFields);
 

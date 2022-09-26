@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FC } from 'react';
 import dynamic from 'next/dynamic';
 import { ProgrammingLanguages, MikroStyle } from '@paradeigma/graphql';
-import type { FC } from 'react';
 import type { HighlighterStyle } from 'react-syntax-highlighter';
 import type { MikroCodeProps } from './index';
 

@@ -1,11 +1,9 @@
-import { Mikro } from '@paradeigma/mongoose';
-import { ProgrammingLanguages } from '@paradeigma/graphql';
+import { Mikro, type MikroDocument } from '@paradeigma/mongoose';
+import { ProgrammingLanguages, type Resolvers } from '@paradeigma/graphql';
 import { LazyFuse } from 'lib/fuse';
 import { ApolloError } from 'apollo-server-core';
 import type Fuse from 'fuse.js';
 import type { LeanDocument, Types } from 'mongoose';
-import type { MikroDocument } from '@paradeigma/mongoose';
-import type { Resolvers } from '@paradeigma/graphql';
 
 const mikroFuse = new LazyFuse<LeanDocument<MikroDocument & { _id: Types.ObjectId }>>({
     listProvider: async () => Mikro.find({}).lean(),
