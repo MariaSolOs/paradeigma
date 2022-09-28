@@ -2,13 +2,13 @@ import { useRouter } from 'next/router';
 import { getHookedSdk } from 'lib/graphql';
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import type { GetMikroQuery } from '@paradeigma/graphql';
+import type { RoutedQuery } from 'nextjs-routes';
 
 import Box from '@mui/material/Box';
 import Button from 'components/Button';
 import Details from 'components/mikro-details/Details';
 
-type MikroDetailsUrlQuery = { id: string; }
-
+type MikroDetailsUrlQuery = RoutedQuery<'/mikro/[id]'>;
 type MikroDetailsPageProps = { mikro: GetMikroQuery['mikro']; }
 
 const sdk = getHookedSdk();

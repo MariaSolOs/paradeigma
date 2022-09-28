@@ -1,4 +1,4 @@
-import { withRoutes } from 'nextjs-routes/next-config.cjs';
+import withRoutes from 'nextjs-routes/config';
 
 /** 
  * @type {import('next').NextConfig} 
@@ -11,4 +11,4 @@ const config = {
     }
 }
 
-export default withRoutes(config);
+export default withRoutes({ outDir: 'types' })(config);
