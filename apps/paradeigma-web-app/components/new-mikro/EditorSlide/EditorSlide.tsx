@@ -89,7 +89,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                             Popper: SelectPopper
                         }}
                         value={props.language}
-                        onChange={props.onLanguageChange}>
+                        onChange={(_, value) => props.onLanguageChange(value)}>
                             {ProgrammingLanguages.map(language =>
                                 <SelectOption key={language} value={language}>
                                     {language}

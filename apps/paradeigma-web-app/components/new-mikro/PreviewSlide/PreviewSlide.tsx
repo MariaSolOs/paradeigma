@@ -38,7 +38,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => (
                         Popper: SelectPopper
                     }}
                     value={props.style}
-                    onChange={props.onStyleChange}>
+                    onChange={(_, value) => props.onStyleChange(value)}>
                         {MikroStyles.map(style =>
                             <SelectOption key={style} value={style}>
                                 {style}

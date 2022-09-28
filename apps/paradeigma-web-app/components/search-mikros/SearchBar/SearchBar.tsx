@@ -33,7 +33,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                 listboxOpen={openLanguageSelect}
                 onListboxOpenChange={() => setOpenLanguageSelect(true)}
                 value={props.languageFilter}
-                onChange={value => {
+                onChange={(_, value) => {
                     onLanguageFilterChange(value);
                     // Close the popper when selecting an option.
                     setOpenLanguageSelect(false);
