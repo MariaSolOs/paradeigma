@@ -25,13 +25,11 @@ export const getStaticProps: GetStaticProps<SearchMikrosPageProps> = async () =>
 
 const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     const router = useRouter<'/mikro/search'>();
-    const textFilterQuery = router.query['text'];
-    const languageFilterQuery = router.query['languages'];
-    console.log(textFilterQuery)
-    console.log(languageFilterQuery)
+    const textFilterQuery = (router.query['text'] as string) ?? '';
+    const languageFilterQuery = (router.query['languages'] as ProgrammingLanguage[]) ?? [];
 
-    const [textFilter, setTextFilter] = useState('');
-    const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>([]);
+    const [textFilter, setTextFilter] = useState(textFilterQuery);
+    const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>(languageFilterQuery);
     const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
     
     // Debounce the input query by one second so that we don't overwhelm the 
@@ -57,8 +55,17 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     }, [data]);
 
     const handleMikroClick = (id: string) => {
-        // void router.replace(routes.searchMikros(textFilter, languageFilter).as, undefined, { shallow: true });
-        // void router.push(routes.mikro(id).as);
+        void (async () => {
+            // Store the state of the current query so that it is used
+            // for the initial values when returning to the masonry.
+            await router.replace({
+                pathname: '/mikro/search',
+                query: { text: textFilter, languages: languageFilter }
+            }, '/mikro/search', { shallow: true });
+
+            // Then navigate to the mikro's page.
+            await router.push({ pathname: '/mikro/[id]', query: { id } });
+        })();
     }
 
     return (
