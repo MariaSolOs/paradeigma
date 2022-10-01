@@ -1,33 +1,26 @@
 import type { NextPage } from 'next';
 
-import Image from 'next/future/image';
+import PixelSlide, { HighlightedText } from 'components/home-page/PixelSlide';
 import harpImg from 'public/pixel-art/harp.png';
 import zephirImg from 'public/pixel-art/zephir.png';
 import theaImg from 'public/pixel-art/thea.png';
 
-const HomePage: NextPage = () => {
-    return (
-        <>
-            <Image 
-            src={harpImg} 
-            alt="Whatever"
-            width={256}
-            height={256}
-            quality={100} />
-            <Image 
-            src={theaImg} 
-            alt="Whatever"
-            width={256}
-            height={256}
-            quality={100} />
-            <Image 
-            src={zephirImg} 
-            alt="Whatever"
-            width={256}
-            height={256}
-            quality={100} />
-        </>
-    );
-}
+const HomePage: NextPage = () => (
+    <>
+        <PixelSlide image={{ src: zephirImg, altText: 'Pixel Zephir' }}>
+            Find the code examples you need, the <HighlightedText>top mikros</HighlightedText>{' '}
+            you keep looking for.
+        </PixelSlide>
+        <PixelSlide image={{ src: theaImg, altText: 'Pixel Thea', alignment: 'right' }}>
+            Discover new implementations, contribute your own, and <HighlightedText>export snippets
+            </HighlightedText> ready to use in VS Code.
+        </PixelSlide>
+        <PixelSlide image={{ src: harpImg, altText: 'Pixel harp' }}>
+            <HighlightedText>Why Paradeigma?</HighlightedText> Because documentation is{' '}
+            often not enough to understand a coding concept. We need real-life use cases,{' '}
+            <HighlightedText>insightful bits</HighlightedText> of true code.
+        </PixelSlide>
+    </>
+);
 
 export default HomePage;
