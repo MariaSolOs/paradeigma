@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<SearchMikrosPageProps> = async () =>
 }
 
 const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
-    const router = useRouter<'/mikro/search'>();
+    const router = useRouter();
     const textFilterQuery = (router.query['text'] as string) ?? '';
     const languageFilterQuery = (router.query['languages'] as ProgrammingLanguage[]) ?? [];
 
