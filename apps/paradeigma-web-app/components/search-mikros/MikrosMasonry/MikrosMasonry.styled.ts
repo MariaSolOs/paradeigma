@@ -36,7 +36,8 @@ export const Transition = styled(CSSTransition)(({ theme }) => ({
 
 export const MikroContainer = styled('div')(({ theme }) => ({
     borderRadius: +theme.shape.borderRadius * 2,
-    border: `${theme.palette.secondary.light} solid 1px`
+    border: `${theme.palette.secondary.light} solid 1px`,
+    cursor: 'pointer'
 }));
 
 export const MikroTitle = styled('h4')(({ theme }) => ({
