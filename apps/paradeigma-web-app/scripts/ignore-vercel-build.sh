@@ -6,7 +6,7 @@ trigger_packages=(
 )
 
 for package in ${trigger_packages[@]}; do
-    git diff $VERCEL_GIT_PREVIOUS_SHA HEAD --quiet $package
+    git diff --quiet $VERCEL_GIT_PREVIOUS_SHA HEAD -- $package
     exit_code=$?
     echo "Changes in $package: $exit_code"
     if [[ $exit_code -eq 1 ]]; then
