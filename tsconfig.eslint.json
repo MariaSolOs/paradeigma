@@ -1,5 +1,5 @@
 {
-    "include": [".eslintrc.js"], // We need to include this file in at least one project
+    "include": [ ".eslintrc.cjs" ], // We need to include this file in at least one project
     "compilerOptions": {
         "noEmit": true
     }

@@ -3,7 +3,7 @@ const path = require('path');
 /**
  * @type {import('eslint').ESLint.ConfigData} 
  */
-module.exports  = {
+module.exports = {
     root: true,
     extends: [
         'eslint:recommended',
@@ -28,7 +28,7 @@ module.exports  = {
     ],
     ignorePatterns: [
         // Don't lint this file
-        '.eslintrc.js',
+        '.eslintrc.cjs',
         // Don't lint the files from the ace CDN
         '/apps/paradeigma-web-app/public/code-editor',
         // Codegen output files
