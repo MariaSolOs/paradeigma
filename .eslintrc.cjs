@@ -73,7 +73,7 @@ module.exports = {
                 './apps/paradeigma-web-app/**/*.tsx' 
             ],
             extends: [
-                'next/core-web-vitals'
+                'plugin:@next/next/recommended'
             ],
             settings: {
                 next: {
