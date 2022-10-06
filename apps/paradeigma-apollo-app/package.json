@@ -20,14 +20,14 @@
         "graphql": "^16.6.0",
         "micro": "^9.4.1",
         "micro-cors": "^0.1.1",
-        "mongoose": "^6.6.2",
+        "mongoose": "^6.6.5",
         "next": "12.3.1",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
     "devDependencies": {
         "@types/micro-cors": "^0.1.2",
-        "@types/node": "^18.7.23",
+        "@types/node": "^18.8.2",
         "@types/react": "18.0.21",
         "@types/react-dom": "18.0.6",
         "lorem-ipsum": "^2.0.8",
