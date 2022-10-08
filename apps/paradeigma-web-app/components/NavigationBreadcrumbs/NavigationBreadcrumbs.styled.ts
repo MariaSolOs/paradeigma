@@ -1,14 +1,14 @@
 import { styled } from '@mui/material/styles';
 
-import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import MuiBreadcrumbs, { breadcrumbsClasses } from '@mui/material/Breadcrumbs';
 
 export const Breadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
     margin: '30px auto',
     width: 'fit-content',
 
-    '& li.MuiBreadcrumbs-li': { margin: '0 2rem' },
+    [`& .${breadcrumbsClasses.li}`]: { margin: '0 2rem' },
 
-    '& li.MuiBreadcrumbs-separator': { 
+    [`& .${breadcrumbsClasses.separator}`]: { 
         fontSize: '1.7rem',
         color: theme.palette.primary.light
     },
@@ -16,9 +16,9 @@ export const Breadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         margin: '2rem auto',
 
-        '& li.MuiBreadcrumbs-li': { margin: '0 1rem' },
+        [`& .${breadcrumbsClasses.li}`]: { margin: '0 1rem' },
 
-        '& li.MuiBreadcrumbs-separator': { fontSize: '1rem' }
+        [`& .${breadcrumbsClasses.separator}`]: { fontSize: '1rem' }
     }
 }));
 
