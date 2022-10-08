@@ -39,7 +39,3 @@ export const TextContainer = styled('p')(({ theme }) => ({
         fontSize: '0.8rem' 
     }
 }));
-
-export const HighlightedText = styled('span')(({ theme }) => ({
-    fontFamily: theme.typography.bungee.fontFamily
-}));

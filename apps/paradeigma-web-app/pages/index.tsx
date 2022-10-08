@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 
-import PixelSlide, { HighlightedText } from 'components/home-page/PixelSlide';
+import PixelSlide from 'components/home-page/PixelSlide';
+import HighlightedText from 'components/home-page/HighlightedText';
 import harpImg from 'public/pixel-art/harp.png';
 import zephirImg from 'public/pixel-art/zephir.png';
 import theaImg from 'public/pixel-art/thea.png';
@@ -8,8 +9,10 @@ import theaImg from 'public/pixel-art/thea.png';
 const HomePage: NextPage = () => (
     <>
         <PixelSlide image={{ src: zephirImg, altText: 'Pixel Zephir' }}>
-            Find the code examples you need, the <HighlightedText>top mikros</HighlightedText>{' '}
-            you keep looking for.
+            Find the code examples you need, the{' '}
+            <HighlightedText tooltipText={<><b><em>mīkrós</em></b>: Short and sweet code bits.</>}>
+                top mikros
+            </HighlightedText> you keep looking for.
         </PixelSlide>
         <PixelSlide image={{ src: theaImg, altText: 'Pixel Thea', alignment: 'right' }}>
             Discover new implementations, contribute your own, and <HighlightedText>export snippets
