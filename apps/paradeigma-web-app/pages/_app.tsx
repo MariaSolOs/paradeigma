@@ -4,6 +4,7 @@ import type { AppEmotionProps } from 'next/app';
 
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
+import Snackbar from 'components/Snackbar';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
@@ -23,6 +24,7 @@ const App = (props: AppEmotionProps) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
+                <Snackbar />
                 <ParadeigmaTitle />
                 <NavigationBreadcrumbs />
                 <Component { ...pageProps } />
