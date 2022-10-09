@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer } from 'react';
 import { ProgrammingLanguage, MikroStyle, MIKRO_NAME_MAX_LENGTH, MIKRO_DESCRIPTION_MAX_LENGTH } from '@paradeigma/graphql';
 
 type NewMikroFormState = {
@@ -30,69 +30,68 @@ type Action =
 | { type: 'TOGGLE_SLIDE'; }
 | { type: 'START_SUBMISSION'; };
 
-export default function useNewMikroReducer() {
-    const reducer = useCallback((state: NewMikroFormState, action: Action): NewMikroFormState => {
-        switch (action.type) {
-            case 'SET_NAME': {
-                return {
-                    ...state,
-                    isInFirstSlide: true,
-                    ...action.name.length <= MIKRO_NAME_MAX_LENGTH && {
-                        name: action.name
-                    }
+const reducer = (state: NewMikroFormState, action: Action): NewMikroFormState => {
+    switch (action.type) {
+        case 'SET_NAME': {
+            return {
+                ...state,
+                isInFirstSlide: true,
+                ...action.name.length <= MIKRO_NAME_MAX_LENGTH && {
+                    name: action.name
                 }
             }
-            case 'SET_DESCRIPTION': {
-                return {
-                    ...state,
-                    isInFirstSlide: true,
-                    ...action.description.length <= MIKRO_DESCRIPTION_MAX_LENGTH && {
-                        description: action.description
-                    }
-                }
-            }
-            case 'SET_LANGUAGE': {
-                return {
-                    ...state,
-                    isInFirstSlide: true,
-                    ...action.language !== null && {
-                        language: action.language,
-                        content: ''
-                    }
-                }
-            }
-            case 'SET_CONTENT': {
-                return {
-                    ...state,
-                    isInFirstSlide: true,
-                    content: action.content
-                }
-            }
-            case 'SET_STYLE': {
-                return {
-                    ...state,
-                    isInFirstSlide: false,
-                    ...action.style !== null && {
-                        style: action.style
-                    }
-                }
-            }
-            case 'TOGGLE_SLIDE': {
-                return {
-                    ...state,
-                    isInFirstSlide: !state.isInFirstSlide
-                }
-            }
-            case 'START_SUBMISSION': {
-                return {
-                    ...state,
-                    isSubmittingForm: true,
-                    isInFirstSlide: false
-                }
-            }
-            default: return state;
         }
-    }, []);
-
-    return useReducer(reducer, initialState);
+        case 'SET_DESCRIPTION': {
+            return {
+                ...state,
+                isInFirstSlide: true,
+                ...action.description.length <= MIKRO_DESCRIPTION_MAX_LENGTH && {
+                    description: action.description
+                }
+            }
+        }
+        case 'SET_LANGUAGE': {
+            return {
+                ...state,
+                isInFirstSlide: true,
+                ...action.language !== null && {
+                    language: action.language,
+                    content: ''
+                }
+            }
+        }
+        case 'SET_CONTENT': {
+            return {
+                ...state,
+                isInFirstSlide: true,
+                content: action.content
+            }
+        }
+        case 'SET_STYLE': {
+            return {
+                ...state,
+                isInFirstSlide: false,
+                ...action.style !== null && {
+                    style: action.style
+                }
+            }
+        }
+        case 'TOGGLE_SLIDE': {
+            return {
+                ...state,
+                isInFirstSlide: !state.isInFirstSlide
+            }
+        }
+        case 'START_SUBMISSION': {
+            return {
+                ...state,
+                isSubmittingForm: true,
+                isInFirstSlide: false
+            }
+        }
+    }
 }
+
+const useNewMikroReducer = () => useReducer(reducer, initialState);
+
+export default useNewMikroReducer;
