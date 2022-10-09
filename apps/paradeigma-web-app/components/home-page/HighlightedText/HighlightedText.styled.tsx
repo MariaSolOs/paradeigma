@@ -19,8 +19,11 @@ export const Tooltip = styled(({ className, ...props }: TooltipProps) =>
     [`& .${tooltipClasses.tooltip}`]: {
         fontFamily: theme.typography.mono.fontFamily,
         backgroundColor: theme.palette.secondary.light,
-
-        [theme.breakpoints.down('md')]: { fontSize: '0.6rem' }
+        
+        [theme.breakpoints.down('md')]: { 
+            fontSize: '0.6rem',
+            padding: '2px 4px'
+        }
     },
 
     [`& .${tooltipClasses.arrow}`]: { color: theme.palette.secondary.light }
