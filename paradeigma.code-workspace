@@ -52,7 +52,10 @@
         "colorize.include": [
             "**/styles/*.ts",
             "**/*.styled.*"
-        ]
+        ],
+        "editor.quickSuggestions": {
+            "comments": "on"
+        }
     },
     "extensions": {
         "recommendations": [

@@ -21,8 +21,11 @@ else
     exit 0
 fi
 
+cloned_first_commit=$(git rev-list --max-parents=0 HEAD)
+echo "First commit in clone: $cloned_first_commit"
+
 for package in ${triggers[@]}; do
-    git diff --quiet $VERCEL_GIT_PREVIOUS_SHA HEAD -- $package
+    git diff --quiet $cloned_first_commit HEAD -- $package
     exit_code=$?
     echo "Changes in $package: $exit_code"
     if [[ $exit_code -eq 1 ]]; then
