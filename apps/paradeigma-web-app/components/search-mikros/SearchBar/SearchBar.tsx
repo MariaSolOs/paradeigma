@@ -1,6 +1,8 @@
-import { useState, useCallback, type FC } from 'react';
+import { useState, useCallback } from 'react';
 import { getLanguageIcon } from 'lib/mikro';
-import { ProgrammingLanguages, type ProgrammingLanguage } from '@paradeigma/graphql';
+import { ProgrammingLanguages } from '@paradeigma/graphql';
+import type { FC } from 'react';
+import type { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { SearchBarProps } from './index';
 
 import Chip from '@mui/material/Chip';

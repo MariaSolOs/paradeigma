@@ -1,4 +1,5 @@
-import mongoose, { type Mongoose } from 'mongoose';
+import mongoose from 'mongoose';
+import type { Mongoose } from 'mongoose';
 
 /**
  * Module-scoped mongoose connection promise, so that we can share it
