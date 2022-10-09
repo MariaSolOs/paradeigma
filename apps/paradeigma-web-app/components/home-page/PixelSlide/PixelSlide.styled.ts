@@ -34,7 +34,7 @@ export const TextContainer = styled('p')(({ theme }) => ({
     fontSize: '1.3rem',
     
     [theme.breakpoints.down('md')]: { fontSize: '1rem' },
-    [theme.breakpoints.down('sm')]: { 
+    [theme.breakpoints.down('sm')]: {
         margin: '0 10px',
         fontSize: '0.8rem' 
     }

@@ -19,9 +19,11 @@ const HomePage: NextPage = () => (
             </HighlightedText> ready to use in VS Code.
         </PixelSlide>
         <PixelSlide image={{ src: harpImg, altText: 'Pixel harp' }}>
-            <HighlightedText>Why Paradeigma?</HighlightedText> Because documentation is{' '}
-            often not enough to understand a coding concept. We need real-life use cases,{' '}
-            <HighlightedText>insightful bits</HighlightedText> of true code.
+            <HighlightedText tooltipText={<><b><em>parádeigma</em></b>: Illustrative pattern, example.</>}>
+                Why Paradeigma?
+            </HighlightedText> Because documentation is often not enough to understand a coding{' '}
+            concept. We need real-life use cases, <HighlightedText>insightful bits</HighlightedText>{' '}
+            of true code.
         </PixelSlide>
     </>
 );
