@@ -1,18 +1,21 @@
+import { UiContextProvider } from 'context/uiContext';
+import dynamic from 'next/dynamic';
 import createEmotionCache from 'styles/emotion-cache';
 import theme from 'styles/theme';
 import type { AppEmotionProps } from 'next/app';
 
 import Head from 'next/head';
 import CssBaseline from '@mui/material/CssBaseline';
-import Snackbar from 'components/Snackbar';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
 import ParadeigmaTitle from 'components/ParadeigmaTitle';
 
+const Snackbar = dynamic(() => import('components/Snackbar'));
+
 const clientCache = createEmotionCache();
 
-// TODO: Add Head component
+// TODO: Add Head component with page info
 const App = (props: AppEmotionProps) => {
     const { Component, emotionCache = clientCache, pageProps } = props;
 
@@ -24,10 +27,12 @@ const App = (props: AppEmotionProps) => {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Snackbar />
-                <ParadeigmaTitle />
-                <NavigationBreadcrumbs />
-                <Component { ...pageProps } />
+                <UiContextProvider>
+                    <Snackbar />
+                    <ParadeigmaTitle />
+                    <NavigationBreadcrumbs />
+                    <Component { ...pageProps } />
+                </UiContextProvider>
             </ThemeProvider>
         </CacheProvider>
     );

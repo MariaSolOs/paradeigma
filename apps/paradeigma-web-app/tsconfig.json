@@ -11,6 +11,10 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "noEmit": true
+        "noEmit": true,
+
+        // Needed for typings of dynamic local components.
+        // TODO: Not sure if this is the right solution (?)
+        "moduleResolution": "node"
     }
 }

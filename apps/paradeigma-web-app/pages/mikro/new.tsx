@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import useUiContext from 'context/uiContext';
 import useNewMikroReducer from 'hooks/useNewMikroReducer';
 import { getHookedSdk } from 'lib/graphql';
 import type { FormEvent } from 'react';
@@ -13,6 +14,7 @@ const sdk = getHookedSdk();
 // TODO: Add markdown support for the description
 const NewMikroPage: NextPage = () => {
     const router = useRouter();
+    const { uiDispatch } = useUiContext();
     const [state, dispatch] = useNewMikroReducer();
 
     const handleSubmit = async (event: FormEvent) => {
@@ -28,6 +30,8 @@ const NewMikroPage: NextPage = () => {
             style: state.style
         })).createMikro;
 
+        uiDispatch({ type: 'OPEN_SNACKBAR', content: <>Mickro created! 🥳</> });
+        
         void router.push({ pathname: '/mikro/[id]', query: { id } });
     }
 
