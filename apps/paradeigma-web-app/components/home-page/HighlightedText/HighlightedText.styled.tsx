@@ -22,7 +22,7 @@ export const Tooltip = styled(({ className, ...props }: TooltipProps) =>
         
         [theme.breakpoints.down('md')]: { 
             fontSize: '0.6rem',
-            padding: '2px 4px'
+            padding: '4px 6px'
         }
     },
 
