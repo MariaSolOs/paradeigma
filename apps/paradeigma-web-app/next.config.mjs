@@ -8,6 +8,10 @@ const config = {
     swcMinify: true,
     experimental: {
         externalDir: true
+    },
+    eslint: {
+        // TODO: Add a hook that lints locally.
+        ignoreDuringBuilds: true
     }
 }
 

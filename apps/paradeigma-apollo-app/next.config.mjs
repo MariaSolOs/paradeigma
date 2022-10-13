@@ -7,6 +7,10 @@ export default {
     experimental: {
         externalDir: true
     },
+    eslint: {
+        // TODO: Add a hook that lints locally.
+        ignoreDuringBuilds: true
+    },
     // eslint-disable-next-line @typescript-eslint/require-await
     async redirects() {
         return [{
