@@ -4,6 +4,7 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import type { GetMikroQuery } from '@paradeigma/graphql';
 import type { RoutedQuery } from 'nextjs-routes';
 
+import Spinner from 'components/Spinner';
 import Box from '@mui/material/Box';
 import Button from 'components/Button';
 import Details from 'components/mikro-details/Details';
@@ -40,9 +41,8 @@ export const getStaticPaths: GetStaticPaths<MikroDetailsUrlQuery> = async () => 
 const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
     const router = useRouter();
 
-    // TODO: Add a real fallback (spinner?) here
     if (router.isFallback) {
-        return <h1>Loading...</h1>;
+        return <Spinner open />;
     }
 
     return (

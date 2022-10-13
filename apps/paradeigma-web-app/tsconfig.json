@@ -13,8 +13,7 @@
         "baseUrl": ".",
         "noEmit": true,
 
-        // Needed for typings of dynamic local components.
-        // TODO: Not sure if this is the right solution (?)
+        // HACK: Needed for typings of dynamic local components.
         "moduleResolution": "node"
     }
 }
