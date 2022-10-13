@@ -8,7 +8,8 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking'
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:@next/next/recommended'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -63,35 +64,21 @@ module.exports = {
                 'after': true
             }
         ],
-        'no-multi-spaces': 'warn'
+        'no-multi-spaces': 'warn',
+        '@next/next/no-html-link-for-pages': [
+            'error', 
+            [
+                path.join(__dirname, 'apps/paradeigma-apollo-app/pages/'), 
+                path.join(__dirname, 'apps/paradeigma-web-app/pages/')
+            ]
+        ]
     },
-    overrides: [
-        {
-            files: [ 
-                './apps/paradeigma-apollo-app/**/*.ts', 
-                './apps/paradeigma-web-app/**/*.ts', 
-                './apps/paradeigma-web-app/**/*.tsx' 
-            ],
-            extends: [
-                'plugin:@next/next/recommended'
-            ],
-            settings: {
-                next: {
-                    rootDir: [
-                        './apps/paradeigma-apollo-app/',
-                        './apps/paradeigma-web-app/'
-                    ]
-                }
-            },
-            rules: {
-                '@next/next/no-html-link-for-pages': [
-                    'error', 
-                    [
-                        path.join(__dirname, 'apps/paradeigma-apollo-app/pages/'), 
-                        path.join(__dirname, 'apps/paradeigma-web-app/pages/')
-                    ]
-                ]
-            }
+    settings: {
+        next: {
+            rootDir: [
+                './apps/paradeigma-apollo-app/',
+                './apps/paradeigma-web-app/'
+            ]
         }
-    ]
+    }
 }
