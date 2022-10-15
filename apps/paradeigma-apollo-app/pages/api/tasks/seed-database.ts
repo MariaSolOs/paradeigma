@@ -2,10 +2,10 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { Mikro } from '@paradeigma/mongoose';
 import mongooseConnection from 'lib/mongoose-connection';
 import { 
-    ProgrammingLanguages, 
-    MikroStyles, 
-    MIKRO_NAME_MAX_LENGTH, 
-    MIKRO_DESCRIPTION_MAX_LENGTH 
+    ProgrammingLanguages,
+    MikroStyles,
+    MIKRO_NAME_MAX_LENGTH,
+    MIKRO_DESCRIPTION_MAX_LENGTH
 } from '@paradeigma/graphql';
 import type { NextApiHandler } from 'next';
 

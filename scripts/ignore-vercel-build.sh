@@ -13,7 +13,7 @@ if [[ $1 == "apollo-app" ]]; then
     )
 elif [[ $1 == "web-app" ]]; then
     triggers=(
-        '../apps/paradeigma-apollo-app'
+        '../apps/paradeigma-web-app'
         '../packages/paradeigma-graphql'
     )
 else
