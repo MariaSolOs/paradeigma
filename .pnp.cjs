@@ -3386,7 +3386,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@paradeigma/apollo-app", "workspace:apps/paradeigma-apollo-app"],\
             ["@paradeigma/graphql", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#workspace:packages/paradeigma-graphql"],\
             ["@paradeigma/mongoose", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#workspace:packages/paradeigma-mongoose"],\
-            ["@types/micro-cors", "npm:0.1.2"],\
             ["@types/node", "npm:18.8.5"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -3396,7 +3395,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql", "npm:16.6.0"],\
             ["lorem-ipsum", "npm:2.0.8"],\
             ["micro", "npm:9.4.1"],\
-            ["micro-cors", "npm:0.1.1"],\
             ["mongoose", "npm:6.6.5"],\
             ["next", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:12.3.1"],\
             ["react", "npm:18.2.0"],\
@@ -3897,26 +3895,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-long-npm-4.0.2-e7bdc00dd4-d16cde7240.zip/node_modules/@types/long/",\
           "packageDependencies": [\
             ["@types/long", "npm:4.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/micro", [\
-        ["npm:7.3.7", {\
-          "packageLocation": "./.yarn/cache/@types-micro-npm-7.3.7-e1b095c315-37766f7637.zip/node_modules/@types/micro/",\
-          "packageDependencies": [\
-            ["@types/micro", "npm:7.3.7"],\
-            ["@types/node", "npm:18.7.14"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/micro-cors", [\
-        ["npm:0.1.2", {\
-          "packageLocation": "./.yarn/cache/@types-micro-cors-npm-0.1.2-c234a3e667-c6afa8fcd3.zip/node_modules/@types/micro-cors/",\
-          "packageDependencies": [\
-            ["@types/micro-cors", "npm:0.1.2"],\
-            ["@types/micro", "npm:7.3.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7943,15 +7921,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["arg", "npm:4.1.0"],\
             ["content-type", "npm:1.0.4"],\
             ["raw-body", "npm:2.4.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["micro-cors", [\
-        ["npm:0.1.1", {\
-          "packageLocation": "./.yarn/cache/micro-cors-npm-0.1.1-ed2c9cf933-adf8a2b613.zip/node_modules/micro-cors/",\
-          "packageDependencies": [\
-            ["micro-cors", "npm:0.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\

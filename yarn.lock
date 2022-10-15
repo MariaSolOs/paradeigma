@@ -2104,7 +2104,6 @@ __metadata:
   dependencies:
     "@paradeigma/graphql": "workspace:*"
     "@paradeigma/mongoose": "workspace:*"
-    "@types/micro-cors": ^0.1.2
     "@types/node": ^18.8.5
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
@@ -2114,7 +2113,6 @@ __metadata:
     graphql: ^16.6.0
     lorem-ipsum: ^2.0.8
     micro: ^9.4.1
-    micro-cors: ^0.1.1
     mongoose: ^6.6.5
     next: 12.3.1
     react: 18.2.0
@@ -2401,24 +2399,6 @@ __metadata:
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
   checksum: d16cde7240d834cf44ba1eaec49e78ae3180e724cd667052b194a372f350d024cba8dd3f37b0864931683dab09ca935d52f0c4c1687178af5ada9fc85b0635f4
-  languageName: node
-  linkType: hard
-
-"@types/micro-cors@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@types/micro-cors@npm:0.1.2"
-  dependencies:
-    "@types/micro": "*"
-  checksum: c6afa8fcd30880413d344dcf4bbb5da8b5ac7cbcabe92597d31f9f9c14f0985b1c19a807785f727ad91cd8da36620bddbb8237f3d69de2d10c67537aea66a84e
-  languageName: node
-  linkType: hard
-
-"@types/micro@npm:*":
-  version: 7.3.7
-  resolution: "@types/micro@npm:7.3.7"
-  dependencies:
-    "@types/node": "*"
-  checksum: 37766f7637d4499362932499d72dda499b6afcdc2a1e2864fd7e65de4591767ef318a48b32626b472a1c16249d8666697816ae309ebd07a097d981bb8ee9502f
   languageName: node
   linkType: hard
 
@@ -5594,13 +5574,6 @@ __metadata:
     "@types/node":
       optional: true
   checksum: 95ec2dc352ad4ffe7a8572676d0399e8cfe67bb3ebe03ce5b03ebb4d990527994528260ff47a7efedc1348a8ee46bfe782564127bd1566d4790e1189b0a1ed29
-  languageName: node
-  linkType: hard
-
-"micro-cors@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "micro-cors@npm:0.1.1"
-  checksum: adf8a2b613ee963ca02bf12bd1a89d31602420094f88d23d2dc467fdc7131f44cf693704860685cf1b3a8058cf9349089ef795d03470c139a997b5c3dac39641
   languageName: node
   linkType: hard
 
