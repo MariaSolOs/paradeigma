@@ -7,9 +7,9 @@ const Snackbar = () => {
     const { uiState, uiDispatch } = useUiContext();
 
     return (
-        <MuiSnackbar 
+        <MuiSnackbar
         open={uiState.snackbarContent !== undefined}
-        autoHideDuration={5000} 
+        autoHideDuration={5000}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         onClose={() => uiDispatch({ type: 'CLOSE_SNACKBAR' })}>
             <S.SnackbarContent message={uiState.snackbarContent} elevation={0} />

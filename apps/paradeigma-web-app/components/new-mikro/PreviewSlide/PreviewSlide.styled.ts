@@ -12,7 +12,7 @@ const slideAnimation = keyframes`
     }
 `;
 
-export const Slide = styled(BaseSlide)({ 
+export const Slide = styled(BaseSlide)({
     animation: `${slideAnimation} 900ms ease-in-out`,
     width: '100%'
 });

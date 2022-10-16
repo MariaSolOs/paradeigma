@@ -21,7 +21,7 @@ const initialState: NewMikroFormState = {
     isSubmittingForm: false
 } as const;
 
-type Action = 
+type Action =
 | { type: 'SET_NAME'; name: string; }
 | { type: 'SET_DESCRIPTION'; description: string; }
 | { type: 'SET_LANGUAGE'; language: ProgrammingLanguage | null; }

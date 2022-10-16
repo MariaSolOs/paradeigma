@@ -8,7 +8,7 @@ export const Breadcrumbs = styled(MuiBreadcrumbs)(({ theme }) => ({
 
     [`& .${breadcrumbsClasses.li}`]: { margin: '0 2rem' },
 
-    [`& .${breadcrumbsClasses.separator}`]: { 
+    [`& .${breadcrumbsClasses.separator}`]: {
         fontSize: '1.7rem',
         color: theme.palette.primary.light
     },
@@ -28,6 +28,6 @@ export const NavigationLink = styled('a')(({ theme }) => ({
     color: theme.palette.secondary.light,
 
     [theme.breakpoints.down('md')]: { fontSize: '1rem' },
-    
+
     [theme.breakpoints.down('sm')]: { fontSize: '0.8rem' }
 }));

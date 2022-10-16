@@ -14,7 +14,7 @@ const theme = createTheme({
             dark: '#0B132B'
         }
     },
-    
+
     typography: {
         bungee: {
             fontFamily: 'Bungee, cursive'
@@ -50,7 +50,7 @@ const theme = createTheme({
                     fontFamily: 'inherit',
                     height: '1.6rem',
                     backgroundColor: `${theme.palette.secondary.light}30`,
-                    color: theme.palette.secondary.main,
+                    color: theme.palette.secondary.main
                 }),
                 deleteIcon: {
                     transition: 'color 300ms ease-in-out'

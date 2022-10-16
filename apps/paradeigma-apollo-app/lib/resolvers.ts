@@ -72,10 +72,10 @@ const resolvers: Resolvers = {
                 style,
                 rating
             });
-            
+
             // Add the mikro to the Fuse collection.
             (await mikroFuse.getFuse()).add(mikro);
-            
+
             return mikro;
         }
     }

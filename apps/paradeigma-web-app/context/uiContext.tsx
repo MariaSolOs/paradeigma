@@ -9,7 +9,7 @@ const initialState: UiState = {
     snackbarContent: undefined
 }
 
-type Action = 
+type Action =
 | { type: 'OPEN_SNACKBAR', content: ReactNode; }
 | { type: 'CLOSE_SNACKBAR' };
 

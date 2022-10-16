@@ -7,7 +7,7 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MikroCode from 'components/MikroCode';
 import InputLabel from 'components/InputLabel';
-import { 
+import {
     Root as SelectRoot,
     Listbox as SelectListbox,
     Popper as SelectPopper,
@@ -27,7 +27,7 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => {
                 </S.CloseText>
                 <S.Content>
                     <S.MikroName>{props.name}</S.MikroName>
-                    <MikroCode 
+                    <MikroCode
                     content={props.content}
                     language={props.language}
                     style={props.style}
@@ -39,9 +39,9 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => {
                             Which style would you like your mikro to have?
                         </InputLabel>
                         <SelectUnstyled
-                        components={{ 
-                            Root: SelectRoot, 
-                            Listbox: SelectListbox, 
+                        components={{
+                            Root: SelectRoot,
+                            Listbox: SelectListbox,
                             Popper: SelectPopper
                         }}
                         value={props.style}

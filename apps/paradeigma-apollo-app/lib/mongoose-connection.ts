@@ -13,7 +13,7 @@ const getMongoosePromise = () => mongoose.connect(process.env['MONGODB_URI'] ?? 
 });
 
 if (process.env['VERCEL_ENV'] === 'development') {
-    // In development, use a global variable so that the value is preserved 
+    // In development, use a global variable so that the value is preserved
     // across module reloads caused by HMR (Hot Module Replacement).
     if (global.mongoosePromise === undefined) {
         global.mongoosePromise = getMongoosePromise();

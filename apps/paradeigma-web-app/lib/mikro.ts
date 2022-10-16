@@ -2,7 +2,7 @@ import { ProgrammingLanguage } from '@paradeigma/graphql';
 
 /**
  * @param language - The programming language
- * @returns The icon class name (as indicated in {@link https://devicon.dev/}) for 
+ * @returns The icon class name (as indicated in {@link https://devicon.dev/}) for
  * that language.
  */
 export const getLanguageIcon = (language: ProgrammingLanguage): string => {

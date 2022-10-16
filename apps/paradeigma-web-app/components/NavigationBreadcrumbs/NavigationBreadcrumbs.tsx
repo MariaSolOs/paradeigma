@@ -11,7 +11,7 @@ const navigationLinks: NavigationLink[] = [
 
 const NavigationBreadcrumbs = () => (
     <S.Breadcrumbs>
-        {navigationLinks.map(link => 
+        {navigationLinks.map(link =>
             <Link key={link.title} href={link.route} passHref>
                 <S.NavigationLink>{link.title}</S.NavigationLink>
             </Link>

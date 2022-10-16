@@ -8,11 +8,11 @@ import * as S from './Details.styled';
 const Details: FC<DetailsProps> = (props) => (
     <S.Container>
         <S.MikroContainer>
-            <MikroCode 
+            <MikroCode
             content={props.mikro.content}
             language={props.mikro.language}
             style={props.mikro.style}
-            containerStyles={{ 
+            containerStyles={{
                 width: '100%',
                 margin: 0
             }} />

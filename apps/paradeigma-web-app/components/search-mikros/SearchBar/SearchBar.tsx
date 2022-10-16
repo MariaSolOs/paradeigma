@@ -23,15 +23,15 @@ const SearchBar: FC<SearchBarProps> = (props) => {
 
     return (
         <S.Container>
-            <Input 
+            <Input
             fullWidth
-            placeholder="Find your paradeigmata." 
+            placeholder="Find your paradeigmata."
             endAdornment={<S.SearchIcon />}
             value={props.textFilter}
             onChange={event => props.onTextFilterChange(event.target.value)} />
             <S.SelectContainer>
                 <InputLabel>Search for mikros written in: </InputLabel>
-                <MultiSelectUnstyled 
+                <MultiSelectUnstyled
                 listboxOpen={openLanguageSelect}
                 onListboxOpenChange={() => setOpenLanguageSelect(true)}
                 value={props.languageFilter}
@@ -46,16 +46,16 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                     Popper: SelectPopper
                 }}
                 componentsProps={{ popper: { placement: 'bottom-end' }}}
-                renderValue={options => 
+                renderValue={options =>
                     <S.ChipsContainer>
-                        {options.map(({ label, value }) => 
+                        {options.map(({ label, value }) =>
                             <Chip key={value} label={label} onDelete={() => handleChipDeletion(value)} />
                         )}
                     </S.ChipsContainer>
                 }>
-                    {ProgrammingLanguages.map(language => 
-                        <S.SelectOption 
-                        key={language} 
+                    {ProgrammingLanguages.map(language =>
+                        <S.SelectOption
+                        key={language}
                         value={language}
                         disabled={props.languageFilter.includes(language)}>
                             {language}
@@ -65,6 +65,6 @@ const SearchBar: FC<SearchBarProps> = (props) => {
             </S.SelectContainer>
         </S.Container>
     );
-} 
+}
 
 export default SearchBar;

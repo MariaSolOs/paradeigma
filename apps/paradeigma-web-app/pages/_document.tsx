@@ -22,7 +22,7 @@ export default class CustomDocument extends Document {
         // This is important. It prevents emotion from rendering invalid HTML.
         const emotionStyles = extractCriticalToChunks(initialProps.html);
         const emotionStyleTags = emotionStyles.styles.map((style) => (
-            <style 
+            <style
             key={style.key}
             data-emotion={`${style.key} ${style.ids.join(' ')}`}
             dangerouslySetInnerHTML={{ __html: style.css }} />
@@ -55,7 +55,7 @@ export default class CustomDocument extends Document {
 
                     {/* Programming language icons */}
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-                    
+
                     <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
                     {(this.props as unknown as { emotionStyleTags: JSX.Element; }).emotionStyleTags}
                 </Head>

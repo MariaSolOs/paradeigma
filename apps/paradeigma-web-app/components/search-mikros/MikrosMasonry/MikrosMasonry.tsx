@@ -24,15 +24,15 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Mui won't accept this props otherwise
         } as MasonryProps as any}>
             {props.mikros.map(mikro => {
-                // Hack to get rid of the findDOMNode warning with 
+                // Hack to get rid of the findDOMNode warning with
                 // react-transition-group
                 const ref = createRef<HTMLDivElement>();
 
                 // For some variation, fade stuff at different times
                 const randomDelay = 100 * Math.floor(5 * Math.random());
-                
+
                 return (
-                    <S.Transition 
+                    <S.Transition
                     key={mikro.id}
                     nodeRef={ref}
                     timeout={300 + randomDelay}
@@ -42,16 +42,16 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                         exit: S.FADE_IN_ANIMATION,
                         exitActive: S.FADE_OUT_ANIMATION
                     }}>
-                        <S.MikroContainer 
-                        ref={ref} 
+                        <S.MikroContainer
+                        ref={ref}
                         onClick={() => props.onMikroClick(mikro.id)}
                         sx={{ transitionDelay: `${randomDelay}ms`}}>
                             <S.MikroTitle>{mikro.name}</S.MikroTitle>
                             <MikroCode
-                            content={mikro.content} 
-                            language={mikro.language} 
+                            content={mikro.content}
+                            language={mikro.language}
                             style={mikro.style}
-                            containerStyles={{ 
+                            containerStyles={{
                                 borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${+theme.shape.borderRadius * 2}px`,
                                 margin: 0
                             }} />
@@ -61,6 +61,6 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
             })}
         </S.TransitionMasonry>
     );
-} 
+}
 
 export default MikrosMasonry;

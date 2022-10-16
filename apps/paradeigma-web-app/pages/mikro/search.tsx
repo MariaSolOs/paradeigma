@@ -31,8 +31,8 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     const [textFilter, setTextFilter] = useState(textFilterQuery);
     const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>(languageFilterQuery);
     const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
-    
-    // Debounce the input query by one second so that we don't overwhelm the 
+
+    // Debounce the input query by one second so that we don't overwhelm the
     // GraphQL server.
     const debouncedQuery = useDebounce(textFilter, 1000);
 
@@ -41,8 +41,8 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
         languageFilter: languageFilter.length > 0 ? languageFilter : undefined
     }, { fallbackData: props.initialMikros });
 
-    // For a smooth effect, we first "reset" the masonry by clearing the existing mikros 
-    // and after a bit we populate (and hence re-trigger the animation) the list with 
+    // For a smooth effect, we first "reset" the masonry by clearing the existing mikros
+    // and after a bit we populate (and hence re-trigger the animation) the list with
     // the new ones.
     useEffect(() => {
         setMikros([]);

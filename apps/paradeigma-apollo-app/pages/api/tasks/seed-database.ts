@@ -1,7 +1,7 @@
 import { LoremIpsum } from 'lorem-ipsum';
 import { Mikro } from '@paradeigma/mongoose';
 import mongooseConnection from 'lib/mongoose-connection';
-import { 
+import {
     ProgrammingLanguages,
     MikroStyles,
     MIKRO_NAME_MAX_LENGTH,
@@ -85,15 +85,15 @@ const handler: NextApiHandler<SeedDatabaseResponse> = async (req, res) => {
 
     try {
         await mongooseConnection;
-    
+
         // Delete existing mikros.
         await Mikro.deleteMany({});
-    
+
         // Lorem Ipsum generator for mikro names and descriptions.
         const lorem = new LoremIpsum({
             wordsPerSentence: { min: 4, max: 8 }
         });
-    
+
         for (let i = 0; i < NUM_RANDOM_MIKROS; i++) {
             await Mikro.create({
                 name: lorem.generateSentences(1).slice(0, MIKRO_NAME_MAX_LENGTH),

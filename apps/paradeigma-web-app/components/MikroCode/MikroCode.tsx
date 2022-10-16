@@ -9,7 +9,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 const SyntaxHighlighter = dynamic(async () => {
     const syntaxHighlighter = (await import('react-syntax-highlighter')).PrismAsyncLight;
-    
+
     for (const language of ProgrammingLanguages) {
         const languageSupport = (await import(`react-syntax-highlighter/dist/esm/languages/prism/${language}`) as { default: unknown; }).default;
         syntaxHighlighter.registerLanguage(language, languageSupport);
@@ -20,7 +20,7 @@ const SyntaxHighlighter = dynamic(async () => {
 
 /**
  * @param style - The mikro's style
- * @returns The react-syntax-highlighter module containing the style's 
+ * @returns The react-syntax-highlighter module containing the style's
  * implementation.
  */
 const getStylePackage = async (style: MikroStyle): Promise<HighlighterStyle> => {
@@ -63,10 +63,10 @@ const MikroCode: FC<MikroCodeProps> = (props) => {
 
     // TODO: Limit the number of code lines in the card.
     return (
-        <SyntaxHighlighter 
+        <SyntaxHighlighter
         wrapLongLines
-        style={style} 
-        language={props.language} 
+        style={style}
+        language={props.language}
         customStyle={props.containerStyles}>
             {props.content}
         </SyntaxHighlighter>

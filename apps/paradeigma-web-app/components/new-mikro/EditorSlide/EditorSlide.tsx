@@ -10,7 +10,7 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
 import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
 import Input from 'components/Input';
 import InputLabel from 'components/InputLabel';
-import { 
+import {
     Root as SelectRoot,
     Listbox as SelectListbox,
     Popper as SelectPopper,
@@ -24,7 +24,7 @@ const AceEditor = dynamic(async () => {
 
     // Prevent the console warning about misspelled prop names.
     await import('ace-builds/src-noconflict/ext-language_tools');
-    
+
     // Import the theme.
     await import('ace-builds/src-noconflict/theme-github');
 
@@ -38,8 +38,8 @@ const AceEditor = dynamic(async () => {
     ace.config.setModuleUrl('ace/mode/javascript_worker', '/code-editor/worker-javascript.js');
 
     return reactAce;
-}, { 
-    ssr: false, 
+}, {
+    ssr: false,
     loading: () => <Skeleton variant="rectangular" width="100%" height="100%" />
 });
 
@@ -83,9 +83,9 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                             Which programming language are you using?
                         </InputLabel>
                         <SelectUnstyled
-                        components={{ 
-                            Root: SelectRoot, 
-                            Listbox: SelectListbox, 
+                        components={{
+                            Root: SelectRoot,
+                            Listbox: SelectListbox,
                             Popper: SelectPopper
                         }}
                         value={props.language}
@@ -100,7 +100,7 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                     </S.FormControl>
                 </S.FieldsContainer>
                 <S.EditorContainer>
-                    <AceEditor 
+                    <AceEditor
                     name="PARADEIGMA_TEXT_EDITOR"
                     mode={props.language}
                     theme="github"

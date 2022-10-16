@@ -12,9 +12,9 @@ const slideAnimation = keyframes`
     }
 `;
 
-export const Slide = styled(BaseSlide)(({ theme }) => ({ 
+export const Slide = styled(BaseSlide)(({ theme }) => ({
     animation: `${slideAnimation} 900ms ease-in-out`,
-    display: 'flex', 
+    display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'row',
 
@@ -29,8 +29,8 @@ export const FieldsContainer = styled('div')(({ theme }) => ({
 
 export const EditorContainer = styled('div')(({ theme }) => ({
     width: '45%',
-    overflow: 'hidden', 
-    borderRadius: 3, 
+    overflow: 'hidden',
+    borderRadius: 3,
     borderStyle: 'solid',
     borderColor: '#E8E8E8',
     borderWidth: '1px 1px 1px 0',
@@ -39,7 +39,7 @@ export const EditorContainer = styled('div')(({ theme }) => ({
 }));
 
 export const LanguageIcon = styled('i')({
-    fontSize: '0.85rem', 
+    fontSize: '0.85rem',
     marginLeft: '0.5rem'
 });
 

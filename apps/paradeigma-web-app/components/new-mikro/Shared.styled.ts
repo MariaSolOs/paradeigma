@@ -14,7 +14,7 @@ export const FormControl = styled(MuiFormControl)({
     margin: '1rem 0 0.5rem'
 });
 
-export const Button = styled(BaseButton)({ 
-    display: 'block', 
-    margin: '0 auto 30px' 
+export const Button = styled(BaseButton)({
+    display: 'block',
+    margin: '0 auto 30px'
 });

@@ -6,7 +6,7 @@ export const Slide = styled('div')(({ theme }) => ({
     width: '80vw',
     maxWidth: 1100,
     margin: '50px auto',
-    
+
     [theme.breakpoints.down('md')]: {
         width: '90vw',
         margin: '30px auto'
@@ -32,10 +32,10 @@ export const TextContainer = styled('p')(({ theme }) => ({
     textAlign: 'center',
     margin: '0 20px',
     fontSize: '1.3rem',
-    
+
     [theme.breakpoints.down('md')]: { fontSize: '1rem' },
     [theme.breakpoints.down('sm')]: {
         margin: '0 10px',
-        fontSize: '0.8rem' 
+        fontSize: '0.8rem'
     }
 }));

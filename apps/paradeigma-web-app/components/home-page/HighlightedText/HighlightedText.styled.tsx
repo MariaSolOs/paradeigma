@@ -13,14 +13,14 @@ export const Asterisk = styled('span')(({ theme }) => ({
     color: theme.palette.secondary.light
 }));
 
-export const Tooltip = styled(({ className, ...props }: TooltipProps) => 
+export const Tooltip = styled(({ className, ...props }: TooltipProps) =>
     <MuiTooltip {...props} classes={{ popper: className, arrow: className }} />
 )(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
         fontFamily: theme.typography.mono.fontFamily,
         backgroundColor: theme.palette.secondary.light,
-        
-        [theme.breakpoints.down('md')]: { 
+
+        [theme.breakpoints.down('md')]: {
             fontSize: '0.6rem',
             padding: '4px 6px'
         }

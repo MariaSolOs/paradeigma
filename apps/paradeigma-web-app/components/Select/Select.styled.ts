@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import OptionUnstyled from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
 
-export const Root = styled('button', { 
+export const Root = styled('button', {
     shouldForwardProp: prop => prop !== 'ownerState'
 })(({ theme }) => ({
     border: `1px solid ${theme.palette.primary.light}`,

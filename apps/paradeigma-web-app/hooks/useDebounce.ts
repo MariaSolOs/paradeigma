@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 /**
  * Hook for debouncing fast changing values.
- * 
+ *
  * @param value - The value to be set
  * @param delay - The debounce delay (in milliseconds)
  */

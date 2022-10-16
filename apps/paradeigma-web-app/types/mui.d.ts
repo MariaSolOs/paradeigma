@@ -6,7 +6,7 @@ declare module '@mui/material/styles' {
         bungeeShade: React.CSSProperties;
         mono: React.CSSProperties;
     }
-    
+
     interface TypographyVariantsOptions {
         bungee: TypographyStyleOptions;
         bungeeShade?: TypographyStyleOptions;

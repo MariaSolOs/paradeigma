@@ -38,6 +38,12 @@ module.exports = {
     ],
     reportUnusedDisableDirectives: true,
     rules: {
+        eqeqeq: 'error',
+        'brace-style': 'warn',
+        'comma-dangle': [
+            'warn',
+            'never'
+        ],
         // Don't leave more than 1 blank line between code blocks
         'no-multiple-empty-lines': [
             'warn', 
@@ -47,14 +53,14 @@ module.exports = {
                 'maxBOF': 0 
             }
         ],
-        // Indent with 4 spaces, except when listing attributes in JSX
-        indent: 'off',
-        '@typescript-eslint/indent': [
+        'no-trailing-spaces': 'warn',
+        'no-whitespace-before-property': 'warn',
+        'spaced-comment': [
             'warn',
-            4,
+            'always',
             {
-                'ignoredNodes': [ 'JSXOpeningElement > JSXAttribute' ],
-                'SwitchCase': 1
+                // For triple slash references
+                markers: [ '/' ]
             }
         ],
         'keyword-spacing': [
@@ -65,6 +71,16 @@ module.exports = {
             }
         ],
         'no-multi-spaces': 'warn',
+        // Indent with 4 spaces, except when listing attributes in JSX
+        indent: 'off',
+        '@typescript-eslint/indent': [
+            'warn',
+            4,
+            {
+                'ignoredNodes': [ 'JSXOpeningElement > JSXAttribute' ],
+                'SwitchCase': 1
+            }
+        ],
         '@next/next/no-html-link-for-pages': [
             'error', 
             [

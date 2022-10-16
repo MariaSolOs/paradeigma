@@ -31,14 +31,14 @@ const NewMikroPage: NextPage = () => {
         })).createMikro;
 
         uiDispatch({ type: 'OPEN_SNACKBAR', content: <>Mickro created! 🥳</> });
-        
+
         void router.push({ pathname: '/mikro/[id]', query: { id } });
     }
 
     return (
         <form onSubmit={event => void handleSubmit(event)}>
             <Spinner open={state.isSubmittingForm} />
-            {state.isInFirstSlide && 
+            {state.isInFirstSlide &&
                 <EditorSlide
                 name={state.name}
                 description={state.description}
@@ -49,7 +49,7 @@ const NewMikroPage: NextPage = () => {
                 onLanguageChange={language => dispatch({ type: 'SET_LANGUAGE', language })}
                 onContentChange={content => dispatch({ type: 'SET_CONTENT', content })}
                 onContinue={() => dispatch({ type: 'TOGGLE_SLIDE' })} />}
-            {!state.isInFirstSlide && 
+            {!state.isInFirstSlide &&
                 <PreviewSlide
                 name={state.name}
                 language={state.language}

@@ -11,7 +11,7 @@ export const Input = styled(InputBase)(({ theme }) => ({
 
     '& ::placeholder': { fontSize: '0.9rem' },
 
-    [theme.breakpoints.down('sm')]: { 
+    [theme.breakpoints.down('sm')]: {
         fontSize: '0.8rem',
 
         '& ::placeholder': { fontSize: '0.8rem' }

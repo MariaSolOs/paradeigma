@@ -4,7 +4,7 @@ export const Container = styled('div')(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px auto 50px',
-    
+
     [theme.breakpoints.down('md')]: { flexDirection: 'column' }
 }));
 

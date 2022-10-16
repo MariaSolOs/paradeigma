@@ -27,7 +27,7 @@ const PixelSlide: FCC<PixelSlideProps> = (props) => {
                     ${getMediaQueryInfo(theme.breakpoints.down('md'))} 170px,
                     230px
                 `}
-                src={props.image.src} 
+                src={props.image.src}
                 alt={props.image.altText}
                 quality={100} />
             </S.ImageContainer>
