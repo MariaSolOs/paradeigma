@@ -1030,9 +1030,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:^2.13.6":
-  version: 2.13.6
-  resolution: "@graphql-codegen/cli@npm:2.13.6"
+"@graphql-codegen/cli@npm:^2.13.7":
+  version: 2.13.7
+  resolution: "@graphql-codegen/cli@npm:2.13.7"
   dependencies:
     "@babel/generator": ^7.18.13
     "@babel/template": ^7.18.10
@@ -1077,7 +1077,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 9fc0b1e18c2f62dbe36ee2addee49f99976ab4579b6a240f8b5f4ebfac255e5458ba2a0b1eb2a976d66ea7a5d6597633ae21832f653ef7a92ab6d465dab5def1
+  checksum: c025e311c072c1d992451f27625c863eef1236e5f01e2aeb6f00e67a60e99c7812a13481481a8fc6ea2967fffd77433d582f10365244d677608fdc7aa13bbe29
   languageName: node
   linkType: hard
 
@@ -2104,7 +2104,7 @@ __metadata:
   dependencies:
     "@paradeigma/graphql": "workspace:*"
     "@paradeigma/mongoose": "workspace:*"
-    "@types/node": ^18.8.5
+    "@types/node": ^18.11.0
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
     apollo-server-core: ^3.10.3
@@ -2125,14 +2125,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@paradeigma/graphql@workspace:packages/paradeigma-graphql"
   dependencies:
-    "@graphql-codegen/cli": ^2.13.6
+    "@graphql-codegen/cli": ^2.13.7
     "@graphql-codegen/introspection": ^2.2.1
     "@graphql-codegen/typescript": ^2.7.4
     "@graphql-codegen/typescript-graphql-request": ^4.5.6
     "@graphql-codegen/typescript-operations": ^2.5.4
     "@graphql-codegen/typescript-resolvers": ^2.7.4
     "@paradeigma/mongoose": "workspace:*"
-    "@types/node": ^18.8.5
+    "@types/node": ^18.11.0
     graphql: ^16.6.0
     graphql-codegen-plugin-typescript-swr: ^0.8.3
     graphql-request: ^5.0.0
@@ -2172,12 +2172,12 @@ __metadata:
     "@mui/lab": ^5.0.0-alpha.103
     "@mui/material": ^5.10.9
     "@paradeigma/graphql": "workspace:*"
-    "@types/node": 18.8.5
+    "@types/node": 18.11.0
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
     "@types/react-syntax-highlighter": ^15.5.5
     "@types/react-transition-group": ^4.4.5
-    ace-builds: ^1.11.2
+    ace-builds: ^1.12.0
     graphql: ^16.6.0
     graphql-request: ^5.0.0
     next: 12.3.1
@@ -2418,10 +2418,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.8.5, @types/node@npm:^18.8.5":
-  version: 18.8.5
-  resolution: "@types/node@npm:18.8.5"
-  checksum: f7d896f54743178e64c534c6da16f582505acf18904ecd0ee8541cb4bc1d429ba514e7ecfd5145221b71adbd6ae1ff72df082f667e56d056fcd1a719df948e08
+"@types/node@npm:18.11.0, @types/node@npm:^18.11.0":
+  version: 18.11.0
+  resolution: "@types/node@npm:18.11.0"
+  checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
   languageName: node
   linkType: hard
 
@@ -2695,10 +2695,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ace-builds@npm:^1.11.2":
-  version: 1.11.2
-  resolution: "ace-builds@npm:1.11.2"
-  checksum: 3f1fb922d66f1d7869c2e0b09b37eb42f37d26e3dc47c454bb40822e62bb0001168d8f6a07dde3990aa579c9146d6da8b77bfee71f24b014377783168ac67f57
+"ace-builds@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "ace-builds@npm:1.12.0"
+  checksum: 609f8877f23a26be0220c9e1e0e0592ba680ecf51f6d89685fcf9f8dc4e89a8fd86cc8a246230b84715cdd03af764e81f2b907a6343e8fdaa1acee4248e6b05d
   languageName: node
   linkType: hard
 
