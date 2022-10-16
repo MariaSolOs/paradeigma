@@ -8,6 +8,7 @@ import type { NextApiHandler, PageConfig } from 'next';
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
+    csrfPrevention: true,
     plugins: [
         ApolloServerPluginLandingPageProductionDefault({ footer: false })
     ]
