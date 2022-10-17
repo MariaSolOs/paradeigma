@@ -3,20 +3,18 @@ import type { ReactNode, Dispatch, FCC } from 'react';
 
 type UiState = {
     snackbarContent: ReactNode | undefined;
-}
+};
 
 const initialState: UiState = {
     snackbarContent: undefined
-}
+};
 
-type Action =
-| { type: 'OPEN_SNACKBAR', content: ReactNode; }
-| { type: 'CLOSE_SNACKBAR' };
+type Action = { type: 'OPEN_SNACKBAR'; content: ReactNode } | { type: 'CLOSE_SNACKBAR' };
 
 type UiContextType = {
     uiState: UiState;
     uiDispatch: Dispatch<Action>;
-}
+};
 
 const reducer = (state: UiState, action: Action): UiState => {
     switch (action.type) {
@@ -24,16 +22,16 @@ const reducer = (state: UiState, action: Action): UiState => {
             return {
                 ...state,
                 snackbarContent: action.content
-            }
+            };
         }
         case 'CLOSE_SNACKBAR': {
             return {
                 ...state,
                 snackbarContent: undefined
-            }
+            };
         }
     }
-}
+};
 
 const UiContext = createContext<UiContextType>({
     uiState: initialState,
@@ -44,12 +42,8 @@ const UiContext = createContext<UiContextType>({
 export const UiContextProvider: FCC = (props) => {
     const [uiState, uiDispatch] = useReducer(reducer, initialState);
 
-    return (
-        <UiContext.Provider value={{ uiState, uiDispatch }}>
-            {props.children}
-        </UiContext.Provider>
-    );
-}
+    return <UiContext.Provider value={{ uiState, uiDispatch }}>{props.children}</UiContext.Provider>;
+};
 
 const useUiContext = () => useContext(UiContext);
 

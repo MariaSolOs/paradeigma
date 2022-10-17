@@ -15,15 +15,15 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
 
     return (
         <S.TransitionMasonry
-        component={Masonry}
-        { ...{
-            columns: isBelowMedium ? 1 : 2,
-            defaultColumns: isBelowMedium ? 1 : 2,
-            spacing: isBelowMedium ? 3 : 4,
-            defaultSpacing: isBelowMedium ? 3 : 4
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Mui won't accept this props otherwise
-        } as MasonryProps as any}>
-            {props.mikros.map(mikro => {
+            component={Masonry}
+            {...({
+                columns: isBelowMedium ? 1 : 2,
+                defaultColumns: isBelowMedium ? 1 : 2,
+                spacing: isBelowMedium ? 3 : 4,
+                defaultSpacing: isBelowMedium ? 3 : 4
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Mui won't accept this props otherwise
+            } as MasonryProps as any)}>
+            {props.mikros.map((mikro) => {
                 // Hack to get rid of the findDOMNode warning with
                 // react-transition-group
                 const ref = createRef<HTMLDivElement>();
@@ -33,34 +33,37 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
 
                 return (
                     <S.Transition
-                    key={mikro.id}
-                    nodeRef={ref}
-                    timeout={300 + randomDelay}
-                    classNames={{
-                        enter: S.FADE_OUT_ANIMATION,
-                        enterActive: S.FADE_IN_ANIMATION,
-                        exit: S.FADE_IN_ANIMATION,
-                        exitActive: S.FADE_OUT_ANIMATION
-                    }}>
+                        key={mikro.id}
+                        nodeRef={ref}
+                        timeout={300 + randomDelay}
+                        classNames={{
+                            enter: S.FADE_OUT_ANIMATION,
+                            enterActive: S.FADE_IN_ANIMATION,
+                            exit: S.FADE_IN_ANIMATION,
+                            exitActive: S.FADE_OUT_ANIMATION
+                        }}>
                         <S.MikroContainer
-                        ref={ref}
-                        onClick={() => props.onMikroClick(mikro.id)}
-                        sx={{ transitionDelay: `${randomDelay}ms`}}>
+                            ref={ref}
+                            onClick={() => props.onMikroClick(mikro.id)}
+                            sx={{ transitionDelay: `${randomDelay}ms` }}>
                             <S.MikroTitle>{mikro.name}</S.MikroTitle>
                             <MikroCode
-                            content={mikro.content}
-                            language={mikro.language}
-                            style={mikro.style}
-                            containerStyles={{
-                                borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${+theme.shape.borderRadius * 2}px`,
-                                margin: 0
-                            }} />
+                                content={mikro.content}
+                                language={mikro.language}
+                                style={mikro.style}
+                                containerStyles={{
+                                    borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${
+                                        +theme.shape.borderRadius * 2
+                                    }px`,
+                                    margin: 0
+                                }}
+                            />
                         </S.MikroContainer>
                     </S.Transition>
                 );
             })}
         </S.TransitionMasonry>
     );
-}
+};
 
 export default MikrosMasonry;

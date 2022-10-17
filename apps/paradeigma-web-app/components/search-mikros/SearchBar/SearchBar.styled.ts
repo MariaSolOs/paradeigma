@@ -1,11 +1,7 @@
 import { styled } from '@mui/material/styles';
 
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import {
-    Root as SelectRootBase,
-    Listbox as SelectListboxBase,
-    Option as SelectOptionBase
-} from 'components/Select';
+import { Root as SelectRootBase, Listbox as SelectListboxBase, Option as SelectOptionBase } from 'components/Select';
 
 export const Container = styled('div')(({ theme }) => ({
     width: '60vw',
@@ -24,7 +20,7 @@ export const SelectContainer = styled('div')(({ theme }) => ({
 }));
 
 export const SelectRoot = styled(SelectRootBase, {
-    shouldForwardProp: prop => prop !== 'renderValue'
+    shouldForwardProp: (prop) => prop !== 'renderValue'
 })(({ theme }) => ({
     width: '60%',
     minWidth: 350,
@@ -48,7 +44,7 @@ export const SelectListbox = styled(SelectListboxBase)(({ theme }) => ({
 export const SelectOption = styled(SelectOptionBase)(({ disabled }) => ({
     fontSize: '0.8rem',
 
-    ...(disabled === true) && { opacity: 0.4 }
+    ...(disabled === true && { opacity: 0.4 })
 }));
 
 export const ChipsContainer = styled('div')({

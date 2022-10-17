@@ -7,11 +7,17 @@ import { ProgrammingLanguage } from '@paradeigma/graphql';
  */
 export const getLanguageIcon = (language: ProgrammingLanguage): string => {
     switch (language) {
-        case ProgrammingLanguage.Csharp: return 'devicon-csharp-plain';
-        case ProgrammingLanguage.Css: return 'devicon-css3-plain-wordmark';
-        case ProgrammingLanguage.Java: return 'devicon-java-plain';
-        case ProgrammingLanguage.Javascript: return 'devicon-javascript-plain';
-        case ProgrammingLanguage.Markdown: return 'devicon-markdown-original';
-        case ProgrammingLanguage.Python: return 'devicon-python-plain';
+        case ProgrammingLanguage.Csharp:
+            return 'devicon-csharp-plain';
+        case ProgrammingLanguage.Css:
+            return 'devicon-css3-plain-wordmark';
+        case ProgrammingLanguage.Java:
+            return 'devicon-java-plain';
+        case ProgrammingLanguage.Javascript:
+            return 'devicon-javascript-plain';
+        case ProgrammingLanguage.Markdown:
+            return 'devicon-markdown-original';
+        case ProgrammingLanguage.Python:
+            return 'devicon-python-plain';
     }
-}
+};

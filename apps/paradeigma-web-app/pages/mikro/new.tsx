@@ -22,43 +22,49 @@ const NewMikroPage: NextPage = () => {
 
         dispatch({ type: 'START_SUBMISSION' });
 
-        const { id } = (await sdk.createMikro({
-            name: state.name,
-            description: state.description,
-            content: state.content,
-            language: state.language,
-            style: state.style
-        })).createMikro;
+        const { id } = (
+            await sdk.createMikro({
+                name: state.name,
+                description: state.description,
+                content: state.content,
+                language: state.language,
+                style: state.style
+            })
+        ).createMikro;
 
         uiDispatch({ type: 'OPEN_SNACKBAR', content: <>Mickro created! 🥳</> });
 
         void router.push({ pathname: '/mikro/[id]', query: { id } });
-    }
+    };
 
     return (
-        <form onSubmit={event => void handleSubmit(event)}>
+        <form onSubmit={(event) => void handleSubmit(event)}>
             <Spinner open={state.isSubmittingForm} />
-            {state.isInFirstSlide &&
+            {state.isInFirstSlide && (
                 <EditorSlide
-                name={state.name}
-                description={state.description}
-                language={state.language}
-                content={state.content}
-                onNameChange={name => dispatch({ type: 'SET_NAME', name })}
-                onDescriptionChange={description => dispatch({ type: 'SET_DESCRIPTION', description })}
-                onLanguageChange={language => dispatch({ type: 'SET_LANGUAGE', language })}
-                onContentChange={content => dispatch({ type: 'SET_CONTENT', content })}
-                onContinue={() => dispatch({ type: 'TOGGLE_SLIDE' })} />}
-            {!state.isInFirstSlide &&
+                    name={state.name}
+                    description={state.description}
+                    language={state.language}
+                    content={state.content}
+                    onNameChange={(name) => dispatch({ type: 'SET_NAME', name })}
+                    onDescriptionChange={(description) => dispatch({ type: 'SET_DESCRIPTION', description })}
+                    onLanguageChange={(language) => dispatch({ type: 'SET_LANGUAGE', language })}
+                    onContentChange={(content) => dispatch({ type: 'SET_CONTENT', content })}
+                    onContinue={() => dispatch({ type: 'TOGGLE_SLIDE' })}
+                />
+            )}
+            {!state.isInFirstSlide && (
                 <PreviewSlide
-                name={state.name}
-                language={state.language}
-                content={state.content}
-                style={state.style}
-                onStyleChange={style => dispatch({ type: 'SET_STYLE', style })}
-                onGoBack={() => dispatch({ type: 'TOGGLE_SLIDE' })} />}
+                    name={state.name}
+                    language={state.language}
+                    content={state.content}
+                    style={state.style}
+                    onStyleChange={(style) => dispatch({ type: 'SET_STYLE', style })}
+                    onGoBack={() => dispatch({ type: 'TOGGLE_SLIDE' })}
+                />
+            )}
         </form>
     );
-}
+};
 
 export default NewMikroPage;

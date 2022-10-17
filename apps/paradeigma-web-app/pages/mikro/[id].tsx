@@ -10,7 +10,7 @@ import Button from 'components/Button';
 import Details from 'components/mikro-details/Details';
 
 type MikroDetailsUrlQuery = RoutedQuery<'/mikro/[id]'>;
-type MikroDetailsPageProps = { mikro: GetMikroQuery['mikro']; }
+type MikroDetailsPageProps = { mikro: GetMikroQuery['mikro'] };
 
 const sdk = getHookedSdk();
 
@@ -22,8 +22,8 @@ export const getStaticProps: GetStaticProps<MikroDetailsPageProps, MikroDetailsU
     return {
         props: { mikro },
         revalidate: 60 * 60 // Re-generate the page every hour
-    }
-}
+    };
+};
 
 export const getStaticPaths: GetStaticPaths<MikroDetailsUrlQuery> = async () => {
     const { mikros } = await sdk.getMikros({});
@@ -35,8 +35,8 @@ export const getStaticPaths: GetStaticPaths<MikroDetailsUrlQuery> = async () => 
             params: { id }
         })),
         fallback: true
-    }
-}
+    };
+};
 
 const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
     const router = useRouter();
@@ -51,6 +51,6 @@ const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
             <Details mikro={props.mikro} />
         </Box>
     );
-}
+};
 
 export default MikroDetailsPage;

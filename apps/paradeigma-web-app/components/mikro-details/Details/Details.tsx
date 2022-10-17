@@ -9,13 +9,14 @@ const Details: FC<DetailsProps> = (props) => (
     <S.Container>
         <S.MikroContainer>
             <MikroCode
-            content={props.mikro.content}
-            language={props.mikro.language}
-            style={props.mikro.style}
-            containerStyles={{
-                width: '100%',
-                margin: 0
-            }} />
+                content={props.mikro.content}
+                language={props.mikro.language}
+                style={props.mikro.style}
+                containerStyles={{
+                    width: '100%',
+                    margin: 0
+                }}
+            />
         </S.MikroContainer>
         <S.TextContainer>
             <S.LanguageIconContainer>

@@ -28,29 +28,28 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => {
                 <S.Content>
                     <S.MikroName>{props.name}</S.MikroName>
                     <MikroCode
-                    content={props.content}
-                    language={props.language}
-                    style={props.style}
-                    containerStyles={{
-                        borderRadius: `${+theme.shape.borderRadius * 2}px`
-                    }} />
-                    <S.FormControl sx={{ flexDirection: 'row' }}>
-                        <InputLabel>
-                            Which style would you like your mikro to have?
-                        </InputLabel>
-                        <SelectUnstyled
-                        components={{
-                            Root: SelectRoot,
-                            Listbox: SelectListbox,
-                            Popper: SelectPopper
+                        content={props.content}
+                        language={props.language}
+                        style={props.style}
+                        containerStyles={{
+                            borderRadius: `${+theme.shape.borderRadius * 2}px`
                         }}
-                        value={props.style}
-                        onChange={(_, value) => props.onStyleChange(value)}>
-                            {MikroStyles.map(style =>
+                    />
+                    <S.FormControl sx={{ flexDirection: 'row' }}>
+                        <InputLabel>Which style would you like your mikro to have?</InputLabel>
+                        <SelectUnstyled
+                            components={{
+                                Root: SelectRoot,
+                                Listbox: SelectListbox,
+                                Popper: SelectPopper
+                            }}
+                            value={props.style}
+                            onChange={(_, value) => props.onStyleChange(value)}>
+                            {MikroStyles.map((style) => (
                                 <SelectOption key={style} value={style}>
                                     {style}
                                 </SelectOption>
-                            )}
+                            ))}
                         </SelectUnstyled>
                     </S.FormControl>
                 </S.Content>
@@ -58,6 +57,6 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => {
             <S.Button type="submit">Done</S.Button>
         </>
     );
-}
+};
 
 export default PreviewSlide;

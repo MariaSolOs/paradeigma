@@ -3,19 +3,23 @@ import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
 export default class CustomDocument extends Document {
-    static override async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> {
+    static override async getInitialProps(
+        context: DocumentContext
+    ): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> {
         const originalRenderPage = context.renderPage;
 
         const cache = createEmotionCache();
         // eslint-disable-next-line @typescript-eslint/unbound-method
         const { extractCriticalToChunks } = createEmotionServer(cache);
 
-        context.renderPage = () => originalRenderPage({
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Easily add the emotion cache
-            enhanceApp: (App: any) => function EnhanceApp(props) {
-                return <App emotionCache={cache} { ...props } />;
-            }
-        });
+        context.renderPage = () =>
+            originalRenderPage({
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Easily add the emotion cache
+                enhanceApp: (App: any) =>
+                    function EnhanceApp(props) {
+                        return <App emotionCache={cache} {...props} />;
+                    }
+            });
 
         const initialProps = await Document.getInitialProps(context);
 
@@ -23,15 +27,16 @@ export default class CustomDocument extends Document {
         const emotionStyles = extractCriticalToChunks(initialProps.html);
         const emotionStyleTags = emotionStyles.styles.map((style) => (
             <style
-            key={style.key}
-            data-emotion={`${style.key} ${style.ids.join(' ')}`}
-            dangerouslySetInnerHTML={{ __html: style.css }} />
+                key={style.key}
+                data-emotion={`${style.key} ${style.ids.join(' ')}`}
+                dangerouslySetInnerHTML={{ __html: style.css }}
+            />
         ));
 
         return {
             ...initialProps,
             emotionStyleTags
-        }
+        };
     }
 
     override render(): JSX.Element {
@@ -51,13 +56,19 @@ export default class CustomDocument extends Document {
                     <link rel="manifest" href="/manifest.json" />
 
                     {/* Google fonts */}
-                    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet" />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=PT+Mono&display=swap"
+                        rel="stylesheet"
+                    />
 
                     {/* Programming language icons */}
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+                    <link
+                        rel="stylesheet"
+                        href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+                    />
 
                     <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
-                    {(this.props as unknown as { emotionStyleTags: JSX.Element; }).emotionStyleTags}
+                    {(this.props as unknown as { emotionStyleTags: JSX.Element }).emotionStyleTags}
                 </Head>
                 <body>
                     <Main />

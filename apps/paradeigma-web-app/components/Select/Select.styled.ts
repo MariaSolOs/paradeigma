@@ -4,7 +4,7 @@ import OptionUnstyled from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
 
 export const Root = styled('button', {
-    shouldForwardProp: prop => prop !== 'ownerState'
+    shouldForwardProp: (prop) => prop !== 'ownerState'
 })(({ theme }) => ({
     border: `1px solid ${theme.palette.primary.light}`,
     borderRadius: +theme.shape.borderRadius * 2,
@@ -37,7 +37,7 @@ export const Option = styled(OptionUnstyled)(({ theme, disabled }) => ({
     textAlign: 'center',
     paddingBottom: 5,
 
-    ...!disabled && {
+    ...(!disabled && {
         ':hover': { fontWeight: theme.typography.fontWeightBold }
-    }
+    })
 }));
