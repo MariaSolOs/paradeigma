@@ -8,6 +8,6 @@ export type PixelSlideProps = {
         altText: string;
         alignment?: 'left' | 'right';
     };
-}
+};
 
 export default PixelSlide;

@@ -14,6 +14,6 @@ const createEmotionCache = () => {
     }
 
     return createCache({ key: 'mui-style', insertionPoint });
-}
+};
 
 export default createEmotionCache;

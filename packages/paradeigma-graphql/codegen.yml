@@ -1,5 +1,5 @@
 schema: './src/schema.ts'
-documents: [ './fragments/*.graphql', './queries/*.graphql', './mutations/*.graphql' ]
+documents: ['./fragments/*.graphql', './queries/*.graphql', './mutations/*.graphql']
 generates:
   # We use this introspection file for the VS Code GraphQL extension to
   # get the schema's types.

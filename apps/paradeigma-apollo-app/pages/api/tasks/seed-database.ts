@@ -73,9 +73,9 @@ MatchCollection matches = rx.Matches(text);`
 const getRandomElement = <T>(elements: T[]): T => {
     const randomIndex = Math.floor(Math.random() * elements.length);
     return elements[randomIndex] as T;
-}
+};
 
-type SeedDatabaseResponse = { message: string; }
+type SeedDatabaseResponse = { message: string };
 
 const handler: NextApiHandler<SeedDatabaseResponse> = async (req, res) => {
     if (req.method !== 'GET') {
@@ -110,9 +110,9 @@ const handler: NextApiHandler<SeedDatabaseResponse> = async (req, res) => {
         });
     } catch (err) {
         return res.status(500).json({
-            message: (err instanceof Error) ? err.message : 'An unknown error occurred.'
+            message: err instanceof Error ? err.message : 'An unknown error occurred.'
         });
     }
-}
+};
 
 export default handler;

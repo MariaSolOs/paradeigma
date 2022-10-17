@@ -37,11 +37,7 @@
         // Language and environment
         "target": "ESNext",
         "jsx": "preserve",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ],
+        "lib": ["dom", "dom.iterable", "esnext"],
 
         // Projects
         "incremental": true,

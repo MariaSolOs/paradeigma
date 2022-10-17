@@ -10,14 +10,14 @@ import type { LeanDocument, Types } from 'mongoose';
 const mikroFuse = new LazyFuse<LeanDocument<MikroDocument & { _id: Types.ObjectId }>>({
     listProvider: async () => Mikro.find({}).lean(),
     fuseOptions: {
-        keys: [ 'name', 'content', 'language' ],
+        keys: ['name', 'content', 'language'],
         useExtendedSearch: true
     }
 });
 
 const resolvers: Resolvers = {
     Mikro: {
-        id: mikro => mikro._id.toString()
+        id: (mikro) => mikro._id.toString()
     },
 
     Query: {
@@ -30,21 +30,18 @@ const resolvers: Resolvers = {
             // name or code content.
             if (textFilter) {
                 filters.push({
-                    $or: [
-                        { name: textFilter },
-                        { content: textFilter }
-                    ]
+                    $or: [{ name: textFilter }, { content: textFilter }]
                 });
             }
 
             // By default use all programming languages.
             filters.push({
-                language: (languageFilter ?? ProgrammingLanguages).map(lang => `=${lang}`).join(' | ')
+                language: (languageFilter ?? ProgrammingLanguages).map((lang) => `=${lang}`).join(' | ')
             });
 
             const searchResults = fuse.search({ $and: filters });
 
-            return searchResults.map(result => result.item);
+            return searchResults.map((result) => result.item);
         },
 
         mikro: async (_, { id }) => {
@@ -79,6 +76,6 @@ const resolvers: Resolvers = {
             return mikro;
         }
     }
-}
+};
 
 export default resolvers;

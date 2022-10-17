@@ -7,10 +7,11 @@ import type { Mongoose } from 'mongoose';
  */
 let mongooseConnection: Promise<Mongoose>;
 
-const getMongoosePromise = () => mongoose.connect(process.env['MONGODB_URI'] ?? '').then(mongoose => {
-    console.log('Mongoose connected.');
-    return mongoose;
-});
+const getMongoosePromise = () =>
+    mongoose.connect(process.env['MONGODB_URI'] ?? '').then((mongoose) => {
+        console.log('Mongoose connected.');
+        return mongoose;
+    });
 
 if (process.env['VERCEL_ENV'] === 'development') {
     // In development, use a global variable so that the value is preserved

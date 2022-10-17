@@ -4,6 +4,6 @@ import HighlightedText from './HighlightedText';
 
 export type HighlightedTextProps = {
     tooltipText?: TooltipProps['title'];
-}
+};
 
 export default HighlightedText;

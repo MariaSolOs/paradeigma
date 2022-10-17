@@ -8,6 +8,6 @@ export type MikroCodeProps = {
     language: ProgrammingLanguage;
     style: MikroStyle;
     containerStyles?: CSSProperties;
-}
+};
 
 export default MikroCode;

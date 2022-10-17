@@ -9,15 +9,15 @@ const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
     csrfPrevention: true,
-    plugins: [
-        ApolloServerPluginLandingPageProductionDefault({ footer: false })
-    ]
+    plugins: [ApolloServerPluginLandingPageProductionDefault({ footer: false })]
 });
 const apolloServerStarted = apolloServer.start();
 
-const ORIGIN_PATTERN = new RegExp(/^https?:\/\/(paradeigma-web-app(-mariasolos|-git-main-mariasolos)?\.vercel\.app|localhost:3000)$/);
-const ALLOWED_METHODS = [ 'GET', 'POST', 'OPTIONS' ] as const;
-const ALLOWED_HEADERS = [ 'Content-Type' ] as const;
+const ORIGIN_PATTERN = new RegExp(
+    /^https?:\/\/(paradeigma-web-app(-mariasolos|-git-main-mariasolos)?\.vercel\.app|localhost:3000)$/
+);
+const ALLOWED_METHODS = ['GET', 'POST', 'OPTIONS'] as const;
+const ALLOWED_HEADERS = ['Content-Type'] as const;
 const MAX_AGE = 60 * 60 * 24; // 24 hours in seconds
 
 const handler: NextApiHandler = async (req, res) => {
@@ -39,12 +39,12 @@ const handler: NextApiHandler = async (req, res) => {
     await apolloServerStarted;
 
     return apolloServer.createHandler({ path: '/api/graphql' })(req, res);
-}
+};
 
 export const config: PageConfig = {
     api: {
         bodyParser: false
     }
-}
+};
 
 export default handler;

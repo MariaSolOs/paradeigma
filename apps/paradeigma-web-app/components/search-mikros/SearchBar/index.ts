@@ -7,6 +7,6 @@ export type SearchBarProps = {
     onTextFilterChange: (filter: string) => void;
     languageFilter: ProgrammingLanguage[];
     onLanguageFilterChange: (filter: ProgrammingLanguage[]) => void;
-}
+};
 
 export default SearchBar;

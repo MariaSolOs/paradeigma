@@ -31,11 +31,11 @@ const App = (props: AppEmotionProps) => {
                     <Snackbar />
                     <ParadeigmaTitle />
                     <NavigationBreadcrumbs />
-                    <Component { ...pageProps } />
+                    <Component {...pageProps} />
                 </UiContextProvider>
             </ThemeProvider>
         </CacheProvider>
     );
-}
+};
 
 export default App;

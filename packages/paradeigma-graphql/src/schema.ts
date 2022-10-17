@@ -19,10 +19,10 @@ const typeDefs = gql`
         Create a new mikro.
         """
         createMikro(
-            name: String!,
+            name: String!
             description: String!
-            content: String!,
-            language: ProgrammingLanguage!,
+            content: String!
+            language: ProgrammingLanguage!
             style: MikroStyle!
         ): Mikro!
     }

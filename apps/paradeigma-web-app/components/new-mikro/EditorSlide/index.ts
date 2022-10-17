@@ -12,6 +12,6 @@ export type EditorSlideProps = {
     onLanguageChange: (language: ProgrammingLanguage | null) => void;
     onContentChange: (content: string) => void;
     onContinue: () => void;
-}
+};
 
 export default EditorSlide;

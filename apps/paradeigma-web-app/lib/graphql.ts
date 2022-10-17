@@ -11,4 +11,4 @@ export const getHookedSdk = () => {
 
     const graphQLClient = new GraphQLClient(`${endpointUrl}/api/graphql`);
     return getSdkWithHooks(graphQLClient);
-}
+};

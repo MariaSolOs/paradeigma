@@ -22,9 +22,10 @@
         },
     ],
     "settings": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        },
+        // Formatting
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "prettier.prettierPath": "../../.yarn/sdks/prettier/index.js",
         "files.associations": {
             "*.json": "jsonc", // Allow comments in JSON
             "*.env.local": "env"
@@ -48,10 +49,6 @@
             "./apps/*",
             "./packages/*"
         ],
-        "eslint.codeActionsOnSave.mode": "problems",
-        "eslint.codeActionsOnSave.rules": [
-            "no-trailing-spaces"
-        ],
         "npm.packageManager": "yarn",
         "typescript.tsdk": "paradeigma/.yarn/sdks/typescript/lib",
         "typescript.enablePromptUseWorkspaceTsdk": true,
@@ -63,8 +60,9 @@
     },
     "extensions": {
         "recommendations": [
+            "arcanis.vscode-zipfs", // Needed for "Go to definition" inside node_modules to work 
             "dbaeumer.vscode-eslint",
-            "arcanis.vscode-zipfs" // Needed for "Go to definition" inside node_modules to work 
+            "esbenp.prettier-vscode"
         ]
     },
     "launch": {

@@ -20,21 +20,22 @@ const PixelSlide: FCC<PixelSlideProps> = (props) => {
             {props.image.alignment === 'right' && <S.TextContainer>{props.children}</S.TextContainer>}
             <S.ImageContainer>
                 <Image
-                fill
-                style={{ objectFit: 'contain' }}
-                sizes={`
-                    ${getMediaQueryInfo(theme.breakpoints.down('sm'))} 100px,
-                    ${getMediaQueryInfo(theme.breakpoints.down('md'))} 170px,
-                    230px
-                `}
-                src={props.image.src}
-                alt={props.image.altText}
-                quality={100} />
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    sizes={`
+                        ${getMediaQueryInfo(theme.breakpoints.down('sm'))} 100px,
+                        ${getMediaQueryInfo(theme.breakpoints.down('md'))} 170px,
+                        230px
+                    `}
+                    src={props.image.src}
+                    alt={props.image.altText}
+                    quality={100}
+                />
             </S.ImageContainer>
             {/* By default align to the left */}
             {props.image.alignment !== 'right' && <S.TextContainer>{props.children}</S.TextContainer>}
         </S.Slide>
     );
-}
+};
 
 export default PixelSlide;

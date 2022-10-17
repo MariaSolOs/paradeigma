@@ -6,10 +6,12 @@ import Fuse from 'fuse.js';
 export class LazyFuse<T> {
     private _fuse: Fuse<T> | undefined = undefined;
 
-    constructor(private options: {
-        listProvider: () => Promise<T[]>;
-        fuseOptions?: Fuse.IFuseOptions<T>;
-    }) {}
+    constructor(
+        private options: {
+            listProvider: () => Promise<T[]>;
+            fuseOptions?: Fuse.IFuseOptions<T>;
+        }
+    ) {}
 
     async getFuse() {
         if (this._fuse === undefined) {

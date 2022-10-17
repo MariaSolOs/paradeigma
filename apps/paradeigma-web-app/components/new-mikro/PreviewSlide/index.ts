@@ -9,6 +9,6 @@ export type PreviewSlideProps = {
     style: MikroStyle;
     onStyleChange: (style: MikroStyle | null) => void;
     onGoBack: () => void;
-}
+};
 
 export default PreviewSlide;

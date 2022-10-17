@@ -1,6 +1,6 @@
 import withRoutes from 'nextjs-routes/config';
 
-/** 
+/**
  * @type {import('next').NextConfig}
  */
 const config = {
@@ -9,6 +9,6 @@ const config = {
     experimental: {
         externalDir: true
     }
-}
+};
 
 export default withRoutes({ outDir: 'types' })(config);

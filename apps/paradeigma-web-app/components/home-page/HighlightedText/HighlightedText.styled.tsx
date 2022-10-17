@@ -13,9 +13,9 @@ export const Asterisk = styled('span')(({ theme }) => ({
     color: theme.palette.secondary.light
 }));
 
-export const Tooltip = styled(({ className, ...props }: TooltipProps) =>
+export const Tooltip = styled(({ className, ...props }: TooltipProps) => (
     <MuiTooltip {...props} classes={{ popper: className, arrow: className }} />
-)(({ theme }) => ({
+))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
         fontFamily: theme.typography.mono.fontFamily,
         backgroundColor: theme.palette.secondary.light,

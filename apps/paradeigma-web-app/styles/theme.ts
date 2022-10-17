@@ -31,7 +31,7 @@ const theme = createTheme({
 
     components: {
         MuiCssBaseline: {
-            styleOverrides: theme => `
+            styleOverrides: (theme) => `
                 body {
                     font-family: ${theme.typography.mono.fontFamily ?? 'monospace'};
                 }

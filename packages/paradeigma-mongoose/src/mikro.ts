@@ -48,7 +48,7 @@ const mikroSchemaFields: SchemaDefinition<MikroDocument> = {
         required: true,
         min: 0
     }
-}
+};
 
 const mikroSchema = new Schema<MikroDocument>(mikroSchemaFields);
 
