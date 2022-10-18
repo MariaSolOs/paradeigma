@@ -9,6 +9,7 @@
     ],
     "scripts": {
         "apps:dev": "yarn workspaces foreach -ptvi --include '@paradeigma/*-app' run dev",
+        "g:format": "cd $INIT_CWD && prettier --write .",
         "g:lint": "cd $INIT_CWD && eslint .",
         "g:typecheck": "cd $INIT_CWD && tsc --noEmit",
         "g:clean": "cd $INIT_CWD && rimraf ./tsconfig.tsbuildinfo ./.next"

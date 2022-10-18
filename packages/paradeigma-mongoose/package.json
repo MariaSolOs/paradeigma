@@ -6,6 +6,7 @@
     "exports": "./src/index.ts",
     "types": "./src/index.ts",
     "scripts": {
+        "format": "yarn g:format",
         "lint": "yarn g:lint",
         "typecheck": "yarn g:typecheck",
         "clean": "yarn g:clean"

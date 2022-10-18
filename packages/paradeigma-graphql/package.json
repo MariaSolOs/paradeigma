@@ -7,6 +7,7 @@
     "types": "./src/index.ts",
     "scripts": {
         "codegen": "graphql-codegen --config codegen.yml",
+        "format": "yarn g:format",
         "lint": "yarn g:lint",
         "typecheck": "yarn g:typecheck",
         "clean": "yarn g:clean"
