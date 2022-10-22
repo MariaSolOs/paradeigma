@@ -13,4 +13,6 @@ apps/paradeigma-web-app/public/code-editor/*
 apps/**/.next/
 apps/**/out/
 
+# Yarn
 .yarn
+/.pnp*

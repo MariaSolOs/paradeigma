@@ -13,7 +13,9 @@ const SyntaxHighlighter = dynamic(
 
         for (const language of ProgrammingLanguages) {
             const languageSupport = (
-                (await import(`react-syntax-highlighter/dist/esm/languages/prism/${language}`)) as { default: unknown }
+                (await import(`react-syntax-highlighter/dist/esm/languages/prism/${language}`)) as {
+                    default: unknown;
+                }
             ).default;
             syntaxHighlighter.registerLanguage(language, languageSupport);
         }
@@ -35,7 +37,8 @@ const getStylePackage = async (style: MikroStyle): Promise<HighlighterStyle> => 
         case MikroStyle.AtomDark:
             return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).atomDark;
         case MikroStyle.Base16AteliersulphurpoolLight:
-            return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).base16AteliersulphurpoolLight;
+            return (await import('react-syntax-highlighter/dist/cjs/styles/prism'))
+                .base16AteliersulphurpoolLight;
         case MikroStyle.ColdarkCold:
             return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).coldarkCold;
         case MikroStyle.ColdarkDark:
@@ -89,7 +92,11 @@ const MikroCode: FC<MikroCodeProps> = (props) => {
 
     // TODO: Limit the number of code lines in the card.
     return (
-        <SyntaxHighlighter wrapLongLines style={style} language={props.language} customStyle={props.containerStyles}>
+        <SyntaxHighlighter
+            wrapLongLines
+            style={style}
+            language={props.language}
+            customStyle={props.containerStyles}>
             {props.content}
         </SyntaxHighlighter>
     );
