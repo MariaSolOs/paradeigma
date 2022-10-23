@@ -8,7 +8,7 @@ import theaImg from 'public/pixel-art/thea.png';
 
 const HomePage: NextPage = () => (
     <>
-        <PixelSlide image={{ src: zephirImg, altText: 'Pixel Zephir' }}>
+        <PixelSlide image={{ src: zephirImg, altText: 'Pixel Zephir', priority: true }}>
             Find the code examples you need, the{' '}
             <HighlightedText
                 tooltipText={

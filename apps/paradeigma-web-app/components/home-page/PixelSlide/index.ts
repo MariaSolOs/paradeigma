@@ -7,6 +7,7 @@ export type PixelSlideProps = {
         src: StaticImageData;
         altText: string;
         alignment?: 'left' | 'right';
+        priority?: boolean;
     };
 };
 
