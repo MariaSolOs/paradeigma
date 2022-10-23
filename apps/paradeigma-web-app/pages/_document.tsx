@@ -9,7 +9,7 @@ export default class CustomDocument extends Document {
 
         const cache = createEmotionCache();
         // eslint-disable-next-line @typescript-eslint/unbound-method
-        const { extractCriticalToChunks } = createEmotionServer(cache);
+        const { extractCritical, extractCriticalToChunks } = createEmotionServer(cache);
 
         ctx.renderPage = () =>
             originalRenderPage({
@@ -24,7 +24,9 @@ export default class CustomDocument extends Document {
             ctx,
             trustifyStyles: true,
             trustifyScripts: true,
-            hashRawCss: [({ html }) => extractCriticalToChunks(html).styles.map(({ css }) => css)]
+            hashRawCss: [
+                ({ html }) => [extractCritical(html).css, ...extractCriticalToChunks(html).styles.map(({ css }) => css)]
+            ]
         });
 
         return initialProps;
