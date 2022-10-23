@@ -1,9 +1,10 @@
-import { csp, strictDynamic, strictInlineStyles, chainMatch, isPageRequest } from '@next-safe/middleware';
+import { nextSafe, csp, strictDynamic, strictInlineStyles, chainMatch, isPageRequest } from '@next-safe/middleware';
 import type { ChainableMiddleware } from '@next-safe/middleware';
 
 const isDev = process.env['VERCEL_ENV'] === 'development';
 
 const securityMiddleware: ChainableMiddleware[] = [
+    nextSafe({ disableCsp: true, isDev }),
     csp({
         directives: {
             'font-src': ['self', 'https://fonts.gstatic.com', 'https://cdn.jsdelivr.net'],
