@@ -1,12 +1,9 @@
 import Document, { Html, Main, DocumentContext, DocumentInitialProps } from 'next/document';
 import { getCspInitialProps, provideComponents } from '@next-safe/middleware/dist/document';
-import { Children } from 'react';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
-type InitialProps = ReturnType<typeof getCspInitialProps>;
-
-export default class CustomDocument extends Document<InitialProps> {
+export default class CustomDocument extends Document {
     static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
         const originalRenderPage = ctx.renderPage;
 
@@ -23,21 +20,14 @@ export default class CustomDocument extends Document<InitialProps> {
                     }
             });
 
-        const initialProps = await getCspInitialProps({ ctx });
+        const initialProps = await getCspInitialProps({
+            ctx,
+            trustifyStyles: true,
+            trustifyScripts: true,
+            hashRawCss: [({ html }) => extractCriticalToChunks(html).styles.map(({ css }) => css)]
+        });
 
-        const emotionStyles = extractCriticalToChunks(initialProps.html);
-        const emotionStyleTags = emotionStyles.styles.map((style) => (
-            <style
-                key={style.key}
-                data-emotion={`${style.key} ${style.ids.join(' ')}`}
-                dangerouslySetInnerHTML={{ __html: style.css }}
-            />
-        ));
-
-        return {
-            ...initialProps,
-            styles: [...Children.toArray(initialProps.styles ?? []), ...emotionStyleTags]
-        };
+        return initialProps;
     }
 
     override render(): JSX.Element {

@@ -6,14 +6,14 @@ const isBrowser = typeof document !== 'undefined';
 
 // On the client side, we create a meta tag at the top of the <head> and set it as insertionPoint
 // to ensure MUI styles are loaded first.
-const createEmotionCache = () => {
+const createEmotionCache = (nonce?: string | undefined) => {
     let insertionPoint: HTMLElement | undefined = undefined;
 
     if (isBrowser) {
         insertionPoint = document.querySelector<HTMLMetaElement>(`meta[name="${INSERTION_POINT_NAME}"]`) ?? undefined;
     }
 
-    return createCache({ key: 'mui-style', insertionPoint });
+    return createCache({ key: 'mui-style', insertionPoint, nonce });
 };
 
 export default createEmotionCache;
