@@ -69,7 +69,14 @@
         "version": "0.2.0",
         "configurations": [
             {
-                "name": "Debug Apollo App",
+                "name": "Debug Web App (server-side)",
+                "type": "node-terminal",
+                "request": "launch",
+                "cwd": "${workspaceFolder}/apps/paradeigma-web-app",
+                "command": "yarn dev"
+            },
+            {
+                "name": "Debug Apollo App (server-side)",
                 "type": "node-terminal",
                 "request": "launch",
                 "cwd": "${workspaceFolder}/apps/paradeigma-apollo-app",
