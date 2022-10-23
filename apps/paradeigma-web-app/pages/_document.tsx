@@ -1,18 +1,20 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, { Html, Main, DocumentContext, DocumentInitialProps } from 'next/document';
+import { getCspInitialProps, provideComponents } from '@next-safe/middleware/dist/document';
+import { Children } from 'react';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
-export default class CustomDocument extends Document {
-    static override async getInitialProps(
-        context: DocumentContext
-    ): Promise<DocumentInitialProps & { emotionStyleTags: JSX.Element[] }> {
-        const originalRenderPage = context.renderPage;
+type InitialProps = ReturnType<typeof getCspInitialProps>;
+
+export default class CustomDocument extends Document<InitialProps> {
+    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+        const originalRenderPage = ctx.renderPage;
 
         const cache = createEmotionCache();
         // eslint-disable-next-line @typescript-eslint/unbound-method
         const { extractCriticalToChunks } = createEmotionServer(cache);
 
-        context.renderPage = () =>
+        ctx.renderPage = () =>
             originalRenderPage({
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Easily add the emotion cache
                 enhanceApp: (App: any) =>
@@ -21,9 +23,8 @@ export default class CustomDocument extends Document {
                     }
             });
 
-        const initialProps = await Document.getInitialProps(context);
+        const initialProps = await getCspInitialProps({ ctx });
 
-        // This is important. It prevents emotion from rendering invalid HTML.
         const emotionStyles = extractCriticalToChunks(initialProps.html);
         const emotionStyleTags = emotionStyles.styles.map((style) => (
             <style
@@ -35,11 +36,13 @@ export default class CustomDocument extends Document {
 
         return {
             ...initialProps,
-            emotionStyleTags
+            styles: [...Children.toArray(initialProps.styles ?? []), ...emotionStyleTags]
         };
     }
 
     override render(): JSX.Element {
+        const { Head, NextScript } = provideComponents(this.props);
+
         return (
             <Html lang="en">
                 <Head>
@@ -68,7 +71,7 @@ export default class CustomDocument extends Document {
                     />
 
                     <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
-                    {(this.props as unknown as { emotionStyleTags: JSX.Element }).emotionStyleTags}
+                    {this.props.styles}
                 </Head>
                 <body>
                     <Main />

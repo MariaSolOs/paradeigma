@@ -21,6 +21,7 @@
         "@mui/icons-material": "^5.10.9",
         "@mui/lab": "^5.0.0-alpha.104",
         "@mui/material": "^5.10.10",
+        "@next-safe/middleware": "^0.10.0",
         "@paradeigma/graphql": "workspace:*",
         "ace-builds": "^1.12.3",
         "graphql": "^16.6.0",
