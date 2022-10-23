@@ -3,13 +3,15 @@ import { getCspInitialProps, provideComponents } from '@next-safe/middleware/dis
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
-export default class CustomDocument extends Document {
-    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+type DocumentProps = DocumentInitialProps & { emotionStyleTags: JSX.Element[] };
+
+export default class CustomDocument extends Document<DocumentProps> {
+    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentProps> {
         const originalRenderPage = ctx.renderPage;
 
         const cache = createEmotionCache();
         // eslint-disable-next-line @typescript-eslint/unbound-method
-        const { extractCritical, extractCriticalToChunks } = createEmotionServer(cache);
+        const { extractCriticalToChunks } = createEmotionServer(cache);
 
         ctx.renderPage = () =>
             originalRenderPage({
@@ -23,13 +25,22 @@ export default class CustomDocument extends Document {
         const initialProps = await getCspInitialProps({
             ctx,
             trustifyStyles: true,
-            trustifyScripts: true,
-            hashRawCss: [
-                ({ html }) => [extractCritical(html).css, ...extractCriticalToChunks(html).styles.map(({ css }) => css)]
-            ]
+            trustifyScripts: true
         });
 
-        return initialProps;
+        const emotionStyles = extractCriticalToChunks(initialProps.html);
+        const emotionStyleTags = emotionStyles.styles.map((style) => (
+            <style
+                key={style.key}
+                data-emotion={`${style.key} ${style.ids.join(' ')}`}
+                dangerouslySetInnerHTML={{ __html: style.css }}
+            />
+        ));
+
+        return {
+            ...initialProps,
+            emotionStyleTags
+        };
     }
 
     override render(): JSX.Element {
@@ -63,7 +74,7 @@ export default class CustomDocument extends Document {
                     />
 
                     <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
-                    {this.props.styles}
+                    {this.props.emotionStyleTags}
                 </Head>
                 <body>
                     <Main />

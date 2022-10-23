@@ -12,9 +12,7 @@ const securityMiddleware: ChainableMiddleware[] = [
             'connect-src': ['self', isDev ? 'localhost:4000' : 'https://paradeigma-apollo-app.vercel.app'],
             'worker-src': ['self', 'blob:']
         },
-        isDev,
-        // TODO: Remove this once I figure out the inline styles thing
-        reportOnly: true
+        isDev
     }),
     strictDynamic(),
     strictInlineStyles()

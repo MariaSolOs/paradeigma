@@ -13,9 +13,11 @@ import ParadeigmaTitle from 'components/ParadeigmaTitle';
 
 const Snackbar = dynamic(() => import('components/Snackbar'));
 
+const clientCache = createEmotionCache();
+
 // TODO: Add Head component with page info
 const App = (props: AppEmotionProps) => {
-    const { Component, pageProps, emotionCache = createEmotionCache(pageProps.nonce) } = props;
+    const { Component, pageProps, emotionCache = clientCache } = props;
 
     return (
         <CacheProvider value={emotionCache}>
