@@ -5,13 +5,13 @@ import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
 
 type DocumentProps = DocumentInitialProps & { emotionStyleTags: JSX.Element[] };
 
+const cache = createEmotionCache();
+// eslint-disable-next-line @typescript-eslint/unbound-method
+const { extractCriticalToChunks } = createEmotionServer(cache);
+
 export default class CustomDocument extends Document<DocumentProps> {
     static override async getInitialProps(ctx: DocumentContext): Promise<DocumentProps> {
         const originalRenderPage = ctx.renderPage;
-
-        const cache = createEmotionCache();
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        const { extractCriticalToChunks } = createEmotionServer(cache);
 
         ctx.renderPage = () =>
             originalRenderPage({
