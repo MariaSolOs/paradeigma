@@ -1,9 +1,12 @@
 import { styled } from '@mui/material/styles';
+import type { ButtonProps } from './index';
 
-export const Button = styled('button')(({ theme }) => ({
-    backgroundColor: '#FFF',
-    color: theme.palette.secondary.main,
-    border: `1px solid ${theme.palette.secondary.main}`,
+export const Button = styled('button', {
+    shouldForwardProp: (prop) => !['primaryColor', 'secondaryColor'].includes(prop.toString())
+})<ButtonProps>(({ theme, primaryColor = theme.palette.secondary.main, secondaryColor = '#FFF' }) => ({
+    backgroundColor: secondaryColor,
+    color: primaryColor,
+    border: `1px solid ${primaryColor}`,
     fontFamily: theme.typography.mono.fontFamily,
     fontWeight: theme.typography.fontWeightBold,
     fontSize: '0.9rem',
@@ -15,8 +18,8 @@ export const Button = styled('button')(({ theme }) => ({
     transition: 'all 300ms ease-in-out',
 
     '&:hover:not(:disabled)': {
-        backgroundColor: theme.palette.secondary.main,
-        color: '#FFF'
+        backgroundColor: primaryColor,
+        color: secondaryColor
     },
 
     '&:disabled': {
