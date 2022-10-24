@@ -15,15 +15,16 @@ export const MainContainer = styled('div')(({ theme }) => ({
     [theme.breakpoints.down('md')]: { flexDirection: 'column' }
 }));
 
-export const MikroContainer = styled('div')(({ theme }) => ({
+export const CodeColumn = styled('div')(({ theme }) => ({
     width: '48%',
+
+    [theme.breakpoints.down('md')]: { width: '100%' }
+}));
+
+export const MikroContainer = styled('div')(({ theme }) => ({
     height: 'fit-content',
     borderRadius: +theme.shape.borderRadius * 2,
     overflow: 'hidden',
 
-    [theme.breakpoints.down('md')]: {
-        width: '100%',
-        marginBottom: 30,
-        fontSize: '0.8rem'
-    }
+    [theme.breakpoints.down('md')]: { fontSize: '0.8rem' }
 }));
