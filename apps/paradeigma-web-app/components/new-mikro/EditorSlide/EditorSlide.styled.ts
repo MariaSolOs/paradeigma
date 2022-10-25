@@ -1,4 +1,4 @@
-import { styled, keyframes } from '@mui/material/styles';
+import { keyframes, styled } from '@mui/material/styles';
 
 import { Slide as BaseSlide } from 'components/new-mikro/Shared.styled';
 
@@ -43,4 +43,4 @@ export const LanguageIcon = styled('i')({
     marginLeft: '0.5rem'
 });
 
-export { FormControl, Button } from 'components/new-mikro/Shared.styled';
+export { Button, FormControl } from 'components/new-mikro/Shared.styled';

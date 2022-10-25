@@ -1,4 +1,4 @@
-import { nextSafe, csp, strictDynamic, strictInlineStyles, chainMatch, isPageRequest } from '@next-safe/middleware';
+import { chainMatch, csp, isPageRequest, nextSafe, strictDynamic, strictInlineStyles } from '@next-safe/middleware';
 import type { ChainableMiddleware } from '@next-safe/middleware';
 
 const isDev = process.env['VERCEL_ENV'] === 'development';

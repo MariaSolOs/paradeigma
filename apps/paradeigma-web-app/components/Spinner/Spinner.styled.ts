@@ -1,4 +1,4 @@
-import { styled, keyframes } from '@mui/material/styles';
+import { keyframes, styled } from '@mui/material/styles';
 
 import MuiBackdrop from '@mui/material/Backdrop';
 

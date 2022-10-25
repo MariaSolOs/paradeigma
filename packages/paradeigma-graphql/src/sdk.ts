@@ -2,7 +2,7 @@ import type { GraphQLClient } from 'graphql-request';
 import type * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
 import type { ClientError } from 'graphql-request/dist/types';
-import type { SWRConfiguration as SWRConfigInterface, Key as SWRKeyInterface } from 'swr';
+import type { Key as SWRKeyInterface, SWRConfiguration as SWRConfigInterface } from 'swr';
 import useSWR from 'swr';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;

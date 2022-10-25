@@ -1,4 +1,4 @@
-import { styled, keyframes } from '@mui/material/styles';
+import { keyframes, styled } from '@mui/material/styles';
 
 import { Slide as BaseSlide } from 'components/new-mikro/Shared.styled';
 
@@ -45,4 +45,4 @@ export const MikroName = styled('h4')(({ theme }) => ({
     [theme.breakpoints.down('sm')]: { fontSize: '1.5rem' }
 }));
 
-export { FormControl, Button } from 'components/new-mikro/Shared.styled';
+export { Button, FormControl } from 'components/new-mikro/Shared.styled';

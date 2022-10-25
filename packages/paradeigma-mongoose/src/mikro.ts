@@ -1,12 +1,12 @@
-import { Schema, model, models } from 'mongoose';
+import { model, models, Schema } from 'mongoose';
 import {
-    ProgrammingLanguages,
-    MikroStyles,
+    MIKRO_DESCRIPTION_MAX_LENGTH,
     MIKRO_NAME_MAX_LENGTH,
-    MIKRO_DESCRIPTION_MAX_LENGTH
+    MikroStyles,
+    ProgrammingLanguages
 } from '@paradeigma/graphql';
-import type { Types, Model, SchemaDefinition } from 'mongoose';
-import type { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
+import type { Model, SchemaDefinition, Types } from 'mongoose';
+import type { MikroStyle, ProgrammingLanguage } from '@paradeigma/graphql';
 
 export interface MikroDocument {
     _id: Types.ObjectId;

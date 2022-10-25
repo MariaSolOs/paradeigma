@@ -1,4 +1,4 @@
-import type { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
+import type { MikroStyle, ProgrammingLanguage } from '@paradeigma/graphql';
 
 import PreviewSlide from './PreviewSlide';
 

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { ProgrammingLanguage, MikroStyle } from '@paradeigma/graphql';
+import type { MikroStyle, ProgrammingLanguage } from '@paradeigma/graphql';
 
 import MikroCode from './MikroCode';
 

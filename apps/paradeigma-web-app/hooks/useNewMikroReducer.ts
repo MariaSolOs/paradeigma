@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
 import {
-    ProgrammingLanguage,
-    MikroStyle,
+    MIKRO_DESCRIPTION_MAX_LENGTH,
     MIKRO_NAME_MAX_LENGTH,
-    MIKRO_DESCRIPTION_MAX_LENGTH
+    MikroStyle,
+    ProgrammingLanguage
 } from '@paradeigma/graphql';
 
 type NewMikroFormState = {

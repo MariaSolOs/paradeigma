@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export const FADE_IN_ANIMATION = 'FADE_IN_ANIMATION';
 export const FADE_OUT_ANIMATION = 'FADE_OUT_ANIMATION';

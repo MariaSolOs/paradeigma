@@ -1,4 +1,4 @@
-import { ProgrammingLanguage, MikroStyle } from './sdk';
+import { MikroStyle, ProgrammingLanguage } from './sdk';
 
 /**
  * Maximum length for a mikro's name field.

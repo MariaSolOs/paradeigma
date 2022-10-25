@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
-import type { ReactNode, Dispatch, FCC } from 'react';
+import type { Dispatch, FCC, ReactNode } from 'react';
 
 type UiState = {
     snackbarContent: ReactNode | undefined;
