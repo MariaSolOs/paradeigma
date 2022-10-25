@@ -1,4 +1,4 @@
-import Document, { Html, Main, DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, { DocumentContext, DocumentInitialProps, Html, Main } from 'next/document';
 import { getCspInitialProps, provideComponents } from '@next-safe/middleware/dist/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';

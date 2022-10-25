@@ -8,10 +8,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MikroCode from 'components/MikroCode';
 import InputLabel from 'components/InputLabel';
 import {
-    Root as SelectRoot,
     Listbox as SelectListbox,
+    Option as SelectOption,
     Popper as SelectPopper,
-    Option as SelectOption
+    Root as SelectRoot
 } from 'components/Select';
 import * as S from './PreviewSlide.styled';
 

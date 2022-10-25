@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { getLanguageIcon } from 'lib/mikro';
 import { ProgrammingLanguages } from '@paradeigma/graphql';
 import type { FC } from 'react';
@@ -53,7 +53,11 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                     renderValue={(options) => (
                         <S.ChipsContainer>
                             {options.map(({ label, value }) => (
-                                <Chip key={value} label={label} onDelete={() => handleChipDeletion(value)} />
+                                <Chip
+                                    key={value}
+                                    label={label}
+                                    onDelete={() => handleChipDeletion(value)}
+                                />
                             ))}
                         </S.ChipsContainer>
                     )}>

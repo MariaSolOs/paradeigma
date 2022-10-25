@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { getHookedSdk } from 'lib/graphql';
-import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import type { GetMikroQuery } from '@paradeigma/graphql';
 import type { RoutedQuery } from 'nextjs-routes';
 
 import Spinner from 'components/Spinner';
-import { Container, MainContainer, CodeColumn, MikroContainer } from 'components/mikro-details/Containers';
+import { CodeColumn, Container, MainContainer, MikroContainer } from 'components/mikro-details/Containers';
 import Button from 'components/Button';
 import SnippetButton from 'components/mikro-details/SnippetButton';
 import MikroCode from 'components/MikroCode';

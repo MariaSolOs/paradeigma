@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { SnippetButtonProps, Editor } from './index';
+import type { Editor, SnippetButtonProps } from './index';
 
 import * as S from './SnippetButton.styled';
 

@@ -11,10 +11,10 @@ import TungstenOutlinedIcon from '@mui/icons-material/TungstenOutlined';
 import Input from 'components/Input';
 import InputLabel from 'components/InputLabel';
 import {
-    Root as SelectRoot,
     Listbox as SelectListbox,
+    Option as SelectOption,
     Popper as SelectPopper,
-    Option as SelectOption
+    Root as SelectRoot
 } from 'components/Select';
 import * as S from './EditorSlide.styled';
 
@@ -50,9 +50,8 @@ const AceEditor = dynamic(
 const EDITOR_NUM_LINES = 20;
 
 const EditorSlide: FC<EditorSlideProps> = (props) => {
-    const canContinue =
-        process.env['NEXT_PUBLIC_VERCEL_ENV'] === 'development' ||
-        (props.name.length > 0 && props.description.length > 0 && props.content.length > 0);
+    const canContinue = process.env['NEXT_PUBLIC_VERCEL_ENV'] === 'development'
+        || (props.name.length > 0 && props.description.length > 0 && props.content.length > 0);
 
     return (
         <>
