@@ -14,7 +14,7 @@ export const Button = styled((props: ButtonProps) => (
     [theme.breakpoints.down('md')]: { margin: '2rem 0' }
 }));
 
-export const EditorIcon = styled('i')(({ theme }) => ({
+export const EditorIcon = styled('i')({
     fontSize: '1.5rem',
     marginRight: 10
-}));
+});
