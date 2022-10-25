@@ -9,8 +9,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:@next/next/recommended',
-        'prettier'
+        'plugin:@next/next/recommended'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
