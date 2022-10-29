@@ -34,7 +34,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                 onChange={(event) => props.onTextFilterChange(event.target.value)}
             />
             <S.SelectContainer>
-                <InputLabel>Search for mikros written in: </InputLabel>
+                <InputLabel>Search for mikros written in:</InputLabel>
                 <MultiSelectUnstyled
                     listboxOpen={openLanguageSelect}
                     onListboxOpenChange={() => setOpenLanguageSelect(true)}
