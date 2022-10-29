@@ -17,7 +17,6 @@
         "@mantine/core": "^5.6.3",
         "@mantine/hooks": "^5.6.3",
         "@mantine/next": "^5.6.3",
-        "@next-safe/middleware": "^0.10.0",
         "@paradeigma/graphql": "workspace:*",
         "ace-builds": "^1.12.3",
         "graphql": "^16.6.0",
