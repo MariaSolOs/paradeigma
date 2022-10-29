@@ -2,7 +2,7 @@ import Link from 'next/link';
 import * as S from './ParadeigmaTitle.styled';
 
 const ParadeigmaTitle = () => (
-    <Link href={{ pathname: '/' }} passHref>
+    <Link href="/" passHref legacyBehavior>
         <S.Title>Paradeigma</S.Title>
     </Link>
 );

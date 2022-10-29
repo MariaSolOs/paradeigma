@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material/styles';
 import type { FCC } from 'react';
 import type { PixelSlideProps } from './index';
 
-import Image from 'next/future/image';
+import Image from 'next/image';
 import * as S from './PixelSlide.styled';
 
 /**

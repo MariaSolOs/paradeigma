@@ -33,17 +33,6 @@ module.exports = {
     reportUnusedDisableDirectives: true,
     rules: {
         eqeqeq: 'error',
-        'spaced-comment': [
-            'warn',
-            'always',
-            {
-                line: {
-                    // For triple slash references
-                    markers: ['/']
-                }
-            }
-        ],
-        // Indent with 4 spaces, except when listing attributes in JSX
         '@next/next/no-html-link-for-pages': [
             'error',
             [
