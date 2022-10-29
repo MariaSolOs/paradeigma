@@ -9,12 +9,11 @@ const securityMiddleware: ChainableMiddleware[] = [
         isDev,
         directives: {
             'font-src': ['self', 'https://fonts.gstatic.com', 'https://cdn.jsdelivr.net'],
-            'style-src': ['self', 'https://fonts.googleapis.com', 'https://cdn.jsdelivr.net'],
+            'style-src': ['self', 'unsafe-inline', 'https://fonts.googleapis.com', 'https://cdn.jsdelivr.net'],
             'connect-src': ['self', isDev ? 'localhost:4000' : 'https://paradeigma-apollo-app.vercel.app'],
             'worker-src': ['self', 'blob:']
         },
-        // TODO: Remove this once I figure out the inline styles thing
-        reportOnly: true
+        reportOnly: isDev
     }),
     strictDynamic(),
     strictInlineStyles()
