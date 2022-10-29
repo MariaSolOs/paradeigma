@@ -17,6 +17,7 @@ const clientCache = createEmotionCache();
 
 // TODO: Add Head component with page info
 const App = (props: AppEmotionProps) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- pageProps can be any
     const { Component, pageProps, emotionCache = clientCache } = props;
 
     return (

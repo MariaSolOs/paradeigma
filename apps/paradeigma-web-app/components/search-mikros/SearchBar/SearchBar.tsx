@@ -44,12 +44,12 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                         // Close the popper when selecting an option.
                         setOpenLanguageSelect(false);
                     }}
-                    components={{
-                        Root: S.SelectRoot,
-                        Listbox: S.SelectListbox,
-                        Popper: SelectPopper
+                    slots={{
+                        root: S.SelectRoot,
+                        listbox: S.SelectListbox,
+                        popper: SelectPopper
                     }}
-                    componentsProps={{ popper: { placement: 'bottom-end' } }}
+                    slotProps={{ popper: { placement: 'bottom-end' } }}
                     renderValue={(options) => (
                         <S.ChipsContainer>
                             {options.map(({ label, value }) => (

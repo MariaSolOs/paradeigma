@@ -83,10 +83,10 @@ const EditorSlide: FC<EditorSlideProps> = (props) => {
                     <S.FormControl sx={{ flexDirection: 'row' }}>
                         <InputLabel>Which programming language are you using?</InputLabel>
                         <SelectUnstyled
-                            components={{
-                                Root: SelectRoot,
-                                Listbox: SelectListbox,
-                                Popper: SelectPopper
+                            slots={{
+                                root: SelectRoot,
+                                listbox: SelectListbox,
+                                popper: SelectPopper
                             }}
                             value={props.language}
                             onChange={(_, value) => props.onLanguageChange(value)}>

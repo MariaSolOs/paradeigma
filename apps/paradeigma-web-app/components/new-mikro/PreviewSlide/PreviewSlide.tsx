@@ -38,10 +38,10 @@ const PreviewSlide: FC<PreviewSlideProps> = (props) => {
                     <S.FormControl sx={{ flexDirection: 'row' }}>
                         <InputLabel>Which style would you like your mikro to have?</InputLabel>
                         <SelectUnstyled
-                            components={{
-                                Root: SelectRoot,
-                                Listbox: SelectListbox,
-                                Popper: SelectPopper
+                            slots={{
+                                root: SelectRoot,
+                                listbox: SelectListbox,
+                                popper: SelectPopper
                             }}
                             value={props.style}
                             onChange={(_, value) => props.onStyleChange(value)}>
