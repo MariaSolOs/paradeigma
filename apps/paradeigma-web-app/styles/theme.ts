@@ -6,16 +6,16 @@ export const BUNGEE_SHADE_FONT_FAMILY = 'Bungee Shade, cursive';
 const theme: MantineThemeOverride = {
     colors: {
         'paradeigma-cyan': [
-            '#DFFBFB',
-            '#C1ECEA',
-            '#9FDDDB',
-            '#7CCDCC',
-            '#59BFBD',
-            '#40A6A4',
-            '#2F817F',
-            '#1C5D5C',
-            '#083838',
-            '#001515'
+            '#DBFFFC',
+            '#AFFFF3',
+            '#80FFEC',
+            '#51FFE4',
+            '#2EFEDC',
+            '#1FE5C2',
+            '#0FB397',
+            '#00806C',
+            '#004D41',
+            '#001C16'
         ],
         'paradeigma-blue': [
             '#E7EEFF',

@@ -20,6 +20,7 @@
         "/.pnp*",
         // TypeScript
         "tsconfig.tsbuildinfo",
+        "apps/paradeigma-web-app/types/nextjs-routes.d.ts",
         // GraphQL
         "packages/paradeigma-graphql/introspection.json",
         // Next JS

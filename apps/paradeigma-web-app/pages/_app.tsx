@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app';
 
 import Head from 'next/head';
 import ParadeigmaTitle from 'components/ParadeigmaTitle';
+import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
 
 // TODO: Add Head component with page info
 const App = (props: AppProps) => {
@@ -21,6 +22,7 @@ const App = (props: AppProps) => {
             <MantineProvider withGlobalStyles withNormalizeCSS emotionCache={cache} theme={theme}>
                 <UiContextProvider>
                     <ParadeigmaTitle />
+                    <NavigationBreadcrumbs />
                     <Component {...pageProps} />
                 </UiContextProvider>
             </MantineProvider>

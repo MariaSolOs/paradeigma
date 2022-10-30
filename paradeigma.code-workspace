@@ -53,7 +53,7 @@
         // Colorize files with Mui styles
         "colorize.include": [
             "**/styles/*.ts",
-            "**/*.styled.*"
+            "**/*.styles.*"
         ]
     },
     "extensions": {

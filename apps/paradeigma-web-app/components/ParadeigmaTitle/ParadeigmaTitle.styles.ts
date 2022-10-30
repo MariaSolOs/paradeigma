@@ -11,6 +11,7 @@ const useStyles = createStyles((theme) => ({
         cursor: 'pointer',
 
         [theme.fn.smallerThan('md')]: { fontSize: '4.3rem' },
+
         [theme.fn.smallerThan('sm')]: { fontSize: '2.5rem' }
     }
 }));

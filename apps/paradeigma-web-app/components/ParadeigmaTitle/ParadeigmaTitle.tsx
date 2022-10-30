@@ -1,4 +1,4 @@
-import useStyles from './ParadeigmaTitle.styled';
+import useStyles from './ParadeigmaTitle.styles';
 
 import Link from 'next/link';
 

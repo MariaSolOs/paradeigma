@@ -1,5 +1,5 @@
-const Index = () => {
-    return <div>Hello world!</div>;
+const HomePage = () => {
+    return null;
 };
 
-export default Index;
+export default HomePage;
