@@ -20,7 +20,6 @@
         "/.pnp*",
         // TypeScript
         "tsconfig.tsbuildinfo",
-        "*.d.ts",
         // GraphQL
         "packages/paradeigma-graphql/introspection.json",
         // Next JS
