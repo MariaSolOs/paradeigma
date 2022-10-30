@@ -1,10 +1,24 @@
-import { createGetInitialProps } from '@mantine/next';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { createStylesServer, ServerStyles } from '@mantine/next';
+import cache from 'styles/emotion-cache';
+import type { DocumentInitialProps } from 'next/document';
 
-const getInitialProps = createGetInitialProps();
+const stylesServer = createStylesServer(cache);
 
 export default class CustomDocument extends Document {
-    static override getInitialProps = getInitialProps;
+    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+        const initialProps = await Document.getInitialProps(ctx);
+
+        return {
+            ...initialProps,
+            styles: (
+                <>
+                    {initialProps.styles}
+                    <ServerStyles html={initialProps.html} server={stylesServer} />
+                </>
+            )
+        };
+    }
 
     override render(): JSX.Element {
         return (

@@ -1,41 +1,48 @@
+import { MantineProvider } from '@mantine/core';
+import cache from 'styles/emotion-cache';
 import { UiContextProvider } from 'context/uiContext';
-import dynamic from 'next/dynamic';
-import createEmotionCache from 'styles/emotion-cache';
-import theme from 'styles/theme';
-import type { AppEmotionProps } from 'next/app';
+import type { AppProps } from 'next/app';
 
 import Head from 'next/head';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/material/styles';
-import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
-import ParadeigmaTitle from 'components/ParadeigmaTitle';
-
-const Snackbar = dynamic(() => import('components/Snackbar'));
-
-const clientCache = createEmotionCache();
 
 // TODO: Add Head component with page info
-const App = (props: AppEmotionProps) => {
-    const { Component, pageProps, emotionCache = clientCache } = props;
+const App = (props: AppProps) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- pageProps can be any
+    const { Component, pageProps } = props;
 
     return (
-        <CacheProvider value={emotionCache}>
+        <>
             <Head>
                 {/* This viewport tag needs to be here, not in _document.tsx */}
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
+            <MantineProvider withGlobalStyles withNormalizeCSS emotionCache={cache}>
                 <UiContextProvider>
-                    <Snackbar />
-                    <ParadeigmaTitle />
-                    <NavigationBreadcrumbs />
                     <Component {...pageProps} />
                 </UiContextProvider>
-            </ThemeProvider>
-        </CacheProvider>
+            </MantineProvider>
+        </>
     );
 };
 
 export default App;
+
+// import dynamic from 'next/dynamic';
+// // import theme from 'styles/theme';
+
+// // import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
+// // import ParadeigmaTitle from 'components/ParadeigmaTitle';
+
+// // const Snackbar = dynamic(() => import('components/Snackbar'));
+
+// const App = (props: AppEmotionProps) => {
+//     return (
+//         <>
+//             <ThemeProvider theme={theme}>
+//                     <Snackbar />
+//                     <ParadeigmaTitle />
+//                     <NavigationBreadcrumbs />
+//             </ThemeProvider>
+//         </>
+//     );
+// };
