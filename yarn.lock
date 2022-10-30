@@ -2669,6 +2669,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/notifications@npm:^5.6.3":
+  version: 5.6.3
+  resolution: "@mantine/notifications@npm:5.6.3"
+  dependencies:
+    "@mantine/utils": 5.6.3
+    react-transition-group: 4.4.2
+  peerDependencies:
+    "@mantine/core": 5.6.3
+    "@mantine/hooks": 5.6.3
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 3703ec47d833550df0192c4bc2739d75752d6449cc8f43aff82af1f2b5ee156f17534e14297fa2846d4b30f3df387085e38267a4ac5ec93f3787791099108982
+  languageName: node
+  linkType: hard
+
 "@mantine/ssr@npm:5.6.3":
   version: 5.6.3
   resolution: "@mantine/ssr@npm:5.6.3"
@@ -2940,6 +2955,7 @@ __metadata:
     "@mantine/core": ^5.6.3
     "@mantine/hooks": ^5.6.3
     "@mantine/next": ^5.6.3
+    "@mantine/notifications": ^5.6.3
     "@paradeigma/graphql": "workspace:*"
     "@types/node": 18.11.7
     "@types/react": 18.0.24
@@ -7516,6 +7532,21 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 87360d4392276d4e87511a73be9b0634b8bcce8f4f648cf659334d993f25ad3d4062f468f1e1944fc614123acae4299580aad00b760c6a96cec190e076f847f5
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:4.4.2":
+  version: 4.4.2
+  resolution: "react-transition-group@npm:4.4.2"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    dom-helpers: ^5.0.1
+    loose-envify: ^1.4.0
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: b67bf5b3e86dbab72d658b9a52a3589e5960583ab28c7c66272427d8fe30d4c7de422d5046ae96bd2683cdf80cc3264b2516f5ce80cae1dbe6cf3ca6dda392c5
   languageName: node
   linkType: hard
 

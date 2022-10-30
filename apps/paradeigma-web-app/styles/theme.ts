@@ -33,6 +33,23 @@ const theme: MantineThemeOverride = {
     fontFamily: 'PT Mono, monospace',
     headings: {
         fontFamily: 'Bungee, cursive'
+    },
+    components: {
+        Notification: {
+            styles: (theme) => ({
+                root: {
+                    backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                    border: 'none',
+                    paddingLeft: '1rem',
+
+                    // Hide the color line
+                    '&:before': { display: 'none' }
+                },
+                description: {
+                    fontWeight: 'bold'
+                }
+            })
+        }
     }
 };
 

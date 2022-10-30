@@ -1,7 +1,7 @@
 import { MantineProvider } from '@mantine/core';
 import cache from 'styles/emotion-cache';
 import theme from 'styles/theme';
-import { UiContextProvider } from 'context/uiContext';
+import { NotificationsProvider } from '@mantine/notifications';
 import type { AppProps } from 'next/app';
 
 import Head from 'next/head';
@@ -20,30 +20,14 @@ const App = (props: AppProps) => {
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
             <MantineProvider withGlobalStyles withNormalizeCSS emotionCache={cache} theme={theme}>
-                <UiContextProvider>
+                <NotificationsProvider position="top-right">
                     <ParadeigmaTitle />
                     <NavigationBreadcrumbs />
                     <Component {...pageProps} />
-                </UiContextProvider>
+                </NotificationsProvider>
             </MantineProvider>
         </>
     );
 };
 
 export default App;
-
-// import dynamic from 'next/dynamic';
-// // import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
-// // import ParadeigmaTitle from 'components/ParadeigmaTitle';
-
-// // const Snackbar = dynamic(() => import('components/Snackbar'));
-
-// const App = (props: AppEmotionProps) => {
-//     return (
-//         <>
-//                     <Snackbar />
-//                     <ParadeigmaTitle />
-//                     <NavigationBreadcrumbs />
-//         </>
-//     );
-// };

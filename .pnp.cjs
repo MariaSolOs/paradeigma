@@ -3995,6 +3995,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@mantine/notifications", [\
+        ["npm:5.6.3", {\
+          "packageLocation": "./.yarn/cache/@mantine-notifications-npm-5.6.3-ed0229430f-3703ec47d8.zip/node_modules/@mantine/notifications/",\
+          "packageDependencies": [\
+            ["@mantine/notifications", "npm:5.6.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3", {\
+          "packageLocation": "./.yarn/__virtual__/@mantine-notifications-virtual-b2c9c4c7a5/0/cache/@mantine-notifications-npm-5.6.3-ed0229430f-3703ec47d8.zip/node_modules/@mantine/notifications/",\
+          "packageDependencies": [\
+            ["@mantine/notifications", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
+            ["@mantine/core", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
+            ["@mantine/hooks", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
+            ["@mantine/utils", "virtual:68941306ff803e87c96f999e28739df08cd84ac13eb546c16b463d3628578c51cc4d71166b842d4e4f2c9f7335f66ae89fe49e5574ffa24bae6d8f4dd018e861#npm:5.6.3"],\
+            ["@types/mantine__core", null],\
+            ["@types/mantine__hooks", null],\
+            ["@types/react", "npm:18.0.24"],\
+            ["@types/react-dom", "npm:18.0.8"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
+            ["react-transition-group", "virtual:b2c9c4c7a570eda2ad64378863de07359785e1aae89a20f742832435e00800f3282a1a51d11252ac954961e0a969ddd27082e86bb9b260d25c426c1bd8cf961b#npm:4.4.2"]\
+          ],\
+          "packagePeers": [\
+            "@mantine/core",\
+            "@mantine/hooks",\
+            "@types/mantine__core",\
+            "@types/mantine__hooks",\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@mantine/ssr", [\
         ["npm:5.6.3", {\
           "packageLocation": "./.yarn/cache/@mantine-ssr-npm-5.6.3-7237699e8d-4d540e9bad.zip/node_modules/@mantine/ssr/",\
@@ -4537,6 +4573,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mantine/core", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
             ["@mantine/hooks", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
             ["@mantine/next", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
+            ["@mantine/notifications", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.6.3"],\
             ["@paradeigma/graphql", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#workspace:packages/paradeigma-graphql"],\
             ["@types/node", "npm:18.11.7"],\
             ["@types/react", "npm:18.0.24"],\
@@ -10310,6 +10347,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["react-transition-group", [\
+        ["npm:4.4.2", {\
+          "packageLocation": "./.yarn/cache/react-transition-group-npm-4.4.2-5052c30656-b67bf5b3e8.zip/node_modules/react-transition-group/",\
+          "packageDependencies": [\
+            ["react-transition-group", "npm:4.4.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["npm:4.4.5", {\
           "packageLocation": "./.yarn/cache/react-transition-group-npm-4.4.5-98ea4ef96e-7560284010.zip/node_modules/react-transition-group/",\
           "packageDependencies": [\
@@ -10321,6 +10365,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/react-transition-group-virtual-a967c73535/0/cache/react-transition-group-npm-4.4.5-98ea4ef96e-7560284010.zip/node_modules/react-transition-group/",\
           "packageDependencies": [\
             ["react-transition-group", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:4.4.5"],\
+            ["@babel/runtime", "npm:7.18.9"],\
+            ["@types/react", "npm:18.0.24"],\
+            ["@types/react-dom", "npm:18.0.8"],\
+            ["dom-helpers", "npm:5.2.1"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:b2c9c4c7a570eda2ad64378863de07359785e1aae89a20f742832435e00800f3282a1a51d11252ac954961e0a969ddd27082e86bb9b260d25c426c1bd8cf961b#npm:4.4.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-transition-group-virtual-817ad6ab73/0/cache/react-transition-group-npm-4.4.2-5052c30656-b67bf5b3e8.zip/node_modules/react-transition-group/",\
+          "packageDependencies": [\
+            ["react-transition-group", "virtual:b2c9c4c7a570eda2ad64378863de07359785e1aae89a20f742832435e00800f3282a1a51d11252ac954961e0a969ddd27082e86bb9b260d25c426c1bd8cf961b#npm:4.4.2"],\
             ["@babel/runtime", "npm:7.18.9"],\
             ["@types/react", "npm:18.0.24"],\
             ["@types/react-dom", "npm:18.0.8"],\
