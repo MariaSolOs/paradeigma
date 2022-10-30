@@ -1,9 +1,11 @@
 import { MantineProvider } from '@mantine/core';
 import cache from 'styles/emotion-cache';
+import theme from 'styles/theme';
 import { UiContextProvider } from 'context/uiContext';
 import type { AppProps } from 'next/app';
 
 import Head from 'next/head';
+import ParadeigmaTitle from 'components/ParadeigmaTitle';
 
 // TODO: Add Head component with page info
 const App = (props: AppProps) => {
@@ -16,8 +18,9 @@ const App = (props: AppProps) => {
                 {/* This viewport tag needs to be here, not in _document.tsx */}
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
-            <MantineProvider withGlobalStyles withNormalizeCSS emotionCache={cache}>
+            <MantineProvider withGlobalStyles withNormalizeCSS emotionCache={cache} theme={theme}>
                 <UiContextProvider>
+                    <ParadeigmaTitle />
                     <Component {...pageProps} />
                 </UiContextProvider>
             </MantineProvider>
@@ -28,8 +31,6 @@ const App = (props: AppProps) => {
 export default App;
 
 // import dynamic from 'next/dynamic';
-// // import theme from 'styles/theme';
-
 // // import NavigationBreadcrumbs from 'components/NavigationBreadcrumbs';
 // // import ParadeigmaTitle from 'components/ParadeigmaTitle';
 
@@ -38,11 +39,9 @@ export default App;
 // const App = (props: AppEmotionProps) => {
 //     return (
 //         <>
-//             <ThemeProvider theme={theme}>
 //                     <Snackbar />
 //                     <ParadeigmaTitle />
 //                     <NavigationBreadcrumbs />
-//             </ThemeProvider>
 //         </>
 //     );
 // };
