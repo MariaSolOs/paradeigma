@@ -2946,13 +2946,11 @@ __metadata:
     "@types/react-dom": 18.0.8
     "@types/react-syntax-highlighter": ^15.5.5
     "@types/react-transition-group": ^4.4.5
-    ace-builds: ^1.12.3
     graphql: ^16.6.0
     graphql-request: ^5.0.0
     next: 13.0.0
     nextjs-routes: ^0.1.6
     react: 18.2.0
-    react-ace: ^10.1.0
     react-dom: 18.2.0
     react-syntax-highlighter: ^15.5.0
     react-transition-group: ^4.4.5
@@ -3586,20 +3584,6 @@ __metadata:
   dependencies:
     event-target-shim: ^5.0.0
   checksum: 170bdba9b47b7e65906a28c8ce4f38a7a369d78e2271706f020849c1bfe0ee2067d4261df8bbb66eb84f79208fd5b710df759d64191db58cfba7ce8ef9c54b75
-  languageName: node
-  linkType: hard
-
-"ace-builds@npm:^1.12.3":
-  version: 1.12.3
-  resolution: "ace-builds@npm:1.12.3"
-  checksum: 82ad0cb34670923c112e49ab91a2a8e9eca38f61fe3322f09836fbf21fc2c9d7389f2374868f5599821eaa0444367c251c2385b0ee41065255642d9ff4a0135b
-  languageName: node
-  linkType: hard
-
-"ace-builds@npm:^1.4.14":
-  version: 1.10.0
-  resolution: "ace-builds@npm:1.10.0"
-  checksum: af6bc0059375b172a38444087f29232314f83be5242567a71336f055f93ba631d0c167ca045cc8ba8687a3eb6056218e2105c7ed8ae1107ce34e674f15347a2a
   languageName: node
   linkType: hard
 
@@ -4748,13 +4732,6 @@ __metadata:
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
   checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
-  languageName: node
-  linkType: hard
-
-"diff-match-patch@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "diff-match-patch@npm:1.0.5"
-  checksum: 841522d01b09cccbc4e4402cf61514a81b906349a7d97b67222390f2d35cf5df277cb23959eeed212d5e46afb5629cebab41b87918672c5a05c11c73688630e3
   languageName: node
   linkType: hard
 
@@ -6357,13 +6334,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.get@npm:^4.4.2":
-  version: 4.4.2
-  resolution: "lodash.get@npm:4.4.2"
-  checksum: e403047ddb03181c9d0e92df9556570e2b67e0f0a930fcbbbd779370972368f5568e914f913e93f3b08f6d492abc71e14d4e9b7a18916c31fa04bd2306efe545
-  languageName: node
-  linkType: hard
-
 "lodash.includes@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.includes@npm:4.3.0"
@@ -6375,13 +6345,6 @@ __metadata:
   version: 3.0.3
   resolution: "lodash.isboolean@npm:3.0.3"
   checksum: b70068b4a8b8837912b54052557b21fc4774174e3512ed3c5b94621e5aff5eb6c68089d0a386b7e801d679cd105d2e35417978a5e99071750aa2ed90bffd0250
-  languageName: node
-  linkType: hard
-
-"lodash.isequal@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.isequal@npm:4.5.0"
-  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
   languageName: node
   linkType: hard
 
@@ -7440,7 +7403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.2":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -7499,22 +7462,6 @@ __metadata:
     iconv-lite: 0.4.24
     unpipe: 1.0.0
   checksum: d5e9179d2f1f0a652cd107c080f25d165c724f546124d620c8df7fb80322df42bff547a8b310e55e1f7952556d013716a21b30162192eb0b3332d7efcba75883
-  languageName: node
-  linkType: hard
-
-"react-ace@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "react-ace@npm:10.1.0"
-  dependencies:
-    ace-builds: ^1.4.14
-    diff-match-patch: ^1.0.5
-    lodash.get: ^4.4.2
-    lodash.isequal: ^4.5.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 8fc67e02f911dcc31cf474df97c06f2ba5b5f402d9ed425895e479e2daddf4894a2cd0e81744b37b7f2b07109cfe4470fc5ebeed305d648c596e3442142e4823
   languageName: node
   linkType: hard
 

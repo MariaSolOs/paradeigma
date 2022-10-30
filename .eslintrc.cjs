@@ -24,8 +24,6 @@ module.exports = {
     ignorePatterns: [
         // Don't lint this file
         '.eslintrc.cjs',
-        // Don't lint the files from the ace CDN
-        '/apps/paradeigma-web-app/public/code-editor',
         // Codegen output files
         '/packages/paradeigma-graphql/src/resolvers-types.ts',
         '/packages/paradeigma-graphql/src/sdk.ts'

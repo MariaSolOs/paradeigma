@@ -23,8 +23,6 @@
         "*.d.ts",
         // GraphQL
         "packages/paradeigma-graphql/introspection.json",
-        // Ace CDN
-        "apps/paradeigma-web-app/public/code-editor/*",
         // Next JS
         ".vercel",
         "apps/**/.next/",

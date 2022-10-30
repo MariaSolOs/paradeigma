@@ -4540,13 +4540,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.8"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
             ["@types/react-transition-group", "npm:4.4.5"],\
-            ["ace-builds", "npm:1.12.3"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-request", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:5.0.0"],\
             ["next", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:13.0.0"],\
             ["nextjs-routes", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:0.1.6"],\
             ["react", "npm:18.2.0"],\
-            ["react-ace", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:10.1.0"],\
             ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
             ["react-syntax-highlighter", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:15.5.0"],\
             ["react-transition-group", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:4.4.5"],\
@@ -5457,22 +5455,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["abort-controller", "npm:3.0.0"],\
             ["event-target-shim", "npm:5.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["ace-builds", [\
-        ["npm:1.10.0", {\
-          "packageLocation": "./.yarn/cache/ace-builds-npm-1.10.0-88e03578a8-af6bc00593.zip/node_modules/ace-builds/",\
-          "packageDependencies": [\
-            ["ace-builds", "npm:1.10.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:1.12.3", {\
-          "packageLocation": "./.yarn/cache/ace-builds-npm-1.12.3-9b4fbee825-82ad0cb346.zip/node_modules/ace-builds/",\
-          "packageDependencies": [\
-            ["ace-builds", "npm:1.12.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6964,15 +6946,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/diff-npm-4.0.2-73133c7102-f2c09b0ce4.zip/node_modules/diff/",\
           "packageDependencies": [\
             ["diff", "npm:4.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["diff-match-patch", [\
-        ["npm:1.0.5", {\
-          "packageLocation": "./.yarn/cache/diff-match-patch-npm-1.0.5-f715ad1381-841522d01b.zip/node_modules/diff-match-patch/",\
-          "packageDependencies": [\
-            ["diff-match-patch", "npm:1.0.5"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8950,15 +8923,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["lodash.get", [\
-        ["npm:4.4.2", {\
-          "packageLocation": "./.yarn/cache/lodash.get-npm-4.4.2-7bda64ed87-e403047ddb.zip/node_modules/lodash.get/",\
-          "packageDependencies": [\
-            ["lodash.get", "npm:4.4.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["lodash.includes", [\
         ["npm:4.3.0", {\
           "packageLocation": "./.yarn/cache/lodash.includes-npm-4.3.0-3a2f6fa22c-71092c1305.zip/node_modules/lodash.includes/",\
@@ -8973,15 +8937,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.isboolean-npm-3.0.3-b575b41488-b70068b4a8.zip/node_modules/lodash.isboolean/",\
           "packageDependencies": [\
             ["lodash.isboolean", "npm:3.0.3"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["lodash.isequal", [\
-        ["npm:4.5.0", {\
-          "packageLocation": "./.yarn/cache/lodash.isequal-npm-4.5.0-f8b0f64d63-da27515dc5.zip/node_modules/lodash.isequal/",\
-          "packageDependencies": [\
-            ["lodash.isequal", "npm:4.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10253,37 +10208,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["react", "npm:18.2.0"],\
             ["loose-envify", "npm:1.4.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["react-ace", [\
-        ["npm:10.1.0", {\
-          "packageLocation": "./.yarn/cache/react-ace-npm-10.1.0-48bccfeb30-8fc67e02f9.zip/node_modules/react-ace/",\
-          "packageDependencies": [\
-            ["react-ace", "npm:10.1.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:10.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/react-ace-virtual-400902e4be/0/cache/react-ace-npm-10.1.0-48bccfeb30-8fc67e02f9.zip/node_modules/react-ace/",\
-          "packageDependencies": [\
-            ["react-ace", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:10.1.0"],\
-            ["@types/react", "npm:18.0.24"],\
-            ["@types/react-dom", "npm:18.0.8"],\
-            ["ace-builds", "npm:1.10.0"],\
-            ["diff-match-patch", "npm:1.0.5"],\
-            ["lodash.get", "npm:4.4.2"],\
-            ["lodash.isequal", "npm:4.5.0"],\
-            ["prop-types", "npm:15.8.1"],\
-            ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/react-dom",\
-            "@types/react",\
-            "react-dom",\
-            "react"\
           ],\
           "linkType": "HARD"\
         }]\
