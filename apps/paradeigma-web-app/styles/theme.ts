@@ -41,12 +41,60 @@ const theme: MantineThemeOverride = {
                     backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
                     border: 'none',
                     paddingLeft: '1rem',
-
                     // Hide the color line
                     '&:before': { display: 'none' }
                 },
                 description: {
                     fontWeight: 'bold'
+                }
+            })
+        },
+        Input: {
+            styles: (theme) => ({
+                input: {
+                    border: `1px solid ${theme.colors['paradeigma-cyan'][2]}`,
+                    borderRadius: theme.radius.md,
+                    color: theme.colors['paradeigma-cyan'][8],
+                    transition: 'border 300ms ease-in-out',
+                    '&:focus': {
+                        border: `1.75px solid ${theme.colors['paradeigma-cyan'][2]}`
+                    }
+                }
+            })
+        },
+        Select: {
+            styles: (theme) => ({
+                dropdown: {
+                    boxShadow: 'none',
+                    border: `1px dashed ${theme.colors['paradeigma-cyan'][2]}`
+                },
+                item: {
+                    textAlign: 'center',
+                    padding: '4px 0'
+                }
+            })
+        },
+        MultiSelect: {
+            styles: (theme) => ({
+                input: {
+                    '&:focus, &:focus-within': {
+                        border: `1.75px solid ${theme.colors['paradeigma-cyan'][2]}`
+                    }
+                },
+                dropdown: {
+                    boxShadow: 'none',
+                    border: `1px dashed ${theme.colors['paradeigma-cyan'][2]}`
+                },
+                item: {
+                    textAlign: 'center',
+                    padding: '4px 0',
+                    '&:hover, &[data-hovered]': {
+                        fontWeight: 'bold',
+                        backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
+                    }
+                },
+                value: {
+                    backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
                 }
             })
         }

@@ -14,6 +14,7 @@ const getMediaQueryInfo = (mediaQuery: string) => mediaQuery.slice(mediaQuery.in
 
 const PixelSlide: FCC<PixelSlideProps> = (props) => {
     const { classes } = useStyles();
+
     const theme = useMantineTheme();
 
     return (

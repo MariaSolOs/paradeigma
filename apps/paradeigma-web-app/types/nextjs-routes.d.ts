@@ -6,6 +6,7 @@
 declare module "nextjs-routes" {
   export type Route =
     | { pathname: "/"; query?: Query | undefined }
+    | { pathname: "/mikro/[id]"; query: Query<{ "id": string }> }
     | { pathname: "/mikro/new"; query?: Query | undefined }
     | { pathname: "/mikro/search"; query?: Query | undefined };
 
