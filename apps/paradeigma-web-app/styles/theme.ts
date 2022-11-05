@@ -97,6 +97,15 @@ const theme: MantineThemeOverride = {
                     backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
                 }
             })
+        },
+        Skeleton: {
+            styles: (theme) => ({
+                visible: {
+                    '&::after': {
+                        backgroundColor: theme.colors['paradeigma-blue'][0]
+                    }
+                }
+            })
         }
     }
 };
