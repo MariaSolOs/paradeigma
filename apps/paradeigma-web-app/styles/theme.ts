@@ -1,8 +1,5 @@
 import type { MantineThemeOverride } from '@mantine/core';
 
-// TODO: Is there a way to add this to the theme?
-export const BUNGEE_SHADE_FONT_FAMILY = 'Bungee Shade, cursive';
-
 const theme: MantineThemeOverride = {
     colors: {
         'paradeigma-cyan': [
@@ -106,6 +103,11 @@ const theme: MantineThemeOverride = {
                     }
                 }
             })
+        }
+    },
+    other: {
+        additionalFonts: {
+            bungeeShade: 'Bungee Shade, cursive'
         }
     }
 };
