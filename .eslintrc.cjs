@@ -9,7 +9,9 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:@next/next/recommended'
+        'plugin:@next/next/recommended',
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -37,11 +39,15 @@ module.exports = {
                 path.join(__dirname, 'apps/paradeigma-apollo-app/pages/'),
                 path.join(__dirname, 'apps/paradeigma-web-app/pages/')
             ]
-        ]
+        ],
+        'react/prop-types': 'off'
     },
     settings: {
         next: {
             rootDir: ['./apps/paradeigma-apollo-app/', './apps/paradeigma-web-app/']
+        },
+        react: {
+            version: 'detect'
         }
     }
 };

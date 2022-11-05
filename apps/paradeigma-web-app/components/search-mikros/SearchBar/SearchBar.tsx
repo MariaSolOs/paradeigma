@@ -12,15 +12,16 @@ import { IconZoomCode } from '@tabler/icons';
 const SearchBar: FC<SearchBarProps> = (props) => {
     const { classes } = useStyles();
 
-    const MultiSelectItem = forwardRef<HTMLDivElement, SelectItemProps>((
-        { label, icon, ...others },
-        ref
-    ) => (
-        <div ref={ref} {...others}>
-            <i className={`${icon} ${classes.languageIcon}`} />
-            {label}
-        </div>
-    ));
+    const MultiSelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
+        function MultiSelectItem({ label, icon, ...others }, ref) {
+            return (
+                <div ref={ref} {...others}>
+                    <i className={`${icon} ${classes.languageIcon}`} />
+                    {label}
+                </div>
+            );
+        }
+    );
 
     return (
         <div className={classes.bar}>
