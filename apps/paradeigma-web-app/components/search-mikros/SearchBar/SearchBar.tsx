@@ -28,11 +28,11 @@ const SearchBar: FC<SearchBarProps> = (props) => {
             <InputBase<'input'>
                 placeholder="Find your paradeigmata."
                 value={props.textFilter}
-                onChange={event => props.onTextFilterChange(event.target.value)}
+                onChange={(event) => props.onTextFilterChange(event.target.value)}
                 icon={<IconZoomCode />}
             />
             <MultiSelect
-                data={ProgrammingLanguages.map(language =>
+                data={ProgrammingLanguages.map((language) =>
                     ({
                         label: language,
                         value: language,
@@ -47,7 +47,7 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                     label: classes.selectLabel
                 }}
                 value={props.languageFilter}
-                onChange={value => props.onLanguageFilterChange(value as ProgrammingLanguage[])}
+                onChange={(value) => props.onLanguageFilterChange(value as ProgrammingLanguage[])}
             />
         </div>
     );

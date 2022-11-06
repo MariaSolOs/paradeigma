@@ -15,7 +15,7 @@ const NavigationBreadcrumbs = () => {
 
     return (
         <Breadcrumbs classNames={{ root: classes.breadcrumbs, separator: classes.separator }}>
-            {navigationLinks.map(link => (
+            {navigationLinks.map((link) => (
                 <Link key={link.title} href={link.route} passHref legacyBehavior>
                     <a className={classes.navLink}>{link.title}</a>
                 </Link>

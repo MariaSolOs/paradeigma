@@ -7,7 +7,8 @@
         "trailingCommas": "never",
         "module.sortImportDeclarations": "maintain",
         "module.sortExportDeclarations": "maintain",
-        "jsxOpeningElement.bracketPosition": "sameLine"
+        "jsxOpeningElement.bracketPosition": "sameLine",
+        "arrowFunction.useParentheses": "force"
     },
     "includes": [
         "**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"
