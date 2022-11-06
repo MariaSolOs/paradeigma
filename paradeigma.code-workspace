@@ -54,12 +54,24 @@
         "colorize.include": [
             "**/styles/*.ts",
             "**/*.styles.*"
+        ],
+        "addmultifile.templates": [
+            {
+                "name": "New React Component",
+                "description": "React component and its styles",
+                "items": [
+                    "$0/$0.tsx",
+                    "$0/$0.styles.ts",
+                    "$0/index.ts"
+                ]
+            }
         ]
     },
     "extensions": {
         "recommendations": [
             "arcanis.vscode-zipfs", // Needed for "Go to definition" inside node_modules to work 
-            "dbaeumer.vscode-eslint"
+            "dbaeumer.vscode-eslint",
+            "mariasolos.add-multifile" // ;)
         ]
     },
     "launch": {

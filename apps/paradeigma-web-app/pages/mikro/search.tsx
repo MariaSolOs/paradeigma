@@ -6,7 +6,7 @@ import type { GetMikrosQuery, ProgrammingLanguage } from '@paradeigma/graphql';
 import type { GetStaticProps, NextPage } from 'next';
 
 import SearchBar from 'components/search-mikros/SearchBar';
-// import MikrosMasonry from 'components/search-mikros/MikrosMasonry';
+import MikrosList from 'components/search-mikros/MikrosList';
 
 type SearchMikrosPageProps = { initialMikros: GetMikrosQuery };
 
@@ -53,7 +53,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
 
         const timer = setTimeout(() => {
             setMikros(data?.mikros ?? []);
-        }, 500);
+        }, 300);
 
         return () => clearTimeout(timer);
     }, [data]);
@@ -84,7 +84,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
                 languageFilter={languageFilter}
                 onLanguageFilterChange={(filter) => setLanguageFilter(filter)}
             />
-            {/* <MikrosMasonry mikros={mikros} onMikroClick={handleMikroClick} /> */}
+            <MikrosList mikros={mikros} onMikroClick={handleMikroClick} />
         </>
     );
 };
