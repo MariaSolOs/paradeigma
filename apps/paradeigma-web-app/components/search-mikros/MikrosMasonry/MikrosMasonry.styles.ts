@@ -1,10 +1,11 @@
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-    list: {
+    masonry: {
         width: '85vw',
         maxWidth: 1100,
         margin: '50px auto',
+        display: 'flex',
 
         [theme.fn.smallerThan('md')]: {
             width: '90vw',
@@ -18,7 +19,7 @@ const useStyles = createStyles((theme) => ({
         cursor: 'pointer',
         fontSize: '0.9rem',
         transition: 'all 300ms ease-in-out',
-        margin: '2rem 0',
+        margin: '0 1rem 1rem 0',
 
         [theme.fn.smallerThan('lg')]: { fontSize: '0.8rem' },
 

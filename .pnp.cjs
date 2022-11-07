@@ -4584,6 +4584,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nextjs-routes", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:0.1.6"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:05459d744129f2f19980ca7e16c55278b02933c88ff083115fc4a60328c3c890764e781331e6e2b8a5d2653dcaebe298396e8b764da9277790d30873c5a621ad#npm:18.2.0"],\
+            ["react-masonry-css", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:1.0.16"],\
             ["react-syntax-highlighter", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:15.5.0"],\
             ["react-transition-group", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:4.4.5"],\
             ["tslib", "npm:2.4.1"],\
@@ -10703,6 +10704,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
           "packageDependencies": [\
             ["react-is", "npm:16.13.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-masonry-css", [\
+        ["npm:1.0.16", {\
+          "packageLocation": "./.yarn/cache/react-masonry-css-npm-1.0.16-254be29562-3fbffac315.zip/node_modules/react-masonry-css/",\
+          "packageDependencies": [\
+            ["react-masonry-css", "npm:1.0.16"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:1.0.16", {\
+          "packageLocation": "./.yarn/__virtual__/react-masonry-css-virtual-b0b3696598/0/cache/react-masonry-css-npm-1.0.16-254be29562-3fbffac315.zip/node_modules/react-masonry-css/",\
+          "packageDependencies": [\
+            ["react-masonry-css", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:1.0.16"],\
+            ["@types/react", "npm:18.0.24"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
