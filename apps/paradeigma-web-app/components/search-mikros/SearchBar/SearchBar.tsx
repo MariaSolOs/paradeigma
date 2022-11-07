@@ -10,13 +10,13 @@ import { InputBase, MultiSelect } from '@mantine/core';
 import { IconZoomCode } from '@tabler/icons';
 
 const SearchBar: FC<SearchBarProps> = (props) => {
-    const { classes } = useStyles();
+    const { classes, cx } = useStyles();
 
     const MultiSelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
         function MultiSelectItem({ label, icon, ...others }, ref) {
             return (
                 <div ref={ref} {...others}>
-                    <i className={`${icon} ${classes.languageIcon}`} />
+                    <i className={cx(icon, classes.languageIcon)} />
                     {label}
                 </div>
             );
