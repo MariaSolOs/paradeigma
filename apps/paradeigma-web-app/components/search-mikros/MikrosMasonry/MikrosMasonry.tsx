@@ -24,19 +24,19 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                 },
                 className: classes.masonry
             } as MasonryProps}>
-            {props.mikros.map((mikro) => {
+            {props.mikros.map((mikro, i) => {
                 // Hack to get rid of, the findDOMNode warning with
                 // react-transition-group
                 const ref = createRef<HTMLDivElement>();
 
-                // For some variation, fade stuff at different times
-                const randomDelay = 100 * Math.floor(5 * Math.random());
+                // Fade mikros in the order in which they appear.
+                const delay = 100 * i;
 
                 return (
                     <CSSTransition
                         key={mikro.id}
                         nodeRef={ref}
-                        timeout={400 + randomDelay}
+                        timeout={300 + delay}
                         classNames={{
                             enter: classes.fadeOut,
                             enterActive: classes.fadeIn,
@@ -47,7 +47,7 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                             ref={ref}
                             onClick={() => props.onMikroClick(mikro.id)}
                             className={classes.mikroContainer}
-                            sx={{ transitionDelay: `${randomDelay}ms` }}>
+                            sx={{ transitionDelay: `${delay}ms` }}>
                             <h4 className={classes.mikroTitle}>{mikro.name}</h4>
                             <MikroCode
                                 content={mikro.content}
