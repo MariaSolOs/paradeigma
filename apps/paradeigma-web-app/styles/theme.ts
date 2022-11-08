@@ -42,7 +42,15 @@ const theme: MantineThemeOverride = {
                     '&:before': { display: 'none' }
                 },
                 description: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                },
+                closeButton: {
+                    transition: 'color 300ms ease-in-out',
+                    '&:hover': {
+                        backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                        color: theme.black
+                    }
                 }
             })
         },
