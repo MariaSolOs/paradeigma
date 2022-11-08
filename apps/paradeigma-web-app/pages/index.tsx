@@ -1,12 +1,10 @@
-import type { NextPage } from 'next';
-
 import PixelSlide from 'components/home-page/PixelSlide';
 import HighlightedText from 'components/home-page/HighlightedText';
 import harpImg from 'public/pixel-art/harp.png';
 import zephirImg from 'public/pixel-art/zephir.png';
 import theaImg from 'public/pixel-art/thea.png';
 
-const HomePage: NextPage = () => (
+const HomePage = () => (
     <>
         <PixelSlide image={{ src: zephirImg, altText: 'Pixel Zephir', priority: true }}>
             Find the code examples you need, the{' '}

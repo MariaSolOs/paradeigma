@@ -1,68 +1,68 @@
 import { createRef } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import useStyles from './MikrosMasonry.styles';
 import type { FC } from 'react';
-import type { MasonryProps } from '@mui/lab/Masonry';
+import type { MasonryProps } from 'react-masonry-css';
 import type { MikrosMasonryProps } from './index';
 
-import Masonry from '@mui/lab/Masonry';
+import { Box, useMantineTheme } from '@mantine/core';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Masonry from 'react-masonry-css';
 import MikroCode from 'components/MikroCode';
-import * as S from './MikrosMasonry.styled';
 
 const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
-    const theme = useTheme();
-    const isBelowMedium = useMediaQuery(theme.breakpoints.down('md'));
+    const { classes } = useStyles();
+
+    const theme = useMantineTheme();
 
     return (
-        <S.TransitionMasonry
+        <TransitionGroup
             component={Masonry}
-            {...({
-                columns: isBelowMedium ? 1 : 2,
-                defaultColumns: isBelowMedium ? 1 : 2,
-                spacing: isBelowMedium ? 3 : 4,
-                defaultSpacing: isBelowMedium ? 3 : 4
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Mui won't accept this props otherwise
-            } as MasonryProps as any)}>
-            {props.mikros.map((mikro) => {
-                // Hack to get rid of the findDOMNode warning with
+            {...{
+                breakpointCols: {
+                    default: 2,
+                    [theme.breakpoints.md]: 1
+                },
+                className: classes.masonry
+            } as MasonryProps}>
+            {props.mikros.map((mikro, i) => {
+                // Hack to get rid of, the findDOMNode warning with
                 // react-transition-group
                 const ref = createRef<HTMLDivElement>();
 
-                // For some variation, fade stuff at different times
-                const randomDelay = 100 * Math.floor(5 * Math.random());
+                // Fade mikros in the order in which they appear.
+                const delay = 100 * i;
 
                 return (
-                    <S.Transition
+                    <CSSTransition
                         key={mikro.id}
                         nodeRef={ref}
-                        timeout={300 + randomDelay}
+                        timeout={300 + delay}
                         classNames={{
-                            enter: S.FADE_OUT_ANIMATION,
-                            enterActive: S.FADE_IN_ANIMATION,
-                            exit: S.FADE_IN_ANIMATION,
-                            exitActive: S.FADE_OUT_ANIMATION
+                            enter: classes.fadeOut,
+                            enterActive: classes.fadeIn,
+                            exit: classes.fadeIn,
+                            exitActive: classes.fadeOut
                         }}>
-                        <S.MikroContainer
+                        <Box
                             ref={ref}
                             onClick={() => props.onMikroClick(mikro.id)}
-                            sx={{ transitionDelay: `${randomDelay}ms` }}>
-                            <S.MikroTitle>{mikro.name}</S.MikroTitle>
+                            className={classes.mikroContainer}
+                            sx={{ transitionDelay: `${delay}ms` }}>
+                            <h4 className={classes.mikroTitle}>{mikro.name}</h4>
                             <MikroCode
                                 content={mikro.content}
                                 language={mikro.language}
                                 style={mikro.style}
                                 containerStyles={{
-                                    borderRadius: `0 0 ${+theme.shape.borderRadius * 2}px ${
-                                        +theme.shape.borderRadius * 2
-                                    }px`,
+                                    borderRadius: `0 0 ${theme.radius.md}px ${theme.radius.md}px`,
                                     margin: 0
                                 }}
                             />
-                        </S.MikroContainer>
-                    </S.Transition>
+                        </Box>
+                    </CSSTransition>
                 );
             })}
-        </S.TransitionMasonry>
+        </TransitionGroup>
     );
 };
 

@@ -1,20 +1,18 @@
 import { useRouter } from 'next/router';
-import useUiContext from 'context/uiContext';
+import { showNotification } from '@mantine/notifications';
 import useNewMikroReducer from 'hooks/useNewMikroReducer';
 import { getHookedSdk } from 'lib/graphql';
 import type { FormEvent } from 'react';
-import type { NextPage } from 'next';
 
-import EditorSlide from 'components/new-mikro/EditorSlide';
-import PreviewSlide from 'components/new-mikro/PreviewSlide';
+// import EditorSlide from 'components/new-mikro/EditorSlide';
+// import PreviewSlide from 'components/new-mikro/PreviewSlide';
 import Spinner from 'components/Spinner';
 
 const sdk = getHookedSdk();
 
 // TODO: Add markdown support for the description
-const NewMikroPage: NextPage = () => {
+const NewMikroPage = () => {
     const router = useRouter();
-    const { uiDispatch } = useUiContext();
     const [state, dispatch] = useNewMikroReducer();
 
     const handleSubmit = async (event: FormEvent) => {
@@ -32,14 +30,16 @@ const NewMikroPage: NextPage = () => {
             })
         ).createMikro;
 
-        uiDispatch({ type: 'OPEN_SNACKBAR', content: <>Mickro created! 🥳</> });
+        showNotification({ message: <>Mickro created! 🥳</> });
 
         void router.push({ pathname: '/mikro/[id]', query: { id } });
     };
 
     return (
         <form onSubmit={(event) => void handleSubmit(event)}>
-            <Spinner open={state.isSubmittingForm} />
+            <Spinner visible={state.isSubmittingForm} />
+            {
+                /*
             {state.isInFirstSlide && (
                 <EditorSlide
                     name={state.name}
@@ -62,7 +62,8 @@ const NewMikroPage: NextPage = () => {
                     onStyleChange={(style) => dispatch({ type: 'SET_STYLE', style })}
                     onGoBack={() => dispatch({ type: 'TOGGLE_SLIDE' })}
                 />
-            )}
+            )} */
+            }
         </form>
     );
 };

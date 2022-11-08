@@ -1,10 +1,15 @@
-import Link from 'next/link';
-import * as S from './ParadeigmaTitle.styled';
+import useStyles from './ParadeigmaTitle.styles';
 
-const ParadeigmaTitle = () => (
-    <Link href="/" passHref legacyBehavior>
-        <S.Title>Paradeigma</S.Title>
-    </Link>
-);
+import Link from 'next/link';
+
+const ParadeigmaTitle = () => {
+    const { classes } = useStyles();
+
+    return (
+        <Link href="/" passHref legacyBehavior>
+            <h1 className={classes.title}>Paradeigma</h1>
+        </Link>
+    );
+};
 
 export default ParadeigmaTitle;

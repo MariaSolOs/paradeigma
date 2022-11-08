@@ -5,10 +5,6 @@ import type { GetMikroQuery } from '@paradeigma/graphql';
 import type { RoutedQuery } from 'nextjs-routes';
 
 import Spinner from 'components/Spinner';
-import { CodeColumn, Container, MainContainer, MikroContainer } from 'components/mikro-details/Containers';
-import Button from 'components/Button';
-import SnippetButton from 'components/mikro-details/SnippetButton';
-import MikroCode from 'components/MikroCode';
 import Details from 'components/mikro-details/Details';
 
 type MikroDetailsUrlQuery = RoutedQuery<'/mikro/[id]'>;
@@ -44,35 +40,10 @@ const MikroDetailsPage: NextPage<MikroDetailsPageProps> = (props) => {
     const router = useRouter();
 
     if (router.isFallback) {
-        return <Spinner open />;
+        return <Spinner visible />;
     }
 
-    return (
-        <Container>
-            <Button onClick={router.back}>Go back</Button>
-            <MainContainer>
-                <CodeColumn>
-                    <MikroContainer>
-                        <MikroCode
-                            content={props.mikro.content}
-                            language={props.mikro.language}
-                            style={props.mikro.style}
-                            containerStyles={{
-                                width: '100%',
-                                margin: 0
-                            }}
-                        />
-                    </MikroContainer>
-                    <SnippetButton editor="VSCode" />
-                </CodeColumn>
-                <Details
-                    name={props.mikro.name}
-                    description={props.mikro.description}
-                    language={props.mikro.language}
-                />
-            </MainContainer>
-        </Container>
-    );
+    return <Details mikro={props.mikro} />;
 };
 
 export default MikroDetailsPage;

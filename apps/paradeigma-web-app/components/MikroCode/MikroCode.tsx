@@ -5,7 +5,7 @@ import type { FC } from 'react';
 import type { HighlighterStyle } from 'react-syntax-highlighter';
 import type { MikroCodeProps } from './index';
 
-import Skeleton from '@mui/material/Skeleton';
+import { Skeleton } from '@mantine/core';
 
 const SyntaxHighlighter = dynamic(
     async () => {
@@ -22,7 +22,7 @@ const SyntaxHighlighter = dynamic(
 
         return syntaxHighlighter;
     },
-    { loading: () => <Skeleton variant="rectangular" height="5rem" sx={{ borderRadius: 1 }} /> }
+    { loading: () => <Skeleton animate height="5rem" radius="md" /> }
 );
 
 /**

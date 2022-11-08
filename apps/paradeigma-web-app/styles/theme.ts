@@ -1,63 +1,123 @@
-import type {} from '@mui/lab/themeAugmentation'; // Module augmentation for the lab components
-import { createTheme } from '@mui/material/styles';
+import type { MantineThemeOverride } from '@mantine/core';
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            light: '#6FFFE9',
-            main: '#5BC0BE'
-        },
-
-        secondary: {
-            light: '#3A506B',
-            main: '#1C2541',
-            dark: '#0B132B'
-        }
+const theme: MantineThemeOverride = {
+    colors: {
+        'paradeigma-cyan': [
+            '#DBFFFC',
+            '#AFFFF3',
+            '#80FFEC',
+            '#51FFE4',
+            '#2EFEDC',
+            '#1FE5C2',
+            '#0FB397',
+            '#00806C',
+            '#004D41',
+            '#001C16'
+        ],
+        'paradeigma-blue': [
+            '#E7EEFF',
+            '#CAD3E8',
+            '#ABB8D3',
+            '#8B9EC0',
+            '#6B85AD',
+            '#526D94',
+            '#3F5774',
+            '#2C3B54',
+            '#182135',
+            '#040818'
+        ]
     },
-
-    typography: {
-        bungee: {
-            fontFamily: 'Bungee, cursive'
-        },
-
-        bungeeShade: {
-            fontFamily: 'Bungee Shade, cursive'
-        },
-
-        mono: {
-            fontFamily: 'PT Mono, monospace'
-        }
+    fontFamily: 'PT Mono, monospace',
+    headings: {
+        fontFamily: 'Bungee, cursive'
     },
-
     components: {
-        MuiCssBaseline: {
-            styleOverrides: (theme) => `
-                body {
-                    font-family: ${theme.typography.mono.fontFamily ?? 'monospace'};
+        Notification: {
+            styles: (theme) => ({
+                root: {
+                    backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                    border: 'none',
+                    paddingLeft: '1rem',
+                    // Hide the color line
+                    '&:before': { display: 'none' }
+                },
+                description: {
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                },
+                closeButton: {
+                    transition: 'color 300ms ease-in-out',
+                    '&:hover': {
+                        backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                        color: theme.black
+                    }
                 }
-            `
+            })
         },
-        MuiSkeleton: {
-            styleOverrides: {
-                root: ({ theme }) => ({
-                    backgroundColor: `${theme.palette.primary.main}20`
-                })
-            }
-        },
-        MuiChip: {
-            styleOverrides: {
-                root: ({ theme }) => ({
-                    fontFamily: 'inherit',
-                    height: '1.6rem',
-                    backgroundColor: `${theme.palette.secondary.light}30`,
-                    color: theme.palette.secondary.main
-                }),
-                deleteIcon: {
-                    transition: 'color 300ms ease-in-out'
+        Input: {
+            styles: (theme) => ({
+                input: {
+                    border: `1px solid ${theme.colors['paradeigma-cyan'][2]}`,
+                    borderRadius: theme.radius.md,
+                    color: theme.colors['paradeigma-cyan'][8],
+                    transition: 'border 300ms ease-in-out',
+                    '&:focus': {
+                        border: `1.75px solid ${theme.colors['paradeigma-cyan'][2]}`
+                    }
                 }
-            }
+            })
+        },
+        Select: {
+            styles: (theme) => ({
+                dropdown: {
+                    boxShadow: 'none',
+                    border: `1px dashed ${theme.colors['paradeigma-cyan'][2]}`
+                },
+                item: {
+                    textAlign: 'center',
+                    padding: '4px 0'
+                }
+            })
+        },
+        MultiSelect: {
+            styles: (theme) => ({
+                input: {
+                    '&:focus, &:focus-within': {
+                        border: `1.75px solid ${theme.colors['paradeigma-cyan'][2]}`
+                    }
+                },
+                dropdown: {
+                    boxShadow: 'none',
+                    border: `1px dashed ${theme.colors['paradeigma-cyan'][2]}`
+                },
+                item: {
+                    textAlign: 'center',
+                    padding: '4px 0',
+                    '&:hover, &[data-hovered]': {
+                        fontWeight: 'bold',
+                        backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
+                    }
+                },
+                value: {
+                    backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
+                }
+            })
+        },
+        Skeleton: {
+            styles: (theme) => ({
+                visible: {
+                    '&::after': {
+                        backgroundColor: theme.colors['paradeigma-blue'][0]
+                    }
+                }
+            })
+        }
+    },
+    other: {
+        additionalFonts: {
+            bungeeShade: 'Bungee Shade, cursive'
         }
     }
-});
+};
 
 export default theme;

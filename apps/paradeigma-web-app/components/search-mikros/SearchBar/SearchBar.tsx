@@ -1,78 +1,55 @@
-import { useCallback, useState } from 'react';
+import { forwardRef } from 'react';
 import { getLanguageIcon } from 'lib/mikro';
 import { ProgrammingLanguages } from '@paradeigma/graphql';
+import useStyles from './SearchBar.styled';
 import type { FC } from 'react';
 import type { ProgrammingLanguage } from '@paradeigma/graphql';
-import type { SearchBarProps } from './index';
+import type { SearchBarProps, SelectItemProps } from './index';
 
-import Chip from '@mui/material/Chip';
-import MultiSelectUnstyled from '@mui/base/MultiSelectUnstyled';
-import Input from 'components/Input';
-import InputLabel from 'components/InputLabel';
-import { Popper as SelectPopper } from 'components/Select';
-import * as S from './SearchBar.styled';
+import { InputBase, MultiSelect } from '@mantine/core';
+import { IconZoomCode } from '@tabler/icons';
 
 const SearchBar: FC<SearchBarProps> = (props) => {
-    const { onLanguageFilterChange } = props;
-    const [openLanguageSelect, setOpenLanguageSelect] = useState(false);
+    const { classes, cx } = useStyles();
 
-    const handleChipDeletion = useCallback(
-        (chipLanguage: ProgrammingLanguage) => {
-            const filteredLanguages = props.languageFilter.filter((lang) => lang !== chipLanguage);
-            onLanguageFilterChange(filteredLanguages);
-        },
-        [props.languageFilter, onLanguageFilterChange]
+    const MultiSelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
+        function MultiSelectItem({ label, icon, ...others }, ref) {
+            return (
+                <div ref={ref} {...others}>
+                    <i className={cx(icon, classes.languageIcon)} />
+                    {label}
+                </div>
+            );
+        }
     );
 
     return (
-        <S.Container>
-            <Input
-                fullWidth
+        <div className={classes.bar}>
+            <InputBase<'input'>
                 placeholder="Find your paradeigmata."
-                endAdornment={<S.SearchIcon />}
                 value={props.textFilter}
                 onChange={(event) => props.onTextFilterChange(event.target.value)}
+                icon={<IconZoomCode />}
             />
-            <S.SelectContainer>
-                <InputLabel>Search for mikros written in:</InputLabel>
-                <MultiSelectUnstyled
-                    listboxOpen={openLanguageSelect}
-                    onListboxOpenChange={() => setOpenLanguageSelect(true)}
-                    value={props.languageFilter}
-                    onChange={(_, value) => {
-                        onLanguageFilterChange(value);
-                        // Close the popper when selecting an option.
-                        setOpenLanguageSelect(false);
-                    }}
-                    slots={{
-                        root: S.SelectRoot,
-                        listbox: S.SelectListbox,
-                        popper: SelectPopper
-                    }}
-                    slotProps={{ popper: { placement: 'bottom-end' } }}
-                    renderValue={(options) => (
-                        <S.ChipsContainer>
-                            {options.map(({ label, value }) => (
-                                <Chip
-                                    key={value}
-                                    label={label}
-                                    onDelete={() => handleChipDeletion(value)}
-                                />
-                            ))}
-                        </S.ChipsContainer>
-                    )}>
-                    {ProgrammingLanguages.map((language) => (
-                        <S.SelectOption
-                            key={language}
-                            value={language}
-                            disabled={props.languageFilter.includes(language)}>
-                            {language}
-                            <S.LanguageIcon className={getLanguageIcon(language)} />
-                        </S.SelectOption>
-                    ))}
-                </MultiSelectUnstyled>
-            </S.SelectContainer>
-        </S.Container>
+            <MultiSelect
+                data={ProgrammingLanguages.map((language) =>
+                    ({
+                        label: language,
+                        value: language,
+                        icon: getLanguageIcon(language)
+                    }) as SelectItemProps
+                )}
+                itemComponent={MultiSelectItem}
+                label="Search for mikros written in:"
+                classNames={{
+                    root: classes.selectRoot,
+                    wrapper: classes.selectWrapper,
+                    label: classes.selectLabel
+                }}
+                value={props.languageFilter}
+                onChange={(value) => props.onLanguageFilterChange(value as ProgrammingLanguage[])}
+            />
+        </div>
     );
 };
 

@@ -7,7 +7,8 @@
         "trailingCommas": "never",
         "module.sortImportDeclarations": "maintain",
         "module.sortExportDeclarations": "maintain",
-        "jsxOpeningElement.bracketPosition": "sameLine"
+        "jsxOpeningElement.bracketPosition": "sameLine",
+        "arrowFunction.useParentheses": "force"
     },
     "includes": [
         "**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"
@@ -20,11 +21,9 @@
         "/.pnp*",
         // TypeScript
         "tsconfig.tsbuildinfo",
-        "*.d.ts",
+        "apps/paradeigma-web-app/types/nextjs-routes.d.ts",
         // GraphQL
         "packages/paradeigma-graphql/introspection.json",
-        // Ace CDN
-        "apps/paradeigma-web-app/public/code-editor/*",
         // Next JS
         ".vercel",
         "apps/**/.next/",

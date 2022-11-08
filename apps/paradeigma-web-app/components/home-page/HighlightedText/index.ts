@@ -1,9 +1,9 @@
-import type { TooltipProps } from '@mui/material/Tooltip';
+import type { TooltipProps } from '@mantine/core';
 
 import HighlightedText from './HighlightedText';
 
 export type HighlightedTextProps = {
-    tooltipText?: TooltipProps['title'];
+    tooltipText?: TooltipProps['label'];
 };
 
 export default HighlightedText;

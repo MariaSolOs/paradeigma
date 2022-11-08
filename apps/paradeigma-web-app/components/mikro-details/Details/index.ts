@@ -1,11 +1,9 @@
-import type { ProgrammingLanguage } from '@paradeigma/graphql';
+import type { GetMikroQuery } from '@paradeigma/graphql';
 
 import Details from './Details';
 
 export type DetailsProps = {
-    name: string;
-    description: string;
-    language: ProgrammingLanguage;
+    mikro: GetMikroQuery['mikro'];
 };
 
 export default Details;

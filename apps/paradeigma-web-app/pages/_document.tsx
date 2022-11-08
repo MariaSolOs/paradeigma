@@ -1,51 +1,26 @@
-import Document, { DocumentContext, DocumentInitialProps, Html, Main } from 'next/document';
-import { getCspInitialProps, provideComponents } from '@next-safe/middleware/dist/document';
-import createEmotionServer from '@emotion/server/create-instance';
-import createEmotionCache, { INSERTION_POINT_NAME } from 'styles/emotion-cache';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { createStylesServer, ServerStyles } from '@mantine/next';
+import cache from 'styles/emotion-cache';
+import type { DocumentInitialProps } from 'next/document';
 
-type DocumentProps = DocumentInitialProps & { emotionStyleTags: JSX.Element[] };
+const stylesServer = createStylesServer(cache);
 
-const cache = createEmotionCache();
-// eslint-disable-next-line @typescript-eslint/unbound-method
-const { extractCriticalToChunks } = createEmotionServer(cache);
-
-export default class CustomDocument extends Document<DocumentProps> {
-    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentProps> {
-        const originalRenderPage = ctx.renderPage;
-
-        ctx.renderPage = () =>
-            originalRenderPage({
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Easily add the emotion cache
-                enhanceApp: (App: any) =>
-                    function EnhanceApp(props) {
-                        return <App emotionCache={cache} {...props} />;
-                    }
-            });
-
-        const initialProps = await getCspInitialProps({
-            ctx,
-            trustifyStyles: true,
-            trustifyScripts: true
-        });
-
-        const emotionStyles = extractCriticalToChunks(initialProps.html);
-        const emotionStyleTags = emotionStyles.styles.map((style) => (
-            <style
-                key={style.key}
-                data-emotion={`${style.key} ${style.ids.join(' ')}`}
-                dangerouslySetInnerHTML={{ __html: style.css }}
-            />
-        ));
+export default class CustomDocument extends Document {
+    static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+        const initialProps = await Document.getInitialProps(ctx);
 
         return {
             ...initialProps,
-            emotionStyleTags
+            styles: (
+                <>
+                    {initialProps.styles}
+                    <ServerStyles html={initialProps.html} server={stylesServer} />
+                </>
+            )
         };
     }
 
     override render(): JSX.Element {
-        const { Head, NextScript } = provideComponents(this.props);
-
         return (
             <Html lang="en">
                 <Head>
@@ -72,9 +47,6 @@ export default class CustomDocument extends Document<DocumentProps> {
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
                     />
-
-                    <meta name={`"${INSERTION_POINT_NAME as string}"`} content="" />
-                    {this.props.emotionStyleTags}
                 </Head>
                 <body>
                     <Main />

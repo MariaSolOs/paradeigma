@@ -1,12 +1,22 @@
-import type { BackdropProps } from '@mui/material/Backdrop';
+import useStyles from './Spinner.styles';
 import type { FC } from 'react';
+import type { SpinnerProps } from './index';
 
-import * as S from './Spinner.styled';
+import { LoadingOverlay } from '@mantine/core';
 
-const Spinner: FC<BackdropProps> = (props) => (
-    <S.Backdrop {...props}>
-        <S.Spinner />
-    </S.Backdrop>
-);
+const Spinner: FC<SpinnerProps> = (props) => {
+    const { classes } = useStyles();
+
+    return (
+        <LoadingOverlay
+            loader={<div className={classes.loader} />}
+            visible={props.visible}
+            sx={(theme) => ({
+                backgroundColor: theme.colors['paradeigma-cyan'][2],
+                opacity: 0.6
+            })}
+        />
+    );
+};
 
 export default Spinner;

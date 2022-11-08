@@ -1,10 +1,12 @@
 import type { ButtonHTMLAttributes } from 'react';
 
-import { Button } from './Button.styled';
+import Button from './Button';
 
-export type ButtonProps = {
+export type ButtonStyleProps = {
     primaryColor?: string;
     secondaryColor?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+};
+
+export type ButtonProps = ButtonStyleProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default Button;
