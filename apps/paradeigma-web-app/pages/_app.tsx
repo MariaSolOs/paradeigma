@@ -1,6 +1,6 @@
 import { MantineProvider } from '@mantine/core';
-import cache from 'styles/emotion-cache';
-import theme from 'styles/theme';
+import { cache } from 'lib/styles';
+import theme from 'theme';
 import { NotificationsProvider } from '@mantine/notifications';
 import type { AppProps } from 'next/app';
 
