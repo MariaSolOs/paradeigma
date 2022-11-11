@@ -1,27 +1,15 @@
-import { forwardRef } from 'react';
-import { getLanguageIcon } from 'lib/mikro';
 import { ProgrammingLanguages } from '@paradeigma/graphql';
 import useStyles from './SearchBar.styled';
 import type { FC } from 'react';
 import type { ProgrammingLanguage } from '@paradeigma/graphql';
-import type { SearchBarProps, SelectItemProps } from './index';
+import type { SearchBarProps } from './index';
 
 import { InputBase, MultiSelect } from '@mantine/core';
 import { IconZoomCode } from '@tabler/icons';
+import LanguageSelectItem from 'components/LanguageSelectItem';
 
 const SearchBar: FC<SearchBarProps> = (props) => {
-    const { classes, cx } = useStyles();
-
-    const MultiSelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
-        function MultiSelectItem({ label, icon, ...others }, ref) {
-            return (
-                <div ref={ref} {...others}>
-                    <i className={cx(icon, classes.languageIcon)} />
-                    {label}
-                </div>
-            );
-        }
-    );
+    const { classes } = useStyles();
 
     return (
         <div className={classes.bar}>
@@ -32,14 +20,8 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                 icon={<IconZoomCode />}
             />
             <MultiSelect
-                data={ProgrammingLanguages.map((language) =>
-                    ({
-                        label: language,
-                        value: language,
-                        icon: getLanguageIcon(language)
-                    }) as SelectItemProps
-                )}
-                itemComponent={MultiSelectItem}
+                data={ProgrammingLanguages}
+                itemComponent={LanguageSelectItem}
                 label="Search for mikros written in:"
                 classNames={{
                     root: classes.selectRoot,

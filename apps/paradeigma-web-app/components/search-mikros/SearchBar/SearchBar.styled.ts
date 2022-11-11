@@ -34,11 +34,6 @@ const useStyles = createStyles((theme) => ({
         margin: '4px 0 0 0',
 
         [theme.fn.smallerThan('sm')]: { fontSize: '0.75rem' }
-    },
-
-    languageIcon: {
-        fontSize: '0.9rem',
-        marginRight: '0.45rem'
     }
 }));
 
