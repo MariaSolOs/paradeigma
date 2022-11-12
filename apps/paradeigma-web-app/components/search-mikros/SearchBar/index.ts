@@ -1,12 +1,15 @@
+import type { UseFormReturnType } from '@mantine/form';
 import type { ProgrammingLanguage } from '@paradeigma/graphql';
 
 import SearchBar from './SearchBar';
 
-export type SearchBarProps = {
+export type SearchBarFormValues = {
     textFilter: string;
-    onTextFilterChange: (filter: string) => void;
     languageFilter: ProgrammingLanguage[];
-    onLanguageFilterChange: (filter: ProgrammingLanguage[]) => void;
+};
+
+export type SearchBarProps = {
+    form: UseFormReturnType<SearchBarFormValues>;
 };
 
 export default SearchBar;

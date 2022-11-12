@@ -1,7 +1,6 @@
 import { ProgrammingLanguages } from '@paradeigma/graphql';
 import useStyles from './SearchBar.styled';
 import type { FC } from 'react';
-import type { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { SearchBarProps } from './index';
 
 import { InputBase, MultiSelect } from '@mantine/core';
@@ -14,12 +13,12 @@ const SearchBar: FC<SearchBarProps> = (props) => {
     return (
         <div className={classes.bar}>
             <InputBase<'input'>
+                {...props.form.getInputProps('textFilter')}
                 placeholder="Find your paradeigmata."
-                value={props.textFilter}
-                onChange={(event) => props.onTextFilterChange(event.target.value)}
                 icon={<IconZoomCode />}
             />
             <MultiSelect
+                {...props.form.getInputProps('languageFilter')}
                 data={ProgrammingLanguages}
                 itemComponent={LanguageSelectItem}
                 label="Search for mikros written in:"
@@ -28,8 +27,6 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                     wrapper: classes.selectWrapper,
                     label: classes.selectLabel
                 }}
-                value={props.languageFilter}
-                onChange={(value) => props.onLanguageFilterChange(value as ProgrammingLanguage[])}
             />
         </div>
     );

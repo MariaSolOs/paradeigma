@@ -5,6 +5,7 @@
         "quoteStyle": "alwaysSingle",
         "jsx.quoteStyle": "preferDouble",
         "trailingCommas": "never",
+        "operatorPosition": "sameLine",
         "module.sortImportDeclarations": "maintain",
         "module.sortExportDeclarations": "maintain",
         "jsxOpeningElement.bracketPosition": "sameLine",

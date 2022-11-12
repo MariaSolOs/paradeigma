@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useForm } from '@mantine/form';
 import useDebounce from 'hooks/useDebounce';
 import { getHookedSdk } from 'lib/graphql';
-import type { GetMikrosQuery, ProgrammingLanguage } from '@paradeigma/graphql';
 import type { GetStaticProps, NextPage } from 'next';
+import type { SearchBarFormValues } from 'components/search-mikros/SearchBar';
+import type { GetMikrosQuery, ProgrammingLanguage } from '@paradeigma/graphql';
 
 import SearchBar from 'components/search-mikros/SearchBar';
 import MikrosMasonry from 'components/search-mikros/MikrosMasonry';
@@ -25,22 +27,31 @@ export const getStaticProps: GetStaticProps<SearchMikrosPageProps> = async () =>
 
 const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     const router = useRouter();
-    const textFilterQuery = (router.query['text'] as string) ?? '';
-    const languageFilterQuery = (router.query['languages'] as ProgrammingLanguage[]) ?? [];
 
-    const [textFilter, setTextFilter] = useState(textFilterQuery);
-    const [languageFilter, setLanguageFilter] = useState<ProgrammingLanguage[]>(languageFilterQuery);
+    // Grab initial values from the URL query (if any)
+    const textFilterQuery = router.query['text'];
+    const languageFilterQuery = router.query['languages'];
+    const textFilter = (textFilterQuery as string) ?? '';
+    const languageFilter = Array.isArray(languageFilterQuery) ?
+        (languageFilterQuery as ProgrammingLanguage[]) :
+        typeof languageFilterQuery === 'string' ?
+        [languageFilterQuery as ProgrammingLanguage] :
+        [];
+
+    const form = useForm<SearchBarFormValues>({
+        initialValues: { textFilter, languageFilter }
+    });
     const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
 
     // Debounce the input query by one second so that we don't overwhelm the
     // GraphQL server.
-    const debouncedQuery = useDebounce(textFilter, 1000);
+    const debouncedQuery = useDebounce(form.values.textFilter, 1000);
 
     const { data } = sdk.useGetMikros(
-        ['getMikros', debouncedQuery, languageFilter],
+        ['getMikros', debouncedQuery, form.values.languageFilter],
         {
             textFilter: debouncedQuery,
-            languageFilter: languageFilter.length > 0 ? languageFilter : undefined
+            languageFilter: form.values.languageFilter.length > 0 ? form.values.languageFilter : undefined
         },
         { fallbackData: props.initialMikros }
     );
@@ -65,7 +76,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
             await router.replace(
                 {
                     pathname: '/mikro/search',
-                    query: { text: textFilter, languages: languageFilter }
+                    query: { text: form.values.textFilter, languages: form.values.languageFilter }
                 },
                 '/mikro/search',
                 { shallow: true }
@@ -78,12 +89,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
 
     return (
         <>
-            <SearchBar
-                textFilter={textFilter}
-                onTextFilterChange={(filter) => setTextFilter(filter)}
-                languageFilter={languageFilter}
-                onLanguageFilterChange={(filter) => setLanguageFilter(filter)}
-            />
+            <SearchBar form={form} />
             <MikrosMasonry mikros={mikros} onMikroClick={handleMikroClick} />
         </>
     );
