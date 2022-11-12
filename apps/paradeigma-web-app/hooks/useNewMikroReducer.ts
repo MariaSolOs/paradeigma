@@ -1,38 +1,31 @@
 import { useReducer } from 'react';
-import {
-    MIKRO_DESCRIPTION_MAX_LENGTH,
-    MIKRO_NAME_MAX_LENGTH,
-    MikroStyle,
-    ProgrammingLanguage
-} from '@paradeigma/graphql';
+import { MIKRO_DESCRIPTION_MAX_LENGTH, MIKRO_NAME_MAX_LENGTH, MikroStyle } from '@paradeigma/graphql';
+import type { ProgrammingLanguage } from '@paradeigma/graphql';
 
 type NewMikroFormState = {
     name: string;
     description: string;
-    language: ProgrammingLanguage;
+    language: ProgrammingLanguage | undefined;
     content: string;
     style: MikroStyle;
-    isInFirstSlide: boolean;
     isSubmittingForm: boolean;
 };
 
 const initialState: NewMikroFormState = {
     name: '',
     description: '',
-    language: ProgrammingLanguage.Javascript,
+    language: undefined,
     content: '',
     style: MikroStyle.AtomDark,
-    isInFirstSlide: true,
     isSubmittingForm: false
 } as const;
 
 type Action =
     | { type: 'SET_NAME'; name: string }
     | { type: 'SET_DESCRIPTION'; description: string }
-    | { type: 'SET_LANGUAGE'; language: ProgrammingLanguage | null }
+    | { type: 'SET_LANGUAGE'; language: ProgrammingLanguage }
     | { type: 'SET_CONTENT'; content: string }
     | { type: 'SET_STYLE'; style: MikroStyle | null }
-    | { type: 'TOGGLE_SLIDE' }
     | { type: 'START_SUBMISSION' };
 
 const reducer = (state: NewMikroFormState, action: Action): NewMikroFormState => {
@@ -40,7 +33,6 @@ const reducer = (state: NewMikroFormState, action: Action): NewMikroFormState =>
         case 'SET_NAME': {
             return {
                 ...state,
-                isInFirstSlide: true,
                 ...(action.name.length <= MIKRO_NAME_MAX_LENGTH && {
                     name: action.name
                 })
@@ -49,7 +41,6 @@ const reducer = (state: NewMikroFormState, action: Action): NewMikroFormState =>
         case 'SET_DESCRIPTION': {
             return {
                 ...state,
-                isInFirstSlide: true,
                 ...(action.description.length <= MIKRO_DESCRIPTION_MAX_LENGTH && {
                     description: action.description
                 })
@@ -58,40 +49,28 @@ const reducer = (state: NewMikroFormState, action: Action): NewMikroFormState =>
         case 'SET_LANGUAGE': {
             return {
                 ...state,
-                isInFirstSlide: true,
-                ...(action.language !== null && {
-                    language: action.language,
-                    content: ''
-                })
+                language: action.language,
+                content: ''
             };
         }
         case 'SET_CONTENT': {
             return {
                 ...state,
-                isInFirstSlide: true,
                 content: action.content
             };
         }
         case 'SET_STYLE': {
             return {
                 ...state,
-                isInFirstSlide: false,
                 ...(action.style !== null && {
                     style: action.style
                 })
             };
         }
-        case 'TOGGLE_SLIDE': {
-            return {
-                ...state,
-                isInFirstSlide: !state.isInFirstSlide
-            };
-        }
         case 'START_SUBMISSION': {
             return {
                 ...state,
-                isSubmittingForm: true,
-                isInFirstSlide: false
+                isSubmittingForm: true
             };
         }
     }

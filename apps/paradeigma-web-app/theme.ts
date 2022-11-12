@@ -75,7 +75,12 @@ const theme: MantineThemeOverride = {
                 },
                 item: {
                     textAlign: 'center',
-                    padding: '4px 0'
+                    padding: '4px 0',
+                    '&:hover, &[data-selected], &[data-selected]:hover, &[data-hovered]': {
+                        fontWeight: 'bold',
+                        color: theme.black,
+                        backgroundColor: `${theme.colors['paradeigma-blue'][0]}70`
+                    }
                 }
             })
         },

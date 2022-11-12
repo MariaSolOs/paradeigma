@@ -4,9 +4,8 @@ import useNewMikroReducer from 'hooks/useNewMikroReducer';
 import { getHookedSdk } from 'lib/graphql';
 import type { FormEvent } from 'react';
 
-// import EditorSlide from 'components/new-mikro/EditorSlide';
-// import PreviewSlide from 'components/new-mikro/PreviewSlide';
 import Spinner from 'components/Spinner';
+import MikroForm from 'components/new-mikro/MikroForm';
 
 const sdk = getHookedSdk();
 
@@ -25,7 +24,8 @@ const NewMikroPage = () => {
                 name: state.name,
                 description: state.description,
                 content: state.content,
-                language: state.language,
+                // TODO: Add validation here
+                language: state.language!,
                 style: state.style
             })
         ).createMikro;
@@ -38,6 +38,14 @@ const NewMikroPage = () => {
     return (
         <form onSubmit={(event) => void handleSubmit(event)}>
             <Spinner visible={state.isSubmittingForm} />
+            <MikroForm
+                name={state.name}
+                description={state.description}
+                language={state.language}
+                onNameChange={(name) => dispatch({ type: 'SET_NAME', name })}
+                onDescriptionChange={(description) => dispatch({ type: 'SET_DESCRIPTION', description })}
+                onLanguageChange={(language) => dispatch({ type: 'SET_LANGUAGE', language })}
+            />
             {
                 /*
             {state.isInFirstSlide && (
