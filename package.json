@@ -14,7 +14,7 @@
         "g:clean": "cd $INIT_CWD && rimraf ./tsconfig.tsbuildinfo ./.next"
     },
     "devDependencies": {
-        "@next/eslint-plugin-next": "^13.0.2",
+        "@next/eslint-plugin-next": "^13.0.3",
         "@typescript-eslint/eslint-plugin": "^5.42.1",
         "@typescript-eslint/parser": "^5.42.1",
         "eslint": "8.27.0",
