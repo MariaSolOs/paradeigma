@@ -1,14 +1,18 @@
-import type { ProgrammingLanguage } from '@paradeigma/graphql';
+import type { UseFormReturnType } from '@mantine/form';
+import type { MikroStyle, ProgrammingLanguage } from '@paradeigma/graphql';
 
 import MikroForm from './MikroForm';
 
-export type MikroFormProps = {
+export type MikroFormValues = {
     name: string;
     description: string;
     language: ProgrammingLanguage | undefined;
-    onNameChange: (name: string) => void;
-    onDescriptionChange: (description: string) => void;
-    onLanguageChange: (language: ProgrammingLanguage) => void;
+    content: string;
+    style: MikroStyle;
+};
+
+export type MikroFormProps = {
+    form: UseFormReturnType<MikroFormValues>;
 };
 
 export default MikroForm;

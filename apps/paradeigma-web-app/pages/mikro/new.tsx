@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useForm } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
-import useNewMikroReducer from 'hooks/useNewMikroReducer';
+import { MikroStyle } from '@paradeigma/graphql';
 import { getHookedSdk } from 'lib/graphql';
-import type { FormEvent } from 'react';
+import type { MikroFormValues } from 'components/new-mikro/MikroForm';
 
 import Spinner from 'components/Spinner';
 import MikroForm from 'components/new-mikro/MikroForm';
@@ -12,66 +14,47 @@ const sdk = getHookedSdk();
 // TODO: Add markdown support for the description
 const NewMikroPage = () => {
     const router = useRouter();
-    const [state, dispatch] = useNewMikroReducer();
+    const form = useForm<MikroFormValues>({
+        initialValues: {
+            name: '',
+            description: '',
+            language: undefined,
+            content: '',
+            style: MikroStyle.AtomDark
+        },
+        validate: {
+            // TODO: Not sure why value is of type 'any'
+            language: (value: MikroFormValues['language']) => value === undefined ? 'Please select a language!' : null
+        }
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = async (event: FormEvent) => {
-        event.preventDefault();
+    const handleSubmit = (values: MikroFormValues) => {
+        void (async () => {
+            setIsSubmitting(true);
 
-        dispatch({ type: 'START_SUBMISSION' });
+            if (values.language === undefined) {
+                form.setFieldError('language', 'Please select a language!');
+                return;
+            }
 
-        const { id } = (
-            await sdk.createMikro({
-                name: state.name,
-                description: state.description,
-                content: state.content,
-                // TODO: Add validation here
-                language: state.language!,
-                style: state.style
-            })
-        ).createMikro;
+            const { id } = (
+                await sdk.createMikro({
+                    ...values,
+                    language: values.language
+                })
+            ).createMikro;
 
-        showNotification({ message: <>Mickro created! 🥳</> });
+            showNotification({ message: <>Mickro created! 🥳</> });
 
-        void router.push({ pathname: '/mikro/[id]', query: { id } });
+            void router.push({ pathname: '/mikro/[id]', query: { id } });
+        })();
     };
 
     return (
-        <form onSubmit={(event) => void handleSubmit(event)}>
-            <Spinner visible={state.isSubmittingForm} />
-            <MikroForm
-                name={state.name}
-                description={state.description}
-                language={state.language}
-                onNameChange={(name) => dispatch({ type: 'SET_NAME', name })}
-                onDescriptionChange={(description) => dispatch({ type: 'SET_DESCRIPTION', description })}
-                onLanguageChange={(language) => dispatch({ type: 'SET_LANGUAGE', language })}
-            />
-            {
-                /*
-            {state.isInFirstSlide && (
-                <EditorSlide
-                    name={state.name}
-                    description={state.description}
-                    language={state.language}
-                    content={state.content}
-                    onNameChange={(name) => dispatch({ type: 'SET_NAME', name })}
-                    onDescriptionChange={(description) => dispatch({ type: 'SET_DESCRIPTION', description })}
-                    onLanguageChange={(language) => dispatch({ type: 'SET_LANGUAGE', language })}
-                    onContentChange={(content) => dispatch({ type: 'SET_CONTENT', content })}
-                    onContinue={() => dispatch({ type: 'TOGGLE_SLIDE' })}
-                />
-            )}
-            {!state.isInFirstSlide && (
-                <PreviewSlide
-                    name={state.name}
-                    language={state.language}
-                    content={state.content}
-                    style={state.style}
-                    onStyleChange={(style) => dispatch({ type: 'SET_STYLE', style })}
-                    onGoBack={() => dispatch({ type: 'TOGGLE_SLIDE' })}
-                />
-            )} */
-            }
+        <form onSubmit={form.onSubmit(handleSubmit)}>
+            <Spinner visible={isSubmitting} />
+            <MikroForm form={form} />
         </form>
     );
 };

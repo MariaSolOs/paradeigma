@@ -3930,6 +3930,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@mantine/form", [\
+        ["npm:5.7.2", {\
+          "packageLocation": "./.yarn/cache/@mantine-form-npm-5.7.2-3d7c85fd65-34d236411a.zip/node_modules/@mantine/form/",\
+          "packageDependencies": [\
+            ["@mantine/form", "npm:5.7.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.2", {\
+          "packageLocation": "./.yarn/__virtual__/@mantine-form-virtual-936bd3e469/0/cache/@mantine-form-npm-5.7.2-3d7c85fd65-34d236411a.zip/node_modules/@mantine/form/",\
+          "packageDependencies": [\
+            ["@mantine/form", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.2"],\
+            ["@types/react", "npm:18.0.25"],\
+            ["fast-deep-equal", "npm:3.1.3"],\
+            ["klona", "npm:2.0.5"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@mantine/hooks", [\
         ["npm:5.7.1", {\
           "packageLocation": "./.yarn/cache/@mantine-hooks-npm-5.7.1-75e5b6aed7-2f59c541b0.zip/node_modules/@mantine/hooks/",\
@@ -4568,6 +4592,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:11.10.5"],\
             ["@emotion/server", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:11.10.0"],\
             ["@mantine/core", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.1"],\
+            ["@mantine/form", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.2"],\
             ["@mantine/hooks", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.1"],\
             ["@mantine/next", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.1"],\
             ["@mantine/notifications", "virtual:15a150226d15d1165006437faee3dcf1c7d2a98a4ee12d50763b3bf5e9320c81e6a0065db29948ea06267afe1b5ca3fc94b7169d8830196b7567f20a19fd5532#npm:5.7.1"],\
@@ -9230,6 +9255,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/kareem-npm-2.4.1-cb643c6e21-83c8d8f5ea.zip/node_modules/kareem/",\
           "packageDependencies": [\
             ["kareem", "npm:2.4.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["klona", [\
+        ["npm:2.0.5", {\
+          "packageLocation": "./.yarn/cache/klona-npm-2.0.5-5d403f2d77-8c976126ea.zip/node_modules/klona/",\
+          "packageDependencies": [\
+            ["klona", "npm:2.0.5"]\
           ],\
           "linkType": "HARD"\
         }]\

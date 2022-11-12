@@ -1,6 +1,5 @@
 import useStyles from './MikroForm.styles';
 import { ProgrammingLanguages } from '@paradeigma/graphql';
-import type { ProgrammingLanguage } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { MikroFormProps } from './index';
 
@@ -15,9 +14,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
         <div className={classes.form}>
             <div>
                 <TextInput
+                    {...props.form.getInputProps('name')}
                     required
-                    value={props.name}
-                    onChange={(event) => props.onNameChange(event.target.value)}
                     placeholder="Baptize your mikro."
                     label={
                         <>
@@ -30,9 +28,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                     }}
                 />
                 <Textarea
+                    {...props.form.getInputProps('description')}
                     required
-                    value={props.description}
-                    onChange={(event) => props.onDescriptionChange(event.target.value)}
                     placeholder="What is your mikro about?"
                     minRows={3}
                     maxRows={3}
@@ -47,8 +44,7 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                     }}
                 />
                 <Select
-                    value={props.language}
-                    onChange={(value) => props.onLanguageChange(value as ProgrammingLanguage)}
+                    {...props.form.getInputProps('language')}
                     data={ProgrammingLanguages}
                     itemComponent={LanguageSelectItem}
                     label={
