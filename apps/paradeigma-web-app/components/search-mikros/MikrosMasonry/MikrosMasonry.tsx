@@ -35,6 +35,7 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                 return (
                     <CSSTransition
                         key={mikro.id}
+                        unmountOnExit
                         nodeRef={ref}
                         timeout={300 + delay}
                         classNames={{
