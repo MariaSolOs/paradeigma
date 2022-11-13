@@ -8,6 +8,7 @@ import type { MikroFormValues } from 'components/new-mikro/MikroForm';
 
 import Spinner from 'components/Spinner';
 import MikroForm from 'components/new-mikro/MikroForm';
+import { IconCodePlus } from '@tabler/icons';
 
 const sdk = getHookedSdk();
 
@@ -45,7 +46,7 @@ const NewMikroPage = () => {
                 })
             ).createMikro;
 
-            showNotification({ message: <>Mickro created! 🥳</> });
+            showNotification({ message: 'Mickro created!', icon: <IconCodePlus /> });
 
             void router.push({ pathname: '/mikro/[id]', query: { id } });
         })();

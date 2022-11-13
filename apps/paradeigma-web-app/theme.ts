@@ -35,20 +35,23 @@ const theme: MantineThemeOverride = {
         Notification: {
             styles: (theme) => ({
                 root: {
-                    backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                    backgroundColor: `${theme.colors['paradeigma-blue'][1]}`,
                     border: 'none',
-                    paddingLeft: '1rem',
-                    // Hide the color line
-                    '&:before': { display: 'none' }
+                    padding: '8px 5px'
                 },
                 description: {
-                    fontWeight: 'bold',
-                    textAlign: 'center'
+                    fontWeight: 'bold'
+                },
+                icon: {
+                    backgroundColor: `${theme.colors['paradeigma-blue'][2]} !important`,
+                    color: `${theme.colors['paradeigma-blue'][7]} !important`,
+                    width: 35,
+                    height: 35
                 },
                 closeButton: {
                     transition: 'color 300ms ease-in-out',
                     '&:hover': {
-                        backgroundColor: `${theme.colors['paradeigma-cyan'][1]}`,
+                        backgroundColor: `${theme.colors['paradeigma-blue'][1]}`,
                         color: theme.black
                     }
                 }
