@@ -83,9 +83,10 @@ const NewMikroPage = () => {
                 })
             ).createMikro;
 
-            showNotification({ message: 'Mickro created!', icon: <IconCodePlus /> });
-
-            void router.push({ pathname: '/mikro/[id]', query: { id } });
+            void router.push({ pathname: '/mikro/[id]', query: { id } }).then(() =>
+                // Show the notification after leaving the form page.
+                showNotification({ message: 'Mickro created!', icon: <IconCodePlus /> })
+            );
         })();
     };
 
