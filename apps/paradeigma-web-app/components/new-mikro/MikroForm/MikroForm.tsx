@@ -1,11 +1,12 @@
 import useStyles from './MikroForm.styles';
-import { ProgrammingLanguages } from '@paradeigma/graphql';
+import { MikroStyles, ProgrammingLanguage, ProgrammingLanguages } from '@paradeigma/graphql';
 import type { FC } from 'react';
 import type { MikroFormProps } from './index';
 
 import { Select, Textarea, TextInput } from '@mantine/core';
-import { IconAlphabetGreek, IconBulb } from '@tabler/icons';
+import { IconAlphabetGreek, IconBrush, IconBulb, IconCode } from '@tabler/icons';
 import LanguageSelectItem from 'components/LanguageSelectItem';
+import MikroCode from 'components/MikroCode';
 
 const MikroForm: FC<MikroFormProps> = (props) => {
     const { classes } = useStyles();
@@ -58,6 +59,43 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         label: classes.label
                     }}
                 />
+                <Select
+                    {...props.form.getInputProps('style')}
+                    data={MikroStyles}
+                    label={
+                        <>
+                            <IconBrush size={20} /> Which style would you like?
+                        </>
+                    }
+                    classNames={{
+                        root: classes.inputRoot,
+                        label: classes.label
+                    }}
+                />
+            </div>
+            <div className={classes.editorContainer}>
+                <Textarea
+                    {...props.form.getInputProps('content')}
+                    required
+                    label={
+                        <>
+                            <IconCode size={20} /> Write your mikro.
+                        </>
+                    }
+                    classNames={{
+                        root: classes.inputRoot,
+                        label: classes.label
+                    }}
+                />
+                <MikroCode
+                    showLineNumbers
+                    language={props.form.values.language ?? ProgrammingLanguage.Javascript}
+                    style={props.form.values.style}
+                    customStyle={{
+                        padding: '8px 10px'
+                    }}>
+                    {props.form.values.content}
+                </MikroCode>
             </div>
         </div>
     );
