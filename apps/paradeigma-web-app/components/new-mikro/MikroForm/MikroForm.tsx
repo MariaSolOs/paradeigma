@@ -4,8 +4,9 @@ import type { FC } from 'react';
 import type { MikroFormProps } from './index';
 
 import { Select, Textarea, TextInput } from '@mantine/core';
-import { IconAlphabetGreek, IconBrush, IconBulb, IconCode } from '@tabler/icons';
+import { IconAlphabetGreek, IconBrush, IconBulb } from '@tabler/icons';
 import LanguageSelectItem from 'components/LanguageSelectItem';
+import CodeEditor from 'components/new-mikro/CodeEditor';
 import MikroCode from 'components/MikroCode';
 
 const MikroForm: FC<MikroFormProps> = (props) => {
@@ -13,7 +14,7 @@ const MikroForm: FC<MikroFormProps> = (props) => {
 
     return (
         <div className={classes.form}>
-            <div>
+            <div className={classes.formBlock}>
                 <TextInput
                     {...props.form.getInputProps('name')}
                     required
@@ -73,27 +74,16 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                     }}
                 />
             </div>
-            <div className={classes.editorContainer}>
-                <Textarea
-                    {...props.form.getInputProps('content')}
-                    required
-                    label={
-                        <>
-                            <IconCode size={20} /> Write your mikro.
-                        </>
-                    }
-                    classNames={{
-                        root: classes.inputRoot,
-                        label: classes.label
-                    }}
+            <div className={classes.formBlock}>
+                <CodeEditor
+                    value={props.form.values.content}
+                    onChange={(event) => props.form.setFieldValue('content', event.target.value)}
                 />
                 <MikroCode
                     showLineNumbers
                     language={props.form.values.language ?? ProgrammingLanguage.Javascript}
                     style={props.form.values.style}
-                    customStyle={{
-                        padding: '8px 10px'
-                    }}>
+                    customStyle={{ fontSize: 14 }}>
                     {props.form.values.content}
                 </MikroCode>
             </div>

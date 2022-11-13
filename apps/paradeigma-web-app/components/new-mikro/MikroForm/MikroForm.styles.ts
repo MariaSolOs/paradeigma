@@ -5,12 +5,12 @@ const useStyles = createStyles((theme) => ({
         display: 'flex',
         width: '95vw',
         margin: '0 2.5vw 30px',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+
+        [theme.fn.smallerThan('md')]: { flexDirection: 'column' }
     },
 
-    inputRoot: {
-        marginBottom: 20
-    },
+    inputRoot: { marginBottom: 20 },
 
     label: {
         color: theme.colors['paradeigma-cyan'][6],
@@ -19,16 +19,18 @@ const useStyles = createStyles((theme) => ({
         fontSize: '0.8rem',
         display: 'inline-flex',
         alignItems: 'flex-end',
-        textIndent: 5
+        textIndent: 5,
+
+        [theme.fn.smallerThan('lg')]: {
+            fontSize: '0.75rem',
+            alignItems: 'center'
+        }
     },
 
-    editorContainer: {
-        height: 350,
-        width: '50%'
-    },
+    formBlock: {
+        width: '47.5%',
 
-    editorText: {
-        padding: '.1em'
+        [theme.fn.smallerThan('md')]: { width: '100%' }
     }
 }));
 
