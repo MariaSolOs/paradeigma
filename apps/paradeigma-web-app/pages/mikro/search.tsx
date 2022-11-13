@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from '@mantine/form';
-import useDebounce from 'hooks/useDebounce';
+import { useDebouncedValue } from '@mantine/hooks';
 import { getHookedSdk } from 'lib/graphql';
 import type { GetStaticProps, NextPage } from 'next';
 import type { SearchBarFormValues } from 'components/search-mikros/SearchBar';
@@ -45,7 +45,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
 
     // Debounce the input query by one second so that we don't overwhelm the
     // GraphQL server.
-    const debouncedQuery = useDebounce(form.values.textFilter, 1000);
+    const [debouncedQuery] = useDebouncedValue(form.values.textFilter, 1000);
 
     const { data } = sdk.useGetMikros(
         ['getMikros', debouncedQuery, form.values.languageFilter],
