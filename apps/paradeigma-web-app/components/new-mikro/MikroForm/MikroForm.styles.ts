@@ -4,7 +4,7 @@ const useStyles = createStyles((theme) => ({
     form: {
         display: 'flex',
         width: '95vw',
-        margin: '0 2.5vw 30px',
+        margin: '0 2.5vw',
         justifyContent: 'space-between',
 
         [theme.fn.smallerThan('md')]: { flexDirection: 'column' }
@@ -31,6 +31,20 @@ const useStyles = createStyles((theme) => ({
         width: '47.5%',
 
         [theme.fn.smallerThan('md')]: { width: '100%' }
+    },
+
+    editorBlock: {
+        marginTop: 26,
+
+        [theme.fn.smallerThan('md')]: { marginTop: 0 }
+    },
+
+    submitButton: {
+        width: 500,
+        margin: '20px auto',
+        display: 'block',
+
+        [theme.fn.smallerThan('md')]: { width: '80vw' }
     }
 }));
 

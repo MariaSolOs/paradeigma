@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
-import { MikroStyle } from '@paradeigma/graphql';
 import { getHookedSdk } from 'lib/graphql';
+import {
+    MIKRO_CODE_MAX_LINES,
+    MIKRO_DESCRIPTION_MAX_LENGTH,
+    MIKRO_NAME_MAX_LENGTH,
+    MikroStyle
+} from '@paradeigma/graphql';
 import type { MikroFormValues } from 'components/new-mikro/MikroForm';
 
 import Spinner from 'components/Spinner';
@@ -24,8 +29,38 @@ const NewMikroPage = () => {
             style: MikroStyle.AtomDark
         },
         validate: {
+            name: (value) => {
+                if (value.length === 0) {
+                    return 'Please name your mikro!';
+                }
+                if (value.length > MIKRO_NAME_MAX_LENGTH) {
+                    return 'Please use a shorter name!';
+                }
+
+                return null;
+            },
+            description: (value) => {
+                if (value.length === 0) {
+                    return 'Please describe your mikro!';
+                }
+                if (value.length > MIKRO_DESCRIPTION_MAX_LENGTH) {
+                    return 'Please use a shorter description!';
+                }
+
+                return null;
+            },
             // TODO: Not sure why value is of type 'any'
-            language: (value: MikroFormValues['language']) => value === undefined ? 'Please select a language!' : null
+            language: (value: MikroFormValues['language']) => value === undefined ? 'Please select a language!' : null,
+            content: (value) => {
+                if (value.length === 0) {
+                    return "Where's your mikro??";
+                }
+                if (value.split('\n').length > MIKRO_CODE_MAX_LINES) {
+                    return 'Your mikro is becoming a MAKRO!';
+                }
+
+                return null;
+            }
         }
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,8 +69,10 @@ const NewMikroPage = () => {
         void (async () => {
             setIsSubmitting(true);
 
+            // This should never actually happen because validation happens
+            // beforehand, but we need the typeguard for TypeScript.
             if (values.language === undefined) {
-                form.setFieldError('language', 'Please select a language!');
+                form.validateField('language');
                 return;
             }
 

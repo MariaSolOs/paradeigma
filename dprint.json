@@ -2,7 +2,7 @@
     "lineWidth": 120,
     "indentWidth": 4,
     "typescript": {
-        "quoteStyle": "alwaysSingle",
+        "quoteStyle": "preferSingle",
         "jsx.quoteStyle": "preferDouble",
         "trailingCommas": "never",
         "operatorPosition": "sameLine",

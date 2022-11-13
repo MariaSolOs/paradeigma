@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { MIKRO_CODE_MAX_LINES } from '@paradeigma/graphql';
 import useStyles from './CodeEditor.styles';
 import type { FC } from 'react';
 import type { CodeEditorProps } from './index';
@@ -23,8 +24,9 @@ const CodeEditor: FC<CodeEditorProps> = (props) => {
             <Textarea
                 value={props.value}
                 onChange={props.onChange}
-                maxRows={10}
+                error={props.error}
                 autosize
+                maxRows={MIKRO_CODE_MAX_LINES}
                 classNames={{
                     root: classes.areaRoot,
                     input: classes.areaInput

@@ -14,7 +14,9 @@ const useStyles = createStyles((theme) => ({
         backgroundColor: theme.colors['paradeigma-cyan'][0],
         fontSize: 14,
         fontWeight: 'bold',
-        color: theme.colors['paradeigma-cyan'][6]
+        color: theme.colors['paradeigma-cyan'][6],
+        width: 28,
+        textAlign: 'center'
     },
 
     areaRoot: {
