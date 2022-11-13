@@ -2590,7 +2590,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-tools/url-loader", "virtual:f535cb27d4a72d53f8560a8733dc67978156633b0a7c7ee39aaba5f25edca9f79e07374e3212db12e6f25d714cc67d30e3f18a0d4be60bf8c2047b5102367a7b#npm:7.14.2"],\
             ["@graphql-tools/utils", "virtual:f535cb27d4a72d53f8560a8733dc67978156633b0a7c7ee39aaba5f25edca9f79e07374e3212db12e6f25d714cc67d30e3f18a0d4be60bf8c2047b5102367a7b#npm:8.10.1"],\
             ["@types/graphql", null],\
-            ["@types/graphql-tag", null],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/typescript", null],\
             ["@whatwg-node/fetch", "npm:0.3.2"],\
@@ -2603,7 +2602,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["detect-indent", "npm:6.1.0"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-config", "virtual:4518c73167dca55aa9fdb21fa29a7d4a15f672b83b2f0032739c3dafbd1538031b0941ab2434fcfe56a906f5c109ce5dd9731f6c362667baecb6fb9ebad892ad#npm:4.3.6"],\
-            ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["inquirer", "npm:8.2.4"],\
             ["is-glob", "npm:4.0.3"],\
             ["json-to-pretty-yaml", "npm:1.2.2"],\
@@ -2620,11 +2618,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs", "npm:17.5.1"]\
           ],\
           "packagePeers": [\
-            "@types/graphql-tag",\
             "@types/graphql",\
             "@types/node",\
             "@types/typescript",\
-            "graphql-tag",\
             "graphql",\
             "typescript"\
           ],\
@@ -2650,7 +2646,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-tools/url-loader", "virtual:f535cb27d4a72d53f8560a8733dc67978156633b0a7c7ee39aaba5f25edca9f79e07374e3212db12e6f25d714cc67d30e3f18a0d4be60bf8c2047b5102367a7b#npm:7.14.2"],\
             ["@graphql-tools/utils", "virtual:f535cb27d4a72d53f8560a8733dc67978156633b0a7c7ee39aaba5f25edca9f79e07374e3212db12e6f25d714cc67d30e3f18a0d4be60bf8c2047b5102367a7b#npm:8.10.1"],\
             ["@types/graphql", null],\
-            ["@types/graphql-tag", null],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/typescript", null],\
             ["@whatwg-node/fetch", "npm:0.3.2"],\
@@ -2663,7 +2658,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["detect-indent", "npm:6.1.0"],\
             ["graphql", "npm:16.6.0"],\
             ["graphql-config", "virtual:f535cb27d4a72d53f8560a8733dc67978156633b0a7c7ee39aaba5f25edca9f79e07374e3212db12e6f25d714cc67d30e3f18a0d4be60bf8c2047b5102367a7b#npm:4.3.6"],\
-            ["graphql-tag", "virtual:9d79429f00d05e82b4253ee8b4187161504e8efd5da3cc64fc38427bc762991830607da03268e00b08cb66a01cd788fc4da458f56b013533db8ac06e07cde011#npm:2.12.6"],\
             ["inquirer", "npm:8.2.4"],\
             ["is-glob", "npm:4.0.3"],\
             ["json-to-pretty-yaml", "npm:1.2.2"],\
@@ -2680,11 +2674,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs", "npm:17.5.1"]\
           ],\
           "packagePeers": [\
-            "@types/graphql-tag",\
             "@types/graphql",\
             "@types/node",\
             "@types/typescript",\
-            "graphql-tag",\
             "graphql",\
             "typescript"\
           ],\
