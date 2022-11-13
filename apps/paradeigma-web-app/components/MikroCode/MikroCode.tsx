@@ -30,7 +30,7 @@ const SyntaxHighlighter = dynamic(
  * @returns The react-syntax-highlighter module containing the style's
  * implementation.
  */
-const getStylePackage = async (style: MikroStyle): Promise<HighlighterStyle> => {
+const getStyleModule = async (style: MikroStyle): Promise<HighlighterStyle> => {
     switch (style) {
         case MikroStyle.A11yDark:
             return (await import('react-syntax-highlighter/dist/cjs/styles/prism')).a11yDark;
@@ -79,25 +79,17 @@ const getStylePackage = async (style: MikroStyle): Promise<HighlighterStyle> => 
 };
 
 const MikroCode: FC<MikroCodeProps> = (props) => {
-    const [style, setStyle] = useState<HighlighterStyle>();
+    const { style, ...other } = props;
+    const [styleModule, setStyleModule] = useState<HighlighterStyle>();
 
     useEffect(() => {
-        const setStylePackage = async () => {
-            const stylePackage = await getStylePackage(props.style);
-            setStyle(stylePackage);
-        };
-
-        void setStylePackage();
-    }, [props.style]);
+        void (async () => setStyleModule(await getStyleModule(style)))();
+    }, [style]);
 
     // TODO: Limit the number of code lines in the card.
     return (
-        <SyntaxHighlighter
-            wrapLongLines
-            style={style}
-            language={props.language}
-            customStyle={props.containerStyles}>
-            {props.content}
+        <SyntaxHighlighter style={styleModule} {...other}>
+            {props.children}
         </SyntaxHighlighter>
     );
 };

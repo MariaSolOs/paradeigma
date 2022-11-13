@@ -20,14 +20,15 @@ const Details: FC<DetailsProps> = (props) => {
                 <div className={classes.codeColumn}>
                     <div className={classes.mikro}>
                         <MikroCode
-                            content={props.mikro.content}
                             language={props.mikro.language}
+                            wrapLongLines
                             style={props.mikro.style}
-                            containerStyles={{
+                            customStyle={{
                                 width: '100%',
                                 margin: 0
-                            }}
-                        />
+                            }}>
+                            {props.mikro.content}
+                        </MikroCode>
                     </div>
                     <SnippetButton editor="VSCode" />
                 </div>

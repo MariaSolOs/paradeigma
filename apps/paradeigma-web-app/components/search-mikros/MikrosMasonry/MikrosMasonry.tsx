@@ -51,14 +51,15 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                             sx={{ transitionDelay: `${delay}ms` }}>
                             <h4 className={classes.mikroTitle}>{mikro.name}</h4>
                             <MikroCode
-                                content={mikro.content}
                                 language={mikro.language}
+                                wrapLongLines
                                 style={mikro.style}
-                                containerStyles={{
+                                customStyle={{
                                     borderRadius: `0 0 ${theme.radius.md}px ${theme.radius.md}px`,
                                     margin: 0
-                                }}
-                            />
+                                }}>
+                                {mikro.content}
+                            </MikroCode>
                         </Box>
                     </CSSTransition>
                 );
