@@ -55,7 +55,6 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                                 wrapLongLines
                                 style={mikro.style}
                                 customStyle={{
-                                    borderTop: `1px solid ${theme.colors['paradeigma-blue'][9]}`,
                                     borderRadius: `0 0 ${theme.radius.md}px ${theme.radius.md}px`,
                                     margin: 0
                                 }}>

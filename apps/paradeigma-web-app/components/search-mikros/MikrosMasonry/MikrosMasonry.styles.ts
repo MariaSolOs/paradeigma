@@ -27,9 +27,11 @@ const useStyles = createStyles((theme) => ({
     },
 
     mikroTitle: {
-        margin: '0.5rem 0',
+        margin: 0,
+        padding: '0.5rem 0',
         textAlign: 'center',
-        fontFamily: theme.headings.fontFamily
+        fontFamily: theme.headings.fontFamily,
+        borderBottom: `${theme.colors['paradeigma-blue'][9]} solid 1px`
     },
 
     fadeIn: {
