@@ -22,7 +22,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         placeholder="Baptize your mikro."
                         label={
                             <>
-                                <IconBulb size={20} /> Name it like a variable: Keep it short, but self-explanatory.
+                                <IconBulb className={classes.labelIcon} />
+                                Name it like a variable: Keep it short, but self-explanatory.
                             </>
                         }
                         classNames={{
@@ -37,7 +38,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         maxRows={3}
                         label={
                             <>
-                                <IconBulb size={20} /> As with good docs, a complete description is always appreciated.
+                                <IconBulb className={classes.labelIcon} />
+                                As with good docs, a complete description is always appreciated.
                             </>
                         }
                         classNames={{
@@ -51,7 +53,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         itemComponent={LanguageSelectItem}
                         label={
                             <>
-                                <IconAlphabetGreek size={20} /> Which programming language are you using?
+                                <IconAlphabetGreek className={classes.labelIcon} />
+                                Which programming language are you using?
                             </>
                         }
                         placeholder="Choose your weapon."
@@ -65,7 +68,8 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         data={MikroStyles}
                         label={
                             <>
-                                <IconBrush size={20} /> Which style would you like?
+                                <IconBrush className={classes.labelIcon} />
+                                Which style would you like?
                             </>
                         }
                         classNames={{

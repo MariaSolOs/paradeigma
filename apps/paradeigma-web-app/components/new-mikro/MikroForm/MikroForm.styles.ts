@@ -27,6 +27,13 @@ const useStyles = createStyles((theme) => ({
         }
     },
 
+    labelIcon: {
+        width: 20,
+        height: 20,
+
+        [theme.fn.smallerThan('xs')]: { display: 'none' }
+    },
+
     formBlock: {
         width: '47.5%',
 
