@@ -1,5 +1,5 @@
 import { LoremIpsum } from 'lorem-ipsum';
-import { Mikro } from '@paradeigma/mongoose';
+import { Mikro } from '@paradeigma/graphql/models';
 import mongooseConnection from 'lib/mongoose-connection';
 import {
     MIKRO_DESCRIPTION_MAX_LENGTH,

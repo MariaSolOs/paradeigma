@@ -24,4 +24,4 @@ generates:
     config:
       useTypeImports: true
       mappers:
-        Mikro: '@paradeigma/mongoose#MikroDocument'
+        Mikro: '@paradeigma/graphql/models#MikroDocument'
