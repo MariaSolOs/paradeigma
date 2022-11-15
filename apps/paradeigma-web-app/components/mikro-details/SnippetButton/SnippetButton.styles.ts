@@ -14,6 +14,10 @@ const useStyles = createStyles((theme) => ({
     editorIcon: {
         fontSize: '1.5rem',
         marginRight: 10
+    },
+
+    modalBody: {
+        whiteSpace: 'pre'
     }
 }));
 
