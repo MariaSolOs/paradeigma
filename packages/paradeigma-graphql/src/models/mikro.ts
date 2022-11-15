@@ -5,7 +5,7 @@ import {
     MikroStyles,
     ProgrammingLanguages
 } from '@paradeigma/graphql';
-import type { Model, SchemaDefinition, Types } from 'mongoose';
+import type { ImpartialSchemaDefinition, Model, Types } from 'mongoose';
 import type { MikroStyle, ProgrammingLanguage } from '@paradeigma/graphql';
 
 export interface MikroDocument {
@@ -18,7 +18,7 @@ export interface MikroDocument {
     rating: number;
 }
 
-const mikroSchemaFields: SchemaDefinition<MikroDocument> = {
+const mikroSchemaFields: ImpartialSchemaDefinition<MikroDocument> = {
     name: {
         type: String,
         required: true,

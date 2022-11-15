@@ -1,11 +1,17 @@
 {
-    "include": ["next-env.d.ts", "next.config.mjs", "**/*.ts", "**/*.tsx"],
-    "exclude": ["node_modules"],
+    "include": [
+        "next-env.d.ts",
+        "next.config.mjs",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "noEmit": true,
-
         // HACK: Needed for typings of dynamic local components.
         "moduleResolution": "node"
     }
