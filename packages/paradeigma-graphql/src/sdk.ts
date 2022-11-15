@@ -136,55 +136,55 @@ export type GetMikrosQueryVariables = Exact<{
 }>;
 
 export type GetMikrosQuery = {
-    mikros: Array<{
-        id: string;
-        name: string;
-        description: string;
-        content: string;
-        language: ProgrammingLanguage;
-        style: MikroStyle;
-    }>;
+    mikros: Array<
+        {
+            id: string;
+            name: string;
+            description: string;
+            content: string;
+            language: ProgrammingLanguage;
+            style: MikroStyle;
+        }
+    >;
 };
 
 export const MikroCardFragmentDoc = gql`
     fragment MikroCard on Mikro {
-        id
-        name
-        description
-        content
-        language
-        style
-    }
-`;
+  id
+  name
+  description
+  content
+  language
+  style
+}
+    `;
 export const CreateMikroDocument = gql`
-    mutation createMikro(
-        $name: String!
-        $description: String!
-        $content: String!
-        $language: ProgrammingLanguage!
-        $style: MikroStyle!
-    ) {
-        createMikro(name: $name, description: $description, content: $content, language: $language, style: $style) {
-            id
-        }
-    }
-`;
+    mutation createMikro($name: String!, $description: String!, $content: String!, $language: ProgrammingLanguage!, $style: MikroStyle!) {
+  createMikro(
+    name: $name
+    description: $description
+    content: $content
+    language: $language
+    style: $style
+  ) {
+    id
+  }
+}
+    `;
 export const GetMikroDocument = gql`
     query getMikro($id: ID!) {
-        mikro(id: $id) {
-            ...MikroCard
-        }
-    }
-    ${MikroCardFragmentDoc}
-`;
+  mikro(id: $id) {
+    ...MikroCard
+  }
+}
+    ${MikroCardFragmentDoc}`;
 export const GetMikrosDocument = gql`
     query getMikros($textFilter: String, $languageFilter: [ProgrammingLanguage!]) {
-        mikros(textFilter: $textFilter, languageFilter: $languageFilter) {
-            ...MikroCard
-        }
-    }
-    ${MikroCardFragmentDoc}
-`;
+  mikros(textFilter: $textFilter, languageFilter: $languageFilter) {
+    ...MikroCard
+  }
+}
+    ${MikroCardFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(
     action: (requestHeaders?: Record<string, string>) => Promise<T>,

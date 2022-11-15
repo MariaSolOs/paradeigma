@@ -4150,7 +4150,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@n1ru4l/graphql-live-query", "virtual:0788606fc0dfb3414395c9fb97ddb92e1ae5e5e4015c1bbf0c4f7a6c032c1fed0027066b42e09d38f264f1b16d2f1b22e2a73dfc76c1bf75e987e0684cfc6091#npm:0.10.0"],\
             ["@types/graphql", null],\
-            ["graphql", "npm:16.6.0"]\
+            ["graphql", "npm:16.6.0"],\
+            ["tslib", "npm:2.4.1"]\
           ],\
           "packagePeers": [\
             "@types/graphql",\
