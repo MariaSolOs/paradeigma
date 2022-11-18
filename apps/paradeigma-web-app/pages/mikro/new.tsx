@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useForm } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
 import { getHookedSdk } from 'lib/graphql';
+import { numberOfLines } from 'lib/strings';
 import {
     MIKRO_CODE_MAX_LINES,
     MIKRO_DESCRIPTION_MAX_LENGTH,
@@ -55,7 +56,7 @@ const NewMikroPage = () => {
                 if (value.length === 0) {
                     return "Where's your mikro??";
                 }
-                if (value.split('\n').length > MIKRO_CODE_MAX_LINES) {
+                if (numberOfLines(value) > MIKRO_CODE_MAX_LINES) {
                     return 'Your mikro is becoming a MAKRO!';
                 }
 

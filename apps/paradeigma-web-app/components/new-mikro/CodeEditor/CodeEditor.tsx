@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { numberOfLines } from 'lib/strings';
 import { MIKRO_CODE_MAX_LINES } from '@paradeigma/graphql';
 import useStyles from './CodeEditor.styles';
 import type { FC } from 'react';
@@ -13,7 +14,7 @@ const CodeEditor: FC<CodeEditorProps> = (props) => {
 
     // Create line number column based on the number of input lines.
     useEffect(() => {
-        setLineCount(props.value.split('\n').length);
+        setLineCount(numberOfLines(props.value));
     }, [props.value]);
 
     return (

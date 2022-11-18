@@ -1,5 +1,6 @@
-import useStyles from './MikroForm.styles';
+import { numberOfLines } from 'lib/strings';
 import { MIKRO_CODE_MAX_LINES, MikroStyles, ProgrammingLanguage, ProgrammingLanguages } from '@paradeigma/graphql';
+import useStyles from './MikroForm.styles';
 import type { FC } from 'react';
 import type { MikroFormProps } from './index';
 
@@ -84,7 +85,7 @@ const MikroForm: FC<MikroFormProps> = (props) => {
                         onChange={(event) => {
                             // Only change the code if short enough.
                             const value = event.target.value;
-                            if (value.split('\n').length <= MIKRO_CODE_MAX_LINES) {
+                            if (numberOfLines(value) <= MIKRO_CODE_MAX_LINES) {
                                 props.form.setFieldValue('content', value);
                             }
                         }}
