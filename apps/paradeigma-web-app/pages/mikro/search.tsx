@@ -64,7 +64,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
 
         const timer = setTimeout(() => {
             setMikros(data?.mikros ?? []);
-        }, 300);
+        }, 400);
 
         return () => clearTimeout(timer);
     }, [data]);

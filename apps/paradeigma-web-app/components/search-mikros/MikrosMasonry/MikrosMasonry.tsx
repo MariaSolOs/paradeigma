@@ -36,7 +36,10 @@ const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
                         key={mikro.id}
                         unmountOnExit
                         nodeRef={ref}
-                        timeout={300 + delay}
+                        timeout={{
+                            enter: 300 + delay,
+                            exit: 300
+                        }}
                         classNames={{
                             enter: classes.fadeOut,
                             enterActive: classes.fadeIn,
