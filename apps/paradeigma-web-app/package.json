@@ -14,17 +14,17 @@
     "dependencies": {
         "@emotion/react": "^11.10.5",
         "@emotion/server": "^11.10.0",
-        "@mantine/core": "^5.7.2",
-        "@mantine/form": "^5.7.2",
-        "@mantine/hooks": "^5.7.2",
-        "@mantine/next": "^5.7.2",
-        "@mantine/notifications": "^5.7.2",
+        "@mantine/core": "^5.8.2",
+        "@mantine/form": "^5.8.2",
+        "@mantine/hooks": "^5.8.2",
+        "@mantine/next": "^5.8.2",
+        "@mantine/notifications": "^5.8.2",
         "@paradeigma/graphql": "workspace:*",
-        "@tabler/icons": "^1.111.0",
+        "@tabler/icons": "^1.112.0",
         "graphql": "^16.6.0",
         "graphql-request": "^5.0.0",
-        "next": "13.0.3",
-        "nextjs-routes": "^1.0.0",
+        "next": "13.0.4",
+        "nextjs-routes": "^1.0.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-masonry-css": "^1.0.16",
@@ -34,10 +34,10 @@
     "devDependencies": {
         "@types/node": "18.11.9",
         "@types/react": "18.0.25",
-        "@types/react-dom": "18.0.8",
+        "@types/react-dom": "18.0.9",
         "@types/react-syntax-highlighter": "^15.5.5",
         "@types/react-transition-group": "^4.4.5",
         "tslib": "^2.4.1",
-        "typescript": "^4.8.4"
+        "typescript": "^4.9.3"
     }
 }

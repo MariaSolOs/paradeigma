@@ -14,13 +14,13 @@
         "g:clean": "cd $INIT_CWD && rimraf ./tsconfig.tsbuildinfo ./.next"
     },
     "devDependencies": {
-        "@next/eslint-plugin-next": "^13.0.3",
-        "@typescript-eslint/eslint-plugin": "^5.42.1",
-        "@typescript-eslint/parser": "^5.42.1",
-        "eslint": "8.27.0",
-        "eslint-plugin-react": "^7.31.10",
+        "@next/eslint-plugin-next": "^13.0.4",
+        "@typescript-eslint/eslint-plugin": "^5.43.0",
+        "@typescript-eslint/parser": "^5.43.0",
+        "eslint": "8.28.0",
+        "eslint-plugin-react": "^7.31.11",
         "rimraf": "^3.0.2",
-        "typescript": "^4.8.4"
+        "typescript": "^4.9.3"
     },
     "resolutions": {
         "typescript": "~4.8.4"
