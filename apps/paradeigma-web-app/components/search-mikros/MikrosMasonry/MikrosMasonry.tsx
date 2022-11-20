@@ -11,7 +11,6 @@ import MikroCode from 'components/MikroCode';
 
 const MikrosMasonry: FC<MikrosMasonryProps> = (props) => {
     const { classes } = useStyles();
-
     const theme = useMantineTheme();
 
     return (

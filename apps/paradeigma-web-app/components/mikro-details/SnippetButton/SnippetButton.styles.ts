@@ -1,7 +1,7 @@
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-    button: {
+    editorButton: {
         width: '100%',
         display: 'inline-flex',
         justifyContent: 'center',
@@ -11,13 +11,28 @@ const useStyles = createStyles((theme) => ({
         [theme.fn.smallerThan('md')]: { margin: '2rem 0' }
     },
 
+    copyButton: {
+        fontSize: '0.75rem',
+        padding: 10,
+        height: 'auto',
+        display: 'block',
+        margin: 'auto'
+    },
+
     editorIcon: {
         fontSize: '1.5rem',
         marginRight: 10
     },
 
-    modalBody: {
-        whiteSpace: 'pre'
+    modal: {
+        borderRadius: theme.radius.md,
+        backgroundColor: theme.colors['paradeigma-blue'][1]
+    },
+
+    docsLink: {
+        fontSize: '0.65rem',
+        fontStyle: 'italic',
+        color: theme.colors['paradeigma-blue'][6]
     }
 }));
 

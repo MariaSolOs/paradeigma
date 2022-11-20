@@ -9,7 +9,6 @@ import { Text, Tooltip } from '@mantine/core';
 
 const HighlightedText: FCC<HighlightedTextProps> = (props) => {
     const { classes } = useStyles();
-
     const theme = useMantineTheme();
     const isSmallScreen = useMediaQuery(getMaxWidthMediaQuery(theme.breakpoints.xs));
 

@@ -1,20 +1,19 @@
+import type { GetMikroQuery } from '@paradeigma/graphql';
+
 import SnippetButton from './SnippetButton';
 
-export type Editor = 'VS' | 'VSCode';
+type Editor = 'VS' | 'VSCode';
 
 export type SnippetButtonProps = {
     editor: Editor;
-    mikro: {
-        name: string;
-        description: string;
-        content: string;
-    };
+    mikro: GetMikroQuery['mikro'];
 };
 
-export type ButtonContent = {
+export type SnippetContent = {
     iconClassName: string;
-    text: string;
-    snippet: string;
+    buttonText: string;
+    editorSnippet: string;
+    editorDocs: string;
 };
 
 export default SnippetButton;

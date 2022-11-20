@@ -30,14 +30,7 @@ const Details: FC<DetailsProps> = (props) => {
                             {props.mikro.content}
                         </MikroCode>
                     </div>
-                    <SnippetButton
-                        editor="VSCode"
-                        mikro={{
-                            name: props.mikro.name,
-                            description: props.mikro.description,
-                            content: props.mikro.content
-                        }}
-                    />
+                    <SnippetButton editor="VSCode" mikro={props.mikro} />
                 </div>
                 <div className={classes.textDetails}>
                     <div className={classes.languageIconContainer}>

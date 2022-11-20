@@ -49,7 +49,7 @@
         // Colorize files with Mui styles
         "colorize.include": [
             "**/styles/*.ts",
-            "**/*.styles.*"
+            "**/*.styles.ts"
         ],
         "addmultifile.templates": [
             {

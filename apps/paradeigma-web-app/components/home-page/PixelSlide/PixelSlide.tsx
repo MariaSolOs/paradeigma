@@ -8,7 +8,6 @@ import Image from 'next/image';
 
 const PixelSlide: FCC<PixelSlideProps> = (props) => {
     const { classes } = useStyles();
-
     const theme = useMantineTheme();
 
     return (
