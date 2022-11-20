@@ -28,7 +28,7 @@ const SnippetButton: FC<SnippetButtonProps> = (props) => {
                 return {
                     iconClassName: 'devicon-vscode-plain',
                     buttonText: 'Generate VS Code snippet',
-                    editorSnippet: `{
+                    editorSnippet: /* json */ `{
   "${props.mikro.name}": {
     "prefix": [],
     "body": [

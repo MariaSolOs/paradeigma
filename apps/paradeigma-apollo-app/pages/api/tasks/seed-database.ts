@@ -28,19 +28,19 @@ const MAX_MIKRO_RATING = 5;
  * List of random mikro code snippets.
  */
 const mikroContents: string[] = [
-    `
+    /* css */ `
 body {
     margin: 'auto';
     display: 'flex';
     align-items: 'center';
 }`,
-    `
+    /* c */ `
 int array[width * height];
 int setElement(int row, int col, int value)
 {
     array[width * row + col] = value;
 }`,
-    `
+    /* java */ `
 for (int i = 0; i < scores.length; i++) {
     for (int a = 0; a < scores[i].length; a++) {
         for (int b = 0; b < scores[i][a].length; b++) {
@@ -48,14 +48,14 @@ for (int i = 0; i < scores.length; i++) {
         }
     }
 }`,
-    `
+    /* python */ `
 >>> class Foo:
     def __init__(self): print "Created a Foo!"
 
 >>> globals()['Foo']()
     Created a Foo!
     <__main__.Foo instance at 0xFFF>`,
-    `
+    /* csharp */ `
 // Define a regular expression for repeated words.
 Regex rx = new Regex(@"\b(?<word>\\w+)\\s+(\\k<word>)\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
