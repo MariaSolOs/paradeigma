@@ -16,13 +16,13 @@ const SnippetButton: FC<SnippetButtonProps> = (props) => {
             case 'VS':
                 return {
                     iconClassName: 'devicon-visualstudio-plain',
-                    text: 'Generate VS Code snippet',
+                    text: 'Generate Visual Studio snippet',
                     snippet: ''
                 };
             case 'VSCode':
                 return {
                     iconClassName: 'devicon-vscode-plain',
-                    text: 'Generate Visual Studio snippet',
+                    text: 'Generate VS Code snippet',
                     snippet: `{
   "${props.mikro.name}": {
     "prefix": []
