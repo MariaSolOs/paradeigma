@@ -32,7 +32,7 @@ const SnippetButton: FC<SnippetButtonProps> = (props) => {
   "${props.mikro.name}": {
     "prefix": [],
     "body": [
-${splitIntoLines(props.mikro.content).map((line) => `      "${line}"`).join(',\n')}
+${splitIntoLines(props.mikro.content).map((line) => `      "${line.replaceAll('"', '\\"')}"`).join(',\n')}
     ],
     "description": "${props.mikro.description.split('.', 1)[0] ?? ''}"
   }
