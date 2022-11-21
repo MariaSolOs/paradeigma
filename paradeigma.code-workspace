@@ -15,7 +15,11 @@
         {
             "name": "@paradeigma/graphql",
             "path": "packages/paradeigma-graphql"
-        }
+        },
+        {
+            "name": "@paradeigma/mongoose",
+            "path": "packages/paradeigma-mongoose"
+        },
     ],
     "settings": {
         "editor.defaultFormatter": "dprint.dprint",

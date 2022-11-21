@@ -1,6 +1,8 @@
 // Make sure we include our module augmentations.
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="../../types/mongoose.d.ts" />
+/// <reference path="../types/mongoose.d.ts" />
 
-export { default as Mikro } from './mikro';
+import Mikro from './mikro';
+
+export { Mikro };
 export type { MikroDocument } from './mikro';
