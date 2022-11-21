@@ -1,9 +1,16 @@
 {
-    "include": ["next-env.d.ts", "next.config.mjs", "**/*.ts"],
-    "exclude": ["node_modules"],
+    "include": [
+        "next-env.d.ts",
+        "next.config.mjs",
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "noEmit": true
+        "noEmit": true,
+        "moduleResolution": "NodeNext"
     }
 }
