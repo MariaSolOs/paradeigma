@@ -1,5 +1,6 @@
 import PixelSlide from 'components/home-page/PixelSlide';
 import HighlightedText from 'components/home-page/HighlightedText';
+import Footer from 'components/home-page/Footer';
 import harpImg from 'public/pixel-art/harp.png';
 import zephirImg from 'public/pixel-art/zephir.png';
 import theaImg from 'public/pixel-art/thea.png';
@@ -39,6 +40,7 @@ const HomePage = () => (
             Because documentation is often not enough to understand a coding concept. We need real-life use cases,{' '}
             <HighlightedText>insightful bits</HighlightedText> of true code.
         </PixelSlide>
+        <Footer />
     </>
 );
 
