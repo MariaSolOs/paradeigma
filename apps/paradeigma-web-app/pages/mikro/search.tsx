@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from '@mantine/form';
 import { useDebouncedValue } from '@mantine/hooks';
@@ -41,7 +40,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     const form = useForm<SearchBarFormValues>({
         initialValues: { textFilter, languageFilter }
     });
-    const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
+    // const [mikros, setMikros] = useState<GetMikrosQuery['mikros']>([]);
 
     // Debounce the input query by one second so that we don't overwhelm the
     // GraphQL server.
@@ -55,19 +54,6 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
         },
         { fallbackData: props.initialMikros }
     );
-
-    // For a smooth effect, we first "reset" the masonry by clearing the existing mikros
-    // and after a bit we populate (and hence re-trigger the animation) the list with
-    // the new ones.
-    useEffect(() => {
-        setMikros([]);
-
-        const timer = setTimeout(() => {
-            setMikros(data?.mikros ?? []);
-        }, 400);
-
-        return () => clearTimeout(timer);
-    }, [data]);
 
     const handleMikroClick = (id: string) => {
         void (async () => {
@@ -90,7 +76,7 @@ const SearchMikrosPage: NextPage<SearchMikrosPageProps> = (props) => {
     return (
         <>
             <SearchBar form={form} />
-            <MikrosMasonry mikros={mikros} onMikroClick={handleMikroClick} />
+            <MikrosMasonry mikros={data?.mikros ?? []} onMikroClick={handleMikroClick} />
         </>
     );
 };
