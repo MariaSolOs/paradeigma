@@ -5,12 +5,24 @@
 // prettier-ignore
 declare module "nextjs-routes" {
   export type Route =
-    | { pathname: "/"; query?: Query | undefined }
-    | { pathname: "/mikro/[id]"; query: Query<{ "id": string }> }
-    | { pathname: "/mikro/new"; query?: Query | undefined }
-    | { pathname: "/mikro/search"; query?: Query | undefined };
+    | StaticRoute<"/">
+    | DynamicRoute<"/mikro/[id]", { "id": string }>
+    | StaticRoute<"/mikro/new">
+    | StaticRoute<"/mikro/search">;
 
-  type Query<Params = {}> = Params & {
+  interface StaticRoute<Pathname> {
+    pathname: Pathname;
+    query?: Query | undefined;
+    hash?: string | null | undefined;
+  }
+
+  interface DynamicRoute<Pathname, Parameters> {
+    pathname: Pathname;
+    query: Parameters & Query;
+    hash?: string | null | undefined;
+  }
+
+  interface Query {
     [key: string]: string | string[] | undefined;
   };
 
@@ -33,14 +45,22 @@ declare module "nextjs-routes" {
 declare module "next/link" {
   import type { Route } from "nextjs-routes";
   import type { LinkProps as NextLinkProps } from "next/dist/client/link";
-  import type { PropsWithChildren, MouseEventHandler } from "react";
+  import type {
+    AnchorHTMLAttributes,
+    DetailedReactHTMLElement,
+    MouseEventHandler,
+    PropsWithChildren,
+  } from "react";
   export * from "next/dist/client/link";
 
   type Query = { query?: { [key: string]: string | string[] | undefined } };
   type StaticRoute = Exclude<Route, { query: any }>["pathname"];
 
-  export interface LinkProps<Href extends Route | Query = Route | Query>
-    extends Omit<NextLinkProps, "href" | "locale"> {
+  export interface LinkProps<
+    Href extends Route | StaticRoute | Query = Route | StaticRoute | Query
+  >
+    extends Omit<NextLinkProps, "href" | "locale">,
+      AnchorHTMLAttributes<HTMLAnchorElement> {
     href: Href;
     locale?: false;
   }
@@ -80,7 +100,7 @@ declare module "next/router" {
 
   interface TransitionOptions extends Omit<NextTransitionOptions, "locale"> {
     locale?: false;
-  };
+  }
 
   export type NextRouter<P extends Route["pathname"] = Route["pathname"]> =
     Extract<Route, { pathname: P }> &
@@ -128,7 +148,7 @@ declare module "next/router" {
           options?: TransitionOptions
         ): Promise<boolean>;
         route: P;
-      }
+      };
 
   export function useRouter<P extends Route["pathname"]>(): NextRouter<P>;
 }
