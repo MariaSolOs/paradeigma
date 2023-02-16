@@ -5776,7 +5776,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
             ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
-            ["undici", "npm:5.10.0"],\
+            ["undici", "npm:5.19.1"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
           "linkType": "HARD"\
@@ -5791,7 +5791,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data-encoder", "npm:1.7.2"],\
             ["formdata-node", "npm:4.4.1"],\
             ["node-fetch", "virtual:3387b45eb5ac152be3fb99422466b4aeb0ba446c3593dcfcf91eff403a109e979070c0a963884f7038364224de4299e43045a60b6f50a152caf08f38dcff71ce#npm:2.6.7"],\
-            ["undici", "npm:5.14.0"],\
+            ["undici", "npm:5.19.1"],\
             ["web-streams-polyfill", "npm:3.2.1"]\
           ],\
           "linkType": "HARD"\
@@ -12466,17 +12466,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["undici", [\
-        ["npm:5.10.0", {\
-          "packageLocation": "./.yarn/cache/undici-npm-5.10.0-e8cef36040-7ba2b71dcc.zip/node_modules/undici/",\
+        ["npm:5.19.1", {\
+          "packageLocation": "./.yarn/cache/undici-npm-5.19.1-aad6efa6ea-57ee94ee74.zip/node_modules/undici/",\
           "packageDependencies": [\
-            ["undici", "npm:5.10.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:5.14.0", {\
-          "packageLocation": "./.yarn/cache/undici-npm-5.14.0-747f9fac1d-7a076e44d8.zip/node_modules/undici/",\
-          "packageDependencies": [\
-            ["undici", "npm:5.14.0"],\
+            ["undici", "npm:5.19.1"],\
             ["busboy", "npm:1.6.0"]\
           ],\
           "linkType": "HARD"\
